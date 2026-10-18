@@ -1,0 +1,13 @@
+[judge]
+model = "your-judge-model"
+base_url = "https://api.openai.com/v1"
+api_key_env = "OPENAI_API_KEY"
+timeout = 60
+max_output_tokens = 4096
+# Change to json_object only when your compatible provider lacks strict schema support.
+response_format = "json_schema"
+# Compatibility options for providers with different Chat Completions fields:
+token_limit_parameter = "max_completion_tokens" # or "max_tokens"
+send_store = true # sends store=false; set false to omit the unsupported field
+# For DeepSeek: response_format="json_object", token_limit_parameter="max_tokens",
+# send_store=false. Choose its base_url and model explicitly.

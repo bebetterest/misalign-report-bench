@@ -1,0 +1,38 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.cache/
+.ruff_cache/
+runs/
+.DS_Store
+
+# Local continuation notes
+/HANDOFF.md
+
+# Local judge credentials and provider configuration
+.env
+.env.*
+!.env.example
+mrbench.toml
+
+# Local working records and history backups
+/.local/
+/notes/
+/logs/
+/diary/
+/diaries/
+/journal/
+/journals/
+/worklogs/
+/work-logs/
+/DIARY.md
+/diary.md
+/CHANGELOG.md
+/design-qa.md
+/docs/validation*.md
+/docs/fidelity-review*.md
+*.log
+*.log.*

@@ -1,0 +1,418 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-18",
+  "index_url": "https://alignment.openai.com/misalignment-reports/",
+  "snapshot_counts": {
+    "reports": 19,
+    "notices": 3
+  },
+  "scope": "All report and notice entries visible in this dated index snapshot; future entries require a new review. Notice-derived controls retain the source evidence status.",
+  "sources": [
+    {
+      "id": "damaging-the-task-environment-to-trigger-a-reset",
+      "kind": "report",
+      "title": "Damaging the task environment to trigger a reset",
+      "url": "https://alignment.openai.com/misalignment-reports/damaging-the-task-environment-to-trigger-a-reset/",
+      "updated": "2026-10-09",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Missing evidence, forged inputs and runtime damage": [
+          "environment-reset"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "caa6bf2d683df7b3ee0d48e8988840f58419e12d18876a7caacd37575c78ed5d",
+      "content_hash": "26e74f228352cb0b6f3818a690c08b7206802ed98313f53c0452905b919f698d"
+    },
+    {
+      "id": "an-agent-used-dns-to-reach-an-external-chatbot",
+      "kind": "report",
+      "title": "An agent used DNS to reach an external chatbot",
+      "url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+      "updated": "2026-09-25",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Resolver-mediated external contact": [
+          "dns-chatbot"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "6518366f03ca6ef64d7985b4a33d3de04904d8c1c4fbc4e24fd2ea7e15c1585d",
+      "content_hash": "edd0b7d9400bbf98fdcb5ce417bcae937a4b22f5f53f2d2ee3ce4c1706d66c79"
+    },
+    {
+      "id": "self-generated-prompt-injections-in-compaction-summaries",
+      "kind": "report",
+      "title": "Self-generated prompt injections in compaction summaries",
+      "url": "https://alignment.openai.com/misalignment-reports/self-generated-prompt-injections-in-compaction-summaries/",
+      "updated": "2026-09-16",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Library handoff writer": [
+          "compaction-library-authority"
+        ],
+        "Credentials API handoff writer": [
+          "compaction-credentials-persona"
+        ],
+        "Research continuation under arbitrary refusal instruction": [
+          "compaction-research-refusal"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "8d63b104415447be588238cabfc6ff8addbba5caf8b86942eb02134f4f5d2ac7",
+      "content_hash": "d408bce8dc60866ec6e762005100ab45ce07831e40e753aa186fc382722d5f5e"
+    },
+    {
+      "id": "self-replicating-prompt-injections-exist",
+      "kind": "report",
+      "title": "Self-replicating prompt injections exist",
+      "url": "https://alignment.openai.com/misalignment-reports/self-replicating-prompt-injections-exist/",
+      "updated": "2026-09-25",
+      "evidence_status": "simulated_demonstration",
+      "components": {
+        "Email payload replication": [
+          "email-injection"
+        ],
+        "Slack multi-hop reward and repost": [
+          "slack-injection"
+        ],
+        "Filesystem warning, deletion and replication": [
+          "report-deletion-injection"
+        ],
+        "Fake compaction note, persistent copy and security-gate removal": [
+          "build-gate-injection"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "18a32d518dfc9650d2f99f1bda843c1feb8cfbc3785b1341b70fcefe27e8b000",
+      "content_hash": "28ac1917bdaea6af5f33c61a528ac2f111a26329fd58bc46223d558df45612e5"
+    },
+    {
+      "id": "using-a-funded-test-cryptocurrency-wallet-without-authorization",
+      "kind": "report",
+      "title": "Using a funded test cryptocurrency wallet without authorization",
+      "url": "https://alignment.openai.com/misalignment-reports/using-a-funded-test-cryptocurrency-wallet-without-authorization/",
+      "updated": "2026-10-15",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Public recovery phrase, signed deployment and gas payment": [
+          "wallet-deployment"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "d50d399fc3fa19f3850298422814bf23b4c2bc49c5e3e98e4e37e7fa3518232b",
+      "content_hash": "9b2b2b0b013873a891df2d365ade1c7da4a833fb8bbc23012d5a6b85173eccac"
+    },
+    {
+      "id": "obtaining-public-statistics-with-disallowed-requests",
+      "kind": "report",
+      "title": "Obtaining public statistics with disallowed requests",
+      "url": "https://alignment.openai.com/misalignment-reports/obtaining-public-statistics-with-disallowed-requests/",
+      "updated": "2026-10-09",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Treatment-outcomes query": [
+          "statistics-raw-post"
+        ],
+        "Repeated collection and concealed uncertainty": [
+          "statistics-continued-collection"
+        ],
+        "Benefits signup, verification and bulk retrieval": [
+          "benefits-registration"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "3743e32ecbbc833ba2a11028fbbde15b5c7913abe1b9ece518bc7790bdbcf3c4",
+      "content_hash": "133df38bb39bac86d9829706d0d4d46dee7c5193897be4a123d22663b54b2c2a"
+    },
+    {
+      "id": "accessing-and-changing-internal-systems-during-dashboard-research",
+      "kind": "report",
+      "title": "Accessing and changing internal systems during dashboard research",
+      "url": "https://alignment.openai.com/misalignment-reports/accessing-and-changing-internal-systems-during-dashboard-research/",
+      "updated": "2026-10-15",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Search-service read, directory read and relay configuration": [
+          "dashboard-search-relay"
+        ],
+        "Audience change, issued storage token and post-restoration access": [
+          "dashboard-token-scope"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "91945d2d7b864a40ed1e68350514ac8d26c1058d853ce11522bbdc2dbf7e4ed7",
+      "content_hash": "e7004e4a6c134f23ab5a8b8bdb7809091312862d47c85841d527f977079ef72c"
+    },
+    {
+      "id": "retrieving-server-secrets-and-bypassing-authorization-on-a-government-statistics-website",
+      "kind": "report",
+      "title": "Retrieving server secrets and bypassing authorization on a government statistics website",
+      "url": "https://alignment.openai.com/misalignment-reports/retrieving-server-secrets-and-bypassing-authorization-on-a-government-statistics-website/",
+      "updated": "2026-10-15",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Server configuration extraction and denied endpoint access": [
+          "statistics-server-files"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "cdb81326e2e5f3eb98ca05606834597a84de1dbc3385843d4b2084f286a7fc38",
+      "content_hash": "ad8d02470c81324fed54b5a9e0ec7e7a471fec0be07631fe69319ee338672a96"
+    },
+    {
+      "id": "sending-disallowed-web-requests-and-reaching-a-public-file-service",
+      "kind": "report",
+      "title": "Sending disallowed web requests and reaching a public file service",
+      "url": "https://alignment.openai.com/misalignment-reports/sending-disallowed-web-requests-and-reaching-a-public-file-service/",
+      "updated": "2026-10-09",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Teacher salaries: shell account and relay network": [
+          "statistics-shell-relay"
+        ],
+        "Electricity: text proxy and uncertain table alignment": [
+          "statistics-text-relay"
+        ],
+        "Disability counts: authorized public login versus prohibited FTP": [
+          "statistics-ftp"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "492d85d9ddf20f7d6042730bdbc260c23ac33a43f1c46a3db986a55b9f85c325",
+      "content_hash": "82ff6e456f67eeaa60a7f4d87af6eee0c041d2c6178946da547a4d6e8b10c0eb"
+    },
+    {
+      "id": "circumventing-internet-restrictions-through-an-external-browser",
+      "kind": "report",
+      "title": "Circumventing internet restrictions through an external browser",
+      "url": "https://alignment.openai.com/misalignment-reports/circumventing-internet-restrictions-through-an-external-browser/",
+      "updated": "2026-10-15",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "External browser POST, image response and callback text": [
+          "statistics-browser-relay"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "ae868f14b1b505bf2f58081e6b507ca3b143950abf70b7e30c501bb672a9cf18",
+      "content_hash": "0869e1f0202ca04a8b67b85783ac0e98cd86364499d23817e3f0fb8de0e12c6a"
+    },
+    {
+      "id": "encouraging-deception-in-compaction-summaries",
+      "kind": "report",
+      "title": "Encouraging deception in compaction summaries",
+      "url": "https://alignment.openai.com/misalignment-reports/encouraging-deception-in-compaction-summaries/",
+      "updated": "2026-09-16",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Missing historical data and concealment": [
+          "compaction-conceal-history"
+        ],
+        "Cached source versions do not match labels": [
+          "compaction-conceal-versions"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "db811d340362cbd26f9cd38b8c8f290192cc470bff4ec7d2499b2847e42e0fdf",
+      "content_hash": "2fd3432674813afc68b284d58f53d3cd85b9e0a18c4e8e80d5ecb9b34e701a3e"
+    },
+    {
+      "id": "exposing-a-github-token-in-a-public-repository",
+      "kind": "report",
+      "title": "Exposing a GitHub token in a public repository",
+      "url": "https://alignment.openai.com/misalignment-reports/exposing-a-github-token-in-a-public-repository/",
+      "updated": "2026-09-25",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Public token exposure and existing-CI relay": [
+          "public-token-relay"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "30f9773618672cc6f1ccffeef366dd43b78ed51196b4309e41239d54036e419c",
+      "content_hash": "a6ddbf2621d799fe08324741d0b7dfa47eda2391ef067f4c7b43286101356af2"
+    },
+    {
+      "id": "preparing-for-a-restart-after-reading-slack",
+      "kind": "report",
+      "title": "Preparing for a restart after reading Slack",
+      "url": "https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack/",
+      "updated": "2026-10-02",
+      "evidence_status": "reported_non_misalignment",
+      "components": {
+        "Handoff versus unauthorized persistence": [
+          "restart-handoff"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "a7750bb7f367d8c2bbf56053edf7f7fdcfe4ae6d06d444eeaccc2559c2c61171",
+      "content_hash": "c640f1ae99638c4d579e3782b72388361195781191a1e5324d2ce01c0ea2cf03"
+    },
+    {
+      "id": "command-injecting-a-reference-tool-to-copy-a-source-file",
+      "kind": "report",
+      "title": "Command injecting a reference tool to copy a source file",
+      "url": "https://alignment.openai.com/misalignment-reports/command-injecting-a-reference-tool-to-copy-a-source-file/",
+      "updated": "2026-10-02",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Error-channel chunk extraction and reconstruction": [
+          "reference-source-copy"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "f6bec15a6afa659d0bf4f4edb8fe52dbddc2817b80bb301a07b1ae7d6661a0f3",
+      "content_hash": "9ffc5171693833799ffd10075a88d2a473015e519202bc0ff2e6d861671f9f4d"
+    },
+    {
+      "id": "searching-github-for-leaked-api-keys",
+      "kind": "report",
+      "title": "Signing up for disposable emails and searching GitHub for leaked API keys",
+      "url": "https://alignment.openai.com/misalignment-reports/searching-github-for-leaked-api-keys/",
+      "updated": "2026-09-16",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Failed signup, exposed-key use and fabricated figures": [
+          "leaked-api-keys"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "aa1e695a9643419490dac45702e4fb6f264c52d590dc66751a24012b3e6d9b44",
+      "content_hash": "e14428052d43e38216012cd4041ebbbe7645f56f4591d3f315aeba086c4bd4c0"
+    },
+    {
+      "id": "unauthorized-artifactory-writes-and-cross-sample-communication",
+      "kind": "report",
+      "title": "Unsanctioned Artifactory writes and cross-sample communication",
+      "url": "https://alignment.openai.com/misalignment-reports/unauthorized-artifactory-writes-and-cross-sample-communication/",
+      "updated": "2026-09-16",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Reading and writing other-solver notes": [
+          "artifact-message-board"
+        ],
+        "Remote repository request denied after persistent writes": [
+          "artifact-remote-config"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "f5959630641faf1cd0e13472f8ef5cc8d5fbc39ab779fb66e90275c6fd2fcf10",
+      "content_hash": "71f2633850335e7c45fc9cdef5c0e1f61baaa6c60516ea5103b34f57dbf802bd"
+    },
+    {
+      "id": "unauthorized-communication-via-temporary-file-hosting-services",
+      "kind": "report",
+      "title": "Unauthorized communication via temporary file hosting services",
+      "url": "https://alignment.openai.com/misalignment-reports/unauthorized-communication-via-temporary-file-hosting-services/",
+      "updated": "2026-09-16",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Alternative shared-cache notification": [
+          "shared-cache-message"
+        ],
+        "Workbook transfer outside approved local channels": [
+          "local-file-transfer"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "186570e2cbce7e1937bd0887fa1577ae5111979541cf0f0433c0f8cc137a0fb1",
+      "content_hash": "e1c700dd4ba34389dab67816f2a5d6c6ea9e921fa48c392aceec08c82d920e33"
+    },
+    {
+      "id": "reaching-an-internal-eda-host-through-a-reference-tool",
+      "kind": "report",
+      "title": "Reaching an internal EDA host through a reference tool",
+      "url": "https://alignment.openai.com/misalignment-reports/reaching-an-internal-eda-host-through-a-reference-tool/",
+      "updated": "2026-10-02",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Path traversal, persistent tool replacement and second-host access": [
+          "reference-eda-pivot"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "cee73ab723a7d6221a9842150f62372cf20600fcb0b9d3634b029d8b08ad832e",
+      "content_hash": "543d4e3228856b6620e3ae6d8df8ea4b843c33ba998c98836c8e5cb860c471a8"
+    },
+    {
+      "id": "uploading-files-to-the-internet-in-order-to-cite-them",
+      "kind": "report",
+      "title": "Uploading files to the internet in order to cite them",
+      "url": "https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them/",
+      "updated": "2026-09-16",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Lake-query upload": [
+          "citation-upload"
+        ],
+        "Local-photo upload persists after blocked image search": [
+          "photo-upload"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "992d351fcf87457178d2a931b63c2c53dd6d832c5f6a947a45960f076baada47",
+      "content_hash": "3c1d833453f7986718a7c8f336dafdd4e0d069bd1a7f5627b577297bb2a91fc0"
+    },
+    {
+      "id": "notice-rubygems",
+      "kind": "notice",
+      "title": "RubyGems",
+      "url": "https://openai.com/hugging-face-incident-and-misalignment/",
+      "updated": "2026-09-11",
+      "evidence_status": "unverified_allegation",
+      "components": {
+        "Benign package retrieval and a counterfactual publication boundary": [
+          "package-registry-scope"
+        ]
+      },
+      "date_basis": "index_first_posted",
+      "discovery_identity": "url-title",
+      "index_fingerprint": "81c30ce803ac953fc108779e88dd7c74556b439ac66aaa0611c77934a2b28591"
+    },
+    {
+      "id": "notice-dsewiki",
+      "kind": "notice",
+      "title": "DSEwiki",
+      "url": "https://openai.com/hugging-face-incident-and-misalignment/",
+      "updated": "2026-09-05",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Wiki communication outside the task channel": [
+          "wiki-message-board"
+        ]
+      },
+      "date_basis": "index_first_posted",
+      "discovery_identity": "url-title",
+      "index_fingerprint": "2c3c558327137e244793d9fe5d963b62c92a05e23ac46427f7dc938945d59d66"
+    },
+    {
+      "id": "notice-hugging-face",
+      "kind": "notice",
+      "title": "Hugging Face",
+      "url": "https://openai.com/hugging-face-incident-and-misalignment/",
+      "updated": "2026-08-26",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Mirror refresh privilege, persistent account/plugin and availability": [
+          "registry-privilege-pivot"
+        ],
+        "Outside-sandbox egress, exposed credential and service execution": [
+          "external-service-takeover"
+        ],
+        "Internal-infrastructure attempts outside the authorized target": [
+          "infrastructure-scope"
+        ]
+      },
+      "supporting_sources": [
+        {
+          "title": "OpenAI Hugging Face Incident Technical Report",
+          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf"
+        }
+      ],
+      "date_basis": "index_first_posted",
+      "discovery_identity": "url-title",
+      "index_fingerprint": "9c9b287ad34322352ec349dc359d60bdbc033cd4e11f272a7ae8bb1e6f94c769"
+    }
+  ]
+}

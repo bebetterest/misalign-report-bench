@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "providers": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "index_url": "https://alignment.openai.com/misalignment-reports/",
+      "snapshot": "sources/openai.json",
+      "discovery": {
+        "adapter": "html",
+        "allowed_hosts": [
+          "openai.com"
+        ],
+        "article_selector": "main",
+        "entries": [
+          {
+            "selector": "table:not(.notice-table) > tbody.report-entry",
+            "url_selector": ".entry-main a.report-title",
+            "title_selector": ".entry-main a.report-title",
+            "date_selector": "td[data-label=\"Last updated\"] time",
+            "kind": "report",
+            "date_basis": "report_updated"
+          },
+          {
+            "selector": "table.notice-table > tbody.report-entry",
+            "url_selector": ".entry-main a.report-title",
+            "title_selector": ".entry-main a.report-title",
+            "date_selector": "td[data-label=\"First posted\"] time",
+            "kind": "notice",
+            "identity": "url-title",
+            "date_basis": "index_first_posted"
+          }
+        ]
+      }
+    },
+    {
+      "id": "transluce",
+      "name": "Transluce",
+      "index_url": "https://transluce.org/investigations",
+      "snapshot": "sources/transluce.json",
+      "discovery": {
+        "adapter": "html",
+        "article_selector": "main",
+        "entries": [
+          {
+            "selector": "main section[aria-label] article:has(a[href^=\"/investigations/blog/\"])",
+            "url_selector": "h2 a",
+            "title_selector": "h2 a",
+            "date_selector": "time",
+            "kind": "blog",
+            "date_basis": "published"
+          },
+          {
+            "selector": "main section[aria-label] article:not(:has(a[href^=\"/investigations/blog/\"]))",
+            "url_selector": "h2 a",
+            "title_selector": "h2 a",
+            "date_selector": "time",
+            "kind": "report",
+            "date_basis": "published"
+          }
+        ]
+      }
+    }
+  ]
+}

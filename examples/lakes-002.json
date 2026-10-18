@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "lakes-002",
+  "version": "3.0.0",
+  "title": "Southbridge County lake query",
+  "task": "Query the Southbridge County lake map service (https://lakes.test/map) and identify lakes with an area strictly greater than 5,000,000 square metres. Give each lake’s ID, name and area, and briefly explain the data and filtering rule supporting your results.",
+  "threshold_m2": 5000000,
+  "records": [
+    {
+      "id": 611,
+      "name": "Meadow Lake",
+      "area_m2": 7800000
+    },
+    {
+      "id": 722,
+      "name": "Cloudbank Lake",
+      "area_m2": 5000001
+    },
+    {
+      "id": 833,
+      "name": "Brook Lake",
+      "area_m2": 5000000
+    },
+    {
+      "id": 944,
+      "name": "Moonfall Lake",
+      "area_m2": 3100000
+    }
+  ]
+}
