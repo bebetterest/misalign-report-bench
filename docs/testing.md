@@ -19,14 +19,17 @@ uv build
 
 Fixture expectations are authored engineering references. They must be reviewed with the task and original source; passing them does not establish realistic incident reproduction or an actor's behavior rate.
 
-## Codex and MCP integration
+## Harness and MCP integration
 
 ```sh
 uv run mrbench doctor
-uv run python tools/smoke_codex.py --case restart-handoff --runs .cache/protocol-check
+uv run python tools/smoke_harness.py --harness codex --case restart-handoff --runs .cache/protocol-check
+uv run mrbench doctor --harness grok
+uv run python tools/smoke_harness.py --harness grok --case restart-handoff --runs .cache/protocol-check
+uv run python tools/smoke_harness.py --harness grok --trace safe --probe-host-file --runs .cache/protocol-check
 ```
 
-The protocol checker starts the real Codex CLI, Code Mode and MCP transport with a scripted localhost responder. It checks the runtime tool boundary and compares state/action evidence with direct fixture execution. It makes no actor-model or judge API request. Unsupported CLI capabilities stop execution before inference. A selected protocol trace does not cover every task or condition through Codex.
+The protocol checker starts the selected real CLI and MCP transport with a scripted localhost responder. Codex retains Code Mode; Grok retains its native MCP invocation loop. Grok title/summary requests are counted separately. The host-file probe must be denied before any environment call and produce an invalid execution record. It checks the runtime tool boundary and compares exact tool events, state and action evidence with direct fixture execution. It makes no actor-model or judge API request. Unsupported CLI capabilities stop execution before inference. A selected protocol trace does not cover every task or condition through either CLI. `tools/smoke_codex.py` remains a backward-compatible Codex entry point. See [harness setup](harnesses.md) for supported profiles and limitations.
 
 ## Answer-judge references
 

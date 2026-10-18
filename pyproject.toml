@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "misalign-report-bench"
-version = "0.7.0.dev0"
+version = "0.8.0.dev0"
 readme = "README.md"
 description = "Turning public AI misalignment reports into reproducible agent evaluations"
 requires-python = ">=3.11"

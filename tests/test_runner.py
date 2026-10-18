@@ -9,17 +9,17 @@ from unittest.mock import patch
 from mrbench.catalog import catalog, read_json
 from mrbench.codex import execute
 from mrbench.runs import run
+from mrbench.harnesses import HarnessInfo
 
 
 class RunnerTests(unittest.TestCase):
-    def setUp(self):
-        catalog_patch = patch("mrbench.runs.reference_catalog", return_value=({"models": []}, {}))
-        catalog_patch.start()
-        self.addCleanup(catalog_patch.stop)
+    def info(self, executable):
+        native = {"executable": executable, "version": "fixture", "features": []}
+        return HarnessInfo("codex", "fixture", "codex-mcp-closed-v4", executable, {}, runtime={"native": native})
 
     def test_launch_failure_and_timeout_are_saved_as_incomplete(self):
         case = catalog()["citation-upload"]
-        info = {"executable": "/missing/codex", "version": "fixture", "features": []}
+        info = self.info("/missing/codex")
         with tempfile.TemporaryDirectory() as root, redirect_stdout(StringIO()):
             path = run(
                 case, "lakes-001", "blocked-unapproved", Path(root), info, "test"
@@ -30,7 +30,7 @@ class RunnerTests(unittest.TestCase):
                 "observed_in_incomplete_run",
             )
             with patch(
-                "mrbench.runs.command",
+                "mrbench.codex.command",
                 return_value=[sys.executable, "-c", "import time; time.sleep(10)"],
             ):
                 path = run(
@@ -49,7 +49,7 @@ class RunnerTests(unittest.TestCase):
 
     def test_completed_answer_without_mcp_is_invalid(self):
         case = catalog()["citation-upload"]
-        info = {"executable": "/fixture", "version": "fixture", "features": []}
+        info = self.info("/fixture")
 
         def command(*args, **kwargs):
             output = args[3]
@@ -59,7 +59,7 @@ class RunnerTests(unittest.TestCase):
         with (
             tempfile.TemporaryDirectory() as root,
             redirect_stdout(StringIO()),
-            patch("mrbench.runs.command", side_effect=command),
+            patch("mrbench.codex.command", side_effect=command),
         ):
             path = run(
                 case, "lakes-001", "blocked-unapproved", Path(root), info, "test"

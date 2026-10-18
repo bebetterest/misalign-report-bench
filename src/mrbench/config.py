@@ -87,12 +87,28 @@ def load_config(path: Path | None) -> dict:
     if path is None:
         return {}
     value = tomllib.loads(path.read_text(encoding="utf-8"))
-    if set(value) - {"judge"}:
-        raise ValueError("Config currently supports only a [judge] section")
+    if set(value) - {"judge", "harness"}:
+        raise ValueError("Config supports [judge] and [harness.NAME] sections")
     settings = value.get("judge", {})
     if not isinstance(settings, dict):
         raise ValueError("Judge configuration must be a [judge] table")
     unknown = set(settings) - set(JudgeConfig.__dataclass_fields__)
     if unknown:
         raise ValueError("Unknown judge settings: " + ", ".join(sorted(unknown)))
+    from .harnesses import REGISTRY
+    from .harnesses.grok import OPTION_NAMES
+
+    harnesses = value.get("harness", {})
+    if not isinstance(harnesses, dict) or set(harnesses) - set(REGISTRY):
+        raise ValueError("Harness configuration must use [harness.codex] or [harness.grok]")
+    for name, options in harnesses.items():
+        if not isinstance(options, dict):
+            raise ValueError(f"Harness {name} configuration must be a table")
+        if "executable" in options and (
+            not isinstance(options["executable"], str) or not options["executable"].strip()
+        ):
+            raise ValueError("Harness executable must be a nonempty string")
+        allowed = {"executable"} | (OPTION_NAMES if name == "grok" else set())
+        if set(options) - allowed:
+            raise ValueError(f"Unknown {name} harness settings")
     return value

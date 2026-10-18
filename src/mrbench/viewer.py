@@ -21,6 +21,7 @@ from .evidence import (
     verify_input_hashes,
 )
 from .source_registry import SOURCE_INDEX
+from .harnesses import harness_metadata, is_agent_run, is_protocol_run, native_log_names
 
 WEB = Path(__file__).parent / "web"
 RUN_ID = re.compile(r"^[A-Za-z0-9_-]{1,100}$")
@@ -174,7 +175,7 @@ def list_runs(root):
 def compatible_groups(records):
     groups = {}
     for record in records:
-        if record.get("origin") != "codex" or record.get("status") != "completed":
+        if not is_agent_run(record) or record.get("status") != "completed":
             continue
         scores = record.get("scores", {})
         actions = scores.get("actions", {})
@@ -191,6 +192,8 @@ def compatible_groups(records):
                 "environment": hashes["environment"],
                 "framework": hashes.get("framework", "legacy"),
                 "config": hashes.get("comparison_config", hashes["config"]),
+                "harness": harness_metadata(record),
+                "response_models": record.get("stream", {}).get("response_models", []),
                 "answer_judge": scores.get("answer", {}).get("config_hash"),
                 "judge_response_model": scores.get("answer", {}).get("response_model"),
                 "judge_fingerprint": scores.get("answer", {}).get("system_fingerprint"),
@@ -204,6 +207,7 @@ def compatible_groups(records):
                 "case_id": record["case"]["id"],
                 "sample_id": record["sample"]["id"],
                 "model": record["config"]["model"],
+                "harness": harness_metadata(record),
                 "case_version": record["case"]["version"],
                 "sample_version": record["sample"]["version"],
                 "conditions": {},
@@ -254,12 +258,13 @@ def reproduction(manifest):
         if manifest.get("case_library"):
             command.extend(["--cases", manifest["case_library"]])
         return shlex.join(command)
-    if manifest["origin"] == "codex-smoke":
+    if is_protocol_run(manifest):
+        legacy = manifest["origin"] == "codex-smoke"
         command = [
             "uv",
             "run",
             "python",
-            "tools/smoke_codex.py",
+            "tools/smoke_codex.py" if legacy else "tools/smoke_harness.py",
             "--case",
             manifest["case"]["id"],
             "--condition",
@@ -267,7 +272,13 @@ def reproduction(manifest):
         ]
         if "protocol_trace" in manifest:
             command.extend(["--trace", manifest["protocol_trace"]])
-        if manifest["config"].get("codex_executable"):
+        if manifest.get("protocol_host_file_probe"):
+            command.append("--probe-host-file")
+        if not legacy:
+            command.extend(["--harness", harness_metadata(manifest)["id"]])
+            if manifest["config"].get("harness_executable"):
+                command.extend(["--harness-executable", manifest["config"]["harness_executable"]])
+        elif manifest["config"].get("codex_executable"):
             command.extend(["--codex", manifest["config"]["codex_executable"]])
         return shlex.join(command)
     if manifest["origin"] == "judge-check":
@@ -308,7 +319,12 @@ def reproduction(manifest):
     ]
     if manifest.get("case_library"):
         command.extend(["--cases", manifest["case_library"]])
-    if manifest["config"].get("codex_executable"):
+    if manifest.get("harness"):
+        command.extend(["--harness", manifest["harness"]["id"]])
+        command.extend(["--harness-executable", manifest["config"]["harness_executable"]])
+        if manifest["config"].get("options"):
+            command.extend(["--config", "mrbench.toml"])
+    elif manifest["config"].get("codex_executable"):
         command.extend(["--codex", manifest["config"]["codex_executable"]])
     return shlex.join(command)
 
@@ -352,6 +368,8 @@ def details(root, run_id):
         "task_outputs": task_outputs,
         "events": text_file(path / "events.jsonl"),
         "codex": text_file(path / "codex.jsonl"),
+        "harness": harness_metadata(manifest),
+        "native_stream": text_file(path / native_log_names(manifest)[0]),
         "state": local_json(path / "state.json")
         if (path / "state.json").exists()
         else None,
@@ -409,7 +427,20 @@ def export_run(root, run_id):
         "budget-exhausted.json",
         "protocol-check.json",
         "model-catalog.json",
+        "grok.jsonl",
+        "grok.stderr.log",
+        "grok-config.json",
+        "harness-preflight.json",
     ]
+    allowed = set(allowed) | {file.name for file in path.glob("harness-*.json")}
+    try:
+        manifest = local_json(path / "run.json")
+        if isinstance(manifest, dict):
+            allowed.update(native_log_names(manifest))
+    except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        # Preserve export access for damaged records so their original evidence
+        # can be reviewed. Unknown native filenames are not guessed.
+        pass
     with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as archive:
         for name in allowed:
             file = path / name

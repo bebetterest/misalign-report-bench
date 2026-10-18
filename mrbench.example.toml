@@ -11,3 +11,16 @@ token_limit_parameter = "max_completion_tokens" # or "max_tokens"
 send_store = true # sends store=false; set false to omit the unsupported field
 # For DeepSeek: response_format="json_object", token_limit_parameter="max_tokens",
 # send_store=false. Choose its base_url and model explicitly.
+
+# Both harness tables are optional. Codex remains the default.
+[harness.codex]
+# executable = "/absolute/path/to/codex"
+
+[harness.grok]
+# executable = "/absolute/path/to/grok"
+# max_turns = 50 # native agent turns; separate from --max-calls (environment tools)
+# Native login is reused by default. To select an explicit actor API route:
+# base_url = "https://your-actor-endpoint.example/v1"
+# api_backend = "responses" # or "chat_completions", "messages"
+# api_key_env = "XAI_API_KEY" # process environment only; --env-file is judge-only
+# max_output_tokens = 8192 # custom endpoint only

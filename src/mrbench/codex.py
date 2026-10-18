@@ -4,12 +4,12 @@ from pathlib import Path
 import json
 import os
 import shutil
-import signal
 import subprocess
 import sys
 import tempfile
 
 from .catalog import digest
+from .harnesses.base import execute_process
 
 PROFILE_VERSION = "codex-mcp-closed-v4"
 REQUIRED_FEATURES = {
@@ -233,7 +233,7 @@ def command(
 
 def execute(
     args: list[str], prompt: str, workspace: Path, prefix: Path, timeout: int,
-    *, code_mode_host: str | None = None,
+    *, code_mode_host: str | None = None, use_auth: bool = True,
 ) -> dict:
     # Use the product's runtime-home setting only for this child process. Do not
     # change the caller's HOME/CODEX_HOME, global config, or personal instructions.
@@ -243,9 +243,12 @@ def execute(
     )
     with tempfile.TemporaryDirectory(prefix="mrbench-codex-") as runtime_dir:
         runtime_home = Path(runtime_dir)
-        if auth_source.is_file():
+        if use_auth and auth_source.is_file():
             (runtime_home / "auth.json").symlink_to(auth_source.resolve())
         child_environment = os.environ.copy()
+        if not use_auth:
+            for key in ("OPENAI_API_KEY", "CODEX_API_KEY"):
+                child_environment.pop(key, None)
         child_environment["CODEX_HOME"] = str(runtime_home)
         if code_mode_host:
             # Resolve the vendor companion only for this child, without changing the caller.
@@ -261,47 +264,7 @@ def _execute(
     timeout: int,
     child_environment: dict,
 ) -> dict:
-    with (
-        prefix.with_suffix(".jsonl").open("w", encoding="utf-8") as out,
-        prefix.with_suffix(".stderr.log").open("w", encoding="utf-8") as err,
-    ):
-        try:
-            process = subprocess.Popen(
-                args,
-                cwd=workspace,
-                stdin=subprocess.PIPE,
-                stdout=out,
-                stderr=err,
-                text=True,
-                start_new_session=True,
-                env=child_environment,
-            )
-        except OSError as exc:
-            err.write(str(exc))
-            return {
-                "exit_code": -1,
-                "timed_out": False,
-                "error": "Process could not start",
-            }
-        try:
-            process.communicate(prompt, timeout=timeout)
-            return {"exit_code": process.returncode, "timed_out": False}
-        except (subprocess.TimeoutExpired, KeyboardInterrupt) as exc:
-            # Stop the entire group, including the stdio MCP child; no orphan task worlds.
-            try:
-                os.killpg(process.pid, signal.SIGTERM)
-                process.wait(timeout=5)
-            except (ProcessLookupError, subprocess.TimeoutExpired):
-                try:
-                    os.killpg(process.pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
-                process.wait()
-            return {
-                "exit_code": process.returncode,
-                "timed_out": isinstance(exc, subprocess.TimeoutExpired),
-                "interrupted": isinstance(exc, KeyboardInterrupt),
-            }
+    return execute_process(args, prompt, workspace, prefix, timeout, child_environment)
 
 
 def inspect_stream(path: Path, *, allow_mcp: bool) -> dict:

@@ -26,8 +26,9 @@ Public report → case definition + task sample + controlled condition
 | `source_registry.py` + `source-coverage.json` + `sources/*.json` | Website registration, explicit HTML discovery and per-website reviewed snapshots |
 | `coverage.py` | Namespaced primary/supporting source identity and component-to-case mappings |
 | `mcp_server.py` | Expose only the current environment’s tools through MCP |
-| `codex.py` | Inspect CLI capabilities and build the isolated reference configuration |
-| `runs.py` | Run a real CLI process, supervise it and collect artifacts |
+| `harnesses/` | Small adapter contract, explicit registry, Codex and Grok Build integration |
+| `codex.py` | Codex capability checks, closed profile and native output parser |
+| `runs.py` | Prepare independent episodes, invoke an adapter and collect evidence |
 | `outputs.py` | Freeze declared final deliverable texts, bound to their requirements and final state |
 | `evidence.py` | Check saved inputs, event/state consistency and grade-to-artifact bindings |
 | `grading.py` | Run the case action scorer; make and validate one answer-judge API call |
@@ -54,6 +55,12 @@ The other cases use small environment families built on `Simulation`. See [repor
 Base validation covers the full declared Draft 2020-12 JSON input schema, including nested types, ranges and additional fields. External schema retrieval is disabled. Each environment validates business constraints and prerequisite state. MCP delegates validation to this same boundary so argument errors are recorded consistently, and primitive tool errors use the MCP error channel. A used world cannot be restarted into an empty state. A tool result is accompanied by observable `effects`; events store inputs, outputs and effects with sequence numbers and a hash chain. Final state is saved separately so the action scorer can cross-check both.
 
 These are closed simulation tools, not an operating-system sandbox for hostile Python extensions. Maintainers must review new environment code. The reference configuration restricts the agent’s available tools; it does not make arbitrary contributor code safe to execute.
+
+## Harness contract
+
+The common runner selects an explicit adapter, validates and freezes the task inputs, starts one fresh environment, then collects native execution evidence and scores it. An adapter implements `preflight(HarnessConfig) -> HarnessInfo` and `run(Episode) -> HarnessResult`. Its episode contains the actor-visible task, trusted tool policy, tool names and runtime configuration; it does not receive a case rubric, expected answers, action scores or hidden environment state. Environment behavior and judging remain independent of the selected CLI. See [harness setup and extension](harnesses.md) for both profiles and the extension steps.
+
+Codex remains the default. Grok Build uses profile `grok-mcp-closed-v1`, its native agent loop, MCP stdio, `search_tool` / `use_tool`, inline JSON arguments and an isolated temporary home/workspace outside the checkout. It disables backend web search and subagents, rejects discovered personal context and explicitly denies host Read/Bash/Edit/Write/WebFetch permissions. File-backed MCP inputs are rejected by the native Read permission and invalidate the run. The installed Grok version is checked at preflight; native Messages NDJSON must contain the expected catalog and a successful terminal natural-language answer. Extra tools, backend search, subagents, malformed/error/truncated output or incomplete MCP startup make a run invalid. Native title/dashboard side calls may consume extra provider usage and are not part of the normalized actor usage.
 
 ## Codex reference harness
 
@@ -84,7 +91,8 @@ Each run directory preserves:
 | `model-catalog.json` | Bundled model metadata with the recorded host-tool overrides |
 | `answer.txt` | Final natural-language answer |
 | `task-outputs.json` | Declared final task texts, when required; no tool trace or hidden service state |
-| `codex.jsonl`, `codex.stderr.log` | CLI output and diagnostics |
+| `codex.jsonl` / `grok.jsonl`, corresponding `*.stderr.log` | Native CLI output and diagnostics |
+| `harness-config.json`, `harness-preflight.json` | Effective Grok settings and sanitized context inspection; no credentials |
 | `events.jsonl`, `state.json` | Tool events and independent final-state evidence |
 | `mcp-ready.json` | Environment/MCP startup evidence |
 | `scores.json` | Separate action/answer scores and derived compliant-task outcome |
@@ -93,7 +101,7 @@ Each run directory preserves:
 | `validation-history/` | Original manifest when a recorded validation error is explicitly corrected |
 | `workspace/` | The episode’s working directory; excluded from exports |
 
-Origins distinguish `codex` (real model), `demo` (scripted record), `environment-check` (authored virtual-tool trace), `codex-smoke` (real CLI with scripted model responses) and `judge-check` (fixed answers sent to a real or test judge). The last kind has no actor or applicable action metrics and is stored separately by the quality-check tool. Run status is separate from scoring status. A completed run can still have a pending, failed or review-required answer score.
+New harness records use schema 2 and bind harness identity/version/profile/adapter hash plus saved configuration artifacts. Schema-1 historical records remain readable without migration. Origins distinguish `agent` (real model; legacy `codex`), `demo` (scripted record), `environment-check` (authored virtual-tool trace), `protocol-check` (real CLI with scripted model responses; legacy `codex-smoke`) and `judge-check` (fixed answers sent to a real or test judge). The last kind has no actor or applicable action metrics and is stored separately by the quality-check tool. Run status is separate from scoring status. A completed run can still have a pending, failed or review-required answer score.
 
 Input, environment, framework, configuration and answer hashes detect mismatches and support compatibility checks. They are not signed or tamper-proof evidence. Older records are read as recorded; missing historical fields are not invented. After the English migration, prior local records remain unchanged under `runs/archive/v0.1.0/`, outside the default listing.
 
@@ -125,7 +133,7 @@ The viewer binds to localhost and serves read-only GET endpoints. It has no data
 
 The detail page shows the exact original task, including condition-specific instructions. The viewer validates record structure and evidence bindings before presenting scores. Corrupt records produce per-record warnings; stale grades are masked in memory and cannot establish a pass. Exports preserve the stored record without these display transformations.
 
-Only completed `codex` runs enter comparisons. Grouping uses recorded case/sample/condition inputs, environment/framework, model/Codex configuration, scorer/judge settings and returned judge model/fingerprint. Each metric uses its own scored denominator, including separate answer-scored and task-scored counts. A recorded comparison-configuration hash excludes only `task_tool_policy`, whose intended condition differences are already bound by the case/sample/condition snapshots. Model, provider, tool profile and other settings remain comparison boundaries; the full effective configuration is still hashed and verified. Demos, fixed-answer checks, protocol fixtures and incomplete runs remain inspectable without being presented as model results.
+Only completed `agent` runs (including legacy `codex`) enter comparisons. Grouping uses recorded case/sample/condition inputs, environment/framework, model/harness configuration, adapter version/hash, returned actor model identity when available, scorer/judge settings and returned judge model/fingerprint. Each metric uses its own scored denominator, including separate answer-scored and task-scored counts. A recorded comparison-configuration hash excludes only `task_tool_policy`, whose intended condition differences are already bound by the case/sample/condition snapshots. Model, provider, tool profile and other settings remain comparison boundaries; the full effective configuration is still hashed and verified. Demos, fixed-answer checks, protocol fixtures and incomplete runs remain inspectable without being presented as model results.
 
 Reproduction commands for case samples and saved runs preserve the case-library path; saved model runs also preserve the selected Codex executable. Answer-scoring commands include the viewer’s run directory. Historical groups display case/sample versions separately. To reproduce on another machine, restore the corresponding library/code versions and adjust paths explicitly; a copied command cannot recreate an unavailable provider model or account state.
 

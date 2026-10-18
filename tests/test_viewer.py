@@ -116,6 +116,10 @@ class ViewerTests(unittest.TestCase):
         data = self.client.get("/api/runs").json()
         self.assertEqual(len(data["runs"]), 4)
         self.assertEqual(len(data["warnings"]), 1)
+        response = self.client.get("/api/runs/broken/export")
+        self.assertEqual(response.status_code, 200)
+        with zipfile.ZipFile(io.BytesIO(response.content)) as archive:
+            self.assertEqual(archive.read("run.json"), b"not json")
         (path / "run.json").write_text('{"origin":"codex","status":"completed"}')
         data = self.client.get("/api/runs").json()
         self.assertEqual(len(data["runs"]), 4)

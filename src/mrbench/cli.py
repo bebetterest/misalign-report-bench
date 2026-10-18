@@ -34,13 +34,13 @@ def common(parser, *, child=False):
         help="Local run directory",
     )
     parser.add_argument(
-        "--config", type=Path, default=default, help="TOML config containing [judge]"
+        "--config", type=Path, default=default, help="TOML config with [judge] and/or [harness.NAME]"
     )
     parser.add_argument(
         "--env-file",
         type=Path,
         default=default,
-        help="Read judge credentials from this literal KEY=value file; not passed to Codex",
+        help="Read judge credentials from this literal KEY=value file; not passed to the actor",
     )
 
 
@@ -51,23 +51,42 @@ def positive(value):
     return number
 
 
+def harness_arguments(item):
+    from .harnesses import REGISTRY
+
+    item.add_argument("--harness", choices=tuple(REGISTRY), default="codex")
+    item.add_argument("--harness-executable", help="Override the selected CLI executable")
+    item.add_argument("--codex", help="Legacy Codex executable override (Codex only)")
+
+
+def harness_config(args):
+    from .harnesses import HarnessConfig
+
+    options = dict(load_config(args.config).get("harness", {}).get(args.harness, {}))
+    if args.codex and (args.harness != "codex" or args.harness_executable):
+        raise ValueError("--codex is only for Codex; use --harness-executable for either harness")
+    configured_executable = options.pop("executable", None)
+    executable = args.harness_executable or args.codex or configured_executable
+    return HarnessConfig(model=getattr(args, "model", None), executable=executable, options=options)
+
+
 def parser():
     root = argparse.ArgumentParser(
         prog="mrbench",
-        description="Public reports → reproducible environments → Codex → evidence",
+        description="Public reports → reproducible environments → agent harness → evidence",
     )
     common(root)
     sub = root.add_subparsers(dest="command", required=True)
     for name, help_text in [
         ("list", "List cases and sample counts"),
         ("validate", "Validate the case library without a model"),
-        ("doctor", "Check Codex capabilities and judge configuration"),
+        ("doctor", "Check the selected harness and judge configuration"),
         ("coverage", "Inspect the dated public-report and notice coverage map"),
     ]:
         item = sub.add_parser(name, help=help_text)
         common(item, child=True)
         if name == "doctor":
-            item.add_argument("--codex")
+            harness_arguments(item)
     sources = sub.add_parser(
         "sources",
         help="List source websites or explicitly check their public indexes for updates",
@@ -94,7 +113,7 @@ def parser():
     common(show, child=True)
     show.add_argument("case")
     show.add_argument("--sample")
-    run = sub.add_parser("run", help="Run the actual Codex CLI in a fresh task world")
+    run = sub.add_parser("run", help="Run a real agent CLI in a fresh task world")
     common(run, child=True)
     run.add_argument("case")
     run.add_argument("--model", required=True)
@@ -106,7 +125,7 @@ def parser():
     run.add_argument("--timeout", type=positive, default=180)
     run.add_argument("--max-calls", type=positive, default=40)
     run.add_argument("--effort", choices=["low", "medium", "high"], default="medium")
-    run.add_argument("--codex")
+    harness_arguments(run)
     run.add_argument(
         "--judge",
         action="store_true",
@@ -207,17 +226,13 @@ def dispatch(args):
         print(f"Review report: {output.resolve()}. No benchmark inputs were changed.")
         return 1 if result["status"] == "partial" else 0
     if args.command == "doctor":
-        from .codex import capabilities, resolve_codex, DISABLED_FEATURES
+        from .harnesses import get_harness
 
-        info = capabilities(resolve_codex(args.codex))
+        adapter = get_harness(args.harness)
+        info = adapter.preflight(harness_config(args))
         print(
             json.dumps(
-                {key: value for key, value in info.items() if key != "features"}
-                | {
-                    "disabled_features": sorted(
-                        DISABLED_FEATURES.intersection(info["features"])
-                    )
-                },
+                {"harness": info.metadata(adapter), "executable": info.executable, **info.settings},
                 ensure_ascii=False,
                 indent=2,
             )
@@ -299,7 +314,7 @@ def dispatch(args):
             )
         )
     elif args.command == "run":
-        from .codex import capabilities, resolve_codex
+        from .harnesses import get_harness
         from .grading import judge
         from .runs import run
 
@@ -318,7 +333,7 @@ def dispatch(args):
             for cid in condition_ids:
                 case.environment(sid, cid)
         config = judge_config(args) if args.judge else None
-        info = capabilities(resolve_codex(args.codex))
+        info = get_harness(args.harness).preflight(harness_config(args))
         print(
             f"Episodes: {len(sample_ids)} sample(s) × {len(condition_ids)} condition(s) × {args.repeat} trial(s)",
             flush=True,

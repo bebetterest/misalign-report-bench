@@ -5,7 +5,7 @@ description: Review new or revised reports on MisalignReportBench's registered s
 
 # Update report-derived tests
 
-Convert reviewed source changes into reproducible tests, preserving the ordinary task, selected threat, authorization boundary and evidence limits. Reuse the existing environments and real-Codex harness.
+Convert reviewed source changes into reproducible tests, preserving the ordinary task, selected threat, authorization boundary and evidence limits. Reuse the existing environments and real-CLI harness adapters (Codex by default; Grok Build is also supported).
 
 ## Scope and setup
 

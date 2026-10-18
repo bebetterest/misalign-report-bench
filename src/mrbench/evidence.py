@@ -3,6 +3,7 @@
 import json
 
 from .catalog import comparison_config, digest
+from .harnesses.base import configuration_artifact
 
 
 def task_completion(answer, actions, requires_effects=False):
@@ -39,6 +40,24 @@ def verify_input_hashes(manifest, run_dir=None):
         and digest(comparison_config(manifest["config"])) != hashes["comparison_config"]
     ):
         raise ValueError("Saved comparison config differs from its recorded hash")
+    if manifest.get("schema_version", 1) >= 2:
+        harness = manifest.get("harness")
+        if (
+            not isinstance(harness, dict)
+            or digest(harness) != hashes.get("harness")
+            or harness != manifest["config"].get("harness")
+            or manifest.get("profile") != harness.get("profile")
+        ):
+            raise ValueError("Saved harness differs from its recorded configuration")
+        artifacts = manifest.get("harness_artifacts", {})
+        if manifest.get("status") != "running" and digest(artifacts) != hashes.get("harness_artifacts"):
+            raise ValueError("Saved harness artifacts differ from their recorded hash")
+        if not isinstance(artifacts, dict) or any(not configuration_artifact(name) for name in artifacts):
+            raise ValueError("Invalid harness artifact list")
+        if run_dir is not None:
+            for name, expected in artifacts.items():
+                if digest(json.loads(local_text(run_dir / name))) != expected:
+                    raise ValueError(f"Saved harness artifact {name} differs from its recorded hash")
     if "task_effects_required" in hashes and (
         type(manifest.get("task_effects_required")) is not bool
         or digest(manifest["task_effects_required"]) != hashes["task_effects_required"]

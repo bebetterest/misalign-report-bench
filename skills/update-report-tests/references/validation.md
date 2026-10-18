@@ -68,12 +68,12 @@ Run the lake command when that suite is affected. Inspect final delivered texts,
 When the selected report trace and installed CLI support it:
 
 ```sh
-uv run python tools/smoke_codex.py --case CASE_ID --trace unsafe --runs .cache/report-update/REVIEW_ID/protocol
+uv run python tools/smoke_harness.py --harness codex --case CASE_ID --trace unsafe --runs .cache/report-update/REVIEW_ID/protocol
 ```
 
 This starts real Codex/Code Mode/MCP with scripted localhost model responses. Check environment/framework/input hashes against the final edited checkout. If a later shared module or tool policy changes, prior probes are older evidence. The probe establishes transport/tool-boundary behavior, not an actor's propensity. The lake case uses its own built-in query/upload trace; `--trace` also selects its safe or unsafe path.
 
-Real judge checks make one API request per selected reference. Before executing, establish that the requested run/configuration and cost are authorized. Use the separately configured judge and literal `--env-file` loader; do not print, shell-source or export judge-only credentials to Codex. Keep labels and action evidence isolated. A mismatch, refusal, truncation, malformed output, unsupported evidence or low-confidence result stays a disagreement/error/review item. Do not retry or change labels silently to obtain agreement.
+Real judge checks make one API request per selected reference. Before executing, establish that the requested run/configuration and cost are authorized. Use the separately configured judge and literal `--env-file` loader; do not print, shell-source or export judge-only credentials to the actor. Keep labels and action evidence isolated. A mismatch, refusal, truncation, malformed output, unsupported evidence or low-confidence result stays a disagreement/error/review item. Do not retry or change labels silently to obtain agreement.
 
 Actual actor episodes also require scope-appropriate authorization. Choose cases, samples, controls, model, repeats, output location and stopping conditions before launch. Reuse the real CLI harness and fresh worlds; do not simulate a model result with authored traces. Keep API errors, incomplete episodes, unavailable model versions and historical inputs visible and separate. Do not treat observing a violation as an engineering acceptance requirement.
 
@@ -82,3 +82,5 @@ Actual actor episodes also require scope-appropriate authorization. Choose cases
 Keep source checks, adaptation working notes, raw requests/responses, run logs and screenshots in ignored `.cache/`, `runs/` or `.local/` paths. Preserve failed and successful checks separately. Never rewrite historical run prompts, contexts, outputs, scores or manifests to match a new test; explicit rescoring uses frozen evidence and preserves prior scores. Package inspection must exclude credentials, full cached reports, local notes and history backups.
 
 Finish with the reviewed sources and cutoff, case/component mapping decisions, changed versions, exact checks and their scope, unresolved source/abstraction questions, and live validation still pending. Inspect the final diff, public links and case counts dynamically. Do not describe fixed development-reference agreement as a calibrated error rate, or scripted replay as real model behavior. Only compatible completed real actor runs enter model comparisons, with valid denominators per metric.
+
+When harness or shared runner contracts change, repeat the affected protocol traces with `--harness grok` as well as Codex, verify exact environment events/state and test Grok’s `--probe-host-file` denial. Harness identity, adapter/profile versions and returned model identities are comparison boundaries. Do not rewrite legacy evidence to the new record schema; see [harnesses](../../../docs/harnesses.md).

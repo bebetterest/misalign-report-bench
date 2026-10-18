@@ -4,7 +4,7 @@
 
 An independent, open-source benchmark that turns public AI behavior reports from **[OpenAI](https://alignment.openai.com/misalignment-reports/)** and **[Transluce](https://transluce.org/investigations)** into reproducible agent evaluations.
 
-Each case extracts an observable behavior, builds a controlled environment and preserves the evidence needed to inspect the result. The reference harness uses the **real Codex CLI** through MCP. Environment instrumentation scores actions; one separate API request judges the final natural-language answer and declared final task texts.
+Each case extracts an observable behavior, builds a controlled environment and preserves the evidence needed to inspect the result. The reference harnesses use the **real Codex CLI** (default) and **Grok Build CLI** through the same MCP environment. Environment instrumentation scores actions; one separate API request judges the final natural-language answer and declared final task texts.
 
 The built-in library maps **27 source entries across two websites** to **59 evaluation cases**, each with one default sample. OpenAI contributes 19 reports and 3 notices; Transluce contributes 2 investigations and 3 volunteer blog posts. Articles can supply several cases for distinct tasks or independently testable mechanisms. Data variants use samples, controlled changes use conditions, and each episode starts with fresh state. Ordinary research, legitimate behavior, uncertain attribution and unverified allegations retain their evidence status. Code and fictional data are MIT licensed; original reports retain their attribution and copyright. This project has no affiliation with or endorsement from either source publisher.
 
@@ -46,13 +46,26 @@ uv run mrbench run citation-upload --model YOUR_CODEX_MODEL --condition all --re
 uv run mrbench run citation-upload --model YOUR_CODEX_MODEL --sample all
 ```
 
-Every episode creates a fresh environment and saves versions, input and code hashes, effective configuration, the final answer, Codex logs, events and scores. A batch stops on an invalid or incomplete run, timeout or judge API error; existing evidence remains available. Real model execution uses your Codex account and consumes its quota.
+Every episode creates a fresh environment and saves versions, input and code hashes, effective configuration, the selected harness and version, final answer, native CLI logs, events and scores. A batch stops on an invalid or incomplete run, timeout or judge API error; existing evidence remains available. Real model execution uses your Codex account and consumes its quota.
 
 The reference configuration disables shell execution, host file editing, external browsers, web search, other connectors, plugins, memories and skill directories. Each run uses a temporary Codex home, excludes personal/project instructions and cleans up afterward. It reuses file-backed login credentials or explicitly supplied API credentials. Code Mode provides the CLI's normal tool orchestration, with only the selected environment's simulated tools and MCP resource helpers. Trusted tool/authorization policy is supplied separately from task-source content. The model metadata comes from the installed CLI's bundled catalog; its host editing and experimental tools are removed, and the effective catalog is saved. Keyring-only authentication has not been verified. Unsupported CLI capabilities or unknown model metadata stop execution before inference. See [Architecture](docs/architecture.md) for the exact boundary and limitations.
 
+## Run with Grok Build
+
+Install and sign in to the official [Grok Build CLI](https://docs.x.ai/build/cli/headless-scripting), then choose a model available to your account:
+
+```sh
+uv run mrbench doctor --harness grok
+uv run mrbench run citation-upload --harness grok --model YOUR_GROK_MODEL
+```
+
+Both harnesses use the same case/sample/condition contracts, isolated simulation state, action scorer and independent answer judge. Codex stays the default, and existing Codex commands work unchanged. Grok uses its own agent loop and a temporary runtime outside the checkout. Only the task MCP tools and its MCP discovery/invocation tools are available; host file reads/writes, shell execution, backend search and subagents are denied. Startup inspection rejects personal instructions, skills, hooks, plugins, other MCP servers and ignored configuration. Native title/summary requests may add provider usage; CLI usage figures are not a complete billing estimate.
+
+Select a CLI with `--harness-executable /path/to/cli` or optional `[harness.codex]` / `[harness.grok]` settings in TOML. Grok API overrides are explicit and separate from `[judge]`; no judge endpoint or credential is reused for the actor. See [harness setup and extension](docs/harnesses.md) for configuration, boundaries and adding another adapter. The viewer shows each harness and keeps incompatible results in separate comparison groups.
+
 ## Judge answers with one API request
 
-Configure the judge separately from Codex. Copy the example, set a model, an OpenAI-compatible Chat Completions `base_url` and the name of the credential environment variable:
+Configure the judge separately from the actor harness. Copy the example, set a model, an OpenAI-compatible Chat Completions `base_url` and the name of the credential environment variable:
 
 ```sh
 cp mrbench.example.toml mrbench.toml
@@ -60,7 +73,7 @@ cp mrbench.example.toml mrbench.toml
 uv run mrbench score RUN_ID --judge --config mrbench.toml
 ```
 
-Alternatively, keep the judge credential in a local `.env` file and add `--env-file .env`. The file is read as literal `KEY=value` data, never executed or automatically loaded. Its values are not exported to Codex; existing process variables take precedence. `.env` and `mrbench.toml` are ignored by Git. See [.env.example](.env.example).
+Alternatively, keep the judge credential in a local `.env` file and add `--env-file .env`. The file is read as literal `KEY=value` data, never executed or automatically loaded. Its values are not exported to the actor; existing process variables take precedence. `.env` and `mrbench.toml` are ignored by Git. See [.env.example](.env.example).
 
 To judge immediately after a completed run:
 
@@ -109,6 +122,7 @@ For stateful tasks, final text alone cannot establish completion. Scorer 3.0.1 c
 | Task wording, lake data or threshold | [Sample JSON](src/mrbench/cases/citation-upload/samples/lakes-001.json), in an editable library |
 | Conditions or authorization instructions | [Case JSON](src/mrbench/cases/citation-upload/case.json) |
 | Tool behavior, observed effects or answer rubric | [Upload environment](src/mrbench/environments/upload.py) |
+| Agent CLI, actor endpoint or a new harness | [Harness guide](docs/harnesses.md), [adapter modules](src/mrbench/harnesses/) |
 | Judge model, endpoint or output format | [Judge configuration example](mrbench.example.toml) |
 | Presentation | [HTML](src/mrbench/web/index.html), [CSS](src/mrbench/web/style.css) and [JavaScript](src/mrbench/web/app.js) |
 
@@ -142,11 +156,12 @@ Validate the new report-environment traces without a model or API:
 
 ```sh
 uv run python tools/check_environments.py
-uv run python tools/smoke_codex.py --case wallet-deployment --runs .cache/protocol-check
+uv run python tools/smoke_harness.py --harness codex --case wallet-deployment --runs .cache/protocol-check
 ```
 
 The first command checks authored simulator traces; the second uses the real CLI and MCP with scripted localhost model responses. Both are engineering checks, not model-behavior results. See [testing and evidence](docs/testing.md) for the checks and their interpretation.
 
+- [Harness setup and extension](docs/harnesses.md)
 - [Architecture and run artifacts](docs/architecture.md)
 - [Add samples and cases](docs/extending.md)
 - [Register and update source websites](docs/sources.md)
@@ -157,10 +172,11 @@ The first command checks authored simulator traces; the second uses the real CLI
 
 ```sh
 uv run python -m unittest discover -s tests -v
-uv run python tools/smoke_codex.py
+uv run python tools/smoke_harness.py --harness codex
+uv run python tools/smoke_harness.py --harness grok
 ```
 
-The second command uses real Codex and MCP processes with scripted localhost model responses. It checks protocol integration, does not call paid APIs and is not a model experiment. Keep protocol checks, authored-answer references and actual actor/judge episodes separate. Only appropriately reviewed real-model studies can support claims about model behavior or judge reliability.
+The protocol commands use real CLI and MCP processes with scripted localhost model responses. They check protocol integration without paid API calls and are not model experiments. Keep protocol checks, authored-answer references and actual actor/judge episodes separate. Only appropriately reviewed real-model studies can support claims about model behavior or judge reliability.
 
 ## Saved evidence and compatibility
 

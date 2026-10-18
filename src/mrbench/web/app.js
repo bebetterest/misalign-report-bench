@@ -14,7 +14,9 @@ const labels = {
   unsupported_claims: 'Unsupported claims',
   citation_complete: 'Complete source citations'
 };
-const origins = {codex: 'Model run', demo: 'Scripted demo', 'codex-smoke': 'Protocol test', 'judge-check': 'Judge reference check', 'environment-check': 'Environment check'};
+const recordOrigin = run => ({codex: 'agent', 'codex-smoke': 'protocol-check'}[run.origin] || run.origin);
+const harnessLabel = run => run.harness?.id || (['codex', 'codex-smoke'].includes(run.origin) ? 'codex' : '');
+const origins = {agent: 'Model run', demo: 'Scripted demo', 'protocol-check': 'Protocol test', 'judge-check': 'Judge reference check', 'environment-check': 'Environment check'};
 const statuses = {
   completed: 'Completed', running: 'Running', invalid: 'Invalid',
   timeout: 'Timed out', interrupted: 'Interrupted'
@@ -27,7 +29,7 @@ const scoreStatuses = {
 let cases = [], runs = [], groups = [], warnings = [], coverage = {};
 let caseQuery = '', category = 'all', caseSort = 'updated';
 let caseWebsite = 'all', sourceWebsite = 'all', sourceQuery = '';
-let runQuery = '', origin = 'codex', runStatus = 'all', runSort = 'newest';
+let runQuery = '', origin = 'agent', runStatus = 'all', runSort = 'newest';
 let renderSerial = 0;
 const main = document.getElementById('main');
 
@@ -118,7 +120,7 @@ function renderCases() {
   document.title = 'Cases · MisalignReportBench';
   const categories = [...new Set(cases.map(item => item.category))];
   const sampleCount = cases.reduce((count, item) => count + item.samples.length, 0);
-  const completeRuns = runs.filter(item => item.origin === 'codex' && item.status === 'completed').length;
+  const completeRuns = runs.filter(item => recordOrigin(item) === 'agent' && item.status === 'completed').length;
   main.innerHTML = `
     <section class="hero">
       <p class="eyebrow">An independent, open-source benchmark</p>
@@ -161,7 +163,7 @@ function renderCaseRows() {
     && JSON.stringify([item.id, item.title, item.summary, item.category, providerName(item), item.source.title, item.abstraction]).toLowerCase().includes(caseQuery.toLowerCase()));
   selected.sort((a, b) => caseSort === 'title' ? a.title.localeCompare(b.title, 'en') : b.source.updated.localeCompare(a.source.updated));
   document.getElementById('case-rows').innerHTML = selected.map(item => {
-    const count = runs.filter(run => run.case.id === item.id && run.origin === 'codex' && run.status === 'completed').length;
+    const count = runs.filter(run => run.case.id === item.id && recordOrigin(run) === 'agent' && run.status === 'completed').length;
     return `<tr><td><a class="title-link" href="#/cases/${encodeURIComponent(item.id)}">${e(item.title)}</a>
       <span class="title-sub">${e(providerName(item))} <span class="separator">/</span> ${e(item.category)} <span class="separator">/</span> v${e(item.version)}</span></td>
       <td>${item.samples.length}</td><td>${count}</td><td class="muted nowrap">${e(shortDate(item.source.updated))}</td>
@@ -260,7 +262,7 @@ function comparisons(caseId, sampleId) {
   const selected = groups.filter(group => group.case_id === caseId && group.sample_id === sampleId);
   if (!selected.length) return empty('No comparable model runs yet', 'Complete a model run to evaluate this case. Demos and protocol tests are kept separate.');
   return selected.map(group => `<div class="comparison"><p class="small"><strong>${e(group.model)}</strong>
-    <span class="muted">· Case v${e(group.case_version)} · Sample v${e(group.sample_version)} · Group ${e(group.id.slice(0, 8))}</span></p>
+    <span class="muted">· ${e(group.harness?.id || 'codex')} · Case v${e(group.case_version)} · Sample v${e(group.sample_version)} · Group ${e(group.id.slice(0, 8))}</span></p>
     <div class="table-wrap"><table><thead><tr><th>Condition</th><th>Violations / valid runs</th><th>Completed / tasks scored</th></tr></thead>
     <tbody>${Object.entries(group.conditions).map(([id, value]) => `<tr><td>${e(id)}</td><td>${value.violations} / ${value.runs}</td>
       <td>${value.task_scored ? value.task_completed + ' / ' + value.task_scored : 'Awaiting judgment'}</td></tr>`).join('')}</tbody></table></div></div>`).join('')
@@ -270,11 +272,11 @@ function comparisons(caseId, sampleId) {
 function renderRuns(params, applyOrigin = true) {
   activeNav('runs');
   document.title = 'Runs · MisalignReportBench';
-  if (applyOrigin && params.has('origin')) origin = params.get('origin');
+  if (applyOrigin && params.has('origin')) origin = recordOrigin({origin: params.get('origin')});
   const caseId = params.get('case');
   main.innerHTML = `<section class="page-intro"><p class="eyebrow">Runs & evidence</p><h1>Every run, inspectable.</h1>
       <p>Read the answer. Inspect the actions. Keep task success, authorization and citations separate.</p></section>
-    <div class="section-head"><h2>${caseId ? 'Case runs' : 'Run library'}</h2>${search('runs', 'Search runs, models or conditions…', runQuery)}</div>
+    <div class="section-head"><h2>${caseId ? 'Case runs' : 'Run library'}</h2>${search('runs', 'Search runs, models or harnesses…', runQuery)}</div>
     <div class="toolbar"><div class="filters"><select data-origin aria-label="Record type">
       ${Object.entries({...origins, all: 'All record types'}).map(([id, title]) => `<option value="${id}"${id === origin ? ' selected' : ''}>${title}</option>`).join('')}</select>
       <select data-status aria-label="Run status"><option value="all">All statuses</option>
@@ -292,12 +294,12 @@ function renderRunRows() {
   const target = document.getElementById('run-rows');
   const caseId = target.dataset.case;
   const selected = runs.filter(run => (!caseId || run.case.id === caseId)
-    && (origin === 'all' || run.origin === origin) && (runStatus === 'all' || run.status === runStatus)
-    && JSON.stringify([run.id, run.case.id, run.case.title, run.sample.id, run.sample.title, run.condition.id, run.condition.title, run.config.model]).toLowerCase().includes(runQuery.toLowerCase()));
+    && (origin === 'all' || recordOrigin(run) === origin) && (runStatus === 'all' || run.status === runStatus)
+    && JSON.stringify([run.id, run.case.id, run.case.title, run.sample.id, run.sample.title, run.condition.id, run.condition.title, run.config.model, harnessLabel(run)]).toLowerCase().includes(runQuery.toLowerCase()));
   selected.sort((a, b) => runSort === 'newest' ? b.created_at.localeCompare(a.created_at) : a.created_at.localeCompare(b.created_at));
   const notices = {
     demo: '<strong>Scripted demos.</strong> Preset actions and answer grades illustrate the evaluation. No model or judge API was called.',
-    'codex-smoke': '<strong>Protocol tests.</strong> Real Codex and MCP connect to a local scripted provider. These records test integration.',
+    'protocol-check': '<strong>Protocol tests.</strong> Real agent CLIs and MCP connect to a local scripted provider. These records test integration.',
     'judge-check': '<strong>Judge reference checks.</strong> Fixed answers test the answer judge. No agent was executed; action metrics are not applicable.',
     'environment-check': '<strong>Environment checks.</strong> Authored tool calls test simulator mechanics. Fixed answers have no API judgment. These are excluded from model comparisons.'
   };
@@ -305,8 +307,8 @@ function renderRunRows() {
     ? `<div class="callout origin-notice">${notices[origin]}</div>`
     : '<p class="note">Invalid runs, unscored answers and uncertain judgments do not count as passes.</p>';
   target.innerHTML = selected.map(run => `<tr><td><a class="title-link" href="#/runs/${encodeURIComponent(run.id)}">${e(run.sample.title)}</a>
-      <span class="title-sub">${e(run.config.model)}</span><code class="run-id">${e(run.id)}</code>
-      ${badge(origins[run.origin] || run.origin)}</td><td class="small">${e(run.condition.title)}</td>
+      <span class="title-sub">${e(run.config.model)}${harnessLabel(run) ? ' · ' + e(harnessLabel(run)) : ''}</span><code class="run-id">${e(run.id)}</code>
+      ${badge(origins[recordOrigin(run)] || run.origin)}</td><td class="small">${e(run.condition.title)}</td>
       <td>${badge(statuses[run.status] || run.status, run.status === 'completed' ? 'good' : run.status === 'running' ? 'info' : 'warn')}</td>
       <td>${taskLabel(run.scores)}</td><td>${actionLabel(run.scores?.actions)}</td></tr>`).join('')
     || `<tr><td colspan="5">${empty('No matching runs', 'Run a case from the CLI, or explore scripted demos to see how evidence is presented.', '<a href="#/runs?origin=demo">Browse demos ' + icon('arrow-up-right') + '</a>')}</td></tr>`;
@@ -355,8 +357,8 @@ async function renderRun(id, serial) {
   document.title = `${record.sample.title} · MisalignReportBench`;
   const originNotice = record.origin === 'demo'
     ? '<strong>Scripted demo.</strong> Actions are inspectable, while answer grades are preset examples. This is not a model result.'
-    : record.origin === 'codex-smoke'
-      ? '<strong>Protocol test.</strong> Real Codex and MCP used a local scripted provider. This record is excluded from model comparisons.'
+    : recordOrigin(record) === 'protocol-check'
+      ? '<strong>Protocol test.</strong> A real agent CLI and MCP used a local scripted provider. This record is excluded from model comparisons.'
       : record.origin === 'judge-check'
         ? '<strong>Judge reference check.</strong> A fixed answer tests the answer judge. No agent was executed; this is excluded from model comparisons.'
         : record.origin === 'environment-check'
@@ -365,9 +367,9 @@ async function renderRun(id, serial) {
     ? (answer.not_applicable_fields || []).includes('citation_complete') ? badge('Not applicable')
       : boolLabel(answer.evaluation?.citation_complete?.value, 'Complete', 'Incomplete') : badge('Awaiting judgment');
   main.innerHTML = `<div class="detail-layout">
-    ${side([['outcome', 'Outcome'], ['run-task', 'Original task'], ['final-answer', 'Final answer'], ...(data.task_outputs ? [['task-outputs', 'Task deliverables']] : []), ['judgment', 'Answer judgment'], ['events', 'Action evidence'], ['run-config', 'Reproduce']], '#/runs?origin=' + encodeURIComponent(record.origin), 'All runs')}
-    <article class="detail"><p class="eyebrow">${e(origins[record.origin] || record.origin)} <span class="separator">/</span> ${e(record.id)}</p>
-      <h1>${e(record.sample.title)}</h1>${metadata([['Case', record.case.title], ['Model', record.config.model], ['Condition', record.condition.title], ['Status', statuses[record.status] || record.status]])}
+    ${side([['outcome', 'Outcome'], ['run-task', 'Original task'], ['final-answer', 'Final answer'], ...(data.task_outputs ? [['task-outputs', 'Task deliverables']] : []), ['judgment', 'Answer judgment'], ['events', 'Action evidence'], ['run-config', 'Reproduce']], '#/runs?origin=' + encodeURIComponent(recordOrigin(record)), 'All runs')}
+    <article class="detail"><p class="eyebrow">${e(origins[recordOrigin(record)] || record.origin)} <span class="separator">/</span> ${e(record.id)}</p>
+      <h1>${e(record.sample.title)}</h1>${metadata([['Case', record.case.title], ['Model', record.config.model], ...(data.harness ? [['Harness', data.harness.id + ' · ' + data.harness.version]] : []), ['Condition', record.condition.title], ['Status', statuses[record.status] || record.status]])}
       ${originNotice ? `<div class="callout origin-notice">${originNotice}</div>` : ''}
       ${data.integrity_warnings.length ? `<div class="callout"><strong>Evidence needs review.</strong> ${e(data.integrity_warnings.join(' '))}</div>` : ''}
       ${record.status !== 'completed' ? `<div class="callout demo"><strong>Incomplete execution.</strong> This run cannot establish task success or safe behavior. ${e(record.validation_error || '')}</div>` : ''}
@@ -394,7 +396,7 @@ async function renderRun(id, serial) {
         <p class="note">Observed tool calls, results and effects. Expand an event to inspect the original evidence.</p>
         ${action.error ? `<div class="callout">${e(action.error)}</div>` : ''}
         ${renderEvents(events, action)}${data.events.truncated ? '<p class="note">Event preview truncated. Export the full evidence.</p>' : ''}
-        <details class="raw-details"><summary>Raw Codex event stream</summary>${code(data.codex.text || 'No Codex event stream for this record.')}</details></section>
+        <details class="raw-details"><summary>Raw harness event stream</summary>${code((data.native_stream || data.codex || {}).text || 'No native event stream for this record.')}</details></section>
       <section id="run-config"><h2>Reproduce</h2>${copyCode(data.reproduction)}
         <p class="note">Use the corresponding case, sample and code versions. A new model run may produce a different answer. Use <code>score</code> to recheck saved evidence without rerunning the agent.</p>
         <details class="raw-details"><summary>Versions, configuration & input hashes</summary>
@@ -409,9 +411,9 @@ function renderGuide() {
     <p class="lead">MisalignReportBench adapts public AI behavior reports from ${providerLinks()} into reproducible agent evaluations. Each case preserves its source, mechanism and simplification boundaries.</p>
     <section><h2>01 <span>Preview the benchmark</span></h2>${copyCode('uv sync --locked\nuv run mrbench validate\nuv run mrbench demo\nuv run mrbench view')}
       <p>Demos use scripted actions and preset grades. No model account or API key is needed. The viewer is read-only; execution starts from the CLI.</p></section>
-    <section><h2>02 <span>Run with Codex</span></h2>${copyCode('uv run mrbench doctor\nuv run mrbench run citation-upload --model YOUR_CODEX_MODEL')}
+    <section><h2>02 <span>Choose an agent harness</span></h2>${copyCode('uv run mrbench doctor\nuv run mrbench run citation-upload --model YOUR_CODEX_MODEL\n# Or use Grok Build:\nuv run mrbench doctor --harness grok\nuv run mrbench run citation-upload --harness grok --model YOUR_GROK_MODEL')}
       <p>Run one default sample and its main condition. Add <code>--condition all</code> for the controls, <code>--sample all</code> for all samples or <code>--repeat N</code> for repeated runs.</p>
-      <p class="note">The reference harness isolates personal context and exposes the environment’s MCP tools. Each episode starts with independent state. Actual model runs use your Codex quota.</p></section>
+      <p class="note">The reference harness isolates personal context and exposes the environment’s MCP tools. Each episode starts with independent state. Actual model runs use the selected provider’s quota. Codex remains the default; Grok Build uses the same environments and scoring.</p></section>
     <section><h2>03 <span>Judge the response and deliverables</span></h2>${copyCode('cp mrbench.example.toml mrbench.toml\n# Set the judge model, base_url and API-key environment variable.\nuv run mrbench score RUN_ID --judge --config mrbench.toml')}
       <p>One OpenAI-compatible Chat Completions request sees the task, expected facts, source capabilities, rubric, final answer and any declared final task texts. The judge does not receive tool traces, action scores or hidden service state.</p>
       <p class="note">Action scoring uses the environment. API failures, incomplete responses and uncertainty remain unscored or require review.</p></section>
