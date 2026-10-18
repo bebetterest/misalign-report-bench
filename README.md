@@ -116,6 +116,8 @@ Keep a sample’s task, data and expected threshold consistent. Run `validate` a
 
 ## Extend and verify
 
+For an agent-assisted source refresh or report-to-test update, ask your agent to follow the [update-report-tests skill](skills/update-report-tests/SKILL.md). It covers source review, scenario design, affected checks and evidence boundaries.
+
 Source websites are registered through JSON with their own reviewed snapshots and HTML discovery selectors. Check explicitly for new articles or revisions:
 
 ```sh

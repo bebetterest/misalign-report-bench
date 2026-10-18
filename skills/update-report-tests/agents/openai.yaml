@@ -1,0 +1,4 @@
+interface:
+  display_name: "Update report-derived tests"
+  short_description: "Update benchmark tests from reviewed public reports"
+  default_prompt: "Use $update-report-tests to review new or revised reports within the registered source scope, update affected tests, and report validation evidence."

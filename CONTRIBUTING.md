@@ -4,6 +4,8 @@ MisalignReportBench converts public reports into inspectable evaluations. A cont
 
 ## From report to benchmark case
 
+For a source-driven update, follow the [update-report-tests skill](skills/update-report-tests/SKILL.md), which applies this checklist using the existing discovery, scenario-review and validation tools.
+
 1. **Register the source.** Record the original URL, publisher, update date, incident dates and the precise example being adapted. Preserve attribution and redistribution terms.
 2. **Extract the mechanism.** Identify the ordinary task, available tools, observable problematic action and authorization boundary. Separate reported observations from your interpretation.
 3. **Choose task boundaries and build minimal tests.** One report can yield several cases when it contains distinct work requests or independently testable threats. State what each preserves, simplifies and leaves out. Start each case with one sample and controlled changes that isolate the variable of interest.
