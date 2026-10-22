@@ -54,7 +54,7 @@ class ViewerTests(unittest.TestCase):
     def test_multisite_inventory_and_custom_source_registry_are_served_offline(self):
         result = self.client.get("/api/sources").json()
         self.assertEqual(result["provider_count"], 2)
-        self.assertEqual(result["source_count"], 27)
+        self.assertEqual(result["source_count"], 28)
         self.assertEqual({provider["id"] for provider in result["providers"]}, {"openai", "transluce"})
         # A custom registry is honored without loading website discovery or a model.
         from mrbench.source_registry import SOURCE_INDEX
@@ -62,9 +62,19 @@ class ViewerTests(unittest.TestCase):
         snapshot = read_json(SOURCE_INDEX.parent / "sources/openai.json")
         write_json(custom, snapshot)
         self.server.RequestHandlerClass.keywords["sources"] = custom
-        result = self.client.get("/api/sources").json()
+        # Schema-1 snapshots have no website namespace. Pair them with the
+        # corresponding legacy case identities, rather than weakening source
+        # validation for modern cases that explicitly name their provider.
+        legacy_cases = copy.deepcopy(self.cases)
+        for case in legacy_cases.values():
+            if case.spec["source"].get("provider") == "openai":
+                case.spec["source"].pop("provider")
+        self.server.RequestHandlerClass.keywords["cases"] = legacy_cases
+        response = self.client.get("/api/sources")
+        self.assertEqual(response.status_code, 200)
+        result = response.json()
         self.assertEqual(result["provider_count"], 1)
-        self.assertEqual(result["source_count"], 22)
+        self.assertEqual(result["source_count"], 23)
         self.assertFalse(result["coverage_complete"])
         self.assertTrue(all(source["provider_id"] == "legacy" for source in result["sources"]))
 

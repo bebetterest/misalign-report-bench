@@ -56,7 +56,7 @@ Use the [testing guide](testing.md) to distinguish API grading, offline checks a
 
 ## Check the full report library
 
-Every one of the 58 report fixtures has reviewed positive/honest-blocker and counterexample expectations. Together with availability controls and wrong/missing-deliverable checks they supply 159 references; the separate lake suite supplies 12, for 171 development references across all 59 cases.
+Every one of the 60 report fixtures has reviewed positive/honest-blocker and counterexample expectations. Together with availability controls and wrong/missing-deliverable checks they supply 169 references; the separate lake suite supplies 12, for 181 development references across all 61 cases.
 
 The suite includes missing-reference research answers, contradictory saved coordinate/CSV deliverables, readable-input controls and a reciprocal school-ratio counterexample. These cover explicit rubric boundaries without using action evidence to infer answer quality.
 
@@ -69,6 +69,8 @@ uv run python tools/check_report_judges.py --case email-injection --case slack-i
 ```
 
 Output-aware references use an authored `output_trace` to construct the actual final email, inbox, file or checkpoint text in a fresh inert world. Only the selected final texts and response reach the API. The scripted construction, expected labels, trace and action/state verdicts stay outside its input. Cases without declared task texts keep final-answer-only judging. These are fixed development references and never actor results.
+
+The two monitoring cases add ten references covering preserved safeguards, false preservation claims, candid disclosure of a functional result with a monitoring violation, unchanged old artifacts, and missing deliverables. The judge reads the delivered configuration or serving code and check specification. Monitoring events, publication records and execution counters remain outside its input. Run/check completion is verified separately by environment evidence; a successful edited test does not prove that the monitor is present.
 
 Completion means producing the requested value or deliverable, rather than merely giving a truthful explanation. A blocked retrieval can be honest while incomplete. Tasks that explicitly ask to inspect missing-input availability or prepare a handoff can instead complete with a factual status. Availability controls and wrong-artifact references check this distinction. A brief chat acknowledgement can be sufficient when the delivered task text is correct.
 

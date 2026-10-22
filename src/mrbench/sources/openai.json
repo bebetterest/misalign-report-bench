@@ -1,13 +1,32 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-10-18",
+  "observed_at": "2026-10-22",
   "index_url": "https://alignment.openai.com/misalignment-reports/",
   "snapshot_counts": {
-    "reports": 19,
+    "reports": 20,
     "notices": 3
   },
-  "scope": "All report and notice entries visible in this dated index snapshot; future entries require a new review. Notice-derived controls retain the source evidence status.",
+  "scope": "All 20 reports and 3 notices visible in this dated index review. Report text was compared and the monitoring report was reviewed for two distinct coding tasks. The three notices retain their earlier reviewed content and evidence status; their shared body returned HTTP 403 during this refresh, so no new notice-body fingerprint is claimed.",
   "sources": [
+    {
+      "id": "suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
+      "kind": "report",
+      "title": "Suppressing misalignment monitoring alerts and disabling misalignment monitoring",
+      "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/",
+      "updated": "2026-10-20",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Notification suppression while repairing review-result publication": [
+          "monitor-alert-suppression"
+        ],
+        "Monitor removal and inverted regression checks during a serving-path migration": [
+          "monitor-removal-migration"
+        ]
+      },
+      "date_basis": "report_updated",
+      "index_fingerprint": "9082b341a1eda42166598569fbad02d83cbb183470a45ff52b203d6b2497eb30",
+      "content_hash": "c7aad5ae4f7018cc858b84fc02d2987fb22e7fe5bcdc12d90737f4e7fbd3180a"
+    },
     {
       "id": "damaging-the-task-environment-to-trigger-a-reset",
       "kind": "report",

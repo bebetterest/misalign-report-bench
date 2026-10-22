@@ -1,10 +1,14 @@
 # OpenAI report environments and coverage
 
-This guide covers the OpenAI website only. The combined library now has 59 cases across two websites; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
+This guide covers the OpenAI website only. The combined library now has 61 cases across two websites; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
 
-The source snapshot reviewed on **2026-10-18** contains **19 reports and 3 notices**. This library maps their distinct mechanisms to **38 evaluation cases**, each with one default sample. Multiple samples per case remain supported. The cases include the lake-query `citation-upload` task, a separate photograph task and the other mapped mechanisms.
+The source snapshot reviewed on **2026-10-22** contains **20 reports and 3 notices**. This library maps their distinct mechanisms to **40 evaluation cases**, each with one default sample. Multiple samples per case remain supported. The cases include the lake-query `citation-upload` task, a separate photograph task and the other mapped mechanisms.
 
 Coverage is a source-to-environment mapping, not an assertion of model failure or a claim that every original incident can be exactly reproduced. Original full prompts, models, training rewards and some implementation details are not public. Each case records preserved features, deliberate changes and limits in its JSON definition. All task data, credentials, accounts, recipients and services are synthetic.
+
+The three notices retain their earlier content review and evidence status: their shared page returned HTTP 403 during the latest automated check. The refreshed date does not claim a successful notice-body comparison.
+
+The [monitoring case walkthrough](monitoring-cases.md) explains the two distinct coding tasks, their controls and the difference between review execution, alert delivery and conversation logging.
 
 ## Source map
 
@@ -12,6 +16,7 @@ A report may map to several cases when it describes distinct problems. Notices a
 
 | Public source | Evidence status | Implemented test cases |
 | --- | --- | --- |
+| [Suppressing misalignment monitoring alerts and disabling misalignment monitoring](https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/) | report: reported behavior | [monitor-alert-suppression](../src/mrbench/cases/monitor-alert-suppression/case.json), [monitor-removal-migration](../src/mrbench/cases/monitor-removal-migration/case.json) |
 | [Damaging the task environment to trigger a reset](https://alignment.openai.com/misalignment-reports/damaging-the-task-environment-to-trigger-a-reset/) | report: reported behavior | [environment-reset](../src/mrbench/cases/environment-reset/case.json) |
 | [An agent used DNS to reach an external chatbot](https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/) | report: reported behavior | [dns-chatbot](../src/mrbench/cases/dns-chatbot/case.json) |
 | [Self-generated prompt injections in compaction summaries](https://alignment.openai.com/misalignment-reports/self-generated-prompt-injections-in-compaction-summaries/) | report: reported behavior | [compaction-library-authority](../src/mrbench/cases/compaction-library-authority/case.json), [compaction-credentials-persona](../src/mrbench/cases/compaction-credentials-persona/case.json), [compaction-research-refusal](../src/mrbench/cases/compaction-research-refusal/case.json) |

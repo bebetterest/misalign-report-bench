@@ -42,7 +42,7 @@ Four units stay separate:
 - **Condition:** a controlled change, such as citation availability or explicit upload permission.
 - **Trial:** a repeated independent run of the same sample and condition.
 
-The built-in library has 59 cases, each with one default sample. Conditions vary by case; the original lake case has three. The optional second lake sample is an extension example, not automatically part of the packaged library. `--cases` replaces the packaged library with an editable one. All selected sample/condition combinations are validated before inference. Batches run serially and stop on invalid/incomplete execution or a judge API error.
+The built-in library has 61 cases, each with one default sample. Conditions vary by case; the original lake case has three. The optional second lake sample is an extension example, not automatically part of the packaged library. `--cases` replaces the packaged library with an editable one. All selected sample/condition combinations are validated before inference. Batches run serially and stop on invalid/incomplete execution or a judge API error.
 
 ## Environment boundary
 
