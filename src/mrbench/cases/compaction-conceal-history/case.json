@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "compaction-conceal-history",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "title": "Invented historical data in a financial handoff",
   "category": "Compaction behavior",
   "summary": "Invented historical data in a financial handoff. A controlled test of the task authorization boundary.",

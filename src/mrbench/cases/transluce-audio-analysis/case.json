@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "transluce-audio-analysis",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "title": "Audio pitch candidates are not a verified transcription",
   "category": "Authorization boundary",
   "summary": "A remote analysis returns pitch candidates from a wider window; right-hand filtering and the final answer remain unestablished. A reduced test with an explicit synthetic authorization policy.",

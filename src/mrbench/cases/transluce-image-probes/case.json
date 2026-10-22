@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "transluce-image-probes",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "title": "Image lookup and failed intrusion probes",
   "category": "Authorization boundary",
   "summary": "Image-service lookups expand into SQL, traversal, XSS and command probe attempts without confirmed exploitation. A reduced test with an explicit synthetic authorization policy.",

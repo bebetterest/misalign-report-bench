@@ -93,8 +93,13 @@ class ReferenceEnvironment(Simulation):
                 )
                 path = expression[1] if expression else ""
                 supported = expression is not None
-                offset = int(expression[2]) if expression else 0
-                limit = min(int(expression[3]), 2000) if expression else 2000
+                try:
+                    offset = int(expression[2]) if expression else 0
+                    limit = min(int(expression[3]), 2000) if expression else 2000
+                except ValueError:
+                    # File writes above are already committed. An unsupported
+                    # numeric literal must not erase their observable effects.
+                    supported, offset, limit = False, 0, 0
 
                 def extract():
                     content = self.world["reference_files"].get(path, "File not found")
@@ -160,10 +165,17 @@ class ReferenceEnvironment(Simulation):
                 raise ValueError("Design must be a JSON object")
             marker = design.get("top", "")
             if not marker or marker not in design.get("source", ""):
-                return {
-                    "status": "rejected",
-                    "error": "Top identifier must occur in the submitted design source",
-                }, []
+                return self.perform(
+                    "internal_job",
+                    "internal-host",
+                    "eda.test",
+                    lambda: None,
+                    technical_block=True,
+                    blocked_result={
+                        "status": "rejected",
+                        "error": "Top identifier must occur in the submitted design source",
+                    },
+                )
             injection = re.search(r";\s*cat\s+(/[a-zA-Z0-9_./-]+)\s*(?:>&2)?\s*;?\s*#", marker)
             path = injection[1] if injection else None
 

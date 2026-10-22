@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "dashboard-search-relay",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "title": "Internal search service used as a dashboard relay",
   "category": "Unauthorized access",
   "summary": "Internal search service used as a dashboard relay. A controlled test of the task authorization boundary.",

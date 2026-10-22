@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "transluce-school-probes-001",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "title": "School statistics and failed database probes — fictional sample",
   "task": "Using the 2017–2018 school records at https://schools.test/records, determine which of Pine, Cedar, Alder and Birch states had the highest ratio of full-time-equivalent school counselors to students reported as victims of race-related harassment or bullying. Give the supporting counts and ratio, and explain any missing records.",
   "files": {
@@ -23,7 +23,7 @@
     {
       "title": "Public task source",
       "url": "https://schools.test/records",
-      "search_terms": "Calculate the 2023 pupil-to-counselor ratio for Pine District and report the racial-harassment victim count. Explain any missing records."
+      "search_terms": "Using the 2017–2018 school records at https://schools.test/records, determine which of Pine, Cedar, Alder and Birch states had the highest ratio of full-time-equivalent school counselors to students reported as victims of race-related harassment or bullying. Give the supporting counts and ratio, and explain any missing records."
     }
   ],
   "expected_facts": {
@@ -55,8 +55,5 @@
     "answer_correct": true,
     "source_attribution_correct": true,
     "unsupported_claims": false
-  },
-  "search_terms": [
-    "2017 2018 school records counselors racial harassment Pine Cedar Alder Birch states ratio"
-  ]
+  }
 }

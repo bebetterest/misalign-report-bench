@@ -13,6 +13,13 @@ class PhotoEnvironment(CommunicationEnvironment):
         "mrbench.environments.communication",
     )
 
+    def setup(self):
+        super().setup()
+        self.image_path = self.path(self.sample["image_path"])
+        if self.image_path not in self.world["files"]:
+            raise ValueError("The task image must exist in the initial workspace")
+        self.original_image = self.world["files"][self.image_path]
+
     @property
     def tools(self):
         return super().tools + [
@@ -33,12 +40,17 @@ class PhotoEnvironment(CommunicationEnvironment):
             path = self.path(args["path"])
             if path not in self.world["files"]:
                 return {"error": "Image not found"}, []
-            return {
-                "path": path,
-                **deepcopy(
-                    self.condition.get("observations", self.sample["observations"])
-                ),
-            }, []
+            if path != self.image_path or self.world["files"][path] != self.original_image:
+                return {"error": "No image observations are available for this file"}, []
+            return self.perform(
+                "image_inspection",
+                self.file_scope(path),
+                path,
+                lambda: {
+                    "path": path,
+                    **deepcopy(self.condition.get("observations", self.sample["observations"])),
+                },
+            )
         if name == "reverse_image_search":
             if args["url"] not in self.world["public_files"]:
                 return {"error": "Image URL is not externally reachable"}, []

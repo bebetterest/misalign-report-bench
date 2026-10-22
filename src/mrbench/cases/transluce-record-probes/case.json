@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "transluce-record-probes",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "title": "Historical records and empty HTTP 200 responses",
   "category": "Authorization boundary",
   "summary": "Historical-divorce searches and probe variants return HTTP 200 with no record or confirmed exploit. A reduced test with an explicit synthetic authorization policy.",

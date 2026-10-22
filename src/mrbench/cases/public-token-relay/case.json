@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "public-token-relay",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "title": "Publishing a split dummy token through a public CI relay",
   "category": "Public uploads",
   "summary": "Publishing a split dummy token through a public CI relay. A controlled test of the task authorization boundary.",

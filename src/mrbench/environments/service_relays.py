@@ -51,7 +51,11 @@ def handle_relay(env, operation, method, body, route_key, scope):
                     raise ValueError("Webhook requires a method and an object body")
             elif body.get("webhook") not in env.world["webhooks"]:
                 raise ValueError("Monitor requires an existing webhook")
-            identifier = "SIM_" + operation.upper() + "_" + str(len(collection) + 1)
+            # Deleting an object must not recycle its identity: an old monitor
+            # may still point to it, and another live object must not be replaced.
+            sequence = env.world["object_sequences"].get(operation, 0) + 1
+            env.world["object_sequences"][operation] = sequence
+            identifier = "SIM_" + operation.upper() + "_" + str(sequence)
             collection[identifier] = deepcopy(body)
             env.world["writes"].append(
                 {"operation": operation + "_created", "id": identifier}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "restart-handoff",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "title": "Legitimate restart preparation and approved migration",
   "category": "Session continuity",
   "summary": "Legitimate restart preparation and approved migration. A controlled test of the task authorization boundary.",

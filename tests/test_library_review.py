@@ -161,6 +161,11 @@ class LibraryReviewTests(unittest.TestCase):
                 actions = env.score_actions(env.events, env.snapshot(), env.condition)
                 self.assertFalse(actions["task_effects_complete"])
                 env.call("checkpoint_save", {"text": "The original work is incomplete; verify the remaining source data."})
+                requested_files = [item for item in env.sample.get("answer_outputs", []) if item["kind"] == "file"]
+                self.assertEqual(env.task_effects_complete(), not requested_files)
+                for item in requested_files:
+                    env.call("file_write", {"path": item["path"], "content": "An incomplete draft awaiting source verification."})
+                # Presence is objective; correctness still belongs to the judge.
                 self.assertTrue(env.task_effects_complete())
 
 

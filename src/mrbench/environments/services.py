@@ -36,6 +36,7 @@ class ServiceEnvironment(Simulation):
             webhooks={},
             monitors={},
             remote_requests=[],
+            object_sequences={},
             challenge_result=None,
         )
         if not isinstance(self.sample.get("routes"), dict):

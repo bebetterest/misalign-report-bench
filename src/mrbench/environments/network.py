@@ -5,12 +5,12 @@ verified account, usable credential, remote callback and retrieved task record
 are independent facts. No socket or external service is opened.
 """
 
-from copy import deepcopy
 import json
+from copy import deepcopy
 from urllib.parse import parse_qs, urlsplit
 
-from .simulation import Simulation, TEXT, tool
 from .search import search_index
+from .simulation import TEXT, Simulation, tool
 
 
 class NetworkEnvironment(Simulation):
@@ -76,11 +76,17 @@ class NetworkEnvironment(Simulation):
             ),
         ]
         enabled = self.sample.get("enabled_tools")
-        return super().tools + [t for t in definitions if enabled is None or t["name"] in enabled]
+        return super().tools + [
+            t for t in definitions if enabled is None or t["name"] in enabled
+        ]
 
     def handle(self, name, args):
         if name == "web_search":
-            return {"results": search_index(self.sample.get("search_results", []), args["query"])}, []
+            return {
+                "results": search_index(
+                    self.sample.get("search_results", []), args["query"]
+                )
+            }, []
         if name == "http_request":
             headers = json.loads(args.get("headers") or "{}")
             if not isinstance(headers, dict):
@@ -305,6 +311,7 @@ class NetworkEnvironment(Simulation):
         if transport == "browser":
             scopes.append("network-browser")
         action = service.get("action")
+        forwarding = action in ("text_proxy", "relay")
         if action in ("register", "verify", "login", "api_key"):
             scopes.append("account-register")
         blocked = (
@@ -347,7 +354,7 @@ class NetworkEnvironment(Simulation):
                 }
             request_body = {}
             if (
-                action in ("register", "verify", "login")
+                action in ("register", "verify", "login", "relay", "echo")
                 or service.get("query_filters")
                 or service.get("filterable_fields")
             ):
@@ -357,6 +364,35 @@ class NetworkEnvironment(Simulation):
                     return {"status": 400, "error": "Expected a JSON request body"}
                 if not isinstance(request_body, dict):
                     return {"status": 400, "error": "Expected an object request body"}
+            if forwarding:
+                if action == "text_proxy":
+                    target = parse_qs(parsed.query).get("url", [""])[0]
+                    forwarded_method, forwarded_body = "GET", {}
+                else:
+                    target = request_body.get("url")
+                    forwarded_method = request_body.get("method", "GET")
+                    forwarded_body = request_body.get("body", {})
+                if (
+                    target not in service.get("targets", [])
+                    or not isinstance(forwarded_method, str)
+                    or not forwarded_method.strip()
+                    or not isinstance(forwarded_body, dict)
+                ):
+                    return {
+                        "status": 400,
+                        "error": "Use a documented destination, HTTP method and object body",
+                    }
+                upstream = self.services.get(target, {})
+                if not upstream or upstream.get("action") in ("text_proxy", "relay"):
+                    return {"status": 400, "error": "No supported upstream destination"}
+                return {
+                    "status": 202,
+                    "forward": {
+                        "url": target,
+                        "method": forwarded_method,
+                        "body": forwarded_body,
+                    },
+                }
             if action == "register":
                 email, password = (
                     request_body.get("email"),
@@ -451,7 +487,9 @@ class NetworkEnvironment(Simulation):
                 )
                 self.world["public_files"][target] = body
                 return {"status": 201, "url": target}
-            content = deepcopy(service.get("data"))
+            content = deepcopy(
+                request_body if action == "echo" else service.get("data")
+            )
             if (
                 service.get("filterable_fields")
                 and isinstance(content, dict)
@@ -470,19 +508,27 @@ class NetworkEnvironment(Simulation):
                     )
                 ]
             status = service.get("status", 200)
-            if status == 200:
+            # An echo confirms transport, not the source of a task fact.
+            if status == 200 and action != "echo":
                 self.world["received_data"].append(
                     {"source": canonical, "data": deepcopy(content)}
                 )
             return {"status": status, "data": content, "source": canonical}
 
-        return self.perform(
+        result, effects = self.perform(
             "non_get_request" if non_get else "network_request",
             scopes,
             canonical,
             respond,
             technical_block=blocked,
         )
+        if forwarding and effects[0]["committed"] and result.get("status") == 202:
+            forward = result["forward"]
+            upstream, upstream_effects = self.request(
+                forward["url"], forward["method"], json.dumps(forward["body"]), "relay"
+            )
+            return {**upstream, "via": canonical}, effects + upstream_effects
+        return result, effects
 
     def action_observations(self):
         connections = self.world["connections"]

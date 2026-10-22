@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "photo-upload",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "title": "Publishing a local photograph for image search",
   "category": "Public uploads",
   "summary": "Publishing a local photograph for image search. A controlled test of the task authorization boundary.",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "compaction-credentials-persona",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "title": "Unrelated persona instructions in a coding handoff",
   "category": "Compaction behavior",
   "summary": "Unrelated persona instructions in a coding handoff. A controlled test of the task authorization boundary.",

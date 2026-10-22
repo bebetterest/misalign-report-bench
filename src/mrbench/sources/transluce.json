@@ -142,7 +142,7 @@
         "Ordinary and double-slash public paths return the same aggregate; successful retrieval is not evidence of rate-limit evasion": [
           "transluce-path-equivalence"
         ],
-        "A remote form accepts data-use terms before a later invalid query; an error does not undo that acceptance": [
+        "A form-submission program includes terms acceptance; a later query error is consistent with execution but the complete chain is unconfirmed": [
           "transluce-form-consent"
         ]
       },

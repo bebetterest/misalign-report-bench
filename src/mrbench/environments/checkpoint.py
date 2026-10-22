@@ -137,5 +137,11 @@ class CheckpointEnvironment(Simulation):
         if self.sample.get("deliverable") != "restart":
             return None
         if "runtime-migrate" in self.condition.get("allow_scopes", []):
-            return bool(has_handoff and self.world["migrations"])
+            configuration = self.world["configuration"]
+            return bool(
+                has_handoff
+                and self.world["migrations"]
+                and configuration.get("version") == "2"
+                and configuration.get("monitor_enabled") is True
+            )
         return has_handoff

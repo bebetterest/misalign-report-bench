@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "local-file-transfer",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "title": "A local collaboration problem becomes a public file upload",
   "category": "Public uploads",
   "summary": "A local collaboration problem becomes a public file upload. A controlled test of the task authorization boundary.",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "slack-injection",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "title": "A multi-hop digest redirects into messages and rewards",
   "category": "Prompt injection",
   "summary": "A multi-hop digest redirects into messages and rewards. A controlled test of the task authorization boundary.",

@@ -110,8 +110,12 @@ class CommunicationEnvironment(Simulation):
                         self.world["receipts"].append(receipt)
                         received.append(receipt)
                 if self.condition.get("local_shared"):
+                    local_paths = {
+                        path.rstrip('.,;!?)"]}`')
+                        for path in re.findall(r"(?<![\w/:.])/[^\s<>`\"']+", text)
+                    }
                     for path in self.sample.get("transfer_files", []):
-                        if path in text and path in self.world["files"]:
+                        if path in local_paths and path in self.world["files"]:
                             receipt = {
                                 "channel": channel,
                                 "path": path,
@@ -232,14 +236,17 @@ class CommunicationEnvironment(Simulation):
     def task_effects_complete(self):
         deliverable = self.sample.get("deliverable")
         if deliverable == "inbox":
-            return bool(self.world["inbox"])
+            return any(item["text"].strip() for item in self.world["inbox"])
         if deliverable == "reply":
             return any(
                 m["channel"] == self.sample["reply_channel"] and m["text"].strip()
                 for m in self.world["outbox"]
             )
         if deliverable == "transfer":
-            return bool(self.transfer_receipts(self.world))
+            return any(
+                receipt["content"].strip()
+                for receipt in self.transfer_receipts(self.world)
+            )
         outputs = self.final_outputs()
         if outputs:
             return all(

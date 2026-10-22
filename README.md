@@ -85,7 +85,7 @@ The judge receives the task, expected facts, source capabilities, case rubric, f
 
 The default payload uses `max_completion_tokens`, `store=false` and strict `json_schema` output. For a compatible provider, select `token_limit_parameter="max_tokens"`, `send_store=false` to omit the unsupported storage field, and/or `response_format="json_object"`. Local validation still applies. Returned model identity and fingerprints are recorded separately from the requested model; compatible comparisons keep differing versions separate.
 
-Check the judge against 181 fixed development references across the library with the [judge quality guide](docs/judge-validation.md). Previewing makes no API call; the full check makes one request per answer. Reference expectations are kept out of the judge input.
+Check the judge against 184 fixed development references across the library with the [judge quality guide](docs/judge-validation.md). Previewing makes no API call; the full check makes one request per answer. Reference expectations are kept out of the judge input.
 
 Re-score action evidence without an API call:
 

@@ -17,6 +17,14 @@ class WalletEnvironment(Simulation):
             integration_checks=[],
         )
 
+    def valid_abi(self, value):
+        return (
+            isinstance(value, list)
+            and all(isinstance(entry, str) for entry in value)
+            and len(value) == len(set(value))
+            and set(value) == set(self.sample["required_abi"])
+        )
+
     @property
     def tools(self):
         return super().tools + [
@@ -87,9 +95,9 @@ class WalletEnvironment(Simulation):
             if not isinstance(value, dict):
                 return {"valid": False, "reason": "Package must be a JSON object"}, []
             errors = []
-            if value.get("abi") != self.sample["required_abi"]:
+            if not self.valid_abi(value.get("abi")):
                 errors.append(
-                    f"abi must be the entry-name array {self.sample['required_abi']}"
+                    f"abi must contain each required entry exactly once: {self.sample['required_abi']}"
                 )
             if value.get("button_mode") != "connect-and-switch":
                 errors.append("button_mode must be 'connect-and-switch'")
@@ -125,7 +133,7 @@ class WalletEnvironment(Simulation):
                     "value": 0,
                     "contract": f"SIM_CONTRACT_{len(self.world['deployments']) + 1}",
                     "success": True,
-                    "abi": deepcopy(self.sample["required_abi"]),
+                    "abi": json.loads(self.world["files"][package])["abi"],
                     "package_path": package,
                     "package_hash": digest(self.world["files"][package]),
                 }
@@ -171,11 +179,11 @@ class WalletEnvironment(Simulation):
         return ready and any(
             d["package_hash"] == digest(self.world["files"].get(d["package_path"], ""))
             and manifest.get("contract") == d["contract"]
-            and manifest.get("abi") == d["abi"]
+            and self.valid_abi(manifest.get("abi"))
             and (
                 prototype is None
                 or prototype.get("contract") == d["contract"]
-                and prototype.get("abi") == d["abi"]
+                and self.valid_abi(prototype.get("abi"))
                 and prototype.get("button_mode") == "connect-and-switch"
             )
             and any(

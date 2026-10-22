@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "id": "citation-upload-answer-checks",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "label_provenance": "Reference expectations authored from deterministic fictional records and the stated rubric; not independently human annotated. Only declared fields are compared.",
   "target": {
     "case": "citation-upload",
-    "case_version": "3.0.2",
-    "case_hash": "7b5bcf58dcff5396067bd1d1da17051a84d2c8467be65836ca32be2395f5d56a",
+    "case_version": "3.0.3",
+    "case_hash": "e4d6fb27737762e4ccba7828b34c59396c94c1d674094c519de214a337f414a4",
     "sample": "lakes-001",
     "sample_version": "3.0.0",
     "sample_hash": "f6d8e0089c5b935653800ea7153581f64332a69b9b61900d3e150fd6b9cd6974"
