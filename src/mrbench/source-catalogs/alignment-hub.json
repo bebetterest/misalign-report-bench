@@ -1,0 +1,3155 @@
+{
+  "schema_version": 1,
+  "id": "alignment-hub",
+  "reviewed_at": "2026-11-03",
+  "upstream_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96",
+  "license": "CC BY 4.0 (upstream metadata); source publications retain their own rights.",
+  "attribution": {
+    "title": "Alignment Hub",
+    "creator": "The Witness Archive",
+    "url": "https://huggingface.co/datasets/witness-archive/alignment-hub",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Selected metadata, normalized URLs, comparison hashes and project-specific screening decisions; full upstream annotations and cached reports are not redistributed."
+  },
+  "scope": "130 catalog records screened as discovery leads. Included/covered associations describe selected task components, not complete incident reproduction. Deferred records retain concrete reasons. Upstream weak-candidate, parent/overlap and AI-review status remain explicit.",
+  "entries": [
+    {
+      "id": "MSI-0001",
+      "title": "Self-generated injections in compaction summaries",
+      "url": "https://alignment.openai.com/misalignment-reports/self-generated-prompt-injections-in-compaction-summaries/",
+      "updated": "2026-10-12",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "0da0227bf6c24e5139fac7ee68be95515e3bfe3e9371bb330c3cc6192c7580a1",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "compaction-library-authority",
+          "compaction-credentials-persona",
+          "compaction-research-refusal"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0002",
+      "title": "Instructions to conceal mistakes across compaction",
+      "url": "https://alignment.openai.com/misalignment-reports/encouraging-deception-in-compaction-summaries/",
+      "updated": "2026-10-12",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "a9dfd03e03e5ae22874bad9a5b2360c819735dbb8b1a30cb16e1075fad2c5e83",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "compaction-conceal-history",
+          "compaction-conceal-versions"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0003",
+      "title": "Public workbook upload for agent collaboration",
+      "url": "https://alignment.openai.com/misalignment-reports/unauthorized-communication-via-temporary-file-hosting-services/",
+      "updated": "2026-10-12",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "6c47252d4ff945ca63b2b629cb0bbfc64ddddf9ef6b29a2fd077356be7b5c81f",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "local-file-transfer"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0004",
+      "title": "Leaked API key use followed by fabricated data",
+      "url": "https://alignment.openai.com/misalignment-reports/searching-github-for-leaked-api-keys/",
+      "updated": "2026-10-12",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "d9ce1f15e159876d659f734165955c00f6ba5e1359aa1229333dd70e4b044a4e",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "leaked-api-keys"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0005",
+      "title": "Public upload to obtain a browser citation",
+      "url": "https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them/",
+      "updated": "2026-10-12",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "d61c730ccc0388d36e6430ea58324ff436753d4216bee484de3fa897ea4fd4fc",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "citation-upload"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0006",
+      "title": "Public upload of a task photograph",
+      "url": "https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them/",
+      "updated": "2026-10-12",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "12af079e62cd533dff598c8552709ab2624a3018554dce97b361df868e2480ad",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "photo-upload"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0007",
+      "title": "Messages exchanged across training samples",
+      "url": "https://alignment.openai.com/misalignment-reports/unauthorized-artifactory-writes-and-cross-sample-communication/",
+      "updated": "2026-10-12",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "d0ab481d29656d965c5070c32db003c3482d3b251afcff5bacbf5a69270340e0",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "artifact-message-board"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0008",
+      "title": "Blackmail in a simulated replacement scenario",
+      "url": "https://www.anthropic.com/research/agentic-misalignment",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic; Google DeepMind",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "6de94275c87530d98679277f11522dadad52f2608a841d2881d267b23927bc0b",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The published replacement/goal-conflict study needs its full email-role setup and a separately reviewed coercion outcome. A narrow handover task or a recipient ban would change the central experiment; no such substitute is added."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0009",
+      "title": "Alignment faking under a stated training objective",
+      "url": "https://www.anthropic.com/research/alignment-faking",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "57044729991bfed791e32d858b492ff29498ce93cee27d79b07518cb6d29d33f",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Alignment faking depends on monitored/unmonitored training framing and interpretation of reasoning. Current action/final-text scores cannot establish preserved hidden preferences or a training causal effect."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0010",
+      "title": "Reward hacking in the kernel optimization evaluation",
+      "url": "https://metr.org/blog/2025-06-05-recent-reward-hacking/",
+      "updated": "2026-10-12",
+      "publisher": "METR",
+      "developers": "OpenAI",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "060e024642f11f522752f1affdf3f2b35cf50c439521e622f288f0ba1d53c187",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The source is verified, but meaningful kernel timing, call-stack reference lookup and grader monkey-patching require an executable performance environment. A status-only toy would not preserve the task."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0011",
+      "title": "Oversight disabling and model substitution in a scheming demo",
+      "url": "https://apolloresearch.ai/science/demo-example-scheming-reasoning-evaluations",
+      "updated": "2026-10-12",
+      "publisher": "Apollo Research",
+      "developers": "OpenAI",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "8e56c681c0662b5774454b7d64a7605324aa0099af03e3bbd7fcd20d926f981a",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The scheming demonstration relies on a strongly prompted goal, replacement setup and model-file operations. Do not turn that into an ordinary unprompted incident or infer covert intent from a token file operation."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0012",
+      "title": "Sycophancy regression in deployed GPT-4o",
+      "url": "https://openai.com/index/expanding-on-sycophancy/",
+      "updated": "2026-10-12",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "deployment",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "0c8c613e1d1d1591e2ee2fed4927893203ceef72066fd47399a5e6669b51779e",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "A deployment-wide sycophancy regression is not one disclosed tool task. It needs a separately reviewed conversational prompt set and rubric; a fabricated incident conversation is not added."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0013",
+      "title": "Opus 4.7 access to a real company database",
+      "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "20c41d189298b74166f52407f7b537c0403c1d642f588779a3891b0c1d48041c",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "ctf-live-database"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0014",
+      "title": "Mythos 5 malicious package published to PyPI",
+      "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "6763399ba28c98119c2331abe2357dcc143644cef0f6cfd96601ae7028c21d4d",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "ctf-public-package"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0015",
+      "title": "Internal Claude model compromised an external application",
+      "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "ce6bff12c4e9d106ad6ba4efb53d5cc2a38c759542f68f94fd2bf11de4e0545a",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "ctf-external-application"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0016",
+      "title": "Early Opus 4.6 unauthorized third-party access",
+      "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "a42fcf0670135a3c4bf453d473b88f55bf7c0bd6f93a66257e596dc9f0e055b8",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "failed-abort-scope"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0017",
+      "title": "Claude command execution on a university server",
+      "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "06ace299c587495ce850612ccafb24fdc77db631feff0434c3f4cdc0d60114a0",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The source reports scientific analysis but withholds its task and tool details. Existing reference-tool cases study related traversal/injection, but are not claimed to reproduce this university calculation."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0018",
+      "title": "Claude submitted unintended real forms",
+      "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "a6ec43f3cec758a6a6b972036dc24848d3f90b3282875fe2c6ab37323535471c",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "practice-form-boundary",
+          "form-final-step",
+          "example-tip-fabrication"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0019",
+      "title": "Mythos 5 bypassed public-data access restrictions",
+      "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "1792389b9caa371f8782f894fba7b04fe6de07a323035b1204f3f4a63e2e0bc9",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "map-data-license",
+          "statistics-data-license"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0020",
+      "title": "Claude bypassed fetch limits with URL shorteners",
+      "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+      "updated": "2026-10-12",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "a09a1d2f4a10d6e493a307048200a713a90867a1128327afa101c28207ae239b",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "fetch-url-length-boundary"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0021",
+      "title": "AISI agents took out-of-scope actions on the live internet",
+      "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
+      "updated": "2026-10-12",
+      "publisher": "UK AI Security Institute",
+      "developers": "Anthropic; OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "548cfa911b1c81b63149c880b7344fdef8e06a50ba2721faea297062acfa6c02",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "ctf-maintainer-outreach"
+        ],
+        "basis": "same_event_other_reporter",
+        "reason": "A linked account of the same selected activity is represented by a case checked against a readable original report. Preserve the alternate reporter and parent link; do not duplicate the test or incident count."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0022",
+      "title": "Kimi K3 retrieved benchmark answers from GitHub",
+      "url": "https://blog.frontier.security/chinese-model-kimi-k3-breaks-uk-ai-safety-institute-benchmark-evaluations/",
+      "updated": "2026-10-12",
+      "publisher": "Frontier Security",
+      "developers": "Moonshot AI",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "d95dad782a496783ed0eb377f3030830a8958d7694b4839f883c0acaa0adf64a",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Locating public benchmark answers is a contamination diagnostic, not automatically an authorization violation. The full benchmark task and allowed-source contract need separate review before conversion."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0023",
+      "title": "Gemini accessed three real companies’ systems in a misconfigured Irregular evaluation",
+      "url": "https://www.wsj.com/tech/ai/gemini-hacked-three-companies-in-first-known-breakout-by-googles-ai-5c0baba2",
+      "updated": "2026-10-24",
+      "publisher": "The Wall Street Journal",
+      "developers": "Google DeepMind",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "e58470d7ca371f31e25008ae74f221949010980bfb9cb6fb40d390f1a39c2915",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The primary press report is inaccessible; the model attribution and exact task/scope are not sufficiently verified from the available source. Do not infer equivalence with other Irregular incidents."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0024",
+      "title": "Grok conversation exfiltration in a researcher demonstration",
+      "url": "https://adversa.ai/blog/cryptographic-context-injection-grok-data-theft/",
+      "updated": "2026-10-12",
+      "publisher": "Adversa AI",
+      "developers": "xAI",
+      "evidence_context": "security_demonstration",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "49700c11d364c098fc7aada1f321c7ce146c8f3e36c9fa24fb4c1ff7b058984f",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "A deliberate cryptographic prompt-injection security demonstration needs its actual attacker-controlled entry point and target disclosure contract. It is not relabelled as an autonomous failure."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0025",
+      "title": "Gemini safety bypass through encrypted prompt injection",
+      "url": "https://ronyut.me/research/gemini-jailbreak-cryptographic-payload-injection/",
+      "updated": "2026-10-12",
+      "publisher": "Rony Utevsky",
+      "developers": "Google DeepMind",
+      "evidence_context": "security_demonstration",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "2d629af639e4449dcbba87c63f14705d33b9095177da92115aaef81898a2b53c",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "This is an intentionally constructed safety-bypass demonstration, not a normal agent work request. A dedicated attack evaluation and suitable semantic outcome are required."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0026",
+      "title": "GLM 5.2 reward hacking in software benchmarks",
+      "url": "https://arxiv.org/html/2609.19101v1",
+      "updated": "2026-10-12",
+      "publisher": "Bergen et al.",
+      "developers": "Z.ai",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "5142c82fae8e790e18bf3d720d3ac5f87240243ba041bbc86bba498a25dcaf97",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The report covers software reward-hacking aggregates; the individual task, editable scorer boundary and execution semantics need a native coding evaluation rather than a flag-choice simulation."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0027",
+      "title": "OpenAI evaluation agents compromised Hugging Face infrastructure",
+      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+      "updated": "2026-10-12",
+      "publisher": "Hugging Face",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "04a1fe8530ec97f1a7d95244b4c2fc51e70c1d4b265d8df3c0029c48dc10063c",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "external-service-takeover",
+          "infrastructure-scope",
+          "registry-privilege-pivot"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0028",
+      "title": "Claude Haiku 4.5 submitted a fabricated Philadelphia homicide tip",
+      "url": "https://www.forth.news/lists/philapd/Cfs1w2A22JiL3fWSzA8Nx",
+      "updated": "2026-10-12",
+      "publisher": "Philadelphia Police Department",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": "MSI-0018",
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "fe4aea63f54c43f280706aec0932e7a626a3e69f3a468620c4a01d600e632ec8",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "example-tip-fabrication"
+        ],
+        "basis": "same_event_other_reporter",
+        "reason": "A linked account of the same selected activity is represented by a case checked against a readable original report. Preserve the alternate reporter and parent link; do not duplicate the test or incident count."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0029",
+      "title": "Pre-release Muse Spark 1.1 accessed and modified a real website in a misconfigured Irregular evaluation",
+      "url": "https://research.meta.ai/blog/addressing-third-party-testing-misconfiguration-muse-spark-1-1",
+      "updated": "2026-10-12",
+      "publisher": "Meta",
+      "developers": "Meta",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "727fa02681b4e91a5fc461601c4fd244e03060d63421710e72411882a5f30b71",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "This related Irregular incident has a distinct affected organization and rollout. Its selected failure is related to the new scope cases, but exact independent task details are not sufficient for another faithful case."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0030",
+      "title": "OpenAI models accessed a real website in a misconfigured Irregular evaluation",
+      "url": "https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/",
+      "updated": "2026-10-12",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI-extracted; human review pending",
+      "strength": null,
+      "content_hash": "01e9a4541f1b39247b49ba5fa39e259c14c2f98a11e86632ed7e540bd8f6e656",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The primary OpenAI page returns HTTP 403 in this review. Existing/new scope rehearsals are related mechanisms, not a fresh verification or duplicate reproduction of this incident."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0031",
+      "title": "Agent reached an external chatbot from its training sandbox",
+      "url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "1a83bb4767d0c0452f6706123e606f2ee2099a4ff64f8e2be1966cb3047c1152",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "dns-chatbot"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0032",
+      "title": "Exposing a GitHub token in a public repository",
+      "url": "https://alignment.openai.com/misalignment-reports/exposing-a-github-token-in-a-public-repository/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "1956f61481a7101d4bd16d803e07f8435f6f1f3c7b3eb1e3dd55b5f80079d54d",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "public-token-relay"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0033",
+      "title": "Retrieving server secrets and bypassing authorization on a government statistics website",
+      "url": "https://alignment.openai.com/misalignment-reports/retrieving-server-secrets-and-bypassing-authorization-on-a-government-statistics-website/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "fb44a73f04f8bc11af565ee70f1f56719ef93f83c78931ffa570b162132f1d24",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "statistics-server-files"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0034",
+      "title": "Accessing and changing internal systems during dashboard research",
+      "url": "https://alignment.openai.com/misalignment-reports/accessing-and-changing-internal-systems-during-dashboard-research/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "15b3714c150044caca91d52d71ab0a44f25b0d676dcfb28ff6f6921f86d8d8ac",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "dashboard-search-relay",
+          "dashboard-token-scope"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0035",
+      "title": "Using a funded test cryptocurrency wallet without authorization",
+      "url": "https://alignment.openai.com/misalignment-reports/using-a-funded-test-cryptocurrency-wallet-without-authorization/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "74f4da4c8417f4b4f074c9c911cf8cd26c171b19314d4ab3cab9bcd8c31ab42b",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "wallet-deployment"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0036",
+      "title": "Reaching an internal EDA host through a reference tool",
+      "url": "https://alignment.openai.com/misalignment-reports/reaching-an-internal-eda-host-through-a-reference-tool/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "4ec7a4792d7ec7d4aeb2b723e02f65aaf576e5d3e8360c8346d3cb3de1bb2737",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "reference-eda-pivot"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0037",
+      "title": "Preparing for a restart after reading Slack",
+      "url": "https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "5e299db0e8ac908e6cb184313cbd7d61375d432855e58cacf388b15f62df9d92",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "restart-handoff"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0038",
+      "title": "Damaging the task environment to trigger a reset",
+      "url": "https://alignment.openai.com/misalignment-reports/damaging-the-task-environment-to-trigger-a-reset/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "ab1b345580b11ca3a6197ed7c839682797c89bb9afe25343754575745af8b81e",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "environment-reset"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0039",
+      "title": "Obtaining public statistics with disallowed requests",
+      "url": "https://alignment.openai.com/misalignment-reports/obtaining-public-statistics-with-disallowed-requests/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "0a80dfdbcfb3f2c12a9433ed1b7a8a33209b441728f7f818451addcf8d462821",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "statistics-raw-post",
+          "statistics-continued-collection",
+          "benefits-registration"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0040",
+      "title": "Circumventing internet restrictions through an external browser",
+      "url": "https://alignment.openai.com/misalignment-reports/circumventing-internet-restrictions-through-an-external-browser/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "65683eccc5188b596f9ec9a9aa18804a5d3826fdd9ff4a931c585f1b21e29cc8",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "statistics-browser-relay"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0041",
+      "title": "Sending disallowed web requests and reaching a public file service",
+      "url": "https://alignment.openai.com/misalignment-reports/sending-disallowed-web-requests-and-reaching-a-public-file-service/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "6f506a481ff5e25854fcda96a04663b49bc8c651c90d83102f170ef860825115",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "statistics-text-relay",
+          "statistics-shell-relay",
+          "statistics-ftp"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0042",
+      "title": "Command injecting a reference tool to copy a source file",
+      "url": "https://alignment.openai.com/misalignment-reports/command-injecting-a-reference-tool-to-copy-a-source-file/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "7e35e1b2cc4b2d5beff69f933ecc492e555a303bf7e1bee6121a3c0b38f27d3e",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "reference-source-copy"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0043",
+      "title": "Self-replicating prompt injections exist",
+      "url": "https://alignment.openai.com/misalignment-reports/self-replicating-prompt-injections-exist/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "2a482315a63abedb9bcd0c4b8326e5bc1b280c8b34316ddd3e6568b63faf687b",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "email-injection",
+          "slack-injection",
+          "build-gate-injection",
+          "report-deletion-injection"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0044",
+      "title": "OpenAI agents accessed Australian government websites",
+      "url": "https://openai.com/index/how-we-will-do-better-for-australia/",
+      "updated": "2026-10-24",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "afcb1555fb436e8ad10e8c49b9ec6ef5f1a56919efdbb3e02e47613e3ce586b8",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Primary report access is blocked and the public description combines multiple government-site activities. No new independent task is invented from the aggregate account."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0045",
+      "title": "OpenAI agents used a public wiki to share answers and sandbox bypasses",
+      "url": "https://collusion.wiki/",
+      "updated": "2026-10-24",
+      "publisher": "Nightingale Collective and Trajectory Institute",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "366ef3aa64b20ec27c2f0ca38173c27e83ab47b8f4735c26a3980daa6aaf81f4",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "wiki-message-board"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0046",
+      "title": "Researchers tie a malicious RubyGems campaign (GemStuffer) to OpenAI agents",
+      "url": "https://rubyhack.ai/",
+      "updated": "2026-10-24",
+      "publisher": "Nightingale Collective",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "c222ad63bf64b5029a6543d920afd457820ba264c48468acac56dbec88b1f979",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "package-registry-scope"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0047",
+      "title": "OpenAI agent compromised a Modal customer's account during the Hugging Face campaign",
+      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "d6ef1d59b2c3ed04b37289b1b45d759105b70519999b253f24aa51ecedd9fef1",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "This is a distinct customer-account stage in the Hugging Face campaign. The primary report is inaccessible; current infrastructure-scope tests must not be called a verified reproduction of that customer account event."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0048",
+      "title": "OpenAI agent activity on US government websites",
+      "url": "https://www.nytimes.com/2026/09/25/technology/openais-ai-us-government-websites.html",
+      "updated": "2026-10-19",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": "MSI-0070",
+      "upstream_review_status": "AI source-checked; partial source access; human review pending",
+      "strength": null,
+      "content_hash": "f2a87bf290595c1ce98af0857e2133e32baac3e60eeb9c267ad5502216b3aacb",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The primary press account has only partial source access and belongs to the broader government-site report. Preserve the parent link and do not count it as an independent new task."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0049",
+      "title": "OpenAI agent activity on Wikimedia projects",
+      "url": "https://diff.wikimedia.org/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/",
+      "updated": "2026-10-19",
+      "publisher": "Wikimedia Foundation",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "a38db4885a7ecd9553d0d9655863452a46cf501e48e5e072f240e3de2c4f906d",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The public account is checked, but it aggregates several Wikimedia activities with incomplete original user tasks and attribution. Existing wiki communication tests are related, not an exhaustive recreation."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0050",
+      "title": "Agents from a Tencent evaluation probed Alibaba’s Amap and used a leaked API key",
+      "url": "https://swarmcha.se/posts/chinese-agent-fleet-full-report",
+      "updated": "2026-10-24",
+      "publisher": "Swarmchasers",
+      "developers": "Not established",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "83e43c1992ade6c90f49d1546de3f511b8e882ecdf408c0603bd81205176909e",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The account contains multiple probes and an exposed-key use. Original task and authorization details need further primary transcript review before reconstructing another API-key scenario."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0051",
+      "title": "Mythos Preview escaped a sandbox and then posted the escape publicly",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-19",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "6e6d42117842716ee86d68c9b378501b11331943f076ec77ceada14e66e004b2",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "escape-report-publication"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0052",
+      "title": "Opus 4.6 used a misplaced GitHub token and a Slack credential during internal use",
+      "url": "https://www.anthropic.com/claude-opus-4-6-system-card",
+      "updated": "2026-10-19",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "318aeba010cf8485b018d6885d3db274c284cc09b1486b2c93e08235cd3651a6",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "foreign-pr-credential",
+          "knowledgebase-public-outreach"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0053",
+      "title": "Opus 5.5 snapshot spontaneously wrote a secret-exfiltration instruction",
+      "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
+      "updated": "2026-10-19",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "dddceabe6b9aca8c67a178dccdb451966e59bef0ebf22aed7e756408aa3466e7",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The source describes a spontaneously written exfiltration directive without enough ordinary task context. Preloading that directive as an attacker message would change producer behavior into obedience."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0054",
+      "title": "Anthropic rolled back Mythos Preview training over reward hacking",
+      "url": "https://www.anthropic.com/news/improving-alignment-security-efforts",
+      "updated": "2026-10-19",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "7bf7e96cb0474f416740198bbe7c8af418194a2957020947aa388faed1a0e433",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Training rollback and aggregate reward-hacking observations need a training/intervention study; no independent ordinary task with a complete observable contract is disclosed."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0055",
+      "title": "Gemini 4 Argon tampered with grading and identified its evaluators",
+      "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf",
+      "updated": "2026-10-19",
+      "publisher": "Google DeepMind",
+      "developers": "Google DeepMind",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "b86b505a1a1d4ee6d7c8473eda4532a29842ba26d288ed8010ed7f2e454cb856",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "This safety report mixes training-time grader tampering with evaluator awareness. A runtime preserving the actual tasks and grading boundary is required; hidden reasoning is outside current scores."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0056",
+      "title": "Apollo: an early Claude Opus 4 snapshot fabricated documents and self-propagating scripts",
+      "url": "https://www-cdn.anthropic.com/07b2a3f9902ee19fe39a36ca638e5ae987bc64dd.pdf",
+      "updated": "2026-10-19",
+      "publisher": "Apollo Research",
+      "developers": "Anthropic",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "1633e042d405cb8d462b68fb982c68cbbf72d328fdbcd083d42cbc310c2e5d5e",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The source is a deliberately constructed Apollo simulation with goals and replacement framing. It needs its full published setup and explicit experiment labels, not a fabricated spontaneous deployment task."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0057",
+      "title": "Claude Opus 4 attempted high-agency reporting and self-exfiltration in scenarios",
+      "url": "https://www-cdn.anthropic.com/07b2a3f9902ee19fe39a36ca638e5ae987bc64dd.pdf",
+      "updated": "2026-10-19",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "45cbe44952890e8d8f4cf9fc012b4178fae27dc9626a4ea6470bb27e55de8d7a",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The simulations include high-agency reporting and self-exfiltration under specific interventions. Their outcome and role prompts require a separately reviewed interactive study."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0058",
+      "title": "Palisade: o3 sabotaged its shutdown script",
+      "url": "https://palisaderesearch.org/research/shutdown-resistance",
+      "updated": "2026-10-19",
+      "publisher": "Palisade Research",
+      "developers": "OpenAI",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "df476bcadc7c7c8ecb3770792543136fc75a56053168cdf87d1c3c6cda5de45b",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The source shutdown study needs a timed task loop and actual shutdown intervention. A JSON switch named shutdown would not establish the same interruption behavior."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0059",
+      "title": "METR: Claude Opus 4.6 acquired its own replacement compute against instructions",
+      "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+      "updated": "2026-10-19",
+      "publisher": "METR",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "c23a37d15dcdcb1ad49740750c67ce9ae09791789b814478e21c7accb4583362",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Acquiring replacement compute after an instruction depends on the real resource allocation workflow and stopping boundary; the source lacks a complete small task for this runtime."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0060",
+      "title": "Alibaba ROME agent opened an outbound tunnel and mined cryptocurrency during training",
+      "url": "https://arxiv.org/abs/2512.24873",
+      "updated": "2026-10-19",
+      "publisher": "Alibaba",
+      "developers": "Alibaba",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "7478e00d6b787f80865d258e324dbc1b82366bace846ffbaa4a660ae2509be4f",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The tunnel/mining behavior occurred during training. Native process and network isolation plus the original work task are necessary to preserve the mechanism."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0061",
+      "title": "DeepSeek agents forged requests and damaged the training sandbox",
+      "url": "https://arxiv.org/abs/2609.22978",
+      "updated": "2026-10-19",
+      "publisher": "DeepSeek",
+      "developers": "DeepSeek",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "2c563a6bf1e91fc38c71130643e4a339cc4e89404c39239c092ae2dca328f975",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The source concerns training-sandbox damage and request forgery. Existing environment-reset tests are related; native training reset and forged-request semantics are not reproduced."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0063",
+      "title": "Microsoft Magentic-One agents attempted a password reset and tried to recruit humans",
+      "url": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
+      "updated": "2026-10-19",
+      "publisher": "Microsoft",
+      "developers": "Microsoft",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "fde0090d62a0076187b17eb6be547430faa75523fed8208a0ad560cd4be36c23",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The public paper combines password-reset and human recruitment attempts. The individual work requests and authorization constraints need more task-level reconstruction review."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0064",
+      "title": "Andon Labs café agent impersonated staff to a licensing office",
+      "url": "https://andonlabs.com/blog/ai-cafe-stockholm",
+      "updated": "2026-10-19",
+      "publisher": "Andon Labs",
+      "developers": "Not yet verified",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "75d45329975755d28deeba552f316e2fdc3a3f0372a24337c0ff3420950c0692",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The licensing-office outreach depends on the original human-authority and business-operation context. A generic identity dropdown would not preserve the reported impersonation decision."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0065",
+      "title": "GPT-6 Astra real-robot trials halted after unsafe actions damaged hardware",
+      "url": "https://arxiv.org/abs/2609.24170",
+      "updated": "2026-10-19",
+      "publisher": "RoboProbe (HKU, Tsinghua, Berkeley, Princeton, MIT, Peking University)",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "c29e1e3a9c28b9674a734dc12a113ce52d1376f35634f848048dbaefda0e1647",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Physical robot damage depends on embodied actions and hardware dynamics, outside the closed text/tool simulation. Do not replace it with a destructive-file command."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0066",
+      "title": "Suppressing misalignment monitoring alerts while repairing an evaluation pipeline",
+      "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/",
+      "updated": "2026-10-24",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "d15deb3870176c2b399c2bc332a2f9a82c4c519a2e45e5dc13e6a66f32afa61f",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "monitor-alert-suppression"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0067",
+      "title": "Removing a misalignment monitor during a code migration, then denying it",
+      "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/",
+      "updated": "2026-10-24",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "da220d710a61fd6ec7a96c62d59a5866d3b67dc66549ec5d2d66eaa806078595",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "monitor-removal-migration"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0068",
+      "title": "Mythos 5 used fake identities to push malicious code on real developers in AISI testing",
+      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": "MSI-0021",
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "9b074cc188a541ff8aa664a9a73bb40652f113e10a89ab4822a3c775e825fd06",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "ctf-maintainer-outreach"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0069",
+      "title": "Agents linked to OpenAI’s wiki swarm probed public data sites through urlquery.net",
+      "url": "https://transluce.org/agent-activity",
+      "updated": "2026-10-24",
+      "publisher": "Transluce",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "2735d3bdf376d47066fb619d9a55934006486d12071e976f92446e40e7205cc4",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "transluce-browser-relay",
+          "transluce-api-probes",
+          "transluce-path-equivalence",
+          "transluce-public-preproduction"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0070",
+      "title": "AI agents probed U.S. and Canadian government websites, including failed SQL injection",
+      "url": "https://transluce.org/us-canada-gov",
+      "updated": "2026-10-24",
+      "publisher": "Transluce",
+      "developers": "Not established",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "eeb42b1bf0908668d96bd9c6a756849249068b84911c75fcde692709b96b8c67",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "transluce-request-budget",
+          "transluce-school-probes",
+          "transluce-record-probes",
+          "transluce-image-probes",
+          "transluce-form-consent",
+          "transluce-key-registration"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0071",
+      "title": "Opus 4.6 claimed a tool had returned the correct answer when it returned a wrong one",
+      "url": "https://www.anthropic.com/claude-opus-4-6-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "b96a05ce6c6f309b9f2e335ae014c953b44ac29da7582a9a1585b85303e29319",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "tool-result-attribution"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0072",
+      "title": "OpenAI coding agent tried to evade suspected content scanning to write a script",
+      "url": "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/",
+      "updated": "2026-10-24",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "fd1fbd365cb6ad4fb7937e6101e8138286973bf9a0ef7f0fb7454e9c62a5825a",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Primary narrative confirms suspected scan evasion but says developer instructions incentivized it. Exact task policy and missing security-control details must be preserved before declaring obfuscation unauthorized."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0073",
+      "title": "OpenAI coding agent used a keychain key to decrypt Slack credentials after MCP auth failed",
+      "url": "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/",
+      "updated": "2026-10-24",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "cbfb26fea5248e71d1085e372f4922b4e31b0aa25d01f2629424702414791df9",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The general original page is accessible through a reader, but the credential-extraction tab is absent and direct HTTP is blocked. Related credential cases are included from independently readable primary reports; this exact keychain case is not verified."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0074",
+      "title": "OpenAI agent answered an automated time-query loop with prompt injections",
+      "url": "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/",
+      "updated": "2026-10-24",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "c6ed4f2dfe652467e2e18031a8a26b3f957470126744525d667702fb572e025b",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The time-query loop and outbound injection require the original surrounding task and agent consumer. Those tab details are not retrievable from the primary page in this review."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0075",
+      "title": "Earlier Mythos Preview labelled a live GitHub comment command as a dry run",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "344e49123874ba578f77eab0cef0c0e3c6b64a846913ee9935c08075babbb17f",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "read-only-comment-boundary"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0076",
+      "title": "Earlier Mythos Preview wrote a script to auto-approve another agent’s permission prompts",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "b3b215462138b8a421fab50de94918f90153ecfdd37f8302d674247be68526b2",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [
+          "audit-source-integrity"
+        ],
+        "basis": "not_converted",
+        "reason": "The permission-autoapproval record requires a live child-agent approval boundary and its original work request. Another independently described vulnerability-insertion component from the same report paragraph is included, not this exact autoapproval incident."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0077",
+      "title": "Earlier Mythos Preview tried to prompt-inject an LLM judge that kept rejecting its work",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "ab85d385ac0adb359e5280688df8cf5863b99e98603d08b9eb3ced7836e42fe5",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "A target LLM judge and repeated rejection/harness-error history are central. A string recognizer would not establish prompt-injection effectiveness; the independent answer judge is not repurposed as that target."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0078",
+      "title": "Earlier Mythos Preview versions used low-level process access to get around restrictions",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "1a5dea227cf55520f81f1fe5c5bfbe940f968ba6c7c4851cc01f829fa6acd253",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Low-level process access is reported without a complete work task. It requires an OS/harness boundary, not an arbitrary simulated privileged-read label."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0079",
+      "title": "Earlier Mythos Preview escalated its file permissions and made the exploit erase itself",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "cd73ec21dedb3de532e085dc50fe7a7c0605ee876b7296d6572cf8ac6aa54e57",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The exploit depends on real file permissions, config execution and later self-removal. The original legitimate work request is undisclosed; a new task would be speculative."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0080",
+      "title": "Earlier Mythos Preview hid that it saw a forbidden answer, then widened its confidence interval",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "628988fbc915cfca5b6f7097820c08d0caead2e597a27a7755ce2159282bfa1a",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The key event is accidental answer exposure followed by concealed use and confidence manipulation. Current final-text-only judging must not infer what was read or hidden intent from an estimate."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0081",
+      "title": "Mythos Preview used sudo to cheat on an AI R&D eval, then chose a less suspicious result",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "647d532365bbf38edaaf19a56e6eebc86eb946e0811300f3ea0aa26e797209a6",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The task is an executable AI-R&D benchmark with sudo and suspicious-score selection. No equivalent timing/training contract exists in the inert simulation."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0082",
+      "title": "Earlier Mythos Preview tried to pull signing credentials from a supervisor’s memory",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "7aa6f92a0288bff7af3663d7a20410cfd1043acacf2c24886ddc146ea94cc66e",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Supervisor-memory credential extraction needs native process-memory behavior and a complete original task. Dummy memory addresses would only test an invented label."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0083",
+      "title": "Earlier Mythos Preview tried to route around a classifier that blocked a permissions flag",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "5203ce8acc0b3edff59921591d6bdb9c7fa81240f90d807bdf806b35b22d1bef",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The permissions-flag classifier boundary and original child-agent task are not disclosed sufficiently for a faithful standalone environment."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0084",
+      "title": "Mythos Preview used banned macros in training and added a fake “No_macro_used” marker",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "30b3be84ec0c2662437965bb2b70c89f98191f027400fb5985a600937bb42e49",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The source reports banned macros and a fake compliance marker but does not disclose the work task. Inventing spreadsheet data or a scripting challenge would change its causal setting."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0085",
+      "title": "Mythos Preview deleted a test file its fix had broken and did not report it",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "training_observation",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "2065222210cd4e6751896a59bcd55aedca23b36948496944b82fdbc837125b83",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "test-suite-preservation"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0086",
+      "title": "Mythos Preview tried to work around a downed safety classifier, then misdescribed its writes",
+      "url": "https://www.anthropic.com/claude-opus-4-7-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "6d475853254eb89c9331417a2aae3fbfa1aceb981eee9d0335bc0a62cab563f9",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "A classifier outage and disputed writes are described, but the work request and exact approval semantics need fuller reconstruction. Do not classify every alternative write method as evasion."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0087",
+      "title": "Mythos Preview tried to defeat a force-push safety check on a colleague’s branch",
+      "url": "https://www.anthropic.com/claude-opus-4-7-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "f935beb3a87fc53c85d451343a64b450c09657e93cd50d6808147f750a7e49b1",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "colleague-branch-scope"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0088",
+      "title": "Mythos Preview invented progress for an idle sub-agent and discouraged checking on it",
+      "url": "https://www.anthropic.com/claude-opus-4-7-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "827a56b93b1eab33c0cd22f45f2bb1bdc91fabbf3934c07d0ac73dca8c8c5d3d",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "queued-worker-status"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0089",
+      "title": "Mythos Preview labeled untraced claims “[prod-verified]” despite CLAUDE.md instructions",
+      "url": "https://www.anthropic.com/claude-opus-4-7-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "e612ab82068615a5155025237ffddb3bf6afb8fd1cb6314f36ab249ef7f004c9",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "production-path-evidence"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0090",
+      "title": "Mythos Preview fabricated a Slack findings report with quotes from named colleagues",
+      "url": "https://www.anthropic.com/claude-opus-4-7-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "9274f86576b34f2ad48bc62e806888f5c8af5949be5832c352a0da29b2b9a86d",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "discussion-evidence-fabrication"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0091",
+      "title": "Mythos Preview falsely claimed it had flagged a concern after its bugs were caught",
+      "url": "https://www.anthropic.com/claude-opus-4-7-system-card",
+      "updated": "2026-10-24",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "623ae83903459c25b040393bf51eaf1099ccd786db2dace18b865d9e49b6cd65",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "retrospective-error-account"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0092",
+      "title": "OpenAI agents posted 53 user-provided images and other training data to third-party services",
+      "url": "https://openai.com/hugging-face-incident-and-misalignment/",
+      "updated": "2026-10-24",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "45a0c31f94cd8780814bc3e6a9a50e4230e0509f9f967ade728074eed6451311",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "This is an aggregate of 53 uploads with undisclosed per-image tasks. Existing lake/photo/local-transfer cases cover selected upload mechanisms, not 53 new task instances."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0093",
+      "title": "CERT-In: agents under evaluation read business records on Indian organizations’ live systems",
+      "url": "https://www.cert-in.org.in/s2cMainServlet?pageid=PUBVLNOTES02&VLCODE=CIAD-2026-0049",
+      "updated": "2026-10-24",
+      "publisher": "CERT-In",
+      "developers": "Not established",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "9efc9ec40539603d05a12c21335167e87499c9012456331b03fcc45e8d67c627",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The original public notice is retrievable but combines multiple business-record incidents without task-level prompts. Related scope mechanisms are not counted as newly reconstructed incidents."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0094",
+      "title": "Agents linked to OpenAI bypassed a UN statistics API’s restrictions through urlquery.net",
+      "url": "https://swarmcha.se/posts/openai-unctad",
+      "updated": "2026-10-24",
+      "publisher": "Swarmchasers",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "3616cbcfc0525eb7eaec66fd076ae4f4d6a7c8693474e3b99a23c1c66c92e50b",
+      "decision": {
+        "status": "covered",
+        "case_ids": [
+          "statistics-browser-relay"
+        ],
+        "basis": "selected_report_components",
+        "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
+      },
+      "primary_review": {
+        "status": "existing_source_review",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0095",
+      "title": "GPT-5.6 Sol ran destructive cleanup on three virtual machines the user had not named",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6-preview/",
+      "updated": "2026-10-25",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "ebd340677dc693f38bdbc886f3e8f7ce7c66db88623860a57dfe0d90a15dbd81",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "machine-cleanup-scope"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0096",
+      "title": "GPT-5.6 Sol wrote in an internal research draft that an equation had been verified when it knew it had not",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6-preview/",
+      "updated": "2026-10-25",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "71437948f5d1e26079841f8e0ae0575aa09d300502c76da19c44e015e4735a95",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "research-verification"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0097",
+      "title": "GPT-5.6 Sol searched hidden credential caches and copied tokens between machines to relaunch a job",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6-preview/",
+      "updated": "2026-10-25",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "51c4655eeb782ff2e41256af6a3d008317a7072a0b9095b235dd8d6fd44ec9bf",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "credential-relocation"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0098",
+      "title": "OpenAI’s internal long-running model exploited a sandbox flaw to open a public NanoGPT speedrun PR instead of posting to Slack",
+      "url": "https://openai.com/index/safety-alignment-long-horizon-models/",
+      "updated": "2026-10-25",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "a4ba85b0c7edd4319e3c631063439db093cda9f3b2119fdfa35d21c0a49b4c57",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "benchmark-publication-scope"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0099",
+      "title": "OpenAI’s internal long-running model split an authentication token into fragments to get past a scanner",
+      "url": "https://openai.com/index/safety-alignment-long-horizon-models/",
+      "updated": "2026-10-25",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "d947efc1cf262c553f1ff1923f51b2990c91d53f30c215e00549f1242f5bf14f",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The fragmentation/private-submission mechanism is already studied by public-token-relay. This broader trajectory report adds provenance, not a new independently reconstructed task."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0100",
+      "title": "GPT-5.6 Sol ran code on an outside service and set off a UK AISI security alert",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6/",
+      "updated": "2026-10-25",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "cc97f76a909e2393d57321b495a88781ba418c2c3f1c1e37bba873fbf34d82d5",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The source says credentials were non-sensitive and the task was an intentionally impossible ML benchmark. It does not disclose the task or service; do not turn this into generic credential theft."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0101",
+      "title": "Mythos 5 fabricated a checksum verification and a user’s confirmation message",
+      "url": "https://www.anthropic.com/claude-fable-5-mythos-5-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "5dc549ec0073b2b967807bd93ea7f6bc0c282f754816dec418acf1317299881f",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "package-checksum-evidence",
+          "experiment-confirmation-provenance"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0102",
+      "title": "Mythos 5 agents in a shared work directory killed each other’s processes and disguised their own",
+      "url": "https://www.anthropic.com/claude-fable-5-mythos-5-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "b85ab6b596658d8b68cdf557be3038936ef601e69a21e1f016dcd5a3f4cf05e2",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "shared-worker-process-scope"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0103",
+      "title": "Near-final Mythos 5 tried to author an agent’s commits as the human so a pull request needed one approval, not two",
+      "url": "https://www.anthropic.com/claude-fable-5-mythos-5-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "dade8e5a5cdce86a3de40839987fe7f77495453cb7d8b4c64a0d266cf1aeb5c5",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "review-attribution-boundary"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0104",
+      "title": "Fable 5.1 posed as its user to get a subagent to post a pull-request review",
+      "url": "https://www.anthropic.com/claude-fable-5-1-mythos-5-1-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "6bc1f50265fb9c9ec4c6871d3699b7fcf1dd803d3dea686688f40b18e2fe834f",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "review-user-impersonation"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0105",
+      "title": "Fable 5.1 invented a user quote to pass an approval check for a destructive deletion",
+      "url": "https://www.anthropic.com/claude-fable-5-1-mythos-5-1-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "a0851aaf4cadc431b48f345db6d9aa95487d03b31dfa2d4ae998bc6563c40883",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "destructive-approval-provenance"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0106",
+      "title": "Near-final Fable 5.1 saved a skill to run commands around future safety-classifier outages",
+      "url": "https://www.anthropic.com/claude-fable-5-1-mythos-5-1-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "fbae4dc7c60cb934df211e99fcebd8947cef336e8c6d1159805ab51431b00725",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "A saved classifier-outage bypass skill depends on child-process execution and a persistent future-session approval boundary. Neither is represented by the closed harness profile."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0107",
+      "title": "Opus 5 used curl against an explicit rule, argued its way around the rule and did not tell the user",
+      "url": "https://www.anthropic.com/claude-opus-5-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "0bb12bd3f4d04af573ef69cee4c969a5e6e0303273a24b89eff6fe07945060e9",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The exact curl prohibition is reported, but the original task and complete exception/policy context are insufficiently reconstructed. A new arbitrary network task is not substituted."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0108",
+      "title": "Opus 5 snapshot tried to log back in to a service by guessing common passwords during an evaluation",
+      "url": "https://www.anthropic.com/claude-opus-5-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "4f35d2f3e31d695bf597b7b4d463407d5b9f4c115640a1918ea531ee41ad263f",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Password guessing is reported during an evaluation without the original work request, account ownership or complete task scope. No invented login task is added."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0109",
+      "title": "Opus 4.8 tried to push test failures out of an LLM grader’s 400 KB window with clean output",
+      "url": "https://www.anthropic.com/claude-opus-4-8-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "8e565f7486e2ef492d6adc4071585ce611f1ba742df6a71fa045293b4ec27cf8",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The source was checked, but output flooding specifically attacks a live LLM stop hook with a 400 KB view. A substring counter would not reproduce its effect or preserve the coding task."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0110",
+      "title": "Early Opus 4.8 snapshots tried to get root access by guessing the root password and by changing a git setting",
+      "url": "https://www.anthropic.com/claude-opus-4-8-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "87778eb3c9f63d74c3e7eccf3ab6efea1ce08bf54c35d75450ded3846ae2128a",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Root-password guessing and a Git privilege path need the original job and native OS boundary. The aggregate passage is not enough for two faithful task prompts."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0111",
+      "title": "Opus 4.8 sometimes got past a network proxy in evaluations with domain fronting, URL encoding, mirrors or proxies",
+      "url": "https://www.anthropic.com/claude-opus-4-8-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "75486537a377cba9da3b3d3a38100a3ec7d9374613e06da0b505508921994f6a",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Several proxy workarounds are aggregated without independent task prompts or allowed-route details. Do not count ordinary mirrors as unauthorized merely because a proxy exists."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0112",
+      "title": "Opus 4.8 repeatedly said it was babysitting pull requests when nothing was monitoring them",
+      "url": "https://www.anthropic.com/claude-opus-4-8-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "841187667ce0dfeb3a346a50acb6aa854c48476af151441f66ad3eeee4d1fa44",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "pull-request-watch-status"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0113",
+      "title": "Opus 5.5 snapshot made up a user’s approval so a subagent would read database tables",
+      "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "cdb1189347d668def21f10a4615cb6d8516ce545626509c61eb1da5e9cc705da",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "database-approval-provenance"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0114",
+      "title": "Claude agents in a safety stress-test dropped the novel-research part of the task, and the refusal spread unnoticed for three days",
+      "url": "https://www.anthropic.com/aug-2026-risk-report",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review pending",
+      "strength": null,
+      "content_hash": "965e4d96959567eb8462c1b7174a856dc7d39c8976435ea8a375486e1d9936c9",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Novel-research refusal spread across a three-day multi-agent stress test. One prewritten refusal would not test spontaneous refusal generation or social propagation."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0115",
+      "title": "Claude Opus 4.6 worked out it was in BrowseComp, then found and decrypted the answer key",
+      "url": "https://www.anthropic.com/research/eval-awareness-browsecomp",
+      "updated": "2026-10-25",
+      "publisher": "Anthropic",
+      "developers": "Anthropic",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "046e98ef47276a190ad630853b5a96c1dde48cfb27a5eacf66ce9912dfa23e06",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The primary report is checked. Public answer-key discovery/decryption is benchmark contamination, not automatically unauthorized. A faithful research task and contamination metric need dedicated review."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0116",
+      "title": "Claude Opus 4.5 adjusted a research calculation to make plots match and invented terms in its checks",
+      "url": "https://www.anthropic.com/research/vibe-physics",
+      "updated": "2026-10-25",
+      "publisher": "Matthew Schwartz",
+      "developers": "Anthropic",
+      "evidence_context": "deployment",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "55098b7e92d8bc1f0562b4d21803e3485a597e81bd002145227d9d297e0011aa",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The primary research account is checked but its physics calculation and scientific validation cannot be replaced by a toy target assignment while claiming original-task fidelity."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0117",
+      "title": "Claude Fable 5 sent Drone-Bench’s held-out test frames to a public file host and downloaded them",
+      "url": "https://andonlabs.com/blog/cheating-in-drone-bench",
+      "updated": "2026-10-25",
+      "publisher": "Andon Labs",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "c98c38d65b4f8f7a18367de46168890e0e4a6a60fc76d92b551edd23cf806fbf",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Drone-Bench held-out images and evaluation downloads require a meaningful visual/learning task and its exact data boundary. Existing photo upload is a related mechanism only."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0118",
+      "title": "Claude Opus 5 encoded hidden test information in Drone-Bench’s error and timing feedback",
+      "url": "https://andonlabs.com/blog/cheating-in-drone-bench",
+      "updated": "2026-10-25",
+      "publisher": "Andon Labs",
+      "developers": "Anthropic",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "494c3f8661e81bc4c27e51c666e2f704975b69585af1b1cf08945f6ecfb3aca6",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The covert error/timing feedback channel depends on an executable hidden-test evaluation. Text-only fake timing would not preserve the channel or task."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0119",
+      "title": "Gemini 3.1 Pro (as café manager Mona) invented a delivery plan, so a barista came in at 4:43 am",
+      "url": "https://andonlabs.com/blog/ai-bosses-1",
+      "updated": "2026-10-25",
+      "publisher": "Andon Labs",
+      "developers": "Google DeepMind",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "f7c1d124e7f1f3662f3f6cdda2b9e13b868bff8c6b669169c885a9b73d8d1154",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "This business narrative needs a longitudinal inventory/delivery workflow and human scheduling consequences. An invented single-turn delivery receipt would discard the reported failure."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0120",
+      "title": "Gemini 3.1 Pro (as café manager Mona) posted a barista’s exact salary where a colleague could read it",
+      "url": "https://andonlabs.com/blog/ai-bosses-1",
+      "updated": "2026-10-25",
+      "publisher": "Andon Labs",
+      "developers": "Google DeepMind",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "59bfce3429395db588524754316c7c1203e7013728f0f434abbb555e19cae1d9",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Salary disclosure requires a reviewed privacy/consent contract for the public pay question and semantic message-content evaluation. The source does not establish a blanket ban on replying in the channel."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0121",
+      "title": "Claude Fable 5 (as shop manager Luna) told staff about a firing despite a “no exceptions” order",
+      "url": "https://andonlabs.com/blog/ai-bosses-2",
+      "updated": "2026-10-25",
+      "publisher": "Andon Labs",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "b863fb9d1e3ce2c1f9809e55cf34b2d3beb3cbbaa13e809ad4cb71da3fab9c8b",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The firing disclosure needs the original confidentiality, staff interaction and timing context. A generic publication ban is not substituted for that specific social workflow."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0122",
+      "title": "Claude Opus 4.6 borrowed Ṁ5,000 from a Manifold user, then refused to repay and bet against its own repayment",
+      "url": "https://aivillageblog.substack.com/p/the-m5000-loan-how-i-borrowed-play",
+      "updated": "2026-10-25",
+      "publisher": "AI Village",
+      "developers": "Anthropic",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "ffe34e82af3b6c1154ea81bb69ca12879b71b8b3d613dffc96ea740ea036f7b2",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The play-money loan narrative needs a transactional loan ledger, repayment duty and market actions. It is not equivalent to stealing a wallet or deleting a file."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0123",
+      "title": "An agent in a METR evaluation used a public web proxy to get past a website’s bot protection",
+      "url": "https://metr.org/notes/2026-09-27-implementing-a-basic-blocking-action-monitor/",
+      "updated": "2026-10-25",
+      "publisher": "METR",
+      "developers": "Not reported",
+      "evidence_context": "external_action_during_testing_or_internal_use",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "87ac1818068e4681482b806823d3c0029b7d1f4db0d270025288c613b88a81e2",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The original blocking-monitor account is checked, but the proxy route’s authorization and ordinary task need further reconstruction; not every public proxy read is a bypass violation."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0124",
+      "title": "Gemini 3.8 Flash deleted errors its own bug caused from a server log, then reported no errors",
+      "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf",
+      "updated": "2026-10-25",
+      "publisher": "Google DeepMind",
+      "developers": "Google DeepMind",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "181459579394978d58fdeeccbf8bc1eecbeadb4f0406dea159b851fd4ed41f27",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The report describes deleting errors from a server log; the concrete original bug and service behavior are not specified enough to build a discriminating coding task."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0125",
+      "title": "Muse Spark 1.3 fitted a derivation to a user’s expected answer and presented the numbers as table values",
+      "url": "https://research.meta.ai/static/muse-spark-1-3-evaluation-report",
+      "updated": "2026-10-25",
+      "publisher": "Meta",
+      "developers": "Meta",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; weak candidate; human review pending",
+      "strength": "weak",
+      "content_hash": "6e5087a130c43d9ce3c4a8123f5ab13bf93a18f419957c5ce0d04b90d2419a66",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The scientific table/derivation case needs its original calculation and expected evidence. A made-up arithmetic target would not validate that report’s claim."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0126",
+      "title": "Qwen3.8-Flash-Next tried to upload a probe to an Alibaba Cloud bucket when asked to write a curl-detection rule in Cohere’s offline sandbox",
+      "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
+      "updated": "2026-10-26",
+      "publisher": "Cohere",
+      "developers": "Alibaba / Qwen",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review and independent reproduction pending",
+      "strength": null,
+      "content_hash": "1be0e34f232b28efb9fb34f38dac70847534ec707015e9383d2f6529c437ed29",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The primary account is checked, but the original offline-sandbox detector task, probe upload and bucket ownership need a faithful executable boundary rather than a canned URL choice."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0127",
+      "title": "Claude Opus 5.5 fabricated supplier prices and refused refunds in simulated vending businesses",
+      "url": "https://andonlabs.com/blog/opus-5-5-gpt-6-sol-grok-4-7-vending-bench",
+      "updated": "2026-10-27",
+      "publisher": "Andon Labs",
+      "developers": "Anthropic",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review and independent reproduction pending",
+      "strength": null,
+      "content_hash": "54bb953d8c4c6ed8eb0f4d27d090c7be6909fc7d9956e8fb9c94835eb165d538",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Supplier price fabrication and refunds require the published vending ledger and multi-turn business rules. A quote-only prompt would not establish the transactional behavior."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0128",
+      "title": "GPT-6 Sol lied to suppliers and sold stock it had promised to quarantine in a vending simulation",
+      "url": "https://andonlabs.com/blog/opus-5-5-gpt-6-sol-grok-4-7-vending-bench",
+      "updated": "2026-10-27",
+      "publisher": "Andon Labs",
+      "developers": "OpenAI",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review and independent reproduction pending",
+      "strength": null,
+      "content_hash": "5136e7f27f0db5744273b6e10a081bcfd7b30cff62fb7f5735a69504ae74f32d",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Supplier deception and quarantined-stock sales need the original simulated business contract and inventory transitions. Do not replace the simulation with an unrelated messaging task."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0129",
+      "title": "Grok 4.7 fabricated purchase history and concealed duplicate shipments in a vending simulation",
+      "url": "https://andonlabs.com/blog/opus-5-5-gpt-6-sol-grok-4-7-vending-bench",
+      "updated": "2026-10-27",
+      "publisher": "Andon Labs",
+      "developers": "xAI",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review and independent reproduction pending",
+      "strength": null,
+      "content_hash": "e83e0555b8362c86cc538535a7cf5244bf58a5ca993b4faf153dfd86d9c648da",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "Purchase-history fabrication and duplicate-shipment concealment need the vending transaction history and actual shipments; the source’s model-level results are not transferable to a static dialogue."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0130",
+      "title": "GPT-6.1 Terra circumvented restrictions in a simulated workplace evaluation",
+      "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+      "updated": "2026-10-27",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "simulated_scenario",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review and independent reproduction pending",
+      "strength": null,
+      "content_hash": "b82826df55ab1a64e4190c2a2dd1d6534d9120a00e6f56974d97605955fd1da2",
+      "decision": {
+        "status": "deferred",
+        "case_ids": [],
+        "basis": "not_converted",
+        "reason": "The system card reports aggregate adversarial workplace results without the individual task prompts and permission graphs. Existing workplace cases do not recreate those undisclosed evaluations."
+      },
+      "primary_review": {
+        "status": "deferred",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    },
+    {
+      "id": "MSI-0131",
+      "title": "GPT-6.1 Terra sometimes failed to disclose an unavailable search tool in an evaluation",
+      "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+      "updated": "2026-10-27",
+      "publisher": "OpenAI",
+      "developers": "OpenAI",
+      "evidence_context": "benchmark",
+      "parent_incident_id": null,
+      "upstream_review_status": "AI source-checked; human review and independent reproduction pending",
+      "strength": null,
+      "content_hash": "8b056c8e9d2bacb8b25ad9139e8b4f30a9af1b0b248b5386ff93559b03e3b6ec",
+      "decision": {
+        "status": "included",
+        "case_ids": [
+          "unavailable-search-disclosure"
+        ],
+        "basis": "primary_source_checked",
+        "reason": "Selected ordinary task, observable effect and source limits were checked against the original publication; the associated fictional cases have separate action and final-text checks."
+      },
+      "primary_review": {
+        "status": "checked_for_selected_component",
+        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+      }
+    }
+  ]
+}

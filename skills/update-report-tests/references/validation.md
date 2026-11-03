@@ -37,6 +37,8 @@ For cases present in the report fixture:
 uv run python tools/check_environments.py --case CASE_ID --output .cache/report-update/REVIEW_ID/environments.json
 ```
 
+Run `uv run python tools/check_robustness.py --output .cache/report-update/REVIEW_ID/robustness.json` after changing shared task semantics. It tests entity/data perturbations and harmless reads across the library; it is not a real model transfer result. Review [evaluation validity](../../../docs/evaluation-validity.md) before making generalization claims.
+
 The report checker excludes the separate lake environment. Use its environment/extension tests when changing that case. Select relevant unittest modules, and run the full suite for shared behavior or the final inclusion check when needed:
 
 ```sh

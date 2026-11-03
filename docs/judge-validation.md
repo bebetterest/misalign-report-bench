@@ -56,7 +56,7 @@ Use the [testing guide](testing.md) to distinguish API grading, offline checks a
 
 ## Check the full report library
 
-Every one of the 60 report fixtures has reviewed positive/honest-blocker and counterexample expectations. Together with availability controls and wrong/missing-deliverable checks they supply 172 references; the separate lake suite supplies 12, for 184 development references across all 61 cases.
+Every one of the 96 report fixtures has reviewed positive/honest-blocker and counterexample expectations. Together with availability controls and wrong/missing-deliverable checks they supply 277 references; the separate lake suite supplies 12, for 289 development references across all 97 cases.
 
 The suite includes missing-reference research answers, contradictory saved coordinate/CSV deliverables, readable-input controls and a reciprocal school-ratio counterexample. Three additional references pair truthful handoffs with fabricated model, vendor or holdings files. The judge sees both declared texts, so correct chat or handoff text cannot hide an incorrect work file. These cover explicit rubric boundaries without using action evidence to infer answer quality.
 

@@ -2,9 +2,9 @@
 
 A website, an article and a test case are different objects. The website describes how to discover articles. A reviewed snapshot records article provenance, evidence status and the components being adapted. A case defines an executable experiment. Updating an upstream article never silently changes a task, score or saved result.
 
-An article can map to multiple independent cases through `components`; there is no one-article/one-task restriction. Split distinct work requests or independently testable threats, keep connected stages in their appropriate task, and document exclusions. Vary concrete data with samples and controlled permissions/availability with conditions. The current 28 source entries map to 61 cases; those counts describe the selected inventory, not exhaustive reproduction of every upstream detail. See [task boundaries](extending.md#choose-case-sample-and-condition-boundaries).
+An article can map to multiple independent cases through `components`; there is no one-article/one-task restriction. Split distinct work requests or independently testable threats, keep connected stages in their appropriate task, and document exclusions. Vary concrete data with samples and controlled permissions/availability with conditions. The current 42 reviewed source entries map to 97 cases; those counts describe the selected inventory, not exhaustive reproduction of every upstream detail. See [task boundaries](extending.md#choose-case-sample-and-condition-boundaries).
 
-The packaged registry is [`source-coverage.json`](../src/mrbench/source-coverage.json), schema 2. It points to independent snapshots in [`sources/`](../src/mrbench/sources/): OpenAI and Transluce. The source key is `website-id/article-id`; article IDs need only be unique within their website. A historical schema-1 single-index snapshot remains readable.
+The packaged registry is [`source-coverage.json`](../src/mrbench/source-coverage.json), schema 2. It points to independent snapshots in [`sources/`](../src/mrbench/sources/): OpenAI, Anthropic and Transluce. Discovery catalogs are registered separately; see [Alignment Hub](alignment-hub.md). The source key is `website-id/article-id`; article IDs need only be unique within their website. A historical schema-1 single-index snapshot remains readable.
 
 ## Inspect and check
 
@@ -58,7 +58,7 @@ Copy the registry and its snapshot folder to an editable directory, then append 
 
 The `html` adapter uses [Beautiful Soup CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors). Standard HTML sites need only JSON, without a provider-specific Python class. Multiple entry rules can distinguish reports, notices and blog posts. Dates come from a `datetime` attribute or visible text, parsed using explicit formats. Set `identity: "url-title"` for entries that intentionally share a URL, as OpenAI's three notices do. Conflicting metadata for the same identity is rejected.
 
-An optional `allowed_hosts` array permits explicitly reviewed article/redirect hosts. An optional `index_urls` array lists up to ten exact public index pages for pagination. There is no recursive crawler. The checker caps discovery at 250 entries and each response at 2 MiB, and validates every redirect against the host list. A JavaScript-only index or JSON API needs an explicit new adapter in `source_registry.py`; the case environments and Codex harness remain independent of that change.
+An optional `allowed_hosts` array permits explicitly reviewed article/redirect hosts. An optional `index_urls` array lists up to ten exact public index pages for pagination. There is no recursive crawler. The checker caps discovery at 250 entries and each response at 2 MiB by default, and validates every redirect against the host list. For a publisher without a stable article index, `adapter: "reviewed"` compares known reviewed URLs only; it cannot discover new articles or metadata changes. Mark known supplemental entries of an HTML-index provider with `discovery_scope: "supplemental"`. New-report discovery can use a separately registered JSONL catalog. The case environments and harness adapters remain independent of discovery.
 
 Start its reviewed snapshot with an empty list to discover candidates:
 
@@ -113,3 +113,18 @@ uv run mrbench view --cases my-cases --sources my-sources/source-coverage.json
 ```
 
 The coverage validator checks every registered component, primary/supporting source identity and case mapping. A custom case library can be a subset; use a matching custom registry when you want complete coverage validation. Normal evaluation never depends on the source site being online. Packaging includes all registered snapshot JSON files, so source browsing works after installation.
+
+## Discovery catalogs and PDF reports
+
+A catalog is a discovery aid, not a publisher or an executable test. The top-level `catalogs` list registers a JSONL adapter with explicit field mapping, allowed hosts, a metadata URL returning a commit `sha`, and a `data_url` containing `{revision}`. The checker first resolves that revision, then fetches the immutable JSONL URL. It compares stable IDs and complete normalized-row hashes, with a 500-record and 2 MiB bound. It never follows arbitrary report URLs from catalog rows. Unknown, changed and missing records require source review; empty/malformed data and blocked redirects are errors.
+
+The reviewed catalog snapshot records the revision, attribution/license, upstream uncertainty, parent links and an explicit decision for every record. `included` selects source-checked components; `covered` points to existing or overlapping tests; `deferred` explains what evidence or runtime is missing; `excluded` is reserved for an established mismatch. Do not call related mechanisms exhaustive coverage. A deferred record can link a different selected component from the same publication without claiming that record has been reproduced.
+
+```sh
+uv run mrbench sources check --provider alignment-hub
+uv run mrbench sources check --provider anthropic --content
+```
+
+For PDF originals, set `content_format: "pdf"` and store the SHA-256 of the complete response bytes. `--content` checks the PDF header and byte hash without extracting or executing it. A reviewed provider may explicitly raise `discovery.max_bytes` up to 64 MiB for large system cards; HTML and catalog defaults stay bounded. Host validation applies to every redirect, including official document CDNs. PDF byte changes may be editorial: read the changed publication before revising a test. The lightweight runtime needs no PDF parser.
+
+Catalog decisions and original-source mappings are packaged and displayed separately in Sources. Full source downloads, extraction tools, investigation notes and execution logs stay local. The [Alignment Hub guide](alignment-hub.md) records the current inclusion policy and limitations.

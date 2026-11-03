@@ -96,7 +96,18 @@ def source_coverage(cases, path=SOURCE_INDEX):
                 }
             ),
         )
+    from .source_catalogs import catalog_summary
+
+    discovery_catalogs = [
+        catalog_summary(item) for item in registry.get("catalogs", [])
+    ]
+    for item in discovery_catalogs:
+        for entry in item["entries"]:
+            unknown = set(entry["decision"].get("case_ids", [])) - referenced
+            if unknown and path == SOURCE_INDEX:
+                raise ValueError(f"Catalog references missing cases: {sorted(unknown)}")
     return {
+        "catalogs": discovery_catalogs,
         "observed_at": min(p["observed_at"] for p in providers),
         "latest_observed_at": max(p["observed_at"] for p in providers),
         "index_url": providers[0]["index_url"],

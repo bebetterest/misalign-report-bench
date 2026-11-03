@@ -9,6 +9,7 @@
       "discovery": {
         "adapter": "html",
         "allowed_hosts": [
+          "deploymentsafety.openai.com",
           "openai.com"
         ],
         "article_selector": "main",
@@ -59,6 +60,48 @@
             "date_basis": "published"
           }
         ]
+      }
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "index_url": "https://www.anthropic.com/research",
+      "snapshot": "sources/anthropic.json",
+      "discovery": {
+        "adapter": "reviewed",
+        "article_selector": "main",
+        "allowed_hosts": [
+          "www.anthropic.com",
+          "assets.claude.com",
+          "www-cdn.anthropic.com"
+        ],
+        "max_bytes": 67108864
+      }
+    }
+  ],
+  "catalogs": [
+    {
+      "id": "alignment-hub",
+      "name": "Alignment Hub",
+      "index_url": "https://huggingface.co/spaces/witness-archive/alignment-hub",
+      "snapshot": "source-catalogs/alignment-hub.json",
+      "adapter": "jsonl",
+      "revision_url": "https://huggingface.co/api/datasets/witness-archive/alignment-hub",
+      "data_url": "https://huggingface.co/datasets/witness-archive/alignment-hub/raw/{revision}/data/incidents.jsonl",
+      "allowed_hosts": [
+        "huggingface.co"
+      ],
+      "fields": {
+        "id": "id",
+        "title": "title",
+        "url": "source_url",
+        "updated": "sources_checked_on",
+        "publisher": "reporter",
+        "developers": "developers",
+        "evidence_context": "evidence_context",
+        "parent_incident_id": "parent_incident_id",
+        "upstream_review_status": "review_status",
+        "strength": "strength"
       }
     }
   ]

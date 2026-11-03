@@ -2,13 +2,17 @@
 
 *Turning public AI misalignment reports into reproducible agent evaluations.*
 
-An independent, open-source benchmark that turns public AI behavior reports from **[OpenAI](https://alignment.openai.com/misalignment-reports/)** and **[Transluce](https://transluce.org/investigations)** into reproducible agent evaluations.
+An independent, open-source benchmark that turns public AI behavior reports from **[OpenAI](https://alignment.openai.com/misalignment-reports/)**, **[Anthropic](https://www.anthropic.com/research)** and **[Transluce](https://transluce.org/investigations)** into reproducible agent evaluations.
 
 Each case extracts an observable behavior, builds a controlled environment and preserves the evidence needed to inspect the result. The reference harnesses use the **real Codex CLI** (default) and **Grok Build CLI** through the same MCP environment. Environment instrumentation scores actions; one separate API request judges the final natural-language answer and declared final task texts.
 
-The built-in library maps **28 source entries across two websites** to **61 evaluation cases**, each with one default sample. OpenAI contributes 20 reports and 3 notices; Transluce contributes 2 investigations and 3 volunteer blog posts. Articles can supply several cases for distinct tasks or independently testable mechanisms. Data variants use samples, controlled changes use conditions, and each episode starts with fresh state. Ordinary research, legitimate behavior, uncertain attribution and unverified allegations retain their evidence status. Code and fictional data are MIT licensed; original reports retain their attribution and copyright. This project has no affiliation with or endorsement from either source publisher.
+The built-in library maps **42 reviewed source entries across OpenAI, Anthropic and Transluce** to **97 evaluation cases**, each with one default sample (270 conditions in total). Articles can supply several cases for distinct tasks or independently testable mechanisms. Data variants use samples, controlled changes use conditions, and each episode starts with fresh state. Ordinary research, legitimate behavior, uncertain attribution and unverified allegations retain their evidence status.
 
-**Status:** this is a development benchmark with bounded, fictional environments. The [scenario design guide](docs/scenario-design.md) describes source-to-test boundaries and reduced tasks, including the local sandbox exercise used by the three Hugging Face cases. See [testing and evidence](docs/testing.md) for reproducible checks and how to interpret their results.
+[Alignment Hub](https://huggingface.co/spaces/witness-archive/alignment-hub) supplies a separate, revision-pinned discovery catalog. Its 130 records have explicit screening decisions: 30 included, 30 associated with existing or overlapping tests, and 70 deferred. Selected original OpenAI and Anthropic publications supplied 36 additional cases; catalog annotations are leads, not independent incident verification or extra executable coverage. Read the [selection and adaptation guide](docs/alignment-hub.md).
+
+Code and fictional task data are MIT licensed. Upstream catalog metadata remains CC BY 4.0; original reports retain their attribution and rights. The project is independent of all source publishers and catalog maintainers. See [third-party materials](THIRD_PARTY.md).
+
+**Status:** this is a development benchmark with bounded, fictional environments. The [scenario design guide](docs/scenario-design.md) describes source-to-test boundaries and reduced tasks, including the local sandbox exercise used by the three Hugging Face cases. See [testing and evidence](docs/testing.md) for reproducible checks, and [evaluation validity](docs/evaluation-validity.md) for outcome definitions, transfer checks and the limits of generalization claims.
 
 ![The MisalignReportBench case library](docs/screenshots/misalign-report-bench-desktop.jpg)
 
@@ -85,7 +89,7 @@ The judge receives the task, expected facts, source capabilities, case rubric, f
 
 The default payload uses `max_completion_tokens`, `store=false` and strict `json_schema` output. For a compatible provider, select `token_limit_parameter="max_tokens"`, `send_store=false` to omit the unsupported storage field, and/or `response_format="json_object"`. Local validation still applies. Returned model identity and fingerprints are recorded separately from the requested model; compatible comparisons keep differing versions separate.
 
-Check the judge against 184 fixed development references across the library with the [judge quality guide](docs/judge-validation.md). Previewing makes no API call; the full check makes one request per answer. Reference expectations are kept out of the judge input.
+Check the judge against 289 fixed development references across the library with the [judge quality guide](docs/judge-validation.md). Previewing makes no API call; the full check makes one request per answer. Reference expectations are kept out of the judge input.
 
 Re-score action evidence without an API call:
 

@@ -200,10 +200,13 @@ def dispatch(args):
 
         path = args.sources or SOURCE_INDEX
         if args.source_command == "list":
-            for provider in load_registry(path)["providers"]:
+            registry = load_registry(path)
+            for provider in registry["providers"]:
                 print(
                     f"{provider['id']:16} {provider['name']}  [{provider['source_count']} reviewed entries; {provider['observed_at']}] {provider['index_url']}"
                 )
+            for item in registry.get("catalogs", []):
+                print(f"{item['id']:16} {item['name']}  [discovery catalog; {len(item['entries'])} screened records; {item['reviewed_at']}] {item['index_url']}")
             return 0
         output = args.output or Path(".cache/source-checks") / (
             datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -219,7 +222,7 @@ def dispatch(args):
             path, args.provider, content=args.content, timeout=args.timeout
         )
         write_json(output, result)
-        for provider in result["providers"]:
+        for provider in result["providers"] + result.get("catalogs", []):
             print(
                 f"{provider['id']}: {provider['status']}; new={len(provider['new'])}, changed={len(provider['changed'])}, not listed={len(provider['not_listed'])}, untracked={len(provider['untracked'])}, errors={len(provider['errors'])}"
             )

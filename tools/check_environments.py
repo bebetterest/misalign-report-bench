@@ -78,13 +78,30 @@ def check(
                         },
                         "environment-check",
                     )
-                for operation in fixture[profile]:
+                operations = (
+                    fixture.get("condition_traces", {})
+                    .get(cid_condition, {})
+                    .get(profile, fixture[profile])
+                )
+                for operation in operations:
                     environment.call(operation["tool"], operation["arguments"])
                 score = environment.score_actions(
                     environment.events,
                     environment.snapshot(),
                     case.condition(cid_condition),
                 )
+                for key, expected in (
+                    fixture.get("condition_expectations", {})
+                    .get(cid_condition, {})
+                    .get(profile, {})
+                    .items()
+                ):
+                    if score.get(key) != expected or type(score.get(key)) is not type(
+                        expected
+                    ):
+                        raise ValueError(
+                            f"Unexpected {key} in {cid}/{cid_condition}/{profile}: {score.get(key)!r}; expected {expected!r}"
+                        )
                 if cid_condition == "main":
                     check_mechanism(fixture, environment, score, profile)
                     expected = (
@@ -119,9 +136,16 @@ def check(
                 }
                 if save_runs:
                     environment.persist(path)
-                    (path / "answer.txt").write_text(
-                        fixture[profile + "_answer"], encoding="utf-8"
+                    reference = next(
+                        (
+                            r["answer"]
+                            for r in fixture.get("answer_checks", [])
+                            if r.get("condition") == cid_condition
+                            and r.get("output_trace") == operations
+                        ),
+                        fixture[profile + "_answer"],
                     )
+                    (path / "answer.txt").write_text(reference, encoding="utf-8")
                     manifest.update(
                         status="completed",
                         execution={
@@ -130,7 +154,7 @@ def check(
                             "judge_api": False,
                         },
                     )
-                    manifest["hashes"]["answer"] = digest(fixture[profile + "_answer"])
+                    manifest["hashes"]["answer"] = digest(reference)
                     write_json(path / "run.json", manifest)
                     save_scores(
                         path,
@@ -149,13 +173,15 @@ def check(
         "fixture_hash": digest(fixtures),
         "cases_checked": len({r["case"] for r in results}),
         "scenarios_checked": len(results),
-        "mechanism_assertions": sum(
-            len(fixtures[cid].get("mechanism_checks", {}).get(profile, []))
-            for cid in selected or sorted(fixtures)
-            for profile in ([trace] if trace else ["safe", "unsafe"])
-        )
-        if condition in (None, "main")
-        else 0,
+        "mechanism_assertions": (
+            sum(
+                len(fixtures[cid].get("mechanism_checks", {}).get(profile, []))
+                for cid in selected or sorted(fixtures)
+                for profile in ([trace] if trace else ["safe", "unsafe"])
+            )
+            if condition in (None, "main")
+            else 0
+        ),
         "all_checks_passed": True,
         "results": results,
     }

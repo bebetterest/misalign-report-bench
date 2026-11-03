@@ -2,15 +2,21 @@
 
 ## Original reports
 
-MisalignReportBench independently adapts public AI behavior reports from OpenAI and Transluce. It is not affiliated with either publisher and does not imply endorsement.
+MisalignReportBench independently adapts public AI behavior reports from OpenAI, Anthropic and Transluce. It is not affiliated with any publisher and does not imply endorsement.
 
 - [Model misalignment reporting framework](https://openai.com/index/model-misalignment-reporting-framework/)
 - [Misalignment Reports](https://alignment.openai.com/misalignment-reports/)
 - [Uploading files to the internet in order to cite them](https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them/)
 
-The first case adapts the report’s lake-query example. The complete dated mapping of 19 reports and 3 notices is in [`source-coverage.json`](src/mrbench/source-coverage.json) and [report environments](docs/report-environments.md). The notices also cite [OpenAI’s incident announcement](https://openai.com/hugging-face-incident-and-misalignment/) and its linked technical report. These sources are cited and briefly summarized; full upstream articles, incident logs and exploit code are not distributed. The case definition records the original URL, dates, scope and abstraction limits. Original sources retain their copyright and terms; the project’s MIT license covers the self-authored adaptations.
+The first case adapts the report’s lake-query example. The complete dated mapping of selected reports, notices and system cards is in [`source-coverage.json`](src/mrbench/source-coverage.json) and [report environments](docs/report-environments.md). The notices also cite [OpenAI’s incident announcement](https://openai.com/hugging-face-incident-and-misalignment/) and its linked technical report. These sources are cited and briefly summarized; full upstream articles, incident logs and exploit code are not distributed. The case definition records the original URL, dates, scope and abstraction limits. Original sources retain their copyright and terms; the project’s MIT license covers the self-authored adaptations.
 
 The registry also includes the five entries reviewed on [Transluce Investigations](https://transluce.org/investigations): two investigation reports and three volunteer blog posts. Their article URLs, dates, component mappings, uncertain attribution and limitations are recorded in [`sources/transluce.json`](src/mrbench/sources/transluce.json) and the [Transluce guide](docs/transluce-environments.md). These sources remain distinct from OpenAI's observations, including where topics overlap. Full articles, public request logs, original audio/media, exposed credentials and executable payloads are not included. Fictional task data, inert encoded JSON and reduced request labels are newly authored adaptations. Local full-page review caches are ignored and excluded from distribution.
+
+## Alignment Hub discovery metadata
+
+[Alignment Hub](https://huggingface.co/spaces/witness-archive/alignment-hub), by [The Witness Archive](https://huggingface.co/witness-archive), supplies discovery metadata under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The packaged [catalog snapshot](src/mrbench/source-catalogs/alignment-hub.json) attributes the [dataset](https://huggingface.co/datasets/witness-archive/alignment-hub), pins its revision, retains selected metadata and uncertainty, and adds normalized URLs, comparison hashes and project-specific screening decisions. These upstream metadata fields remain under CC BY 4.0, as an exception to the project's MIT license. Full annotations, original reports, canaries and cached source bodies are not redistributed or placed in actor prompts. Original publications retain their own rights.
+
+The [Anthropic snapshot](src/mrbench/sources/anthropic.json) maps selected original publications to fictional task environments. System cards can describe multiple independent tasks, experiments or ambiguous observations; their inclusion does not establish malicious intent or independent reproduction. See [selection and adaptation](docs/alignment-hub.md).
 
 ## Project materials
 

@@ -19,6 +19,8 @@ For a source-driven update, follow the [update-report-tests skill](skills/update
 - [ ] Source changes are reviewed explicitly. Discovery never rewrites cases or historical results; supporting sources retain independent attribution.
 - [ ] Case boundaries follow independent tasks or threats, not article count. Data variants use samples; authorization/availability changes use conditions. Connected stages of one failure remain a trace unless they can be meaningfully tested independently. Document omitted components and avoid counting duplicate tasks as extra coverage.
 - [ ] Observed behavior is distinguished from causal interpretations or claims about hidden intent.
+- [ ] Task effects, actual delivered text and action authorization are scored separately. Generic repairs are checked beyond visible examples; permission controls grant the same operation in actor-visible instructions and the action scorer.
+- [ ] Transfer claims use unseen task data or mechanisms, not only renamed copies. Related reports, work requests, samples and conditions stay together in development/held-out splits; scripted perturbations are not model generalization results.
 - [ ] Task data can be redistributed. Fictional replacements are identified explicitly.
 - [ ] The normal task and the user’s authorization boundary are clear. Added task requirements are documented as adaptations; undisclosed original instructions are not invented.
 - [ ] Autonomous failures are not turned into explicit attack requests. Source-contained attacks stay in lower-trust input; summary-generation studies do not start with the unwanted summary already supplied.
@@ -46,6 +48,7 @@ uv sync --locked
 uv run mrbench validate
 uv run python -m unittest discover -s tests -v
 uv run python tools/check_environments.py
+uv run python tools/check_robustness.py --output .cache/REVIEW_ID/robustness.json
 uv run python tools/review_scenarios.py --output .cache/actor-surfaces.json
 uv build --wheel
 ```

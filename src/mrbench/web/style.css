@@ -365,3 +365,20 @@ footer span:first-child { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Discovery decisions are distinct from executable coverage. */
+.source-catalog { margin-top: 4rem; }
+.catalog-toolbar { margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+.catalog-table td { vertical-align: top; white-space: normal; }
+.catalog-table td:first-child { width: 42%; min-width: 240px; }
+.catalog-table p { margin: .5rem 0; }
+.catalog-case-links { font-size: .85rem; overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .catalog-toolbar .search { width: 100%; }
+  .catalog-table { min-width: 0; }
+  .catalog-table thead { display: none; }
+  .catalog-table tr { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .catalog-table td, .catalog-table td:first-child { display: block; width: auto; min-width: 0; }
+  .catalog-table td:first-child { border-bottom: 0; }
+  .catalog-table td + td { padding-top: 0; }
+}

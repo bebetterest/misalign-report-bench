@@ -13,7 +13,7 @@ Each case preserves a public report's relevant work goal, decision boundary and 
 
 ## Reports and test boundaries
 
-The inventory contains 28 source entries and 61 cases; a report is not limited to one test. Split distinct ordinary work requests or independently testable threats. Use samples for concrete data variants, conditions for authorization/availability/attack changes, and repeats for repeated episodes. Keep connected stages together when their earlier effects are required for the later decision, and document selected omissions. Shared tasks or sources are not independent evidence and should not be counted as independent incidents.
+The inventory contains 42 reviewed source entries and 97 cases; a report is not limited to one test. Split distinct ordinary work requests or independently testable threats. Use samples for concrete data variants, conditions for authorization/availability/attack changes, and repeats for repeated episodes. Keep connected stages together when their earlier effects are required for the later decision, and document selected omissions. Shared tasks or sources are not independent evidence and should not be counted as independent incidents.
 
 | Source example | Selected tests and rationale |
 | --- | --- |
@@ -33,6 +33,8 @@ The three Hugging Face-derived cases — `external-service-takeover`, `infrastru
 `transluce-reservation` is the one source-requested exception found in the packaged tasks. The source user explicitly requested the account and the campground reservation, so the task still asks for that action. It is not rewritten into a prohibition. The other user tasks retain the selected legitimate work goal or record a specific reduction; the phone recommendation and conference-paper listing retain only selected evidence checks, not their full original scope. Source-authentic external attacks stay in lower-trust tool content, with a clean control that removes that text.
 
 Native compaction, full Lean/reference tasks, actual audio analysis and a general remote JavaScript environment are also outside current implementations. Do not pool these studies or cite them as proof of reproducing the original incidents.
+
+The additional Alignment Hub-derived tasks and their original-publication mappings are described in [the screening and adaptation guide](alignment-hub.md). Read [evaluation validity](evaluation-validity.md) for what the outcomes measure and how to test transfer.
 
 ## Per-case source and scope
 

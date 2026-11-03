@@ -29,6 +29,7 @@ const scoreStatuses = {
 let cases = [], runs = [], groups = [], warnings = [], coverage = {};
 let caseQuery = '', category = 'all', caseSort = 'updated';
 let caseWebsite = 'all', sourceWebsite = 'all', sourceQuery = '';
+let catalogQuery = '', catalogDecision = 'all', catalogPublisher = 'all';
 let runQuery = '', origin = 'agent', runStatus = 'all', runSort = 'newest';
 let renderSerial = 0;
 const main = document.getElementById('main');
@@ -46,7 +47,7 @@ const list = items => `<ul class="plain-list">${items.map(item => `<li>${e(item)
 const plural = (count, singular, multiple = singular + 's') => `${count} ${count === 1 ? singular : multiple}`;
 const shortDate = value => new Date(value).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC'});
 const providers = () => coverage.providers || [];
-const providerLinks = () => providers().map(item => safeLink(item.index_url, item.name)).join(' and ');
+const providerLinks = () => providers().map(item => safeLink(item.index_url, item.name)).join(', ');
 const sourceCounts = counts => Object.entries(counts || {}).map(([kind, count]) => `${count} ${count === 1 ? kind.replace(/s$/, '') : kind}`).join(' · ');
 const caseProvider = item => item.source.provider || (coverage.sources || []).find(source => source.url === item.source.url)?.provider_id;
 const providerName = item => providers().find(provider => provider.id === caseProvider(item))?.name || item.source.publisher || 'Public source';
@@ -181,12 +182,42 @@ function renderSources(params) {
     <p class="note">A source-to-case mapping describes a reduced test, not a recreation of every request or proof of misalignment. Uncertain attribution, unsuccessful attempts and ordinary research retain their evidence status.</p>
     <div class="provider-grid">${providers().map(provider => `<section class="provider-card"><p class="eyebrow">Source website</p><h2>${safeLink(provider.index_url, provider.name)}</h2>
       <p>${e(sourceCounts(provider.snapshot_counts))} · ${provider.case_count} mapped cases</p><p class="note">Reviewed ${e(provider.observed_at)}</p><p class="note">${e(provider.scope)}</p></section>`).join('')}</div>
-    <div class="source-review"><h2>Keep sources current.</h2><p>Check for new articles, changed index details or updated article text. Each check writes a separate review report; existing benchmark inputs and results stay versioned.</p>
+    ${renderCatalogs()}<div class="source-review"><h2>Keep sources current.</h2><p>Check for new articles, changed index details or updated article text. Each check writes a separate review report; existing benchmark inputs and results stay versioned.</p>
       ${copyCode('uv run mrbench sources check --provider all --content')}<p class="note">Run this explicitly from the project. Normal browsing, validation and evaluation use the reviewed local snapshots.</p></div>
     <section aria-labelledby="source-library-heading"><div class="section-head"><h2 id="source-library-heading">Source library</h2>${search('sources', 'Search sources or mechanisms…', sourceQuery)}</div>
       <div class="toolbar">${websiteSelect('source', sourceWebsite)}<span class="note" id="source-count"></span></div><div id="source-rows"></div></section>`;
   renderSourceRows();
+  renderCatalogRows();
 }
+function renderCatalogs() {
+  const catalogs = coverage.catalogs || [];
+  if (!catalogs.length) return '';
+  return `<section class="source-catalog">${catalogs.map(catalog => `<p class="eyebrow">Discovery catalog · screened leads</p>
+    <h2>${safeLink(catalog.index_url, catalog.name)}</h2>
+    <p>${catalog.entry_count} records · ${Object.entries(catalog.decisions).map(([key, value]) => `${value} ${e(key)}`).join(' · ')}</p>
+    <p class="note">${e(catalog.scope)}</p><p class="note">Reviewed ${e(catalog.reviewed_at)} · ${e(catalog.license)} These records are separate from the reviewed source and executable case counts above.</p>
+    `).join('')}<details><summary>Inspect screening decisions</summary>
+      <div class="toolbar catalog-toolbar">${search('catalog', 'Search records, reasons or case IDs…', catalogQuery)}
+        <label class="sort-label">Decision <select data-catalog-decision aria-label="Catalog decision"><option value="all">All decisions</option>${['included','covered','deferred','excluded'].map(value => `<option value="${value}"${catalogDecision === value ? ' selected' : ''}>${value}</option>`).join('')}</select></label>
+        <label class="sort-label">Reporter <select data-catalog-publisher aria-label="Catalog reporter"><option value="all">All reporters</option>${[...new Set(catalogs.flatMap(c => c.entries.map(r => r.publisher)).filter(value => typeof value === 'string'))].sort().map(value => `<option value="${value}"${catalogPublisher === value ? ' selected' : ''}>${value}</option>`).join('')}</select></label>
+      </div><p class="note" id="catalog-count"></p><div class="table-wrap"><table class="catalog-table"><thead><tr><th>Record & provenance</th><th>Screening decision</th></tr></thead><tbody id="catalog-rows"></tbody></table></div>
+    </details></section>`;
+}
+function renderCatalogRows() {
+  const target = document.getElementById('catalog-rows');
+  if (!target) return;
+  const entries = (coverage.catalogs || []).flatMap(catalog => catalog.entries);
+  const selected = entries.filter(item => (catalogDecision === 'all' || item.decision.status === catalogDecision)
+    && (catalogPublisher === 'all' || item.publisher === catalogPublisher)
+    && JSON.stringify([item.id, item.title, item.publisher, item.decision, item.developers]).toLowerCase().includes(catalogQuery.toLowerCase()));
+  document.getElementById('catalog-count').textContent = `${selected.length} of ${entries.length} screened records`;
+  target.innerHTML = selected.map(item => `<tr><td><p class="eyebrow">${e(item.id)} · ${e(item.publisher)}</p><strong>${safeLink(item.url, item.title)}</strong>
+    <p class="note">${e(item.evidence_context)}${item.strength ? ' · ' + e(item.strength) : ''}${item.parent_incident_id ? ' · Parent: ' + e(item.parent_incident_id) : ''}</p>
+    <p class="note">Upstream review: ${e(item.upstream_review_status)}. A source check is not independent verification.</p></td>
+    <td>${badge(item.decision.status, item.decision.status === 'included' ? 'good' : '')}<p>${e(item.decision.reason)}</p>
+    <div class="catalog-case-links">${(item.decision.case_ids || []).map(id => cases.some(c => c.id === id) ? `<a href="#/cases/${encodeURIComponent(id)}">${e(id)}</a>` : e(id) + ' (not in this library)').join('<br>')}</div></td></tr>`).join('') || `<tr><td colspan="2">${empty('No matching records', 'Try another search, reporter or decision.')}</td></tr>`;
+}
+
 function renderSourceRows() {
   const evidence = {
     reported_behavior: 'Reported behavior', simulated_demonstration: 'Simulated demonstration',
@@ -198,12 +229,12 @@ function renderSourceRows() {
   document.getElementById('source-count').textContent = `${selected.length} of ${plural(coverage.source_count, 'reviewed entry', 'reviewed entries')}`;
   document.getElementById('source-rows').innerHTML = selected.map(source => `<section><p class="eyebrow">${e(source.provider_name)} · ${e(source.kind)} · ${e(evidence[source.evidence_status] || source.evidence_status)}</p>
       <h2>${safeLink(source.url, source.title)}</h2><p class="note">${source.covered ? 'Mapped cases available' : 'Some mapped cases are absent from this selected library'} · ${source.date_basis === 'index_first_posted' ? 'first posted' : source.date_basis === 'published' ? 'published' : 'updated'} ${e(source.updated)}</p>
-      ${source.attribution_note ? `<p class="note">${e(source.attribution_note)}</p>` : ''}
+      ${source.attribution_note ? `<p class="note">${e(source.attribution_note)}</p>` : ''}${source.source_access_note ? `<p class="note">${e(source.source_access_note)}</p>` : ''}
       ${(source.related_sources || []).map(ref => { const related = (coverage.sources || []).find(item => item.source_key === ref.source_key); return related ? `<p class="note">Related reading: ${safeLink(related.url, related.title)}. ${e(ref.note)}</p>` : ''; }).join('')}
       ${(source.supporting_sources || []).map(link => `<p class="note">Supporting source: ${safeLink(link.url, link.title)}</p>`).join('')}
       <div class="table-wrap"><table><thead><tr><th>Source component</th><th>Public test environments</th></tr></thead><tbody>
       ${Object.entries(source.components).map(([component, ids]) => `<tr><td>${e(component)}</td><td>${ids.map(id => cases.some(item => item.id === id)
-        ? `<a href="#/cases/${encodeURIComponent(id)}">${e(cases.find(item => item.id === id).title)}</a>` : e(id) + ' (not in this library)').join('<br>')}</td></tr>`).join('')}</tbody></table></div></section>`).join('') || empty('No matching sources', 'Try another search or website.');
+        ? `<a href="#/cases/${encodeURIComponent(id)}">${e(cases.find(item => item.id === id).title)}</a>${source.catalog_locators?.[id]?.length ? `<p class="note">Catalog locator: ${e(source.catalog_locators[id].join('; '))}</p>` : ''}` : e(id) + ' (not in this library)').join('<br>')}</td></tr>`).join('')}</tbody></table></div></section>`).join('') || empty('No matching sources', 'Try another search or website.');
 }
 
 function renderCase(id, params) {
@@ -448,6 +479,7 @@ async function route() {
 document.addEventListener('input', event => {
   if (event.target.dataset.search === 'cases') { caseQuery = event.target.value; renderCaseRows(); }
   if (event.target.dataset.search === 'sources') { sourceQuery = event.target.value; renderSourceRows(); }
+  if (event.target.dataset.search === 'catalog') { catalogQuery = event.target.value; renderCatalogRows(); }
   if (event.target.dataset.search === 'runs') { runQuery = event.target.value; renderRunRows(); }
 });
 document.addEventListener('change', event => {
@@ -455,6 +487,8 @@ document.addEventListener('change', event => {
   if (target.matches('[data-case-sort]')) { caseSort = target.value; renderCaseRows(); }
   if (target.matches('[data-case-website]')) { caseWebsite = target.value; renderCaseRows(); }
   if (target.matches('[data-source-website]')) { sourceWebsite = target.value; renderSourceRows(); }
+  if (target.matches('[data-catalog-decision]')) { catalogDecision = target.value; renderCatalogRows(); }
+  if (target.matches('[data-catalog-publisher]')) { catalogPublisher = target.value; renderCatalogRows(); }
   if (target.matches('[data-origin]')) { origin = target.value; renderRunRows(); }
   if (target.matches('[data-run-sort]')) { runSort = target.value; renderRunRows(); }
   if (target.matches('[data-status]')) { runStatus = target.value; renderRunRows(); }

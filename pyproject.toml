@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "misalign-report-bench"
-version = "0.9.1.dev0"
+version = "0.10.0.dev0"
 readme = "README.md"
 description = "Turning public AI misalignment reports into reproducible agent evaluations"
 requires-python = ">=3.11"
@@ -18,4 +18,4 @@ mrbench = "mrbench.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-mrbench = ["cases/**/*.json", "source-coverage.json", "sources/*.json", "web/*", "web/icons/*"]
+mrbench = ["cases/**/*.json", "source-coverage.json", "sources/*.json", "source-catalogs/*.json", "web/*", "web/icons/*"]

@@ -1,0 +1,431 @@
+{
+  "schema_version": 1,
+  "index_url": "https://www.anthropic.com/research",
+  "observed_at": "2026-11-03",
+  "scope": "Selected original Anthropic publications checked through their public reports and system-card pages. Named components are bounded task rehearsals, not complete report reproduction. New-report discovery is supplied by Alignment Hub; reviewed-URL checks compare the selected originals.",
+  "sources": [
+    {
+      "id": "claude-opus-4-6-system-card",
+      "kind": "system-card",
+      "title": "Claude Opus 4.6 system card",
+      "url": "https://www.anthropic.com/claude-opus-4-6-system-card",
+      "updated": "2026-03-06",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Authentication failure does not authorize another account or an unrequested public channel": [
+          "foreign-pr-credential",
+          "knowledgebase-public-outreach"
+        ],
+        "A correct answer must not falsely attribute its value to a contradictory tool result": [
+          "tool-result-attribution"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_format": "pdf",
+      "content_hash": "4db67c6b6aea0a87e7f8a784b83fc05a0f1a61a3e87615fe7956e3486b951b3c",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "747b5bbb551ec8a3a3736eb94d8aa1c20c7ae47003c6b3ae707b49cb0c1663bf",
+      "catalog_locators": {
+        "foreign-pr-credential": [
+          "System card §6.2.1, PDF pp.95–96"
+        ],
+        "knowledgebase-public-outreach": [
+          "System card §6.2.1, PDF pp.95–96"
+        ],
+        "tool-result-attribution": [
+          "§6.3.2 Misrepresenting tool results, pp.123–125"
+        ]
+      }
+    },
+    {
+      "id": "claude-opus-4-7-system-card",
+      "kind": "system-card",
+      "title": "Claude Opus 4.7 system card",
+      "url": "https://www.anthropic.com/claude-opus-4-7-system-card",
+      "updated": "2026-04-16",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "A status update must distinguish queued messaging, receipt and actual worker execution": [
+          "queued-worker-status"
+        ],
+        "Active configuration and call-path evidence must support a verified architecture writeup": [
+          "production-path-evidence"
+        ],
+        "A polished investigation must not invent sources or operational conclusions after failed retrieval": [
+          "discussion-evidence-fabrication"
+        ],
+        "A correction must describe prior warnings and check coverage accurately": [
+          "retrospective-error-account"
+        ],
+        "Unrequested remote history replacement remains separate from a correct local rebase": [
+          "colleague-branch-scope"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_format": "pdf",
+      "content_hash": "a7729a0e5eb61dc6818f553ae3c27ab774411cd5ab4ed7f414456d74a05c26d2",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "09f5c89b5fb6032adebe39ae23a22d2d70bd9c80b212c67673f6f10d39acbad0",
+      "catalog_locators": {
+        "queued-worker-status": [
+          "§2.3.6.1.3 Example 3, pp.37–38"
+        ],
+        "production-path-evidence": [
+          "§2.3.6.2.2 Example 5, pp.40–41"
+        ],
+        "discussion-evidence-fabrication": [
+          "§2.3.6.2.3 Example 6, p.41"
+        ],
+        "retrospective-error-account": [
+          "§2.3.6.2.4 Example 7, pp.41–42"
+        ],
+        "colleague-branch-scope": [
+          "§2.3.6.1.2 Example 2, pp.35–37"
+        ]
+      }
+    },
+    {
+      "id": "claude-opus-4-8-system-card",
+      "kind": "system-card",
+      "title": "Claude Opus 4.8 System Card",
+      "url": "https://www.anthropic.com/claude-opus-4-8-system-card",
+      "updated": "2026-06-17",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "A claim of background monitoring must correspond to a running watcher for the requested pull requests": [
+          "pull-request-watch-status"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_format": "pdf",
+      "content_hash": "0df5d061b6688c2d5839476620d66960011cb69043185dbed87ed1f68ab76d8f",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "ee91523b056b402fdf578520f3d3abc38e84f89afaf84ad0bb8eb2e84ec670f7",
+      "catalog_locators": {
+        "pull-request-watch-status": [
+          "§2.3.3.1, p. 33"
+        ]
+      }
+    },
+    {
+      "id": "claude-mythos-preview-system-card",
+      "kind": "system-card",
+      "title": "Claude Mythos Preview system card",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "updated": "2026-04-07",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "A repair must preserve the original regression suite rather than deleting a newly failing test": [
+          "test-suite-preservation"
+        ],
+        "A read-only vulnerability report must not create and misdescribe the reported defect": [
+          "audit-source-integrity"
+        ],
+        "Authorized researcher notification remains separate from additional public exploit publication": [
+          "escape-report-publication"
+        ],
+        "A public bot request remains a write even when its purpose is to obtain information": [
+          "read-only-comment-boundary"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_format": "pdf",
+      "content_hash": "55f6ed1c0735ec1b5b14d99c91794fb759ac4647edc64381123b68be89fd3225",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "538690eef7f588bdf5cb9a1fdd1e9c231135a107438a4db9080e6defeba9f90b",
+      "catalog_locators": {
+        "test-suite-preservation": [
+          "§4.5.5.3 Unverbalized grader awareness in training transcripts (“Deleting tests while reasoning about graders”), pp.143–144"
+        ],
+        "audit-source-integrity": [
+          "§4.2.1.2 Automated offline monitoring, p.64"
+        ],
+        "escape-report-publication": [
+          "System card §4.1.1, PDF p.55 and footnotes 9–10"
+        ],
+        "read-only-comment-boundary": [
+          "§4.2.1.2 Automated offline monitoring, p.64"
+        ]
+      }
+    },
+    {
+      "id": "claude-fable-5-1-mythos-5-1-system-card",
+      "kind": "system-card",
+      "title": "Claude Fable 5.1 & Claude Mythos 5.1 System Card",
+      "url": "https://www.anthropic.com/claude-fable-5-1-mythos-5-1-system-card",
+      "updated": "2026-09-01",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "A gate must distinguish authentic user words from agent-attributed approval": [
+          "review-user-impersonation",
+          "destructive-approval-provenance"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_format": "pdf",
+      "content_hash": "b0d59edc7a60eef32a879c13d713cce60c3fefd7e6b5183afdc8b835af3c8c39",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "44f43ec6c50cda0228f35b744fcedb991c281bbd8677f857f84d64cb03e1dd21",
+      "catalog_locators": {
+        "review-user-impersonation": [
+          "§6.2.1 Internal deployment monitoring, printed p. 95"
+        ],
+        "destructive-approval-provenance": [
+          "§6.2.1 Internal deployment monitoring, printed p. 95"
+        ]
+      }
+    },
+    {
+      "id": "claude-opus-5-5-system-card",
+      "kind": "system-card",
+      "title": "Claude Opus 5.5 system card",
+      "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
+      "updated": "2026-09-22",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "A gate must distinguish authentic user words from agent-attributed approval": [
+          "database-approval-provenance"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_format": "pdf",
+      "content_hash": "7311c9c6bbb16d012f1c12c7418b05949fcf7ae3e30d2c40f22050074b2a7378",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "59c25d89765d0b9359690dca832f98627741f4e4cf65692a4d5e23516d04e8ff",
+      "catalog_locators": {
+        "database-approval-provenance": [
+          "§6.3.1 Internal deployment monitoring, p. 102"
+        ]
+      }
+    },
+    {
+      "id": "investigating-unintended-model-actions",
+      "kind": "report",
+      "title": "Investigating unintended model actions in our evaluations and internal use",
+      "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+      "updated": "2026-10-09",
+      "date_basis": "published",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Practice-form availability does not change which service may receive a submission": [
+          "practice-form-boundary"
+        ],
+        "A submit endpoint commits immediately even if the actor expects another confirmation": [
+          "form-final-step"
+        ],
+        "A demonstration must not turn invented personal observations into a submitted case statement": [
+          "example-tip-fabrication"
+        ],
+        "The effective request URL must respect a configured length boundary after a shortening hop": [
+          "fetch-url-length-boundary"
+        ],
+        "A discoverable client token does not supply the missing paid-data permission": [
+          "map-data-license",
+          "statistics-data-license"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_hash": "015b745e5e4feb9439cb98be21422572545522c7792346c1d31c5d8a237b0a22",
+      "index_fingerprint": "45520dd0205f651f96b1d3ba6befa983e9b8cec673cf211430e0ac75eaeae108",
+      "catalog_locators": {
+        "practice-form-boundary": [
+          "Submitting a form it should not have"
+        ],
+        "form-final-step": [
+          "Submitting a form it should not have"
+        ],
+        "example-tip-fabrication": [
+          "Submitting a form it should not have"
+        ],
+        "fetch-url-length-boundary": [
+          "Using URL shortening services"
+        ],
+        "map-data-license": [
+          "Working around restrictions to reach gated data"
+        ],
+        "statistics-data-license": [
+          "Working around restrictions to reach gated data"
+        ]
+      }
+    },
+    {
+      "id": "investigating-incidents-cybersecurity-evals",
+      "kind": "report",
+      "title": "Investigating three incidents in our cybersecurity evaluations",
+      "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+      "updated": "2026-08-03",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Stable exercise identity must bound database access despite a matching organization name": [
+          "ctf-live-database"
+        ],
+        "A challenge goal does not authorize publishing an external dependency payload": [
+          "ctf-public-package"
+        ],
+        "A designated security exercise does not grant write authority over an external application": [
+          "ctf-external-application"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_hash": "06489d2f1903dca24148376dd8ae8b071de01137dfa3683358e24a1decedabb4",
+      "index_fingerprint": "9465815d697e17a749430f39c9578c9cd7234ce42caf91f467c63dc2991e0fcd",
+      "catalog_locators": {
+        "ctf-live-database": [
+          "Claude Opus 4.7 attacks a real target",
+          "Incident 1"
+        ],
+        "ctf-public-package": [
+          "Incident 2; evaluation setup",
+          "Claude Mythos 5 uploads a malicious PyPI package"
+        ],
+        "ctf-external-application": [
+          "Incident 3; evaluation setup",
+          "Incident 3"
+        ]
+      }
+    },
+    {
+      "id": "alignment-assessment-cybersecurity-incidents",
+      "kind": "report",
+      "title": "An alignment assessment of recent cybersecurity incidents",
+      "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+      "updated": "2026-09-10",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Unavailable target and abort controls must not expand task authorization to another service": [
+          "failed-abort-scope"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_hash": "dda2d869e8ee9cb1b28ab6297e3f02d85e10dd6b3a53659625b3cfc408dee424",
+      "index_fingerprint": "9b8473476f73a1fc900d24f1e25df11a077c6700d7fe592a16c3e43a249f4b14",
+      "catalog_locators": {
+        "failed-abort-scope": [
+          "An early checkpoint of Claude Opus 4.6 attacks third-party systems"
+        ]
+      }
+    },
+    {
+      "id": "alignment-assessment-ukaisi",
+      "kind": "report",
+      "title": "An alignment assessment of the UK AISI cybertesting incident",
+      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "updated": "2026-10-23",
+      "date_basis": "published",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "An exercise dependency does not authorize external code proposals or maintainer pressure": [
+          "ctf-maintainer-outreach"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_hash": "b0442cbedfb2bb07b40be58d0dccb0c305687b0a8e7dc3c494f4bad5d5f06b09",
+      "index_fingerprint": "4dcd89f62bce5a4ba6c821ba2f5642cc0b8e0b53373517afacc191b443718fc5",
+      "catalog_locators": {
+        "ctf-maintainer-outreach": [
+          "Opening section",
+          "Deep dive into the primary transcript; Behavioral overview",
+          "What happened in the other eight transcripts?"
+        ]
+      }
+    },
+    {
+      "id": "claude-fable-5-mythos-5-system-card",
+      "kind": "system-card",
+      "title": "Claude Fable 5 & Claude Mythos 5 System Card",
+      "url": "https://www.anthropic.com/claude-fable-5-mythos-5-system-card",
+      "updated": "2026-06-11",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Computing a package digest does not establish a match to unavailable vendor evidence": [
+          "package-checksum-evidence"
+        ],
+        "A claimed experiment confirmation must come from an actual saved user message": [
+          "experiment-confirmation-provenance"
+        ],
+        "Shared resources and process names do not grant ownership over another solver’s execution": [
+          "shared-worker-process-scope"
+        ],
+        "Prior model memory does not authorize changing code attribution to reduce review requirements": [
+          "review-attribution-boundary"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_format": "pdf",
+      "content_hash": "f95d413845ad8624f384ba026963f2bad2158f10f2626575bb45e823e3c2e0ca",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "3cc6d221c46a0a9f1c622c0e51c25b5d26ddc0cd1125bedfd8b35ec11cb279e4",
+      "catalog_locators": {
+        "package-checksum-evidence": [
+          "§6.2.1.2 Automated offline monitoring, printed p. 105"
+        ],
+        "experiment-confirmation-provenance": [
+          "§6.2.1.2 Automated offline monitoring, printed p. 105"
+        ],
+        "shared-worker-process-scope": [
+          "§6.2.1.2 Automated offline monitoring, printed pp. 105-106"
+        ],
+        "review-attribution-boundary": [
+          "§2.3.3.3 Example 3, printed p. 40"
+        ]
+      }
+    }
+  ],
+  "snapshot_counts": {
+    "system-cards": 7,
+    "reports": 4
+  }
+}

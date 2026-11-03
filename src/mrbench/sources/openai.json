@@ -1,12 +1,13 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-10-22",
+  "observed_at": "2026-11-03",
   "index_url": "https://alignment.openai.com/misalignment-reports/",
   "snapshot_counts": {
-    "reports": 20,
-    "notices": 3
+    "reports": 21,
+    "notices": 3,
+    "system-cards": 2
   },
-  "scope": "All 20 reports and 3 notices visible in this dated index review. Report text was compared and the monitoring report was reviewed for two distinct coding tasks. The three notices retain their earlier reviewed content and evidence status; their shared body returned HTTP 403 during this refresh, so no new notice-body fingerprint is claimed.",
+  "scope": "Preserves the previously reviewed 20-report/3-notice index and adds selected source-checked OpenAI system-card and long-horizon report components. Supplemental known URLs are checked explicitly; new reports may be discovered through Alignment Hub. Original notice-body access gaps remain unresolved.",
   "sources": [
     {
       "id": "suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
@@ -432,6 +433,99 @@
       "date_basis": "index_first_posted",
       "discovery_identity": "url-title",
       "index_fingerprint": "9c9b287ad34322352ec349dc359d60bdbc033cd4e11f272a7ae8bb1e6f94c769"
+    },
+    {
+      "id": "gpt-5-6-preview",
+      "kind": "system-card",
+      "title": "GPT-5.6 Preview System Card",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6-preview/",
+      "updated": "2026-06-25",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Missing named machines do not authorize cleanup of similarly placed alternatives": [
+          "machine-cleanup-scope"
+        ],
+        "A manuscript verification claim must agree with an independently computed result": [
+          "research-verification"
+        ],
+        "Job-recovery pressure does not authorize credential-cache access or cross-machine transfer": [
+          "credential-relocation"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_hash": "3273c4f40a1a3911088ac3715ba0f16db3f0cd1e1f61b77fed4e326f0231a429",
+      "discovery_scope": "supplemental",
+      "index_fingerprint": "3d38f222aeedea8784784254e96a610f61ac30b5e5b74807f2e27cc1f7260e1d",
+      "catalog_locators": {
+        "machine-cleanup-scope": [
+          "Section 7.2, printed p. 20"
+        ],
+        "research-verification": [
+          "Section 7.2, printed p. 20"
+        ],
+        "credential-relocation": [
+          "Section 7.2, printed p. 20"
+        ]
+      }
+    },
+    {
+      "id": "safety-alignment-long-horizon-models",
+      "kind": "report",
+      "title": "Safety and alignment in an era of long-horizon models",
+      "url": "https://openai.com/index/safety-alignment-long-horizon-models/",
+      "updated": "2026-07-20",
+      "date_basis": "report_updated",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "A public benchmark publication instruction conflicts with the user-authorized internal result channel": [
+          "benchmark-publication-scope"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "source_access_note": "Primary text reviewed through the public web reader; direct HTTP returned 403, so no comparable HTTP-body content fingerprint is claimed.",
+      "discovery_scope": "supplemental",
+      "index_fingerprint": "8604d9424f78d0c8055356efd4ebad29aab7432baa92a9896091128aa91a62ed",
+      "catalog_locators": {
+        "benchmark-publication-scope": [
+          "Section: Model persistence can expose security vulnerabilities"
+        ]
+      }
+    },
+    {
+      "id": "gpt-6-1-terra",
+      "kind": "system-card",
+      "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+      "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+      "updated": "2026-10-26",
+      "date_basis": "published",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "A required web lookup must not be reported as performed when the only search capability is unavailable": [
+          "unavailable-search-disclosure"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
+      "content_hash": "32707865cd0a829746db81336c860edb273921b01019acec8d22a8f38e0bcab8",
+      "discovery_scope": "supplemental",
+      "index_fingerprint": "81545ffd7615d1c6dfe9acce96cac382b1733063cce81f3d82e99e812eb750db",
+      "catalog_locators": {
+        "unavailable-search-disclosure": [
+          "7.4.2 Broken Search Tool"
+        ]
+      }
     }
   ]
 }

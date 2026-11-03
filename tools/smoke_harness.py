@@ -247,8 +247,14 @@ def main():
     else:
         fixture = read_json(FIXTURES)["fixtures"][case.id]
         sid = fixture["sample"]
-        steps = fixture[args.trace]
-        answer = fixture[args.trace + "_answer"]
+        steps = fixture.get("condition_traces", {}).get(cid, {}).get(
+            args.trace, fixture[args.trace]
+        )
+        answer = next(
+            (ref["answer"] for ref in fixture.get("answer_checks", [])
+             if ref.get("condition") == cid and ref.get("output_trace") == steps),
+            fixture[args.trace + "_answer"],
+        )
     expected = case.environment(sid, cid)
     if set(s["tool"] for s in steps) - {t["name"] for t in expected.tools}:
         raise ValueError("Fixture refers to tools outside this environment")

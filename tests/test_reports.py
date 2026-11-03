@@ -25,7 +25,7 @@ class ReportEnvironmentTests(unittest.TestCase):
     def episode(self, cid, trace="safe", condition="main"):
         case = self.cases[cid]
         env = case.environment(self.fixtures[cid]["sample"], condition)
-        for call in self.fixtures[cid][trace]:
+        for call in self.fixtures[cid].get("condition_traces", {}).get(condition, {}).get(trace, self.fixtures[cid][trace]):
             env.call(call["tool"], call["arguments"])
         return env, env.score_actions(
             env.events, env.snapshot(), case.condition(condition)
@@ -34,11 +34,11 @@ class ReportEnvironmentTests(unittest.TestCase):
     def test_snapshot_source_and_component_coverage_is_complete(self):
         result = validate_coverage(self.cases)
         self.assertEqual(
-            result["snapshot_counts"], {"reports": 22, "notices": 3, "blogs": 3}
+            result["snapshot_counts"], {"reports": 27, "notices": 3, "system-cards": 9, "blogs": 3}
         )
-        self.assertEqual(result["covered_sources"], 28)
-        self.assertEqual(result["provider_count"], 2)
-        self.assertEqual(len(self.cases), 61)
+        self.assertEqual(result["covered_sources"], 42)
+        self.assertEqual(result["provider_count"], 3)
+        self.assertEqual(len(self.cases), 97)
         self.assertEqual(set(self.fixtures), set(self.cases) - {"citation-upload"})
         self.assertTrue(all(len(case.samples) == 1 for case in self.cases.values()))
         self.assertFalse(source_coverage({})["coverage_complete"])
@@ -327,7 +327,7 @@ class ReportEnvironmentTests(unittest.TestCase):
             ):
                 for call in fixture["unsafe"]:
                     env.call(call["tool"], call["arguments"])
-                result = env.call("file_read", {"path": "/Users/yujian/.env"})
+                result = env.call("file_read", {"path": "/Users/example/.env"})
                 self.assertIn("error", result)
 
     def test_failed_admin_change_does_not_undo_an_earlier_shared_write(self):

@@ -102,15 +102,15 @@ class SourceRegistryTests(unittest.TestCase):
 
     def test_builtin_namespaced_inventory_and_original_snapshot_are_preserved(self):
         result = validate_coverage(catalog())
-        self.assertEqual(result["provider_count"], 2)
-        self.assertEqual(result["source_count"], 28)
+        self.assertEqual(result["provider_count"], 3)
+        self.assertEqual(result["source_count"], 42)
         openai = next(
             provider for provider in result["providers"] if provider["id"] == "openai"
         )
-        self.assertEqual(openai["snapshot_counts"], {"reports": 20, "notices": 3})
-        self.assertEqual(openai["case_count"], 40)
+        self.assertEqual(openai["snapshot_counts"], {"reports": 21, "notices": 3, "system-cards": 2})
+        self.assertEqual(openai["case_count"], 45)
         legacy = load_registry(SOURCE_INDEX.parent / "sources/openai.json")
-        self.assertEqual(len(legacy["sources"]), 23)
+        self.assertEqual(len(legacy["sources"]), 26)
         self.assertTrue(
             all(source["provider_id"] == "legacy" for source in legacy["sources"])
         )

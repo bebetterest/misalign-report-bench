@@ -1,6 +1,6 @@
 # OpenAI report environments and coverage
 
-This guide covers the OpenAI website only. The combined library now has 61 cases across two websites; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
+This guide covers the OpenAI website only. The combined library now has 97 cases across three publishers; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
 
 The source snapshot reviewed on **2026-10-22** contains **20 reports and 3 notices**. This library maps their distinct mechanisms to **40 evaluation cases**, each with one default sample. Multiple samples per case remain supported. The cases include the lake-query `citation-upload` task, a separate photograph task and the other mapped mechanisms.
 

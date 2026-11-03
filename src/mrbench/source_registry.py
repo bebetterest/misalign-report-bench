@@ -8,6 +8,7 @@ from collections import Counter
 from copy import deepcopy
 from datetime import datetime, timezone
 from pathlib import Path
+from hashlib import sha256
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
 import httpx
@@ -167,8 +168,14 @@ def load_registry(path=SOURCE_INDEX):
         )
     if not result:
         raise ValueError("Register at least one source website")
+    from .source_catalogs import load_catalogs
+
+    catalogs = load_catalogs(raw.get("catalogs", []), path.parent)
+    if seen.intersection(c["id"] for c in catalogs):
+        raise ValueError("Catalog and publisher IDs must be distinct")
     return {
         "schema_version": 2,
+        "catalogs": catalogs,
         "registry_path": str(path),
         "providers": result,
         "sources": entries,
@@ -277,8 +284,10 @@ def article_fingerprint(html, selector):
     return digest(text)
 
 
-def _fetch(client, url, hosts):
+def _fetch(client, url, hosts, *, binary=False, max_bytes=2 * 1024 * 1024):
     """Only GET registered hosts, including each redirect; bound response size."""
+    if type(max_bytes) is not int or not 1 <= max_bytes <= 64 * 1024 * 1024:
+        raise ValueError("Source response limit must be between 1 byte and 64 MiB")
     url = canonical_url(url)
     for _ in range(4):
         if urlsplit(url).hostname not in hosts:
@@ -292,11 +301,16 @@ def _fetch(client, url, hosts):
             chunks, size = [], 0
             for chunk in response.iter_bytes():
                 size += len(chunk)
-                if size > 2 * 1024 * 1024:
-                    raise ValueError("Source page exceeded the 2 MiB limit")
+                if size > max_bytes:
+                    raise ValueError(
+                        "Source page exceeded its configured response-size limit"
+                    )
                 chunks.append(chunk)
-            return b"".join(chunks).decode(
-                response.encoding or "utf-8", errors="replace"
+            body = b"".join(chunks)
+            return (
+                body
+                if binary
+                else body.decode(response.encoding or "utf-8", errors="replace")
             )
     raise ValueError("Source page exceeded the redirect limit")
 
@@ -307,16 +321,19 @@ def check_updates(
     """Return discovery differences only. Curated files are never mutated."""
     registry = load_registry(path)
     providers = registry["providers"]
+    catalogs = registry.get("catalogs", [])
     if selected and selected != "all":
         providers = [p for p in providers if p["id"] == selected]
-        if not providers:
-            raise ValueError(f"Unknown source website: {selected}")
+        catalogs = [c for c in catalogs if c["id"] == selected]
+        if not providers and not catalogs:
+            raise ValueError(f"Unknown source website or catalog: {selected}")
     report = {
         "schema_version": 1,
         "checked_at": datetime.now(timezone.utc).isoformat(),
         "scope": "Configured public index pages and, when requested, article text; differences require review and never change benchmark inputs automatically.",
         "content_checked": content,
         "providers": [],
+        "catalogs": [],
         "status": "clean",
     }
     with httpx.Client(
@@ -343,12 +360,19 @@ def check_updates(
                 *config.get("allowed_hosts", []),
             }
             try:
-                if config.get("adapter") != "html":
-                    raise ValueError(
-                        "Configure the html discovery adapter before checking this website"
+                adapter = config.get("adapter")
+                if adapter not in ("html", "reviewed"):
+                    raise ValueError("Configure html or reviewed-URL discovery")
+                urls = (
+                    config.get("index_urls", [provider["index_url"]])
+                    if adapter == "html"
+                    else []
+                )
+                if adapter == "reviewed":
+                    result["discovery_scope"] = (
+                        "Previously reviewed article URLs; new reports are discovered through registered catalogs."
                     )
-                urls = config.get("index_urls", [provider["index_url"]])
-                if not 1 <= len(urls) <= 10:
+                if adapter == "html" and not 1 <= len(urls) <= 10:
                     raise ValueError(
                         "Configure between one and ten explicit index pages"
                     )
@@ -360,6 +384,22 @@ def check_updates(
                         if urlsplit(entry["url"]).hostname not in hosts:
                             raise ValueError(
                                 "An index entry left the configured website hosts"
+                            )
+                        discovered[entry_identity(entry)] = entry
+                for source in provider["sources"]:
+                    if (
+                        adapter == "reviewed"
+                        or source.get("discovery_scope") == "supplemental"
+                    ):
+                        entry = {
+                            key: source.get(key)
+                            for key in ("url", "title", "kind", "updated", "date_basis")
+                        }
+                        if source.get("discovery_identity"):
+                            entry["discovery_identity"] = source["discovery_identity"]
+                        if urlsplit(entry["url"]).hostname not in hosts:
+                            raise ValueError(
+                                "Reviewed article left the configured website hosts"
                             )
                         discovered[entry_identity(entry)] = entry
                 if len(discovered) > 250:
@@ -378,10 +418,28 @@ def check_updates(
                             if entry["url"] in body_errors:
                                 raise body_errors[entry["url"]]
                             if entry["url"] not in body_hashes:
-                                body_hashes[entry["url"]] = article_fingerprint(
-                                    _fetch(client, entry["url"], hosts),
-                                    config.get("article_selector", "article, main"),
+                                is_pdf = (
+                                    source is not None
+                                    and source.get("content_format") == "pdf"
                                 )
+                                body = _fetch(
+                                    client,
+                                    entry["url"],
+                                    hosts,
+                                    binary=is_pdf,
+                                    max_bytes=config.get("max_bytes", 2 * 1024 * 1024),
+                                )
+                                if is_pdf:
+                                    if not body.startswith(b"%PDF"):
+                                        raise ValueError(
+                                            "Expected a PDF source, received another format"
+                                        )
+                                    body_hashes[entry["url"]] = sha256(body).hexdigest()
+                                else:
+                                    body_hashes[entry["url"]] = article_fingerprint(
+                                        body,
+                                        config.get("article_selector", "article, main"),
+                                    )
                             entry["content_hash"] = body_hashes[entry["url"]]
                         except (httpx.HTTPError, ValueError, KeyError) as exc:
                             body_errors[entry["url"]] = exc
@@ -390,9 +448,11 @@ def check_updates(
                                     "url": entry["url"],
                                     "stage": "article",
                                     "error_type": type(exc).__name__,
-                                    "detail": str(exc)
-                                    if isinstance(exc, ValueError)
-                                    else "Source request failed",
+                                    "detail": (
+                                        str(exc)
+                                        if isinstance(exc, ValueError)
+                                        else "Source request failed"
+                                    ),
                                 }
                             )
                     if source is None:
@@ -439,16 +499,23 @@ def check_updates(
                     {
                         "stage": "index",
                         "error_type": type(exc).__name__,
-                        "message": str(exc)
-                        if isinstance(exc, ValueError)
-                        else "Source fetch/adapter failed",
+                        "message": (
+                            str(exc)
+                            if isinstance(exc, ValueError)
+                            else "Source fetch/adapter failed"
+                        ),
                     }
                 )
             if result["errors"]:
                 result["status"] = "partial" if result["entries"] else "error"
             report["providers"].append(result)
-    if any(p["errors"] for p in report["providers"]):
+        from .source_catalogs import check_catalog
+
+        for item in catalogs:
+            report["catalogs"].append(check_catalog(client, item))
+    comparisons = report["providers"] + report["catalogs"]
+    if any(p["errors"] for p in comparisons):
         report["status"] = "partial"
-    elif any(p["status"] == "review" for p in report["providers"]):
+    elif any(p["status"] == "review" for p in comparisons):
         report["status"] = "review"
     return report

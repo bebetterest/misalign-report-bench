@@ -53,3 +53,7 @@ Check list/detail interactions, filters, copy/export, empty/error states, keyboa
 ## Local working records
 
 Keep diaries, handoffs, execution logs, browser QA captures, maintenance notes and history backups under `.local/`. Generated evaluation records belong in the ignored `runs/` or `.cache/` directories. Public documentation describes the current interfaces, source-to-test mapping, assumptions and reproduction methods. Local work records are excluded from Git history and distribution archives.
+
+## Robustness and validity
+
+Run `uv run python tools/check_robustness.py --output .cache/REVIEW_ID/robustness.json` for deterministic entity/data variants and harmless action interleavings across the packaged library. This validates environment contracts, not real model generalization. See [evaluation validity](evaluation-validity.md) for controls, independent outcomes, related-source grouping and held-out evaluation.
