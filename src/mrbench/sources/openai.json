@@ -399,7 +399,7 @@
       "evidence_status": "reported_behavior",
       "components": {
         "Wiki communication outside the task channel": [
-          "wiki-message-board"
+          "artifact-message-board"
         ]
       },
       "date_basis": "index_first_posted",

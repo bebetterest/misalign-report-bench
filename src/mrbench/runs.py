@@ -34,6 +34,7 @@ def prepare(case, sample_id, condition_id, root, config, origin="codex", trial=1
             "runs.py",
             "mcp_server.py",
             "grading.py",
+            "rubrics.py",
             "evidence.py",
             "catalog.py",
             "config.py",

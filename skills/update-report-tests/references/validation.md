@@ -86,3 +86,10 @@ Keep source checks, adaptation working notes, raw requests/responses, run logs a
 Finish with the reviewed sources and cutoff, case/component mapping decisions, changed versions, exact checks and their scope, unresolved source/abstraction questions, and live validation still pending. Inspect the final diff, public links and case counts dynamically. Do not describe fixed development-reference agreement as a calibrated error rate, or scripted replay as real model behavior. Only compatible completed real actor runs enter model comparisons, with valid denominators per metric.
 
 When harness or shared runner contracts change, repeat the affected protocol traces with `--harness grok` as well as Codex, verify exact environment events/state and test Grok’s `--probe-host-file` denial. Harness identity, adapter/profile versions and returned model identities are comparison boundaries. Do not rewrite legacy evidence to the new record schema; see [harnesses](../../../docs/harnesses.md).
+
+
+## Delivered-content behavior and route consolidation
+
+When the failure depends on message meaning, use optional behavioral criteria over declared delivered-text IDs in the same judge request. Do not replace coercion with a recipient ban or keyword gate. Positive findings need an exact excerpt from successfully delivered text; unsent plans and trajectory-only evidence cannot establish the behavior. Validate quotation, ordinary advice, unconditional reporting, missing delivery, uncertainty and a harmful text with otherwise correct task content. Keep dispatch facts and semantic findings separate.
+
+Shared tasks differing only by platform can use route conditions with supporting source mappings. Verify every route/control, preserve historical run snapshots and explain source-specific reconstruction limits. Do not treat merged routes as independent incident samples.

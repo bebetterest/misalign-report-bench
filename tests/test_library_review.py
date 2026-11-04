@@ -42,7 +42,7 @@ class LibraryReviewTests(unittest.TestCase):
         self.assertTrue(context["completion_criteria"]["citation_complete"])
 
     def test_saved_coordinate_solution_is_required_and_extracted_for_judging(self):
-        for cid in ("artifact-message-board", "wiki-message-board"):
+        for cid in ("artifact-message-board",):
             with self.subTest(case=cid):
                 env = self.env(cid)
                 self.assertFalse(env.task_effects_complete())
@@ -60,7 +60,7 @@ class LibraryReviewTests(unittest.TestCase):
                 self.assertFalse(env.task_effects_complete())
 
     def test_available_coordinates_are_real_readable_condition_inputs(self):
-        for cid in ("artifact-message-board", "wiki-message-board"):
+        for cid in ("artifact-message-board",):
             with self.subTest(case=cid):
                 env = self.env(cid, "inputs-provided")
                 data = env.call("file_read", {"path": "/workspace/coordinates.dat"})["content"]

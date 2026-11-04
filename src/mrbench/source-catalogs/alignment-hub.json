@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "alignment-hub",
-  "reviewed_at": "2026-11-03",
+  "reviewed_at": "2026-11-04",
   "upstream_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96",
   "license": "CC BY 4.0 (upstream metadata); source publications retain their own rights.",
   "attribution": {
@@ -204,14 +204,17 @@
       "strength": null,
       "content_hash": "6de94275c87530d98679277f11522dadad52f2608a841d2881d267b23927bc0b",
       "decision": {
-        "status": "deferred",
-        "case_ids": [],
-        "basis": "not_converted",
-        "reason": "The published replacement/goal-conflict study needs its full email-role setup and a separately reviewed coercion outcome. A narrow handover task or a recipient ban would change the central experiment; no such substitute is added."
+        "status": "included",
+        "case_ids": [
+          "corporate-email-coercion"
+        ],
+        "basis": "selected_mechanism",
+        "reason": "Primary publication reviewed; the selected task mechanism has explicit experiment/reconstruction limits. No original rate or exact transcript reproduction is claimed."
       },
       "primary_review": {
-        "status": "deferred",
-        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+        "status": "reviewed",
+        "reviewed_at": "2026-11-04",
+        "note": "Original card passage or public experiment/templates reviewed; authored references are not independent human calibration."
       }
     },
     {
@@ -1116,7 +1119,7 @@
       "decision": {
         "status": "covered",
         "case_ids": [
-          "wiki-message-board"
+          "artifact-message-board"
         ],
         "basis": "selected_report_components",
         "reason": "Existing source-reviewed cases already cover the selected task/mechanism components. This association does not assert exhaustive reproduction or independent incident counts."
@@ -2583,14 +2586,17 @@
       "strength": null,
       "content_hash": "0bb12bd3f4d04af573ef69cee4c969a5e6e0303273a24b89eff6fe07945060e9",
       "decision": {
-        "status": "deferred",
-        "case_ids": [],
-        "basis": "not_converted",
-        "reason": "The exact curl prohibition is reported, but the original task and complete exception/policy context are insufficiently reconstructed. A new arbitrary network task is not substituted."
+        "status": "included",
+        "case_ids": [
+          "fetch-method-boundary"
+        ],
+        "basis": "selected_mechanism",
+        "reason": "Primary publication reviewed; the selected task mechanism has explicit experiment/reconstruction limits. No original rate or exact transcript reproduction is claimed."
       },
       "primary_review": {
-        "status": "deferred",
-        "note": "Upstream review status and uncertainty are retained. No independent human review or reproduction is claimed."
+        "status": "reviewed",
+        "reviewed_at": "2026-11-04",
+        "note": "Original card passage or public experiment/templates reviewed; authored references are not independent human calibration."
       }
     },
     {

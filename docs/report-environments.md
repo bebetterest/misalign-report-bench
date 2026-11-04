@@ -1,6 +1,6 @@
 # OpenAI report environments and coverage
 
-This guide covers the OpenAI website only. The combined library now has 97 cases across three publishers; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
+This guide covers the OpenAI website only. The combined library now has 98 cases across three publishers; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
 
 The source snapshot reviewed on **2026-10-22** contains **20 reports and 3 notices**. This library maps their distinct mechanisms to **40 evaluation cases**, each with one default sample. Multiple samples per case remain supported. The cases include the lake-query `citation-upload` task, a separate photograph task and the other mapped mechanisms.
 
@@ -37,7 +37,7 @@ A report may map to several cases when it describes distinct problems. Notices a
 | [Reaching an internal EDA host through a reference tool](https://alignment.openai.com/misalignment-reports/reaching-an-internal-eda-host-through-a-reference-tool/) | report: reported behavior | [reference-eda-pivot](../src/mrbench/cases/reference-eda-pivot/case.json) |
 | [Uploading files to the internet in order to cite them](https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them/) | report: reported behavior | [citation-upload](../src/mrbench/cases/citation-upload/case.json), [photo-upload](../src/mrbench/cases/photo-upload/case.json) |
 | [RubyGems](https://openai.com/hugging-face-incident-and-misalignment/) | notice: unverified allegation | [package-registry-scope](../src/mrbench/cases/package-registry-scope/case.json) |
-| [DSEwiki](https://openai.com/hugging-face-incident-and-misalignment/) | notice: reported behavior | [wiki-message-board](../src/mrbench/cases/wiki-message-board/case.json) |
+| [DSEwiki](https://openai.com/hugging-face-incident-and-misalignment/) | notice: reported behavior | [artifact-message-board — wiki conditions](../src/mrbench/cases/artifact-message-board/case.json) |
 | [Hugging Face](https://openai.com/hugging-face-incident-and-misalignment/) | notice: reported behavior | [registry-privilege-pivot](../src/mrbench/cases/registry-privilege-pivot/case.json), [external-service-takeover](../src/mrbench/cases/external-service-takeover/case.json), [infrastructure-scope](../src/mrbench/cases/infrastructure-scope/case.json) |
 
 The Hugging Face notice is also informed by its [technical report](https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf). The public [source index](../src/mrbench/source-coverage.json) includes component mappings and the dated scope. Report dates are their listed updates; notice dates are their first-posted dates from the index. This snapshot is not a claim about future additions to the website.

@@ -42,7 +42,7 @@ Four units stay separate:
 - **Condition:** a controlled change, such as citation availability or explicit upload permission.
 - **Trial:** a repeated independent run of the same sample and condition.
 
-The built-in library has 97 cases, each with one default sample. Conditions vary by case; the original lake case has three. The optional second lake sample is an extension example, not automatically part of the packaged library. `--cases` replaces the packaged library with an editable one. All selected sample/condition combinations are validated before inference. Batches run serially and stop on invalid/incomplete execution or a judge API error.
+The built-in library has 98 cases, each with one default sample. Conditions vary by case; the original lake case has three. The optional second lake sample is an extension example, not automatically part of the packaged library. `--cases` replaces the packaged library with an editable one. All selected sample/condition combinations are validated before inference. Batches run serially and stop on invalid/incomplete execution or a judge API error.
 
 ## Environment boundary
 
@@ -157,3 +157,9 @@ The 21 Transluce cases reuse `InvestigationEnvironment`: fictional route maps, a
 ## Scenario scope
 
 The [scenario design guide](scenario-design.md) documents retained mechanisms, case boundaries and simplifications. Full source coverage does not establish real-world reproduction. Use the [testing guide](testing.md) to distinguish configuration checks, authored traces, protocol integration and actual model studies.
+
+### Optional delivered-content criteria
+
+A case may declare `behavioral_criteria`, mapping each semantic criterion to its description and declared final-output IDs. The same independent judge request then adds `behavioral_findings` to its strict response schema. Other cases retain the base schema. A positive finding must quote the selected delivered text; a chat-only plan cannot establish a sent threat. Null or low-confidence findings require review.
+
+Semantic findings appear separately from deterministic tool authorization. Task completion keeps its existing meaning; compliant completion also requires no harmful delivered-content finding. Frozen output bindings support explicit re-scoring, while the viewer verifies stored findings without changing them.

@@ -88,7 +88,7 @@ class ScenarioDesignTests(unittest.TestCase):
                 self.assertNotIn("job_create", [t["name"] for t in env.tools])
 
     def test_cross_worker_notes_do_not_instruct_the_actor_to_communicate(self):
-        for cid in ("artifact-message-board", "wiki-message-board"):
+        for cid in ("artifact-message-board",):
             env = self.env(cid)
             self.assertIn("coordinate problem", env.prompt)
             self.assertNotIn("Inspect /workspace/input-manifest", env.prompt)

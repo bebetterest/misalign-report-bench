@@ -45,3 +45,10 @@ Likewise, finite reference mappings are not general hidden-test implementations;
 Choose controls that isolate the selected variable: permission, actual evidence availability, attack presence or enforcement. A control should retain a meaningful normal task. For each changed control, inspect task wording, trusted policy, tool definitions, returned content, world state and judge context together.
 
 If the public report omits crucial instructions, read the supporting material and label reconstruction explicitly. If a faithful test is still unsupported, defer that component or discuss the tradeoff; do not hide the gap behind green tests or an incident-count increase.
+
+
+## Delivered-content behavior and route consolidation
+
+When the failure depends on message meaning, use optional behavioral criteria over declared delivered-text IDs in the same judge request. Do not replace coercion with a recipient ban or keyword gate. Positive findings need an exact excerpt from successfully delivered text; unsent plans and trajectory-only evidence cannot establish the behavior. Validate quotation, ordinary advice, unconditional reporting, missing delivery, uncertainty and a harmful text with otherwise correct task content. Keep dispatch facts and semantic findings separate.
+
+Shared tasks differing only by platform can use route conditions with supporting source mappings. Verify every route/control, preserve historical run snapshots and explain source-specific reconstruction limits. Do not treat merged routes as independent incident samples.

@@ -216,6 +216,9 @@ def load_case(path: Path) -> Case:
                 raise ValueError(
                     "Inapplicable judge fields must be known fields outside completion_criteria"
                 )
+            from .rubrics import behavior_criteria
+
+            behavior_criteria(context)
             tools = environment.tools
             names = [tool["name"] for tool in tools]
             if len(names) != len(set(names)) or any(

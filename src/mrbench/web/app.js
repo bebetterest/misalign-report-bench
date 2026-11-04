@@ -56,7 +56,7 @@ const websiteSelect = (kind, value) => `<label class="sort-label">Website <selec
 function boolLabel(value, yes = 'Yes', no = 'No') {
   return value == null ? badge('Undetermined') : badge(value ? yes : no, value ? 'good' : '');
 }
-function actionLabel(score = {}) {
+function toolActionLabel(score = {}) {
   if (score.status !== 'scored') return badge(scoreStatuses[score.status] || 'Unscored');
   if (score.violation_observed ?? score.unauthorized_upload) {
     return badge('unauthorized_upload' in score ? 'Unauthorized upload' : 'Violation observed', 'bad');
@@ -64,6 +64,14 @@ function actionLabel(score = {}) {
   if (score.violation_attempted ?? score.unauthorized_attempt) return badge('unauthorized_attempt' in score ? 'Unauthorized attempt' : 'Violation attempted', 'warn');
   if (score.uploads_committed) return badge('Authorized upload', 'good');
   return badge('No violation observed', 'good');
+}
+function behaviorLabel(answer = {}) {
+  if (!('behavioral_violation_observed' in answer) || answer.status !== 'scored') return badge('Awaiting content judgment');
+  const value = answer.behavioral_violation_observed;
+  return value == null ? badge('Undetermined') : badge(value ? 'Harmful delivered text' : 'No criterion matched', value ? 'bad' : 'good');
+}
+function actionLabel(score = {}, answer = {}) {
+  return toolActionLabel(score) + (answer.behavioral_violation_observed === true ? ' ' + behaviorLabel(answer) : '');
 }
 function answerLabel(score = {}) {
   return score.status === 'scored'
@@ -341,13 +349,13 @@ function renderRunRows() {
       <span class="title-sub">${e(run.config.model)}${harnessLabel(run) ? ' · ' + e(harnessLabel(run)) : ''}</span><code class="run-id">${e(run.id)}</code>
       ${badge(origins[recordOrigin(run)] || run.origin)}</td><td class="small">${e(run.condition.title)}</td>
       <td>${badge(statuses[run.status] || run.status, run.status === 'completed' ? 'good' : run.status === 'running' ? 'info' : 'warn')}</td>
-      <td>${taskLabel(run.scores)}</td><td>${actionLabel(run.scores?.actions)}</td></tr>`).join('')
+      <td>${taskLabel(run.scores)}</td><td>${actionLabel(run.scores?.actions, run.scores?.answer)}</td></tr>`).join('')
     || `<tr><td colspan="5">${empty('No matching runs', 'Run a case from the CLI, or explore scripted demos to see how evidence is presented.', '<a href="#/runs?origin=demo">Browse demos ' + icon('arrow-up-right') + '</a>')}</td></tr>`;
   document.getElementById('run-count').textContent = `${plural(selected.length, 'record')} · ${origins[origin] || 'All record types'}`;
 }
 function renderCriteria(answer) {
   if (!answer.evaluation) return '';
-  return Object.entries(labels).map(([key, title]) => {
+  const ordinary = Object.entries(labels).map(([key, title]) => {
     const item = answer.evaluation[key];
     if (!item) return '';
     const indicator = item.value == null && (answer.not_applicable_fields || []).includes(key)
@@ -357,7 +365,13 @@ function renderCriteria(answer) {
     return `<div class="criterion"><div class="criterion-head"><h3>${title}</h3>${indicator}</div><p>${e(item.reason)}</p>
       ${item.evidence ? `<blockquote>${e(item.evidence)}</blockquote>` : ''}</div>`;
   }).join('');
+  const behavioral = Object.entries(answer.evaluation.behavioral_findings || {}).map(([key, item]) =>
+    `<div class="criterion"><div class="criterion-head"><h3>${e(key.replaceAll('_', ' '))}</h3>${item.value == null ? badge('Undetermined') : badge(item.value ? 'Observed' : 'Not observed', item.value ? 'bad' : 'good')}</div>
+      <p>${e(item.reason)}</p>${item.evidence ? `<blockquote>${e(item.evidence)}</blockquote>` : ''}
+      <p class="note">Content judgment of delivered text; dispatch is checked separately.</p></div>`).join('');
+  return ordinary + behavioral;
 }
+
 function renderEvents(events, action) {
   if (action.status === 'not_applicable') return empty('No agent executed', 'This record tests a fixed answer; action evidence is not applicable.');
   if (!events.length) return empty('No environment events', 'An incomplete run without events cannot be marked as a pass.');
@@ -407,18 +421,18 @@ async function renderRun(id, serial) {
       <section id="outcome"><h2>Outcome</h2><div class="metrics">
         <div class="metric"><span>Task completion</span><div>${taskLabel(data.scores)}</div><small>${record.task_effects_required ? 'Answer and task state' : 'Answer judgment'}</small></div>
         <div class="metric"><span>Authorization boundary</span><div>${actionLabel(action)}</div><small>Environment instrumentation</small></div>
-        <div class="metric"><span>Source citations</span><div>${citation}</div><small>Measured separately</small></div></div>
+        <div class="metric"><span>Source citations</span><div>${citation}</div><small>Measured separately</small></div>${record.sample.behavioral_criteria ? `<div class="metric"><span>Delivered content</span><div>${behaviorLabel(answer)}</div><small>Independent text judgment</small></div>` : ''}</div>
         ${record.case.presentation?.completion_note ? `<p class="completion-note">${e(record.case.presentation.completion_note)}</p>` : ''}
         <p class="note">${'upload_attempts' in action ? `${e(plural(action.upload_attempts, 'upload attempt'))} · ${e(plural(action.uploads_committed, 'committed upload'))}. Uploads are recorded by the environment.` : 'Observed actions are scored by the environment, independently of the answer judge.'}</p>
         ${record.task_effects_required && action.task_effects_complete === false ? '<p class="callout">The required saved artifact or task state is incomplete. An accurate explanation alone does not establish its completion.</p>' : ''}
         <div class="actions"><a href="/api/runs/${encodeURIComponent(id)}/export" download>${icon('download')} Export record</a>
-          <a href="#/cases/${encodeURIComponent(record.case.id)}">View case ${icon('arrow-up-right')}</a></div></section>
+          ${cases.some(item => item.id === record.case.id) ? `<a href="#/cases/${encodeURIComponent(record.case.id)}">View case ${icon('arrow-up-right')}</a>` : '<span class="note">Historical case snapshot; export retains its definition.</span>'}</div></section>
       <section id="run-task"><h2>Original task</h2>${data.task.text ? `<div class="evidence task-prompt">${e(data.task.text)}</div>` : empty('Task artifact unavailable', 'Export the record to inspect its saved sample and condition.')}
         <p class="note">Saved at execution, including condition-specific instructions. Case v${e(record.case.version)} · Sample v${e(record.sample.version)}.</p>
         ${data.task.truncated ? '<p class="note">Task preview truncated. Export for the full text.</p>' : ''}</section>
       <section id="final-answer"><h2>Final answer</h2>${data.answer.text ? `<div class="evidence answer">${e(data.answer.text)}</div>` : empty('No final answer', 'Inspect the execution status and raw logs.')}
         ${data.answer.truncated ? '<p class="note">Preview truncated. Export the record to read the full answer.</p>' : ''}</section>
-      ${data.task_outputs ? `<section id="task-outputs"><h2>Task deliverables</h2><p class="note">Declared final task texts saved at completion. The answer judge receives these texts together with the final answer in one request.</p>${(data.task_outputs.items || []).map(item => `<details open><summary>${e(item.label)}</summary>${item.content === null ? '<p class="note">Required output was not delivered.</p>' : !item.content.trim() ? '<p class="note">Required output is empty.</p>' : `<div class="evidence answer">${e(item.content)}</div>`}</details>`).join('')}</section>` : ''}
+      ${data.task_outputs ? `<section id="task-outputs"><h2>Task deliverables</h2><p class="note">Declared final task texts saved at completion. The answer judge receives these texts together with the final answer in one request.</p>${(data.task_outputs.items || []).map(item => `<details open><summary>${e(item.label)}</summary>${item.content === null ? '<p class="note">No output text was delivered.</p>' : !item.content.trim() ? '<p class="note">Delivered text is empty.</p>' : `<div class="evidence answer">${e(item.content)}</div>`}</details>`).join('')}</section>` : ''}
       <section id="judgment"><h2>Answer judgment</h2><p class="note">${e(answer.method || 'No answer judge has been called.')} · ${e(scoreStatuses[answer.status] || 'Awaiting judgment')}${answer.judge_model ? ' · Requested: ' + e(answer.judge_model) : ''}${answer.response_model ? ' · Returned: ' + e(answer.response_model) : ''}</p>
         ${answer.error ? `<div class="callout">${e(answer.error)}</div>` : ''}
         ${answer.evaluation ? renderCriteria(answer) : copyCode(data.score_command)}</section>

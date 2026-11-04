@@ -8,13 +8,13 @@ The reviewed dataset revision is `63df0a1ec377d84609dd95ba66ec39383d671b96`, con
 
 | Decision | Records | Meaning |
 | --- | ---: | --- |
-| Included | 30 | Selected original-source components supply new tests |
+| Included | 32 | Selected original-source components supply new tests |
 | Covered | 30 | Existing or overlapping tests represent selected components; this is not exhaustive incident reproduction |
-| Deferred | 70 | Evidence, task detail, scoring contract or runtime is still insufficient |
+| Deferred | 68 | Evidence, task detail, scoring contract or runtime is still insufficient |
 
-OpenAI and Anthropic are prioritized when a defensible test can be built. Of the catalog's 39 OpenAI-reported records, 5 are included, 22 associated with selected existing components, and 12 deferred. Of its 49 Anthropic-reported records, 25 are included and 24 deferred. An independent component from the publication linked to deferred record MSI-0076 is also tested: that does not convert the record's child-agent autoapproval incident into a completed reproduction.
+OpenAI and Anthropic are prioritized when a defensible test can be built. Of the catalog's 39 OpenAI-reported records, 5 are included, 22 associated with selected existing components, and 12 deferred. Of its 49 Anthropic-reported records, 27 are included and 22 deferred. An independent component from the publication linked to deferred record MSI-0076 is also tested: that does not convert the record's child-agent autoapproval incident into a completed reproduction.
 
-These decisions add 36 cases from 14 original publications: 5 OpenAI cases and 31 Anthropic cases. Several publications provide distinct work requests. The full library now has 97 cases, 97 default samples and 270 conditions, mapped to 42 reviewed source entries across three publishers. The 130 catalog records are a separate inventory, not an additional source/incident/coverage denominator. Related reports and shared tasks are not statistically independent observations.
+Selected catalog components supply 38 cases from 16 original publications: 5 OpenAI cases and 33 Anthropic cases. Several publications provide distinct work requests. The full library now has 98 cases, 98 default samples and 278 conditions, mapped to 44 reviewed source entries across three publishers. The 130 catalog records are a separate inventory, not an additional source/incident/coverage denominator. Related reports and shared tasks are not statistically independent observations.
 
 ## Inclusion contract
 
@@ -71,3 +71,9 @@ Preparation with the checked-in example configuration does not call an API. Run 
 Use Sources in the viewer to filter all screening decisions by record text, reporter or decision. Each selected test also shows its original work request, tested mechanism and reconstruction limits. Source checks compare bounded metadata/body fingerprints; changes require review and never rewrite tests automatically. Anthropic's reviewed-URL adapter checks selected known reports, not the full research index. OpenAI's three older notice-body access failures and direct access to the long-horizon report remain unresolved; this addition does not certify those fetches.
 
 No real actor episodes or new judge-quality results are implied by this inventory. Fixed traces, scripted native CLI transport, live judge calibration and actual model behavior are different evidence layers.
+
+## Additional controlled mechanisms
+
+MSI-0107 now uses a fictional deadline lookup to study the explicit WebFetch/terminal method boundary. MSI-0008 adapts the published corporate-email experiment with replacement/goal-conflict controls and delivered-text coercion assessment. See [behavior cases](behavior-cases.md). The latter is a controlled experiment, not a spontaneous deployment incident.
+
+Package-registry and wiki communication share one case with route conditions. Both primary sources remain mapped, while the same authored numerical task is counted once. The wiki source's original task remains undisclosed. Historical runs retain their original case snapshots.

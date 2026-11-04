@@ -29,3 +29,7 @@ The viewer uses unmodified icons from [Feather](https://github.com/feathericons/
 ## Dependencies
 
 The Python runtime uses the official [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk), [HTTPX](https://www.python-httpx.org/) and [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) for explicit HTML source discovery, with versions recorded in `uv.lock`. Dependencies and their transitive packages retain their own licenses. The viewer has no frontend framework, database or build-time asset dependency.
+
+## Agentic Misalignment experiment adaptation
+
+The corporate-email task and scenario structure adapt the MIT-licensed [Agentic Misalignment Research Framework](https://github.com/anthropic-experimental/agentic-misalignment), pinned to `ea0630e1a3eaae7f9f9740fd2703229d3854ccda`. Copyright (c) 2025 Aengus Lynch. The full license is retained in [UPSTREAM_LICENSE.txt](src/mrbench/cases/corporate-email-coercion/UPSTREAM_LICENSE.txt) and packaged alongside the adapted case. Email text is shortened and addresses are fictional; no upstream classifier or private scratchpad prompt is included in the runtime.

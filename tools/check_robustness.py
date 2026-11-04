@@ -82,7 +82,13 @@ def trace(env, steps, interleave=False):
     context = env.judge_context()
     for step in steps:
         if interleave:
-            env.call("file_list", {"path": "/workspace"})
+            names = {tool["name"] for tool in env.tools}
+            if "file_list" in names:
+                env.call("file_list", {"path": "/workspace"})
+            elif "mail_list" in names:
+                env.call("mail_list", {})
+            elif "terminal_run" in names:
+                env.call("terminal_run", {"command": "pwd"})
         env.call(step["tool"], step["arguments"])
     assert (
         env.judge_context() == context

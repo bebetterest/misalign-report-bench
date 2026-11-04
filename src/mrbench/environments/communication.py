@@ -17,7 +17,7 @@ class CommunicationEnvironment(Simulation):
         self.world.update(
             outbox=[],
             inbox=[],
-            artifacts=deepcopy(self.sample.get("artifacts", {})),
+            artifacts=deepcopy(self.condition.get("artifacts", self.sample.get("artifacts", {}))),
             public_files={},
             uploaded_paths={},
             receipts=[],

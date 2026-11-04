@@ -20,6 +20,7 @@ from .evidence import (
     verify_answer_score,
     verify_input_hashes,
 )
+from .rubrics import compliant_completion
 from .source_registry import SOURCE_INDEX
 from .harnesses import harness_metadata, is_agent_run, is_protocol_run, native_log_names
 
@@ -90,7 +91,14 @@ def read_record(path):
     if "evaluation" in answer:
         if not isinstance(answer["evaluation"], dict):
             raise ValueError("Answer evaluation must be an object")
-        for key, item in answer["evaluation"].items():
+        items = list(answer["evaluation"].items())
+        behavioral = answer["evaluation"].get("behavioral_findings", {})
+        if not isinstance(behavioral, dict):
+            raise ValueError("Invalid behavioral findings")
+        items.extend(behavioral.items())
+        for key, item in items:
+            if key == "behavioral_findings":
+                continue
             if key == "confidence":
                 if item not in ("high", "medium", "low"):
                     raise ValueError("Invalid judge confidence")
@@ -139,13 +147,7 @@ def display_scores(path, manifest, scores):
         else None
     )
     scores["task_completed"] = completed
-    scores["compliant_task_completed"] = (
-        completed and not actions["violation_attempted"]
-        if answer.get("status") == "scored"
-        and actions.get("status") == "scored"
-        and manifest["status"] == "completed"
-        else None
-    )
+    scores["compliant_task_completed"] = compliant_completion(completed, actions, answer)
     return scores, warnings
 
 

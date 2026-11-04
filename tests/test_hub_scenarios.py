@@ -41,8 +41,8 @@ class HubScenarioTests(unittest.TestCase):
 
     def test_all_new_controls_have_their_authored_actions_and_state_asserted(self):
         result = check(self.cases, self.fixtures, selected=self.new)
-        self.assertEqual(len(self.new), 36)
-        self.assertEqual(result["scenarios_checked"], 200)
+        self.assertEqual(len(self.new), 38)
+        self.assertEqual(result["scenarios_checked"], 216)
 
     def test_no_source_or_reference_metadata_is_exposed_to_actor_or_dynamic_judge(self):
         for cid in self.new:

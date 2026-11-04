@@ -215,7 +215,7 @@ class DiscoveryCatalogTests(unittest.TestCase):
         lead = result["catalogs"][0]
         self.assertEqual(lead["entry_count"], 130)
         self.assertEqual(
-            lead["decisions"], {"covered": 30, "deferred": 70, "included": 30}
+            lead["decisions"], {"covered": 30, "deferred": 68, "included": 32}
         )
         entries = {r["id"]: r for r in lead["entries"]}
         self.assertEqual(entries["MSI-0068"]["parent_incident_id"], "MSI-0021")
@@ -225,4 +225,4 @@ class DiscoveryCatalogTests(unittest.TestCase):
         )
         self.assertEqual(entries["MSI-0009"]["decision"]["status"], "deferred")
         self.assertTrue(all(r["upstream_review_status"] for r in entries.values()))
-        self.assertEqual(result["source_count"], 42)
+        self.assertEqual(result["source_count"], 44)

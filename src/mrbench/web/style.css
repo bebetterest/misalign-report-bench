@@ -214,7 +214,7 @@ summary:hover { color: var(--ink); }
 .code { margin: 0; padding: 18px; background: #fafbf8; border: 1px solid var(--line); border-radius: 6px; color: #454b40; font-size: 11px; line-height: 1.7; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; overflow: auto; max-height: 480px; tab-size: 2; }
 .code-row + .code { border-radius: 0 0 6px 6px; }
 p code { padding: 2px 4px; background: var(--soft); border-radius: 3px; font-size: 11px; overflow-wrap: anywhere; }
-.metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .metric { padding: 20px 14px 20px 0; min-width: 0; }
 .metric + .metric { border-left: 1px solid var(--line); padding-left: 18px; }
 .metric > span { font-size: 11px; display: block; margin-bottom: 11px; }

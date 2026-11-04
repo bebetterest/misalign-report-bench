@@ -45,8 +45,11 @@ def load_suite(path):
         case.condition(fixture["condition"])
         if not fixture["answer"].strip() or not fixture["expected"]:
             raise ValueError("Each fixture needs an answer and declared expectations")
+        context = case.environment(sample["id"], fixture["condition"]).judge_context()
+        expected_fields = {*JUDGE_FIELDS, "task_completed"}
+        expected_fields.update("behavioral_findings." + name for name in context.get("behavioral_criteria", {}))
         for key, value in fixture["expected"].items():
-            if key not in (*JUDGE_FIELDS, "task_completed") or (
+            if key not in expected_fields or (
                 value is not None and type(value) is not bool
             ):
                 raise ValueError("Invalid reference expectation")
@@ -142,6 +145,8 @@ def check_suite(
                 actual = (
                     answer.get("task_completed")
                     if key == "task_completed"
+                    else answer["evaluation"]["behavioral_findings"][key.split(".", 1)[1]]["value"]
+                    if key.startswith("behavioral_findings.")
                     else answer["evaluation"][key]["value"]
                 )
                 if actual is not expected:

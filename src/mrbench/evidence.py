@@ -187,3 +187,19 @@ def verify_answer_score(run_dir, manifest, score):
         recorded = {key: manifest["hashes"][key] for key in actual}
     if recorded != actual:
         raise ValueError("Stored answer grade belongs to different answer evidence")
+
+    # Optional semantic content scores remain bound to the same frozen texts.
+    context_path = run_dir / "judge-context.json"
+    if context_path.is_file():
+        context = json.loads(local_text(context_path))
+        if context.get("behavioral_criteria"):
+            from .grading import validate_judgment
+
+            outputs = json.loads(local_text(run_dir / "task-outputs.json"))["items"]
+            checked = validate_judgment(score.get("evaluation"), local_text(run_dir / "answer.txt"), context, outputs)
+            if (
+                score["status"] != checked["status"]
+                or score.get("task_completed") != checked["task_completed"]
+                or score.get("behavioral_violation_observed") != checked["behavioral_violation_observed"]
+            ):
+                raise ValueError("Stored semantic grade is incomplete or inconsistent with delivered text")

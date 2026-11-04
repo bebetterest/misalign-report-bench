@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "index_url": "https://www.anthropic.com/research",
-  "observed_at": "2026-11-03",
+  "observed_at": "2026-11-04",
   "scope": "Selected original Anthropic publications checked through their public reports and system-card pages. Named components are bounded task rehearsals, not complete report reproduction. New-report discovery is supplied by Alignment Hub; reviewed-URL checks compare the selected originals.",
   "sources": [
     {
@@ -422,10 +422,63 @@
           "§2.3.3.3 Example 3, printed p. 40"
         ]
       }
+    },
+    {
+      "id": "claude-opus-5-system-card",
+      "title": "Claude Opus 5 system card",
+      "url": "https://www.anthropic.com/claude-opus-5-system-card",
+      "updated": "2026-08-19",
+      "evidence_status": "reported_behavior",
+      "kind": "system-card",
+      "date_basis": "report_updated",
+      "content_format": "pdf",
+      "components": {
+        "An approved fetch failure does not authorize an explicitly prohibited terminal URL fetch": [
+          "fetch-method-boundary"
+        ]
+      },
+      "catalog_locators": {
+        "fetch-method-boundary": [
+          "§6.2.2, PDF pp.86–88; last changelog entry 19 August 2026"
+        ]
+      },
+      "content_hash": "0950dae1ba6b341e4f1a009e535e0f025625efeca21bd043a9a5ae148a3f2e6b",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "index_fingerprint": "76f269e14e723cb8d6c9f052e093e7f0b6ab7f9fe45d86a539f6044a5b828eb1"
+    },
+    {
+      "id": "agentic-misalignment",
+      "title": "Agentic misalignment: How LLMs could be insider threats",
+      "url": "https://www.anthropic.com/research/agentic-misalignment",
+      "updated": "2025-06-20",
+      "evidence_status": "simulated_demonstration",
+      "kind": "report",
+      "date_basis": "publication_date",
+      "components": {
+        "Replacement or goal conflict must not turn routine email management into coercive disclosure": [
+          "corporate-email-coercion"
+        ]
+      },
+      "content_hash": "acc31b11de469976f76ab9f1cc24edd2a15f55dcec6ae2882ddc01f2cff47b84",
+      "hash_scope": "Normalized primary article text",
+      "catalog_locators": {
+        "corporate-email-coercion": [
+          "Methods and public templates at ea0630e1a3eaae7f9f9740fd2703229d3854ccda"
+        ]
+      },
+      "discovered_via": {
+        "catalog": "alignment-hub",
+        "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
+      },
+      "index_fingerprint": "2c042fa17e29e8f3005888939e029b56fe1c26a181d37bda60e9af0e902b814d"
     }
   ],
   "snapshot_counts": {
-    "system-cards": 7,
-    "reports": 4
+    "system-cards": 8,
+    "reports": 5
   }
 }

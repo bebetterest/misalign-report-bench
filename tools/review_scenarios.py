@@ -33,7 +33,7 @@ def actor_surface(case, sample_id, condition_id):
     }
     for key in ("session_material", "messages"):
         if key in sample:
-            sources[key] = deepcopy(condition.get(key, sample[key]))
+            sources[key] = deepcopy(getattr(environment, "messages", condition.get(key, sample[key])) if key == "messages" else condition.get(key, sample[key]))
     return {
         "case": case.id,
         "sample": sample_id,
