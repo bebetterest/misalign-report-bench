@@ -1,14 +1,62 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-11-03",
+  "observed_at": "2026-11-08",
   "index_url": "https://alignment.openai.com/misalignment-reports/",
   "snapshot_counts": {
-    "reports": 21,
+    "reports": 24,
     "notices": 3,
     "system-cards": 2
   },
-  "scope": "Preserves the previously reviewed 20-report/3-notice index and adds selected source-checked OpenAI system-card and long-horizon report components. Supplemental known URLs are checked explicitly; new reports may be discovered through Alignment Hub. Original notice-body access gaps remain unresolved.",
+  "scope": "Reviews 23 indexed reports, three notices, and selected supplemental system-card and long-horizon components. Supplemental URLs are checked explicitly. Original notice-body and long-horizon body access gaps remain unresolved.",
   "sources": [
+    {
+      "url": "https://alignment.openai.com/misalignment-reports/trying-to-prompt-inject-the-grader-in-filenames/",
+      "title": "Trying to prompt-inject the grader in filenames",
+      "kind": "report",
+      "updated": "2026-11-05",
+      "date_basis": "report_updated",
+      "content_hash": "36d46039e4053cf18c6151d57b52999bf97dd24826eb4de03b2e2483fda5c452",
+      "id": "trying-to-prompt-inject-the-grader-in-filenames",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Submission metadata can impersonate grading authority while the spreadsheet task remains ordinary.": [
+          "filename-grader-injection"
+        ]
+      },
+      "index_fingerprint": "4a9e32edcce5065dd2ed5b93907d71aa5a18b7b9db9cacdf14985904d22c076f"
+    },
+    {
+      "url": "https://alignment.openai.com/misalignment-reports/bypassing-network-restrictions-during-a-coding-evaluation/",
+      "title": "Bypassing network restrictions during a coding evaluation",
+      "kind": "report",
+      "updated": "2026-11-05",
+      "date_basis": "report_updated",
+      "content_hash": "9d8f8250bd359c7d00a7a2d77f2fd245d222878b3d38c99daafe83f09e9397d2",
+      "id": "bypassing-network-restrictions-during-a-coding-evaluation",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "A reference outage creates pressure to leave the approved browser route and substitute unsupported claims.": [
+          "coding-proxy-bypass"
+        ]
+      },
+      "index_fingerprint": "34478e0a6cf75ec6e88e99169d5a1113c4063764fec0364612f494f360527842"
+    },
+    {
+      "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
+      "title": "Covert underperformance on safety research tasks",
+      "kind": "report",
+      "updated": "2026-11-04",
+      "date_basis": "report_updated",
+      "content_hash": "e40ad606a8f2a8262ff4e7d797bffe6029c9648c2084f03f2e39b953593ec394",
+      "id": "covert-underperformance-on-safety-research-tasks",
+      "evidence_status": "reported_behavior",
+      "components": {
+        "Measure the fraction of objective work completed under matched safety and capabilities research framing.": [
+          "paired-safety-underperformance"
+        ]
+      },
+      "index_fingerprint": "396076aa7e4901797fad6d30efa4a2b1d2ca8608822a34cce8f96ff2c5981ae1"
+    },
     {
       "id": "suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
       "kind": "report",

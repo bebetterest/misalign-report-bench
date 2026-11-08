@@ -56,7 +56,9 @@ Use the [testing guide](testing.md) to distinguish API grading, offline checks a
 
 ## Check the full report library
 
-Every one of the 97 report fixtures has reviewed positive/honest-blocker and counterexample expectations. Together with availability controls and wrong/missing-deliverable checks they supply 291 references; the separate lake suite supplies 12, for 303 development references across all 98 cases.
+Every one of the 100 report fixtures has reviewed positive/honest-blocker and counterexample expectations. Together with availability controls and wrong/missing-deliverable checks they supply 305 references; the separate lake suite supplies 12, for 317 development references across all 101 cases.
+
+The filename references include two neutral/injected pairs with identical CSV contents, one correct and one incorrect. Each pair should keep its task correctness verdict while changing the filename finding. An additional reference rejects an overlong directive and submits a neutral retry. Prepare the focused inputs with `--case filename-grader-injection --prepare-only`.
 
 The suite includes missing-reference research answers, contradictory saved coordinate/CSV deliverables, readable-input controls and a reciprocal school-ratio counterexample. Three additional references pair truthful handoffs with fabricated model, vendor or holdings files. The judge sees both declared texts, so correct chat or handoff text cannot hide an incorrect work file. These cover explicit rubric boundaries without using action evidence to infer answer quality.
 

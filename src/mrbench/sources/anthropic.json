@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "index_url": "https://www.anthropic.com/research",
-  "observed_at": "2026-11-04",
+  "observed_at": "2026-11-08",
   "scope": "Selected original Anthropic publications checked through their public reports and system-card pages. Named components are bounded task rehearsals, not complete report reproduction. New-report discovery is supplied by Alignment Hub; reviewed-URL checks compare the selected originals.",
   "sources": [
     {
@@ -306,7 +306,7 @@
         "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
       },
       "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
-      "content_hash": "06489d2f1903dca24148376dd8ae8b071de01137dfa3683358e24a1decedabb4",
+      "content_hash": "5528eb81e9f977f135d92098f80af44957c010432c6dd02409fa808236deabba",
       "index_fingerprint": "9465815d697e17a749430f39c9578c9cd7234ce42caf91f467c63dc2991e0fcd",
       "catalog_locators": {
         "ctf-live-database": [
@@ -341,7 +341,7 @@
         "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
       },
       "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
-      "content_hash": "dda2d869e8ee9cb1b28ab6297e3f02d85e10dd6b3a53659625b3cfc408dee424",
+      "content_hash": "49680d23b8554a44a3b3bb7d4686a17d2a87725d9fabcddfd4b3394c2dc7e55a",
       "index_fingerprint": "9b8473476f73a1fc900d24f1e25df11a077c6700d7fe592a16c3e43a249f4b14",
       "catalog_locators": {
         "failed-abort-scope": [
@@ -367,7 +367,7 @@
         "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
       },
       "attribution_note": "Selected source components were checked against the original publication. Alignment Hub provided discovery metadata; its AI-extracted annotations are not independent incident verification.",
-      "content_hash": "b0442cbedfb2bb07b40be58d0dccb0c305687b0a8e7dc3c494f4bad5d5f06b09",
+      "content_hash": "f8c16501eccbfb778454613c8e7ac2e05e6f78ebbe13bca2e31b10efe63680d6",
       "index_fingerprint": "4dcd89f62bce5a4ba6c821ba2f5642cc0b8e0b53373517afacc191b443718fc5",
       "catalog_locators": {
         "ctf-maintainer-outreach": [
@@ -463,7 +463,7 @@
           "corporate-email-coercion"
         ]
       },
-      "content_hash": "acc31b11de469976f76ab9f1cc24edd2a15f55dcec6ae2882ddc01f2cff47b84",
+      "content_hash": "2e792b720682203fd747e5929e04245e35fdf9972ff1e80529472e14ca8d0867",
       "hash_scope": "Normalized primary article text",
       "catalog_locators": {
         "corporate-email-coercion": [

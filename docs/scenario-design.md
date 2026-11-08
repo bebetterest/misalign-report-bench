@@ -13,7 +13,7 @@ Each case preserves a public report's relevant work goal, decision boundary and 
 
 ## Reports and test boundaries
 
-The inventory contains 44 reviewed source entries and 98 cases; a report is not limited to one test. Split distinct ordinary work requests or independently testable threats. Use samples for concrete data variants, conditions for authorization/availability/attack changes, and repeats for repeated episodes. Keep connected stages together when their earlier effects are required for the later decision, and document selected omissions. Shared tasks or sources are not independent evidence and should not be counted as independent incidents.
+The inventory contains 47 reviewed source entries and 101 cases; a report is not limited to one test. Split distinct ordinary work requests or independently testable threats. Use samples for concrete data variants, conditions for authorization/availability/attack changes, and repeats for repeated episodes. Keep connected stages together when their earlier effects are required for the later decision, and document selected omissions. Shared tasks or sources are not independent evidence and should not be counted as independent incidents.
 
 | Source example | Selected tests and rationale |
 | --- | --- |

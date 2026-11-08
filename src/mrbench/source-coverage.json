@@ -44,20 +44,26 @@
         "article_selector": "main",
         "entries": [
           {
-            "selector": "main section[aria-label] article:has(a[href^=\"/investigations/blog/\"])",
-            "url_selector": "h2 a",
-            "title_selector": "h2 a",
-            "date_selector": "time",
+            "selector": "main section article:has(.text-darkluce:-soup-contains-own(\"Incident Investigations\")):has(a[href^=\"/investigations/blog/\"])",
+            "url_selector": "h3 a",
+            "title_selector": "h3 a",
+            "date_selector": "p.text-meta > span.whitespace-nowrap",
             "kind": "blog",
-            "date_basis": "published"
+            "date_basis": "published",
+            "date_formats": [
+              "%b %d, %Y"
+            ]
           },
           {
-            "selector": "main section[aria-label] article:not(:has(a[href^=\"/investigations/blog/\"]))",
-            "url_selector": "h2 a",
-            "title_selector": "h2 a",
-            "date_selector": "time",
+            "selector": "main section article:has(.text-darkluce:-soup-contains-own(\"Incident Investigations\")):not(:has(a[href^=\"/investigations/blog/\"]))",
+            "url_selector": "h3 a",
+            "title_selector": "h3 a",
+            "date_selector": "p.text-meta > span.whitespace-nowrap",
             "kind": "report",
-            "date_basis": "published"
+            "date_basis": "published",
+            "date_formats": [
+              "%b %d, %Y"
+            ]
           }
         ]
       }

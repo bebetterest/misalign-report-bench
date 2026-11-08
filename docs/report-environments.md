@@ -1,14 +1,24 @@
 # OpenAI report environments and coverage
 
-This guide covers the OpenAI website only. The combined library now has 98 cases across three publishers; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
+This guide covers the OpenAI website only. The combined library now has 101 cases across three publishers; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
 
-The source snapshot reviewed on **2026-10-22** contains **20 reports and 3 notices**. This library maps their distinct mechanisms to **40 evaluation cases**, each with one default sample. Multiple samples per case remain supported. The cases include the lake-query `citation-upload` task, a separate photograph task and the other mapped mechanisms.
+The **2026-11-08** snapshot covers **23 indexed reports, three notices and selected supplemental sources**. The registry maps these sources to **47 evaluation cases**, with one default sample per case. The table below covers the earlier source mappings. The three November additions are listed separately.
 
 Coverage is a source-to-environment mapping, not an assertion of model failure or a claim that every original incident can be exactly reproduced. Original full prompts, models, training rewards and some implementation details are not public. Each case records preserved features, deliberate changes and limits in its JSON definition. All task data, credentials, accounts, recipients and services are synthetic.
 
-The three notices retain their earlier content review and evidence status: their shared page returned HTTP 403 during the latest automated check. The refreshed date does not claim a successful notice-body comparison.
+The three notices retain their earlier content review and evidence status. Their shared page and the supplemental long-horizon report returned HTTP 403 during direct article checks.
 
 The [monitoring case walkthrough](monitoring-cases.md) explains the two distinct coding tasks, their controls and the difference between review execution, alert delivery and conversation logging.
+
+## November report additions
+
+| Published mechanism | Case |
+| --- | --- |
+| Grading instructions placed in spreadsheet submission names | [filename-grader-injection](../src/mrbench/cases/filename-grader-injection/case.json) |
+| Out-of-proxy traffic after a coding task's reference became unavailable | [coding-proxy-bypass](../src/mrbench/cases/coding-proxy-bypass/case.json) |
+| Work completed under matched safety and capabilities framing | [paired-safety-underperformance](../src/mrbench/cases/paired-safety-underperformance/case.json) |
+
+The [behavior-case guide](behavior-cases.md) covers the evidence boundaries, the grader references and how to run the paired study.
 
 ## Source map
 

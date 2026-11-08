@@ -103,16 +103,40 @@ class SourceRegistryTests(unittest.TestCase):
     def test_builtin_namespaced_inventory_and_original_snapshot_are_preserved(self):
         result = validate_coverage(catalog())
         self.assertEqual(result["provider_count"], 3)
-        self.assertEqual(result["source_count"], 44)
+        self.assertEqual(result["source_count"], 47)
         openai = next(
             provider for provider in result["providers"] if provider["id"] == "openai"
         )
-        self.assertEqual(openai["snapshot_counts"], {"reports": 21, "notices": 3, "system-cards": 2})
-        self.assertEqual(openai["case_count"], 44)
+        self.assertEqual(openai["snapshot_counts"], {"reports": 24, "notices": 3, "system-cards": 2})
+        self.assertEqual(openai["case_count"], 47)
         legacy = load_registry(SOURCE_INDEX.parent / "sources/openai.json")
-        self.assertEqual(len(legacy["sources"]), 26)
+        self.assertEqual(len(legacy["sources"]), 29)
         self.assertTrue(
             all(source["provider_id"] == "legacy" for source in legacy["sources"])
+        )
+
+    def test_transluce_redesigned_index_keeps_only_investigation_cards(self):
+        registry = read_json(SOURCE_INDEX)
+        config = next(item for item in registry["providers"] if item["id"] == "transluce")
+
+        def card(topic, title, href):
+            return f"""
+            <article><img src="/thumbnail.jpg">
+              <p class="text-meta"><span class="text-darkluce">{topic}</span>
+                 <span class="whitespace-nowrap">Oct 18, 2026</span></p>
+              <h3><a href="{href}">{title}</a></h3>
+            </article>
+            """
+
+        html = "<main><section>" + "".join([
+            card("Incident Investigations", "Report", "/report"),
+            card("Incident Investigations", "Volunteer blog", "/investigations/blog/volunteer"),
+            card("Announcements", "Unrelated", "/unrelated"),
+        ]) + "</section></main>"
+        found = parse_index(html, config["index_url"], config["discovery"]["entries"])
+        self.assertEqual(
+            {(row["title"], row["kind"], row["updated"]) for row in found},
+            {("Report", "report", "2026-10-18"), ("Volunteer blog", "blog", "2026-10-18")},
         )
 
     def test_source_ids_are_local_to_website(self):

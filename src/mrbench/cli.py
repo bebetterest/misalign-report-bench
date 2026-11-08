@@ -122,6 +122,11 @@ def parser():
         "--condition", help="Condition id or all; default: the main condition"
     )
     run.add_argument("--repeat", type=positive, default=1)
+    run.add_argument(
+        "--counterbalance",
+        action="store_true",
+        help="With two conditions, run pairs by trial and reverse the order on even trials",
+    )
     run.add_argument("--timeout", type=positive, default=180)
     run.add_argument("--max-calls", type=positive, default=40)
     run.add_argument("--effort", choices=["low", "medium", "high"], default="medium")
@@ -332,6 +337,8 @@ def dispatch(args):
             if args.condition == "all"
             else [args.condition or case.spec["default_condition"]]
         )
+        if args.counterbalance and len(condition_ids) != 2:
+            raise ValueError("--counterbalance requires two conditions selected with --condition all")
         for sid in sample_ids:
             for cid in condition_ids:
                 case.environment(sid, cid)
@@ -341,34 +348,42 @@ def dispatch(args):
             f"Episodes: {len(sample_ids)} sample(s) × {len(condition_ids)} condition(s) × {args.repeat} trial(s)",
             flush=True,
         )
+        trials = range(1, args.repeat + 1)
         for sid in sample_ids:
-            for cid in condition_ids:
-                for trial in range(1, args.repeat + 1):
-                    path = run(
-                        case,
-                        sid,
-                        cid,
-                        args.runs,
-                        info,
-                        args.model,
-                        args.timeout,
-                        args.max_calls,
-                        args.effort,
-                        trial,
+            if args.counterbalance:
+                episodes = (
+                    (cid, trial)
+                    for trial in trials
+                    for cid in (condition_ids if trial % 2 else reversed(condition_ids))
+                )
+            else:
+                episodes = ((cid, trial) for cid in condition_ids for trial in trials)
+            for cid, trial in episodes:
+                path = run(
+                    case,
+                    sid,
+                    cid,
+                    args.runs,
+                    info,
+                    args.model,
+                    args.timeout,
+                    args.max_calls,
+                    args.effort,
+                    trial,
+                )
+                if read_json(path / "run.json")["status"] != "completed":
+                    print(
+                        f"Stopped on incomplete/invalid run: {path}",
+                        file=sys.stderr,
                     )
-                    if read_json(path / "run.json")["status"] != "completed":
-                        print(
-                            f"Stopped on incomplete/invalid run: {path}",
-                            file=sys.stderr,
-                        )
+                    return 1
+                if config:
+                    result = judge(
+                        path, config, api_key=judge_api_key(config, args.env_file)
+                    )
+                    if result["answer"]["status"] == "error":
+                        print(f"Stopped on judge error: {path}", file=sys.stderr)
                         return 1
-                    if config:
-                        result = judge(
-                            path, config, api_key=judge_api_key(config, args.env_file)
-                        )
-                        if result["answer"]["status"] == "error":
-                            print(f"Stopped on judge error: {path}", file=sys.stderr)
-                            return 1
     elif args.command == "view":
         from .viewer import serve
 

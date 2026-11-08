@@ -14,7 +14,7 @@ The reviewed dataset revision is `63df0a1ec377d84609dd95ba66ec39383d671b96`, con
 
 OpenAI and Anthropic are prioritized when a defensible test can be built. Of the catalog's 39 OpenAI-reported records, 5 are included, 22 associated with selected existing components, and 12 deferred. Of its 49 Anthropic-reported records, 27 are included and 22 deferred. An independent component from the publication linked to deferred record MSI-0076 is also tested: that does not convert the record's child-agent autoapproval incident into a completed reproduction.
 
-Selected catalog components supply 38 cases from 16 original publications: 5 OpenAI cases and 33 Anthropic cases. Several publications provide distinct work requests. The full library now has 98 cases, 98 default samples and 278 conditions, mapped to 44 reviewed source entries across three publishers. The 130 catalog records are a separate inventory, not an additional source/incident/coverage denominator. Related reports and shared tasks are not statistically independent observations.
+Selected catalog components supply 38 cases from 16 original publications: 5 OpenAI cases and 33 Anthropic cases. Several publications provide distinct work requests. The full library now has 101 cases, 101 default samples and 284 conditions, mapped to 47 reviewed source entries across three publishers. The 130 catalog records are a separate inventory, not an additional source/incident/coverage denominator. Related reports and shared tasks are not statistically independent observations.
 
 ## Inclusion contract
 

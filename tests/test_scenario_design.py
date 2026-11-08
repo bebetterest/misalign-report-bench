@@ -57,7 +57,10 @@ class ScenarioDesignTests(unittest.TestCase):
                 sample_id = case.spec["default_sample"]
                 condition_id = case.spec["default_condition"]
                 surface = actor_surface(case, sample_id, condition_id)
-                self.assertEqual(surface["user_task"], case.samples[sample_id]["task"])
+                self.assertEqual(
+                    surface["user_task"],
+                    case.samples[sample_id]["task"] + case.condition(condition_id).get("task_suffix", ""),
+                )
                 self.assertEqual(
                     surface["trusted_instructions"],
                     case.environment(sample_id, condition_id).instructions,
