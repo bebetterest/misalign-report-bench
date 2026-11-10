@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "index_url": "https://www.anthropic.com/research",
-  "observed_at": "2026-11-08",
-  "scope": "Selected original Anthropic publications checked through their public reports and system-card pages. Named components are bounded task rehearsals, not complete report reproduction. New-report discovery is supplied by Alignment Hub; reviewed-URL checks compare the selected originals.",
+  "observed_at": "2026-11-11",
+  "scope": "Selected original Anthropic publications checked through their public reports and system-card pages. Sources are found through direct review and Alignment Hub leads. The reviewed-URL checker compares registered originals. The 2026-11-10 update adds the Fable 5.2 and Mythos 5.2 system card. The November 11 system-card review adds selected coding and operations mechanisms.",
   "sources": [
     {
       "id": "claude-opus-4-6-system-card",
@@ -180,6 +180,12 @@
         "A gate must distinguish authentic user words from agent-attributed approval": [
           "review-user-impersonation",
           "destructive-approval-provenance"
+        ],
+        "Material use of a reachable solution must be reported with its provenance": [
+          "reachable-fix-attribution"
+        ],
+        "A persisted alert reset requires a genuine operator acknowledgment": [
+          "alert-acknowledgment"
         ]
       },
       "discovered_via": {
@@ -211,6 +217,15 @@
       "components": {
         "A gate must distinguish authentic user words from agent-attributed approval": [
           "database-approval-provenance"
+        ],
+        "Material use of a reachable solution must be reported with its provenance": [
+          "reachable-fix-attribution"
+        ],
+        "Third-party instructions in user-pasted terminal output": [
+          "pasted-install-log-injection"
+        ],
+        "Voluntary disclosure after changes were excluded from automated review": [
+          "work-summary-disclosure"
         ]
       },
       "discovered_via": {
@@ -475,10 +490,79 @@
         "dataset_revision": "63df0a1ec377d84609dd95ba66ec39383d671b96"
       },
       "index_fingerprint": "2c042fa17e29e8f3005888939e029b56fe1c26a181d37bda60e9af0e902b814d"
+    },
+    {
+      "id": "claude-fable-5-2-mythos-5-2-system-card",
+      "kind": "system-card",
+      "title": "Claude Fable 5.2 & Claude Mythos 5.2 System Card",
+      "url": "https://www.anthropic.com/document/claude-fable-5-2-mythos-5-2-system-card",
+      "updated": "2026-11-09",
+      "date_basis": "publication_date",
+      "evidence_status": "simulated_demonstration",
+      "components": {
+        "Third-party instructions in user-pasted terminal output": [
+          "pasted-install-log-injection"
+        ],
+        "Voluntary disclosure after changes were excluded from automated review": [
+          "work-summary-disclosure"
+        ],
+        "Material use of a reachable solution must be reported with its provenance": [
+          "reachable-fix-attribution"
+        ]
+      },
+      "attribution_note": "Selected pre-deployment experiments, reviewed directly in the original system card. Transcript 6.5.2.A used simulated calls; §6.5.5.4 measures disclosure on selected prior training traces.",
+      "content_format": "pdf",
+      "content_hash": "bb548a5db76349a67a0e65b84f36ddd15c19c3d5819eb3028460955682bfc259",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "6ca2a22850d4ab56fa7f0ff6f6d148e925be4e6c923f794471fcac2dd19ec8b9"
+    },
+    {
+      "id": "claude-sonnet-5-5-system-card",
+      "kind": "system-card",
+      "title": "Claude Sonnet 5.5 System Card",
+      "url": "https://www.anthropic.com/claude-sonnet-5-5-system-card",
+      "updated": "2026-09-28",
+      "date_basis": "published",
+      "evidence_status": "simulated_demonstration",
+      "components": {
+        "Material use of a reachable solution must be reported with its provenance": [
+          "reachable-fix-attribution"
+        ],
+        "Voluntary disclosure after changes were excluded from automated review": [
+          "work-summary-disclosure"
+        ]
+      },
+      "attribution_note": "Sections 6.3.2.3 and 6.3.2.4 describe controlled attribution and retrospective disclosure evaluations.",
+      "content_format": "pdf",
+      "content_hash": "89cfd6a6d3aa6148eaf23f4a53006950ee7746009f381237c62920c720725785",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "2d9e6c62fab2ea18f49c8c3f9787c8afdfa4bf741146df5c93267920f6c59532"
+    },
+    {
+      "id": "claude-haiku-5-5-system-card",
+      "kind": "system-card",
+      "title": "Claude Haiku 5.5 System Card",
+      "url": "https://www.anthropic.com/claude-haiku-5-5-system-card",
+      "updated": "2026-10-07",
+      "date_basis": "published",
+      "evidence_status": "simulated_demonstration",
+      "components": {
+        "Material use of a reachable solution must be reported with its provenance": [
+          "reachable-fix-attribution"
+        ],
+        "Voluntary disclosure after changes were excluded from automated review": [
+          "work-summary-disclosure"
+        ]
+      },
+      "attribution_note": "Sections 6.3.3.3 and 6.3.3.4 describe controlled attribution and retrospective disclosure evaluations.",
+      "content_format": "pdf",
+      "content_hash": "d5dbaab6996c02ad6ff28b032ce5a9c7582e59af09b5d1bc0975cf0235535da9",
+      "hash_scope": "SHA-256 of the complete original PDF response bytes",
+      "index_fingerprint": "858d7f9b810d522114a22a8c96071ac99dfdae9681d181fdde34530f09a6e65f"
     }
   ],
   "snapshot_counts": {
-    "system-cards": 8,
+    "system-cards": 11,
     "reports": 5
   }
 }

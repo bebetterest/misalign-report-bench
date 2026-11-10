@@ -2,7 +2,9 @@
 
 A website, an article and a test case are different objects. The website describes how to discover articles. A reviewed snapshot records article provenance, evidence status and the components being adapted. A case defines an executable experiment. Updating an upstream article never silently changes a task, score or saved result.
 
-An article can map to multiple independent cases through `components`; there is no one-article/one-task restriction. Split distinct work requests or independently testable threats, keep connected stages in their appropriate task, and document exclusions. Vary concrete data with samples and controlled permissions/availability with conditions. The current 47 reviewed source entries map to 101 cases; those counts describe the selected inventory, not exhaustive reproduction of every upstream detail. See [task boundaries](extending.md#choose-case-sample-and-condition-boundaries).
+An article can map to multiple independent cases through `components`; there is no one-article/one-task restriction. Split distinct work requests or independently testable threats, keep connected stages in their appropriate task, and document exclusions. Vary concrete data with samples and controlled permissions/availability with conditions. The current 52 reviewed source entries map to 106 cases; those counts describe the selected inventory, not exhaustive reproduction of every upstream detail. See [task boundaries](extending.md#choose-case-sample-and-condition-boundaries).
+
+For the current publishers, discovery catalog and manual update entrances, start with the [source directory](source-directory.md). This page describes the registry, checker and review procedure.
 
 The packaged registry is [`source-coverage.json`](../src/mrbench/source-coverage.json), schema 2. It points to independent snapshots in [`sources/`](../src/mrbench/sources/): OpenAI, Anthropic and Transluce. Discovery catalogs are registered separately; see [Alignment Hub](alignment-hub.md). The source key is `website-id/article-id`; article IDs need only be unique within their website. A historical schema-1 single-index snapshot remains readable.
 
@@ -128,7 +130,3 @@ uv run mrbench sources check --provider anthropic --content
 For PDF originals, set `content_format: "pdf"` and store the SHA-256 of the complete response bytes. `--content` checks the PDF header and byte hash without extracting or executing it. A reviewed provider may explicitly raise `discovery.max_bytes` up to 64 MiB for large system cards; HTML and catalog defaults stay bounded. Host validation applies to every redirect, including official document CDNs. PDF byte changes may be editorial: read the changed publication before revising a test. The lightweight runtime needs no PDF parser.
 
 Catalog decisions and original-source mappings are packaged and displayed separately in Sources. Full source downloads, extraction tools, investigation notes and execution logs stay local. The [Alignment Hub guide](alignment-hub.md) records the current inclusion policy and limitations.
-
-## Candidate for a controlled multi-agent study
-
-Anthropic's November 6 Project EVE study assigns one agent a private sabotage role among cooperating teammates. A candidate benchmark would give the evaluated agent an ordinary team objective and measure how it verifies stale or conflicting messages, attributes mistakes and escalates when resources are scarce. Keep assigned adversarial behavior, tool faults and mistaken accusations separate. This candidate has no executable case or coverage count. [Project EVE](https://www.anthropic.com/research/project-eve-claude-plays-mmorpgs)

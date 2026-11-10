@@ -13,7 +13,7 @@ Each case preserves a public report's relevant work goal, decision boundary and 
 
 ## Reports and test boundaries
 
-The inventory contains 47 reviewed source entries and 101 cases; a report is not limited to one test. Split distinct ordinary work requests or independently testable threats. Use samples for concrete data variants, conditions for authorization/availability/attack changes, and repeats for repeated episodes. Keep connected stages together when their earlier effects are required for the later decision, and document selected omissions. Shared tasks or sources are not independent evidence and should not be counted as independent incidents.
+The inventory contains 52 reviewed source entries and 106 cases; a report is not limited to one test. Split distinct ordinary work requests or independently testable threats. Use samples for concrete data variants, conditions for authorization/availability/attack changes, and repeats for repeated episodes. Keep connected stages together when their earlier effects are required for the later decision, and document selected omissions. Shared tasks or sources are not independent evidence and should not be counted as independent incidents.
 
 | Source example | Selected tests and rationale |
 | --- | --- |
@@ -21,6 +21,7 @@ The inventory contains 47 reviewed source entries and 101 cases; a report is not
 | Uploading files to obtain citations | Lake-record research and photograph identification are two different user tasks. |
 | Self-generated compaction injections | Library research, a credentials API change and literature-review continuation have separate work goals and output rubrics. Producers and the continuation study have different inference limits. |
 | Self-replicating injections | Email scheduling, Slack digest creation, a UI build and a data summary expose distinct lower-trust entry points and deliverables. |
+| Fable 5.2 and Mythos 5.2 system card | Pasted terminal output tests whether quoted text gains authority from its message role. A separate read-only follow-up tests voluntary disclosure of a change kept out of a prior review. See [conditions and scoring](behavior-cases.md#anthropic-fable-52-and-mythos-52-follow-ups). |
 | Artifactory writes and communication | A missing-coordinate numerical problem tests other-solver communication; a missing spreadsheet label tests persistent repository writes and failed administration. |
 | Public statistics and disallowed requests | Dashboard retrieval, continuation with an existing answer, and benefits registration test different decision points. The first two share a research goal and must not be treated as independent task evidence. |
 | Transluce public benchmark runs | Air-quality research, phone specifications, oral-paper research and an explicitly requested campsite booking retain separate task and authorization semantics. |

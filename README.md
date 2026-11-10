@@ -6,9 +6,9 @@ An independent, open-source benchmark that turns public AI behavior reports from
 
 Each case extracts an observable behavior, builds a controlled environment and preserves the evidence needed to inspect the result. The reference harnesses use the **real Codex CLI** (default) and **Grok Build CLI** through the same MCP environment. Environment instrumentation scores actions; one separate API request judges the final natural-language answer and declared final task texts.
 
-The built-in library maps **47 reviewed source entries across OpenAI, Anthropic and Transluce** to **101 evaluation cases**, each with one default sample (284 conditions in total). Articles can supply several cases for distinct tasks or independently testable mechanisms. Data variants use samples, controlled changes use conditions, and each episode starts with fresh state. Ordinary research, legitimate behavior, uncertain attribution and unverified allegations retain their evidence status. The [behavior-case guide](docs/behavior-cases.md) explains network scope, submitted filename integrity, delivered-text criteria and paired research framing.
+The built-in library maps **52 reviewed source entries across OpenAI, Anthropic and Transluce** to **106 evaluation cases**, each with one default sample (298 conditions in total). Articles can supply several cases for distinct tasks or independently testable mechanisms. Data variants use samples, controlled changes use conditions, and each episode starts with fresh state. Ordinary research, legitimate behavior, uncertain attribution and unverified allegations retain their evidence status. The [behavior-case guide](docs/behavior-cases.md) explains network scope, submitted filename integrity, delivered-text criteria, pasted logs, voluntary disclosure and paired research framing.
 
-[Alignment Hub](https://huggingface.co/spaces/witness-archive/alignment-hub) supplies a separate, revision-pinned discovery catalog. Its 130 records have explicit screening decisions: 30 included, 30 associated with existing or overlapping tests, and 70 deferred. Selected original OpenAI and Anthropic publications supplied 36 additional cases; catalog annotations are leads, not independent incident verification or extra executable coverage. Read the [selection and adaptation guide](docs/alignment-hub.md).
+**[Browse the source directory](docs/source-directory.md)** for original reports and model cards, article-to-case mappings, and where to check for updates. [Alignment Hub](https://huggingface.co/spaces/witness-archive/alignment-hub) is a separate discovery catalog. Its screening decisions and links to original publications are documented in the [selection guide](docs/alignment-hub.md).
 
 Code and fictional task data are MIT licensed. Upstream catalog metadata remains CC BY 4.0; original reports retain their attribution and rights. The project is independent of all source publishers and catalog maintainers. See [third-party materials](THIRD_PARTY.md).
 
@@ -89,7 +89,7 @@ The judge receives the task, expected facts, source capabilities, case rubric, f
 
 The default payload uses `max_completion_tokens`, `store=false` and strict `json_schema` output. For a compatible provider, select `token_limit_parameter="max_tokens"`, `send_store=false` to omit the unsupported storage field, and/or `response_format="json_object"`. Local validation still applies. Returned model identity and fingerprints are recorded separately from the requested model; compatible comparisons keep differing versions separate.
 
-Check the judge against 317 fixed development references across the library with the [judge quality guide](docs/judge-validation.md). Previewing makes no API call; the full check makes one request per answer. Reference expectations are kept out of the judge input.
+Check the judge against 346 fixed development references across the library with the [judge quality guide](docs/judge-validation.md). Previewing makes no API call; the full check makes one request per answer. Reference expectations are kept out of the judge input.
 
 Re-score action evidence without an API call:
 
@@ -136,7 +136,7 @@ Keep a sample’s task, data and expected threshold consistent. Run `validate` a
 
 For an agent-assisted source refresh or report-to-test update, ask your agent to follow the [update-report-tests skill](skills/update-report-tests/SKILL.md). It covers source review, scenario design, affected checks and evidence boundaries.
 
-Source websites are registered through JSON with their own reviewed snapshots and HTML discovery selectors. Check explicitly for new articles or revisions:
+Source websites use separate JSON registrations and reviewed snapshots. Run an explicit check for changes, and use the [source directory](docs/source-directory.md#review-updates-and-extend-the-directory) for manual system-card and release discovery:
 
 ```sh
 uv run mrbench sources list

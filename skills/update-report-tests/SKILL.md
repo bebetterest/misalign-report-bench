@@ -9,7 +9,7 @@ Convert reviewed source changes into reproducible tests, preserving the ordinary
 
 ## Scope and setup
 
-Work from the repository root with its locked environment (`uv sync --locked` if setup is needed). Read applicable instructions, `git status` and [the source workflow](../../docs/sources.md). Use the user's selected providers, articles, cases and date range; otherwise use the registered providers in [source-coverage.json](../../src/mrbench/source-coverage.json). Derive versions, counts and CLI capabilities from the checkout.
+Work from the repository root with its locked environment (`uv sync --locked` if setup is needed). Read applicable instructions, `git status`, the [source directory](../../docs/source-directory.md) and [registry workflow](../../docs/sources.md). Use the user's selected providers, articles, cases and date range; otherwise use the registered providers in [source-coverage.json](../../src/mrbench/source-coverage.json). Derive versions, counts and CLI capabilities from the checkout.
 
 Read supporting material as needed. Register additional websites/catalogs only within the user-authorized scope. The skill also works in a fresh clone; local notes are optional and may contain superseded checkpoints. Update manually unless scheduling was requested. Existing authorization applies within its stated scope; the skill itself does not authorize paid calls, publication or history changes.
 
@@ -23,7 +23,7 @@ Read supporting material as needed. Register additional websites/catalogs only w
    uv run mrbench sources check --provider transluce --content --output .cache/report-update/REVIEW_ID/source-check.json
    ```
 
-   Use `all` for an all-provider refresh. A named article/case can be reviewed directly. The command only writes candidate changes. Read actual articles and relevant supplements before adapting them; keep raw source caches local.
+   Use `all` for an all-provider refresh. Also check the manual discovery entrances in the [source directory](../../docs/source-directory.md#review-updates-and-extend-the-directory) for the selected scope, especially system cards and release announcements. A named article or case can be reviewed directly. The command only writes candidate changes. Read actual articles and relevant supplements before adapting them; keep raw source caches local.
 
 3. **Decide what changed.** Separate behavioral revisions, editorial changes, missing baselines and fetch/parse failures. Preserve source kinds, dates, attribution and evidence uncertainty. `not_listed` does not prove deletion; inaccessible content remains unresolved. For reviewed editorial-only changes, update provenance/fingerprints without altering task semantics. If nothing changed, report the check without case/version churn. Keep full source caches and working notes local. For a registered discovery catalog, preserve explicit per-record screening decisions without inserting dummy source/case mappings.
 

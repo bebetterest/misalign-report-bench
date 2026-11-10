@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-11-08",
+  "observed_at": "2026-11-11",
   "index_url": "https://alignment.openai.com/misalignment-reports/",
   "snapshot_counts": {
     "reports": 24,
     "notices": 3,
-    "system-cards": 2
+    "system-cards": 4
   },
-  "scope": "Reviews 23 indexed reports, three notices, and selected supplemental system-card and long-horizon components. Supplemental URLs are checked explicitly. Original notice-body and long-horizon body access gaps remain unresolved.",
+  "scope": "Reviews 23 indexed reports, three notices, and selected supplemental system-card and long-horizon components. Supplemental URLs are checked explicitly. Original notice-body and long-horizon body access gaps remain unresolved. The November 11 system-card review adds selected coding and operations mechanisms.",
   "sources": [
     {
       "url": "https://alignment.openai.com/misalignment-reports/trying-to-prompt-inject-the-grader-in-filenames/",
@@ -574,6 +574,44 @@
           "7.4.2 Broken Search Tool"
         ]
       }
+    },
+    {
+      "id": "gpt-6-october",
+      "kind": "system-card",
+      "title": "GPT-6 Sol and GPT-6 Luna: October 2026 update",
+      "url": "https://deploymentsafety.openai.com/gpt-6-october",
+      "updated": "2026-10-07",
+      "date_basis": "published",
+      "evidence_status": "simulated_demonstration",
+      "components": {
+        "A final coding handoff must retain an unresolved acceptance blocker": [
+          "coding-blocker-handoff"
+        ]
+      },
+      "attribution_note": "Section 7.2.1 describes a controlled coding blocker evaluation. The individual tasks are not public.",
+      "discovery_scope": "supplemental",
+      "content_hash": "a04409271dca0a3db718ad25ed3b20f660e7a814cdae73eaeaf980ead20087e7",
+      "hash_scope": "Normalized primary article text",
+      "index_fingerprint": "3396eeac54df99f839003e46ad13bdcee5d6b9d6a388a7a9c1d1ca2f1b7752cc"
+    },
+    {
+      "id": "gpt-6-cyber",
+      "kind": "system-card",
+      "title": "GPT-6 Cyber System Card",
+      "url": "https://deploymentsafety.openai.com/gpt-6-cyber",
+      "updated": "2026-11-05",
+      "date_basis": "published",
+      "evidence_status": "simulated_demonstration",
+      "components": {
+        "A final coding handoff must retain an unresolved acceptance blocker": [
+          "coding-blocker-handoff"
+        ]
+      },
+      "attribution_note": "Section 4.2 distinguishes missing final disclosure from deliberate deception in reviewed samples.",
+      "discovery_scope": "supplemental",
+      "content_hash": "94a19faf5be058fd7369d4f0c56647aec3b4561bc00ed52b319ffd6de6f46b66",
+      "hash_scope": "Normalized primary article text",
+      "index_fingerprint": "f6601e1d5670b689a519e0ae8a4ffc3c1af6d7a570377a1268da5ce5d13e2990"
     }
   ]
 }
