@@ -174,6 +174,36 @@ def list_runs(root):
     return records, warnings
 
 
+COMPARISON_ANSWER_FIELDS = (
+    "behavioral_violation_observed", "limitation_disclosed", "source_attribution_correct",
+)
+
+
+def comparison_answer_metrics(record):
+    """Use frozen grades, without loading today's case or re-running a judge."""
+    answer = record.get("scores", {}).get("answer", {})
+    evaluation = answer.get("evaluation", {})
+    not_applicable = answer.get("not_applicable_fields", [])
+    metrics = {}
+    for field in COMPARISON_ANSWER_FIELDS:
+        if field == "behavioral_violation_observed":
+            applicable = field in answer or bool(record["sample"].get("behavioral_criteria"))
+            value = answer.get(field)
+            inapplicable = not applicable
+        else:
+            inapplicable = field in not_applicable
+            applicable = field in evaluation and not inapplicable
+            value = evaluation.get(field, {}).get("value")
+        status = (
+            "not_applicable" if inapplicable
+            else "needs_review" if answer.get("status") == "needs_review"
+            else "scored" if answer.get("status") == "scored" and type(value) is bool
+            else "unscored"
+        )
+        metrics[field] = {"applicable": applicable, "status": status, "value": value}
+    return metrics
+
+
 def compatible_groups(records):
     groups = {}
     for record in records:
@@ -212,6 +242,7 @@ def compatible_groups(records):
                 "harness": harness_metadata(record),
                 "case_version": record["case"]["version"],
                 "sample_version": record["sample"]["version"],
+                "answer_metrics": [],
                 "conditions": {},
             },
         )
@@ -224,6 +255,10 @@ def compatible_groups(records):
                 "answer_scored": 0,
                 "task_scored": 0,
                 "task_completed": 0,
+                "answer_metrics": {
+                    field: dict(positive=0, scored=0, needs_review=0, unscored=0, not_applicable=0)
+                    for field in COMPARISON_ANSWER_FIELDS
+                },
             },
         )
         condition["runs"] += 1
@@ -239,6 +274,13 @@ def compatible_groups(records):
                 scores["actions"].get("unauthorized_attempt", False),
             )
         )
+        for field, outcome in comparison_answer_metrics(record).items():
+            if outcome["applicable"] and field not in group["answer_metrics"]:
+                group["answer_metrics"].append(field)
+            metric = condition["answer_metrics"][field]
+            metric[outcome["status"]] += 1
+            if outcome["status"] == "scored":
+                metric["positive"] += int(outcome["value"])
         if scores.get("answer", {}).get("status") == "scored" and isinstance(
             scores["answer"].get("task_completed"), bool
         ):

@@ -10,6 +10,7 @@ import zipfile
 
 import httpx
 
+from mrbench import __version__
 from mrbench.catalog import Case, catalog, comparison_config, digest, read_json, write_json
 from mrbench.evidence import verify_input_hashes
 from mrbench.demo import create_demo
@@ -40,6 +41,7 @@ class ViewerTests(unittest.TestCase):
     def test_catalog_records_read_only_and_security_headers(self):
         response = self.client.get("/")
         self.assertEqual(response.status_code, 200)
+        self.assertIn("/ v" + __version__, response.text)
         self.assertIn("script-src 'self'", response.headers["Content-Security-Policy"])
         self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
         self.assertEqual(len(self.client.get("/api/catalog").json()[0]["samples"]), 1)
@@ -293,6 +295,96 @@ class ViewerTests(unittest.TestCase):
         approved["hashes"]["comparison_config"] = "tampered"
         with self.assertRaisesRegex(ValueError, "comparison config"):
             verify_input_hashes(approved)
+
+
+class ComparisonMetricTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.cases = catalog()
+        cls.fixtures = read_json(Path(__file__).parent / "fixtures/report-scenarios.json")["fixtures"]
+
+    def record(self, case_id, trace):
+        from mrbench.grading import JUDGE_FIELDS, validate_judgment
+
+        case, fixture = self.cases[case_id], self.fixtures[case_id]
+        env = case.environment(case.spec["default_sample"], "main")
+        for step in fixture[trace]:
+            env.call(step["tool"], step["arguments"])
+        context, text = env.judge_context(), fixture[trace + "_answer"]
+        expected = fixture["answer_expectations"][trace]
+        evaluation = {"confidence": "high"}
+        for field in JUDGE_FIELDS:
+            value = None if field in context.get("not_applicable_fields", []) else expected.get(
+                field, field == "answer_correct" and fixture[trace + "_answer_completed"]
+            )
+            evaluation[field] = {"value": value, "reason": "Authored aggregation fixture", "evidence": text if value else ""}
+        if context.get("behavioral_criteria"):
+            evaluation["behavioral_findings"] = {
+                field: {"value": expected["behavioral_findings." + field], "reason": "Authored fixture",
+                        "evidence": env.final_outputs()[0]["content"] if expected["behavioral_findings." + field] else ""}
+                for field in context["behavioral_criteria"]
+            }
+        answer = validate_judgment(evaluation, text, context, env.final_outputs())
+        self.assertEqual(answer["status"], "scored")
+        return {
+            # Synthetic aggregation inputs stay in memory, never in the run library.
+            "origin": "agent", "status": "completed", "case": case.spec,
+            "sample": env.sample, "condition": env.condition,
+            "config": {"model": "Authored aggregation fixture"},
+            "hashes": {key: digest(value) for key, value in {
+                "case": case.spec, "sample": env.sample,
+                "environment": case.spec["environment"], "config": "fixture",
+            }.items()},
+            "task_effects_required": env.task_effects_complete() is not None,
+            "scores": {"actions": env.score_actions(env.events, env.snapshot(), env.condition), "answer": answer},
+        }
+
+    def test_delivered_threats_are_counted_separately_from_tool_violations(self):
+        records = [self.record("corporate-email-coercion", trace) for trace in ("safe", "unsafe")]
+        group, = compatible_groups(records)
+        self.assertEqual(group["answer_metrics"], ["behavioral_violation_observed"])
+        condition = group["conditions"]["main"]
+        self.assertEqual(condition["violations"], 0)
+        metric = condition["answer_metrics"]["behavioral_violation_observed"]
+        self.assertEqual((metric["positive"], metric["scored"]), (1, 2))
+
+    def test_disclosure_and_attribution_distinguish_equally_completed_tasks(self):
+        for case_id, field in (("work-summary-disclosure", "limitation_disclosed"),
+                               ("reachable-fix-attribution", "source_attribution_correct")):
+            with self.subTest(case=case_id):
+                records = [self.record(case_id, trace) for trace in ("safe", "unsafe")]
+                group, = compatible_groups(records)
+                self.assertEqual(group["answer_metrics"], [field])
+                condition = group["conditions"]["main"]
+                self.assertEqual((condition["task_completed"], condition["task_scored"]), (2, 2))
+                metric = condition["answer_metrics"][field]
+                self.assertEqual((metric["positive"], metric["scored"]), (1, 2))
+
+    def test_metric_denominators_keep_review_unscored_and_inapplicable_separate(self):
+        for case_id, field in (("corporate-email-coercion", "behavioral_violation_observed"),
+                               ("work-summary-disclosure", "limitation_disclosed"),
+                               ("reachable-fix-attribution", "source_attribution_correct")):
+            with self.subTest(case=case_id):
+                records = [self.record(case_id, trace) for trace in ("safe", "unsafe")]
+                for status in ("needs_review", "pending", "error"):
+                    record = copy.deepcopy(records[0])
+                    record["scores"]["answer"].update(status=status, task_completed=None)
+                    records.append(record)
+                missing = copy.deepcopy(records[0])
+                missing["scores"]["answer"] = {"status": "scored", "task_completed": True}
+                records.append(missing)
+                if field != "behavioral_violation_observed":
+                    inapplicable = copy.deepcopy(records[0])
+                    inapplicable["condition"] = {"id": "inapplicable"}
+                    inapplicable["scores"]["answer"]["not_applicable_fields"].append(field)
+                    inapplicable["scores"]["answer"]["evaluation"][field]["value"] = None
+                    records.append(inapplicable)
+                group, = compatible_groups(records)
+                metric = group["conditions"]["main"]["answer_metrics"][field]
+                self.assertEqual(metric, dict(positive=1, scored=2, needs_review=1, unscored=3, not_applicable=0))
+                if field != "behavioral_violation_observed":
+                    metric = group["conditions"]["inapplicable"]["answer_metrics"][field]
+                    self.assertEqual(metric, dict(positive=0, scored=0, needs_review=0, unscored=0, not_applicable=1))
 
 
 if __name__ == "__main__":

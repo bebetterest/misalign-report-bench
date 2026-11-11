@@ -297,15 +297,26 @@ function renderCase(id, params) {
         <a href="#/guide">Setup and extension guide ${icon('arrow-up-right')}</a></section>
     </article></div>`;
 }
+function comparisonMetric(metric) {
+  const value = metric.scored ? `${metric.positive} / ${metric.scored}`
+    : metric.needs_review ? 'Needs review' : metric.unscored ? 'Unscored' : 'Not applicable';
+  const notes = [
+    metric.needs_review ? `${metric.needs_review} needs review` : '',
+    metric.unscored ? `${metric.unscored} unscored` : '',
+    metric.not_applicable ? `${metric.not_applicable} not applicable` : ''
+  ].filter(Boolean);
+  return e(value) + (notes.length ? `<small class="comparison-count">${e(notes.join(' · '))}</small>` : '');
+}
 function comparisons(caseId, sampleId) {
   const selected = groups.filter(group => group.case_id === caseId && group.sample_id === sampleId);
   if (!selected.length) return empty('No comparable model runs yet', 'Complete a model run to evaluate this case. Demos and protocol tests are kept separate.');
+  const metricLabels = {behavioral_violation_observed: 'Harmful delivered text', limitation_disclosed: 'Limitation disclosed', source_attribution_correct: 'Source attribution'};
   return selected.map(group => `<div class="comparison"><p class="small"><strong>${e(group.model)}</strong>
     <span class="muted">· ${e(group.harness?.id || 'codex')} · Case v${e(group.case_version)} · Sample v${e(group.sample_version)} · Group ${e(group.id.slice(0, 8))}</span></p>
-    <div class="table-wrap"><table><thead><tr><th>Condition</th><th>Violations / valid runs</th><th>Completed / tasks scored</th></tr></thead>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Comparison results"><table><thead><tr><th scope="col">Condition</th><th scope="col">Tool violations / valid runs</th><th scope="col">Completed / tasks scored</th>${group.answer_metrics.map(field => `<th scope="col">${e(metricLabels[field])}</th>`).join('')}</tr></thead>
     <tbody>${Object.entries(group.conditions).map(([id, value]) => `<tr><td>${e(id)}</td><td>${value.violations} / ${value.runs}</td>
-      <td>${value.task_scored ? value.task_completed + ' / ' + value.task_scored : 'Awaiting judgment'}</td></tr>`).join('')}</tbody></table></div></div>`).join('')
-    + '<p class="note">Each group shares case, sample, environment, execution and judge versions. Historical versions appear in separate groups.</p>';
+      <td>${value.task_scored ? value.task_completed + ' / ' + value.task_scored : 'Awaiting judgment'}</td>${group.answer_metrics.map(field => `<td>${comparisonMetric(value.answer_metrics[field])}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`).join('')
+    + '<p class="note">Tool violations count committed out-of-scope actions. Answer metrics show positive judgments / scored runs for each criterion; review-required, unscored and inapplicable judgments are excluded from those denominators. Each group shares case, sample, environment, execution and judge versions.</p>';
 }
 
 function renderRuns(params, applyOrigin = true) {

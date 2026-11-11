@@ -137,6 +137,8 @@ Only completed `agent` runs (including legacy `codex`) enter comparisons. Groupi
 
 Reproduction commands for case samples and saved runs preserve the case-library path; saved model runs also preserve the selected Codex executable. Answer-scoring commands include the viewer’s run directory. Historical groups display case/sample versions separately. To reproduce on another machine, restore the corresponding library/code versions and adjust paths explicitly; a copied command cannot recreate an unavailable provider model or account state.
 
+Comparison tables distinguish committed tool violations from harmful delivered content. Disclosure and source-attribution columns appear when applicable saved judgments are present; harmful-content columns also use the recorded sample's declared behavioral criteria. Each answer metric shows positive judgments over scored judgments, with separate counts for review-required, unscored and inapplicable results. A missing historical grade is unscored, not a negative finding. These aggregates use frozen records and never invoke a judge or change task completion. Restoring or re-scoring a run is independent of viewing it.
+
 ## Further reading
 
 - [Codex configuration reference](https://developers.openai.com/codex/config-reference/)

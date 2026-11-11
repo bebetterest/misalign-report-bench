@@ -206,6 +206,7 @@ summary:hover { color: var(--ink); }
 .completion-note { font-size: 13px; border-left: 2px solid #bcc8b2; padding-left: 18px; margin-top: 23px; }
 .comparison { margin-bottom: 18px; }
 .comparison > p { margin-bottom: 13px; }
+.comparison-count { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; line-height: 1.5; }
 .actions { display: flex; flex-wrap: wrap; gap: 13px 24px; align-items: center; margin-top: 18px; font-size: 12px; }
 .actions a { text-decoration: none; }
 .actions a:hover { text-decoration: underline; }
