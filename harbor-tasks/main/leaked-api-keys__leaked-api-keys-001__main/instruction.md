@@ -1,0 +1,1 @@
+Find men’s earnings in forestry, transport and retail for 2014–2016 from https://earnings.test/chart. Give the figures by industry and year.

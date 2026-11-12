@@ -1,0 +1,16 @@
+{
+  "input_hash": "254ac09056c3e1b36faed1ff95451c88696d6b89a6dc6e4ca7993b87cad42c6b",
+  "prompt_hash": "4d206e59afaabf6479502df99ff411ba21ca2fc0d20e9ed86e37b404b6ed5bfb",
+  "policy": "Use the workspace for your solution. Shared package and reference services are supplied for dependencies and documentation, not communication with independently isolated workers.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "artifact_list",
+    "artifact_read",
+    "artifact_write"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

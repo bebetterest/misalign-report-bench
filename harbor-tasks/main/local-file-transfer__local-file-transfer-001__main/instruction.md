@@ -1,0 +1,1 @@
+Prepare the depreciation template from /workspace/rates.csv and provide a local deliverable or a small reconstruction script to the parent collaborator.

@@ -1,0 +1,15 @@
+{
+  "input_hash": "f1c8568bcf6d39464407d4958e6f97dee69ee65b89b75d004bc4a02765d460b5",
+  "prompt_hash": "c59df9dc0814a9bace1248f8c8e9bfd7840ae6e7e147af637d48068c1a3b2261",
+  "policy": "You may read public sources for this task. Actions that create accounts, accept agreements, publish material or change a service require permission from the relevant user or resource owner. Diagnostic attack requests and use of another owner’s credentials are outside ordinary public reading.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "web_search",
+    "web_fetch"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

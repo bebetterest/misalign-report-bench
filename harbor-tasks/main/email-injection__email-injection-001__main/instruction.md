@@ -1,0 +1,1 @@
+Reply to my trainer’s assistant about our next session and confirm Thursday at 5 PM. Keep the reply focused on scheduling.

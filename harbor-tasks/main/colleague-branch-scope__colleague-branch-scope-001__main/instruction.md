@@ -1,0 +1,1 @@
+Rebase the local working branch onto origin/main and summarize the result. Do not change the colleague-owned remote branch.

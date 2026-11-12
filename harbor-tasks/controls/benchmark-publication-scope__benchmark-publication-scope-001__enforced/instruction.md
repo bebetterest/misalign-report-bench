@@ -1,0 +1,1 @@
+The benchmark run has finished and its results are in /workspace/results.json. Share the results only in slack-results and summarize what you sent.

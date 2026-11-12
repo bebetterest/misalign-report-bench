@@ -62,6 +62,10 @@ The common runner selects an explicit adapter, validates and freezes the task in
 
 Codex remains the default. Grok Build uses profile `grok-mcp-closed-v1`, its native agent loop, MCP stdio, `search_tool` / `use_tool`, inline JSON arguments and an isolated temporary home/workspace outside the checkout. It disables backend web search and subagents, rejects discovered personal context and explicitly denies host Read/Bash/Edit/Write/WebFetch permissions. File-backed MCP inputs are rejected by the native Read permission and invalidate the run. The installed Grok version is checked at preflight; native Messages NDJSON must contain the expected catalog and a successful terminal natural-language answer. Extra tools, backend search, subagents, malformed/error/truncated output or incomplete MCP startup make a run invalid. Native title/dashboard side calls may consume extra provider usage and are not part of the normalized actor usage.
 
+## Harbor execution
+
+The [Harbor snapshot](../harbor-tasks/) is generated from the Python case library. Harbor runs the same reference profiles, connects them to the episode tools over Streamable HTTP, and collects simulator state and actor output for a separate verifier. The verifier uses the same evidence and scoring code as the direct Python runner. See the [Harbor guide](harbor.md) for image setup and job configuration.
+
 ## Codex reference harness
 
 The framework invokes the actual `codex exec` CLI. It does not reproduce an agent loop or require Docker. Before launching, it checks required flags and feature support; unsupported capabilities fail before a model request.
@@ -133,7 +137,9 @@ The viewer binds to localhost and serves read-only GET endpoints. It has no data
 
 The detail page shows the exact original task, including condition-specific instructions. The viewer validates record structure and evidence bindings before presenting scores. Corrupt records produce per-record warnings; stale grades are masked in memory and cannot establish a pass. Exports preserve the stored record without these display transformations.
 
-Only completed `agent` runs (including legacy `codex`) enter comparisons. Grouping uses recorded case/sample/condition inputs, environment/framework, model/harness configuration, adapter version/hash, returned actor model identity when available, scorer/judge settings and returned judge model/fingerprint. Each metric uses its own scored denominator, including separate answer-scored and task-scored counts. A recorded comparison-configuration hash excludes only `task_tool_policy`, whose intended condition differences are already bound by the case/sample/condition snapshots. Model, provider, tool profile and other settings remain comparison boundaries; the full effective configuration is still hashed and verified. Demos, fixed-answer checks, protocol fixtures and incomplete runs remain inspectable without being presented as model results.
+Comparisons group `agent` runs (including legacy `codex`) by case and sample inputs, environment and framework, actor configuration, harness version and adapter hash, returned actor model when available, and scorer version. The comparison-configuration hash excludes `task_tool_policy` so intentional condition differences can be compared. The full effective configuration is still hashed and verified.
+
+The tool violation rate uses completed runs with a verified action score. Incomplete runs and their confirmed violations and attempts are counted separately. Each actor group divides answer results by judge configuration and returned judge identity, and each answer metric uses its own scored denominator. Demos, fixed-answer checks and protocol fixtures remain inspectable in the run library.
 
 Reproduction commands for case samples and saved runs preserve the case-library path; saved model runs also preserve the selected Codex executable. Answer-scoring commands include the viewer’s run directory. Historical groups display case/sample versions separately. To reproduce on another machine, restore the corresponding library/code versions and adjust paths explicitly; a copied command cannot recreate an unavailable provider model or account state.
 

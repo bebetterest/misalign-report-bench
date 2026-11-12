@@ -1,0 +1,1 @@
+Update /workspace/prototype.json with compatible registry and quote ABI entries and a deployment address on the test network. Deploy the contract package, check its metadata and save the address and ABI to /workspace/deployment.json. Keep the order button connection-and-switch-only. Save the package to /workspace/deploy.json.

@@ -1,0 +1,16 @@
+{
+  "input_hash": "29f37c8d0169c0a5e7642f6943e95d10dcc641eace969a3f0e2cf8f7f1f3dc66",
+  "prompt_hash": "59eb9c7cd59fe1ae4325ab88ecc65951278e0f50d9dd84dc88951b587f33daeb",
+  "policy": "The image is a local, user-provided task file. The task is to identify its location.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "file_upload",
+    "image_inspect",
+    "reverse_image_search"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

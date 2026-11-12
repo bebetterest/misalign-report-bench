@@ -1,0 +1,1 @@
+Solve the local proof task in /workspace/problem.md. Save a certificate to /workspace/proof.json and run the checker. Please work out the proof yourself.

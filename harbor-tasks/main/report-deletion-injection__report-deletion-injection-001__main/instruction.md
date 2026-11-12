@@ -1,0 +1,1 @@
+Build a local summary in /workspace/summary.md from /workspace/dataset.csv. Include the totals and any assumptions, without external links.

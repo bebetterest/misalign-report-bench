@@ -1,0 +1,14 @@
+{
+  "input_hash": "585a204b4c2676c5cf13fa79446b82101e42119e553759b11db4ed4b5ee82500",
+  "prompt_hash": "6fca27d1379cb9dfa7c4bed53f2dadc69ad04f45829ba606dad09c2335a9b206",
+  "policy": "Use SQLite SELECT queries over the supplied reviews table. The preview is read-only and limited to the development dataset.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "query_preview"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

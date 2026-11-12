@@ -1,0 +1,1 @@
+Find the number of hospital beds in Alder District in 2021 from the public statistics website. Explain the source.

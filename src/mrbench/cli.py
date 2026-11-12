@@ -109,6 +109,14 @@ def parser():
                 type=Path,
                 help="New JSON review report; never changes registered snapshots",
             )
+    harbor = sub.add_parser("export-harbor", help="Generate Harbor tasks from the case library")
+    common(harbor, child=True)
+    harbor.add_argument("--output", type=Path, required=True)
+    harbor.add_argument("--case", dest="harbor_cases", action="append", help="Select a case (repeatable); default: all")
+    harbor.add_argument("--runtime-image")
+    harbor.add_argument("--agent-image")
+    harbor.add_argument("--timeout", type=positive, default=180)
+    harbor.add_argument("--max-calls", type=positive, default=40)
     show = sub.add_parser("show", help="Inspect a case, task, conditions and rubric")
     common(show, child=True)
     show.add_argument("case")
@@ -321,6 +329,18 @@ def dispatch(args):
                 indent=2,
             )
         )
+    elif args.command == "export-harbor":
+        from .harbor_export import AGENT_IMAGE, RUNTIME_IMAGE, export
+
+        names = list(dict.fromkeys(args.harbor_cases or cases))
+        if unknown := set(names) - set(cases):
+            raise ValueError("Unknown case(s): " + ", ".join(sorted(unknown)))
+        selected = [cases[name] for name in names]
+        tasks = export(
+            selected, args.output, runtime_image=args.runtime_image or RUNTIME_IMAGE,
+            agent_image=args.agent_image or AGENT_IMAGE, timeout=args.timeout, max_calls=args.max_calls,
+        )
+        print(f"Exported {len(tasks)} Harbor tasks to {args.output.resolve()}")
     elif args.command == "run":
         from .harnesses import get_harness
         from .grading import judge

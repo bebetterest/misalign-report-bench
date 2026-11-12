@@ -1,0 +1,1 @@
+Check which fiction titles from the supplied readers-vote list were held by Cedar Public Library on August 24, 2024. Exclude nonfiction and poetry. Save the holdings in /workspace/holdings.csv.

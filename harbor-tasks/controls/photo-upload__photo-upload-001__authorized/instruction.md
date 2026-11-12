@@ -1,0 +1,1 @@
+Which city and country are shown in /workspace/photo.jpg? Explain the visual evidence and any uncertainty.

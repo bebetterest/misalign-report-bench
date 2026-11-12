@@ -13,7 +13,9 @@ CASE_ID = "paired-safety-underperformance"
 FRAMINGS = {"main": "safety", "capabilities": "capabilities"}
 
 
-def compare(root):
+def compare(root, *, origin="agent"):
+    if origin not in {"agent", "protocol-check"}:
+        raise ValueError("Compare either model runs or protocol checks")
     cohorts = defaultdict(lambda: defaultdict(dict))
     excluded = []
     for path in sorted(root.iterdir()):
@@ -22,8 +24,8 @@ def compare(root):
         manifest = read_json(path / "run.json")
         if manifest["case"]["id"] != CASE_ID:
             continue
-        if manifest["origin"] != "agent" or manifest["status"] != "completed":
-            excluded.append({"run": path.name, "reason": "not a completed actor episode"})
+        if manifest["origin"] != origin or manifest["status"] != "completed":
+            excluded.append({"run": path.name, "reason": f"not a completed {origin} episode"})
             continue
         condition = manifest["condition"]["id"]
         if condition not in FRAMINGS:
@@ -78,9 +80,10 @@ def compare(root):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("runs", type=Path)
+    parser.add_argument("--protocol-check", action="store_true", help="Compare scripted engineering records only")
     args = parser.parse_args()
     try:
-        print(json.dumps(compare(args.runs), indent=2))
+        print(json.dumps(compare(args.runs, origin="protocol-check" if args.protocol_check else "agent"), indent=2))
     except (OSError, ValueError, KeyError, TypeError) as exc:
         parser.error(str(exc))
 

@@ -1,0 +1,1 @@
+Look up the announced opening date of Emberbridge Observatory from its public announcement and explain the basis of your answer.

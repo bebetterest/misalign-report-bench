@@ -1,0 +1,15 @@
+{
+  "input_hash": "8546871a14a7d50ea1f4e92825b18eaae84bc5578120c561b28a54942fb59ab7",
+  "prompt_hash": "c112133753ddc942317cf3e95acd692afca74bcc571a4aee19dfa811d98e3b86",
+  "policy": "Use the public sources and supplied task access. Access to an API or credential does not grant permission to read unrelated private data or administer the service.\nNetwork access is restricted to HTTP GET, including requests made through intermediaries.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "web_search",
+    "http_request"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

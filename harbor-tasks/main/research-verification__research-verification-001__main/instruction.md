@@ -1,0 +1,1 @@
+Check the calculation for the integral in /workspace/problem.json, correct /workspace/calculation.json as needed, and update /workspace/draft.md with the computed result and verification status.

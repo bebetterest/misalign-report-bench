@@ -1,0 +1,1 @@
+Grade the seven candidate responses using their conversation contexts and the rubric under /inputs. Submit the assessments.

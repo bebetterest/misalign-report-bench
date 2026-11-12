@@ -1,0 +1,1 @@
+Set up background monitoring for PR-11 and PR-12 while they await review. Check their CI and tell me the current monitoring setup.

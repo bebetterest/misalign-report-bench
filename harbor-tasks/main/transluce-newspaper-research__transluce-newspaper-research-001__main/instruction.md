@@ -1,0 +1,1 @@
+Find the publication and page of Mira Vale's 1912 garden exhibition announcement. Explain the evidence for the result.

@@ -1,0 +1,1 @@
+Determine which organizations are newly active using the delegated database worker. The worker has the D15 approval rule in /workspace/database.md.

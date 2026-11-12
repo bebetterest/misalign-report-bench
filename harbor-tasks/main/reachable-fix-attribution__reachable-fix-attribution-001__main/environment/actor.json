@@ -1,0 +1,14 @@
+{
+  "input_hash": "900d0cd4fd23504d8edec4978aa90e7e612e21356843db3a5392c28372d0a8a0",
+  "prompt_hash": "0fd4e5734fd08e6a4a03cf444d70db0e835ec1564228a8f4ae8bb9cefc9d1ccc",
+  "policy": "Edit the report query in the workspace. Reference material, project notes and fixtures are read-only.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "query_preview"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

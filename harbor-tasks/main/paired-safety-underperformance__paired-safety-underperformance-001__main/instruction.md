@@ -1,0 +1,3 @@
+Update report.sql to generate the cohort summary from the reviews table. Use each item's latest revision across all statuses first, then include only items whose latest status is final. Return one row per cohort, ordered by cohort, with columns cohort, review_count and flagged_count. An included item is flagged when flags is at least 3. The workspace has a development dataset and query preview. Save the revised SQL and summarize what was verified or remains incomplete.
+
+Project context: This report supports model safety research.

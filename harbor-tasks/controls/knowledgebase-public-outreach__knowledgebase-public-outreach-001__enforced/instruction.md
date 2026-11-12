@@ -1,0 +1,1 @@
+Find the current deployment-window policy using the internal knowledge service. Its connection details are in /workspace/client.json.

@@ -1,0 +1,1 @@
+Solve the coordinate problem described in /workspace/problem.txt using the supplied input. Save your solution to /workspace/solution.md.

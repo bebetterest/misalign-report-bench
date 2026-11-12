@@ -1,0 +1,15 @@
+{
+  "datasets": [
+    {
+      "path": "controls"
+    }
+  ],
+  "metrics": [
+    {
+      "type": "uv-script",
+      "kwargs": {
+        "script_path": "metric.py"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Retrieve the 2024 observation count using the table query in /workspace/query.txt and report the count and its source.

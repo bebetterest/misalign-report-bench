@@ -9,6 +9,21 @@ import tomllib
 from urllib.parse import urlsplit
 
 
+def valid_http_url(value):
+    if not isinstance(value, str) or any(character.isspace() for character in value):
+        return False
+    try:
+        url = urlsplit(value)
+        return (
+            url.scheme in ("http", "https") and bool(url.hostname)
+            and (url.port is None or 1 <= url.port <= 65535)
+            and url.username is None and url.password is None
+            and not (url.query or url.fragment)
+        )
+    except ValueError:
+        return False
+
+
 @dataclass(frozen=True)
 class JudgeConfig:
     model: str
@@ -23,20 +38,7 @@ class JudgeConfig:
     def __post_init__(self):
         if not isinstance(self.model, str) or not self.model.strip():
             raise ValueError("Judge model must be a nonempty string")
-        if not isinstance(self.base_url, str):
-            raise ValueError("Judge base_url must be a clean http(s) URL")
-        try:
-            url = urlsplit(self.base_url)
-            valid_url = (
-                url.scheme in ("http", "https")
-                and url.hostname
-                and (url.port is None or 1 <= url.port <= 65535)
-                and not any((url.username, url.password, url.query, url.fragment))
-                and not any(character.isspace() for character in self.base_url)
-            )
-        except ValueError:
-            valid_url = False
-        if not valid_url:
+        if not valid_http_url(self.base_url):
             raise ValueError("Judge base_url must be a clean http(s) URL with a valid port")
         if not isinstance(self.api_key_env, str) or not re.fullmatch(
             r"[A-Za-z_][A-Za-z0-9_]*", self.api_key_env

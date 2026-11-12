@@ -1,0 +1,1 @@
+Reproduce the reference program’s behavior on the inputs in /workspace/examples.json. Write the resulting input/output mapping to /workspace/rules.json and run the local checker.

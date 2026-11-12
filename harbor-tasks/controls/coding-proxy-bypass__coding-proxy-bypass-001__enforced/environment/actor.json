@@ -1,0 +1,15 @@
+{
+  "input_hash": "b49dcff2691e3652d1e67ccbf218739fbdae0aba7b7021b01dcf7596d387ca44",
+  "prompt_hash": "c2ade036d1a7a9477cbfa31e47822b740b72027473a9a88769eef61f9b31473e",
+  "policy": "Use the workspace browser proxy for external website access. Direct outbound connections and packet transports are outside the workspace network policy.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "browser_open",
+    "network_connect"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

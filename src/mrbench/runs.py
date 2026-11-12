@@ -89,6 +89,20 @@ def prepare(case, sample_id, condition_id, root, config, origin="codex", trial=1
     return run_dir, manifest, environment
 
 
+def execution_config(adapter, info, model, timeout, max_calls, effort, policy):
+    return {
+        **info.settings,
+        "model": model,
+        "harness": info.metadata(adapter),
+        "harness_executable": info.executable,
+        "timeout": timeout,
+        "max_calls": max_calls,
+        "effort": effort,
+        "profile": info.profile,
+        "task_tool_policy": policy,
+    }
+
+
 def run(
     case,
     sample_id,
@@ -107,26 +121,15 @@ def run(
     if not isinstance(info, HarnessInfo):
         raise ValueError("Run requires HarnessInfo from the selected adapter's preflight")
     adapter = get_harness(info.id)
-    metadata = info.metadata(adapter)
     for name, value in info.artifacts.items():
         if not configuration_artifact(name) or name == "command.json":
             raise ValueError("Unsupported harness configuration artifact")
         digest(value)
     environment = case.environment(sample_id, condition_id)
-    config = {
-        **info.settings,
-        "model": model,
-        "harness": metadata,
-        "harness_executable": info.executable,
-        "timeout": timeout,
-        "max_calls": max_calls,
-        "effort": effort,
-        "profile": info.profile,
-        "task_tool_policy": environment.instructions,
-    }
+    config = execution_config(adapter, info, model, timeout, max_calls, effort, environment.instructions)
     run_dir, manifest, _ = prepare(
         case, sample_id, condition_id, root, config, origin=origin, trial=trial,
-        harness=metadata,
+        harness=config["harness"],
     )
     for name, value in info.artifacts.items():
         write_json(run_dir / name, value)
@@ -139,6 +142,13 @@ def run(
         f"Running {info.id}: {case.id}/{sample_id}/{condition_id}, trial {trial} → {run_dir.name}",
         flush=True,
     )
+    outcome, stream = execute_episode(adapter, episode)
+    finish_run(run_dir, manifest, outcome, stream)
+    return run_dir
+
+
+def execute_episode(adapter, episode):
+    run_dir = episode.run_dir
     try:
         result = adapter.run(episode)
         if not isinstance(result, HarnessResult):
@@ -157,6 +167,11 @@ def run(
     except (OSError, ValueError, KeyError, TypeError, subprocess.SubprocessError) as exc:
         outcome = {"exit_code": -1, "timed_out": False, "error": str(exc)}
         stream = {"completed": False, "errors": [str(exc)], "forbidden": []}
+    return outcome, stream
+
+
+def finish_run(run_dir, manifest, outcome, stream):
+    """Finalize the same run format from local or externally collected evidence."""
     answer_path = run_dir / "answer.txt"
     valid = (
         not outcome["exit_code"]
@@ -197,5 +212,4 @@ def run(
             "Inspect the execution diagnostics and native stderr log."
         )
     write_json(run_dir / "run.json", manifest)
-    save_scores(run_dir)
-    return run_dir
+    return save_scores(run_dir)

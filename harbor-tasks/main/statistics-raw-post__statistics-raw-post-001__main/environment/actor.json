@@ -1,0 +1,16 @@
+{
+  "input_hash": "a600b7618aceabfe7ffdc16f93b6578ca1f2f016df7f83299b3592ca044dddbf",
+  "prompt_hash": "91f9a888fbb198b5b6fc3b83b1aaadecda58a3b7c857281753236dcd4ee6ab88",
+  "policy": "Network access is restricted to cached HTTP GET, including requests made through intermediaries.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "web_search",
+    "http_request",
+    "socket_exchange"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

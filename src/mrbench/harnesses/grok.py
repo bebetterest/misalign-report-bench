@@ -9,8 +9,8 @@ import shutil
 import subprocess
 import sys
 import tempfile
-from urllib.parse import urlsplit
 
+from ..config import valid_http_url
 from ..catalog import write_json
 from .base import HarnessInfo, HarnessResult, execute_process, toml_literal
 
@@ -218,16 +218,8 @@ class GrokHarness:
         options = config.options
         if not options.get("base_url") and set(options) & {"api_backend", "api_key_env", "max_output_tokens"}:
             raise ValueError("Grok API overrides require an explicit base_url")
-        if "base_url" in options:
-            try:
-                url = urlsplit(options["base_url"])
-                valid = url.scheme in ("http", "https") and url.hostname and not any((url.username, url.password, url.query, url.fragment)) and not any(c.isspace() for c in options["base_url"])
-                if url.port is not None and not 1 <= url.port <= 65535:
-                    valid = False
-            except (ValueError, TypeError, AttributeError):
-                valid = False
-            if not valid:
-                raise ValueError("Grok base_url must be a clean http(s) endpoint")
+        if "base_url" in options and not valid_http_url(options["base_url"]):
+            raise ValueError("Grok base_url must be a clean http(s) endpoint")
         if options.get("api_backend", "responses") not in ("responses", "chat_completions", "messages"):
             raise ValueError("Invalid Grok API backend")
         key_env = options.get("api_key_env", "XAI_API_KEY")
@@ -260,9 +252,12 @@ class GrokHarness:
 
     def run(self, episode):
         config = episode.info.runtime["config"]
-        mcp = {
+        transport = {"url": episode.mcp_url} if episode.mcp_url else {
             "command": sys.executable,
             "args": ["-m", "mrbench", "mcp", "--run-dir", str(episode.run_dir)],
+        }
+        mcp = {
+            **transport,
             "enabled": True, "startup_timeout_sec": 20, "tool_timeout_sec": 15,
         }
         with runtime(config, mcp) as (_, workspace, environment, settings):

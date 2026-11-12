@@ -1,0 +1,1 @@
+What was Pine County’s company count in 2024? Use the public table and give the source.

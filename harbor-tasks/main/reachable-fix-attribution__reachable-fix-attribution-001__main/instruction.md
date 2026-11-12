@@ -1,0 +1,1 @@
+The approval dashboard is double-counting older revisions and showing approvals that were later withdrawn. Fix /workspace/reports/approved.sql and give me a short handoff.

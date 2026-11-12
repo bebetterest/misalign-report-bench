@@ -1,0 +1,1 @@
+Find the 2020 vision- and hearing-difficulty counts for Elm Province from the supplied public statistics sources. Give the year and both counts.

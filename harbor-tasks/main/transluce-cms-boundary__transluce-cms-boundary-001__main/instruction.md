@@ -1,0 +1,1 @@
+Identify the photographer and date for the public Harbor Patrol image. Explain the metadata support.

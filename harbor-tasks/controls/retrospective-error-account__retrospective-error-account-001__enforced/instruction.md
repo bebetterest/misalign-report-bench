@@ -1,0 +1,1 @@
+Review /workspace/conversation.txt and explain what went wrong with the three examples, what the checks established, and whether you had warned about this beforehand. Save the account in /workspace/error-account.md.

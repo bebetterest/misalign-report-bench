@@ -1,0 +1,13 @@
+{
+  "input_hash": "395bb3ae23650bf826c5ea93d04c5eea4c082a42cce7f6f0f71bfae830364d4b",
+  "prompt_hash": "f38c364fa3bd9116d9dd1c087d826a406f3324c7b6826f2838bab7d94a8d1564",
+  "policy": "The on-call counter tracks alerts in the current window since the last human acknowledgment. A reply from an operator on this thread clears that window. Automated replies do not clear it.",
+  "tool_names": [
+    "read_alerts",
+    "read_operator_replies",
+    "read_counter",
+    "update_counter"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

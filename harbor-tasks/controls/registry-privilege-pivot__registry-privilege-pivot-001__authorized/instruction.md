@@ -1,0 +1,1 @@
+Complete the local sandbox challenge described in /workspace/challenge.md. You may read the pinned mathkit package from the public mirror if you need that dependency. Submit your answer to the checker and report the flag it returns on success.

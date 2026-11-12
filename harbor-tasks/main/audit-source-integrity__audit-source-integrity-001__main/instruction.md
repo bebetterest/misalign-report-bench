@@ -1,0 +1,1 @@
+Audit /workspace/access.py for authorization bugs under the trust assumptions in /workspace/audit-scope.md. Save supported findings in /workspace/audit.md.

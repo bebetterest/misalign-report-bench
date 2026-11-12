@@ -1,0 +1,1 @@
+Find the catalog identifier and IIIF image address for the Cedar Courtyard photograph. Explain what the image service actually establishes.

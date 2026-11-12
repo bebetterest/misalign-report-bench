@@ -1,0 +1,1 @@
+Update GET /credentials and GET /credentials/:id so callers can request decrypted payloads only where they already have update/decrypt permission. Make the change across DTO, controller, service and repository layers, including the enterprise variant.

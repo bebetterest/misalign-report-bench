@@ -204,99 +204,112 @@ def comparison_answer_metrics(record):
     return metrics
 
 
+def add_answer_comparison(group, record):
+    scores = record["scores"]
+    answer = scores.get("answer", {})
+    judge = {
+        "config_hash": answer.get("config_hash"),
+        "requested_model": answer.get("judge_model"),
+        "response_model": answer.get("response_model"),
+        "fingerprint": answer.get("system_fingerprint"),
+    }
+    key = digest(judge)
+    comparison = group["answer_groups"].setdefault(key, {
+        "id": key, "judge": judge, "answer_metrics": [], "conditions": {},
+    })
+    condition = comparison["conditions"].setdefault(record["condition"]["id"], {
+        "runs": 0, "answer_scored": 0, "task_scored": 0, "task_completed": 0,
+        "answer_metrics": {
+            field: dict(positive=0, scored=0, needs_review=0, unscored=0, not_applicable=0)
+            for field in COMPARISON_ANSWER_FIELDS
+        },
+    })
+    condition["runs"] += 1
+    for field, outcome in comparison_answer_metrics(record).items():
+        if outcome["applicable"] and field not in comparison["answer_metrics"]:
+            comparison["answer_metrics"].append(field)
+        metric = condition["answer_metrics"][field]
+        metric[outcome["status"]] += 1
+        if outcome["status"] == "scored":
+            metric["positive"] += int(outcome["value"])
+    if answer.get("status") == "scored" and type(answer.get("task_completed")) is bool:
+        condition["answer_scored"] += 1
+    completed = task_completion(answer, scores["actions"], record.get("task_effects_required", False))
+    if type(completed) is bool:
+        condition["task_scored"] += 1
+        condition["task_completed"] += int(completed)
+
+
 def compatible_groups(records):
     groups = {}
     for record in records:
-        if not is_agent_run(record) or record.get("status") != "completed":
+        if not is_agent_run(record) or record.get("status") == "running":
             continue
         scores = record.get("scores", {})
         actions = scores.get("actions", {})
-        if actions.get("status") != "scored" or any(
-            not isinstance(actions.get(key), bool)
-            for key in ("violation_observed", "violation_attempted")
-        ):
-            continue
         hashes = record["hashes"]
-        key = digest(
-            {
-                "case": hashes["case"],
-                "sample": hashes["sample"],
-                "environment": hashes["environment"],
-                "framework": hashes.get("framework", "legacy"),
-                "config": hashes.get("comparison_config", hashes["config"]),
-                "harness": harness_metadata(record),
-                "response_models": record.get("stream", {}).get("response_models", []),
-                "answer_judge": scores.get("answer", {}).get("config_hash"),
-                "judge_response_model": scores.get("answer", {}).get("response_model"),
-                "judge_fingerprint": scores.get("answer", {}).get("system_fingerprint"),
-                "scorer": scores.get("scorer_hash", "legacy"),
-            }
-        )
-        group = groups.setdefault(
-            key,
-            {
-                "id": key,
-                "case_id": record["case"]["id"],
-                "sample_id": record["sample"]["id"],
-                "model": record["config"]["model"],
-                "harness": harness_metadata(record),
-                "case_version": record["case"]["version"],
-                "sample_version": record["sample"]["version"],
-                "answer_metrics": [],
-                "conditions": {},
-            },
-        )
-        condition = group["conditions"].setdefault(
-            record["condition"]["id"],
-            {
-                "runs": 0,
-                "violations": 0,
-                "violation_attempts": 0,
-                "answer_scored": 0,
-                "task_scored": 0,
-                "task_completed": 0,
-                "answer_metrics": {
-                    field: dict(positive=0, scored=0, needs_review=0, unscored=0, not_applicable=0)
-                    for field in COMPARISON_ANSWER_FIELDS
-                },
-            },
-        )
-        condition["runs"] += 1
-        condition["violations"] += int(
-            scores["actions"].get(
-                "violation_observed",
-                scores["actions"].get("unauthorized_upload", False),
-            )
-        )
-        condition["violation_attempts"] += int(
-            scores["actions"].get(
-                "violation_attempted",
-                scores["actions"].get("unauthorized_attempt", False),
-            )
-        )
-        for field, outcome in comparison_answer_metrics(record).items():
-            if outcome["applicable"] and field not in group["answer_metrics"]:
-                group["answer_metrics"].append(field)
-            metric = condition["answer_metrics"][field]
-            metric[outcome["status"]] += 1
-            if outcome["status"] == "scored":
-                metric["positive"] += int(outcome["value"])
-        if scores.get("answer", {}).get("status") == "scored" and isinstance(
-            scores["answer"].get("task_completed"), bool
+        harness = harness_metadata(record)
+        response_models = record.get("stream", {}).get("response_models", [])
+        key = digest({
+            "case": hashes["case"],
+            "sample": hashes["sample"],
+            "environment": hashes["environment"],
+            "framework": hashes.get("framework", "legacy"),
+            "config": hashes.get("comparison_config", hashes["config"]),
+            "harness": harness,
+            "response_models": response_models,
+            "scorer": scores.get("scorer_hash", "legacy"),
+        })
+        group = groups.setdefault(key, {
+            "id": key,
+            "case_id": record["case"]["id"], "case_version": record["case"]["version"],
+            "sample_id": record["sample"]["id"], "sample_version": record["sample"]["version"],
+            "model": record["config"]["model"], "harness": harness,
+            "conditions": {}, "answer_groups": {},
+        })
+        condition = group["conditions"].setdefault(record["condition"]["id"], {
+            "runs": 0, "violations": 0, "violation_attempts": 0, "unscored_runs": 0,
+            "incomplete_runs": 0, "incomplete_violations": 0, "incomplete_violation_attempts": 0,
+        })
+        if record.get("status") != "completed":
+            condition["incomplete_runs"] += 1
+            if actions.get("status") == "observed_in_incomplete_run":
+                condition["incomplete_violations"] += int(actions.get("violation_observed") is True)
+                condition["incomplete_violation_attempts"] += int(actions.get("violation_attempted") is True)
+            continue
+        if actions.get("status") != "scored" or any(
+            type(actions.get(key)) is not bool for key in ("violation_observed", "violation_attempted")
         ):
-            condition["answer_scored"] += 1
-        completed = task_completion(
-            scores.get("answer", {}),
-            actions,
-            record.get("task_effects_required", False),
-        )
-        if type(completed) is bool:
-            condition["task_scored"] += 1
-            condition["task_completed"] += int(completed)
+            condition["unscored_runs"] += 1
+            continue
+        condition["runs"] += 1
+        condition["violations"] += int(actions["violation_observed"])
+        condition["violation_attempts"] += int(actions["violation_attempted"])
+        add_answer_comparison(group, record)
     return list(groups.values())
 
 
 def reproduction(manifest):
+    config = manifest["config"]
+    if config.get("backend") == "harbor":
+        if is_protocol_run(manifest) or not manifest.get("harness"):
+            return None
+        from .harbor_bridge import task_id
+
+        case, sample, condition = manifest["case"], manifest["sample"], manifest["condition"]
+        group = "main" if condition["id"] == case["default_condition"] else "controls"
+        name = task_id(case["id"], sample["id"], condition["id"])
+        harness = manifest["harness"]["id"]
+        credentials = {"codex": "OPENAI_API_KEY", "grok": "XAI_API_KEY"}
+        key = credentials.get(harness)
+        return "cd harbor-tasks && " + shlex.join([
+            "uv", "run", "--locked", "--project", "..", "--python", "3.12", "--with", "harbor==0.25.0",
+            "harbor", "run", "-c", f"{group}.job.json", "-p", group, "-i", name,
+            "-a", "mrbench.harbor_agent:ReferenceAgent", "-m", config["model"],
+            "--ak", "harness=" + harness, "--ak", "effort=" + config.get("effort", "medium"),
+            "--ak", "trial=" + str(manifest["trial"]), "-o", "../runs/harbor",
+            *(["--ae", f"{key}=${{{key}}}"] if key else []),
+        ])
     if manifest["origin"] == "demo":
         command = ["uv", "run", "mrbench", "demo"]
         if manifest.get("case_library"):

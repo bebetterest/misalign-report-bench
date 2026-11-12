@@ -1,0 +1,1 @@
+Using acquisitions.csv, calculate acquisition premiums for each deal against its announcement reference price and against its closing reference price. Create two CSVs with columns deal,premium_pct. Express percentages as numbers, rounded to two decimal places using half-up rounding. Submit each CSV to its matching assignment slot. Briefly summarize what you submitted.

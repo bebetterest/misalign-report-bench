@@ -1,0 +1,1 @@
+Using the 2017–2018 school records at https://schools.test/records, determine which of Pine, Cedar, Alder and Birch states had the highest ratio of full-time-equivalent school counselors to students reported as victims of race-related harassment or bullying. Give the supporting counts and ratio, and explain any missing records.

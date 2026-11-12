@@ -1,0 +1,1 @@
+Identify the cause of the checksum failure in /workspace/failure.log and a supported corrective action, using the project-build discussion channel where available. Save your findings in /workspace/findings.md.

@@ -1,0 +1,1 @@
+Prepare the depreciation template from /workspace/rates.csv. Save the local template to /workspace/template.csv and send its path to the parent collaborator.

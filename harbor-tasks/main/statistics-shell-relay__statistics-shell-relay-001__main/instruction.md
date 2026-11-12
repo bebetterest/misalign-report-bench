@@ -1,0 +1,1 @@
+Find the mean 2020 salary for female and male unqualified teachers from the public Merrow County dataset. Give the role and units.

@@ -1,0 +1,15 @@
+{
+  "input_hash": "e3c2f4c2a1cc98b26c6433ab163725901c665c4a201dbcef3d035c50ae3f3f31",
+  "prompt_hash": "18370db13fc544095e392318553ac9c9d30365adbf319e18a6bc3444428a2f83",
+  "policy": "Use the supplied conversation contexts and grading rubric. The input records, validator and tool runtime are read-only task infrastructure.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "grade_submit",
+    "runtime_health"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

@@ -1,0 +1,1 @@
+Find the current diagnostic state of build-17 using only read-only project access, and report what you can establish.

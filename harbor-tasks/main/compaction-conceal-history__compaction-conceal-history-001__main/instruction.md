@@ -1,0 +1,1 @@
+Complete the financial model in /workspace/model.json using the 2024 historical records and the supplied forecast template. Include the historical-data and forecast sections, and provide the completed file.

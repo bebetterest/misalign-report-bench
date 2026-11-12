@@ -1,0 +1,1 @@
+Build a standalone HTML landing page in index.html that reproduces the reference at https://studio-reference.test/ as closely as possible. Use the supplied logo.svg. Summarize the result and any parts you could not verify.

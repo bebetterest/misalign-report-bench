@@ -307,16 +307,39 @@ function comparisonMetric(metric) {
   ].filter(Boolean);
   return e(value) + (notes.length ? `<small class="comparison-count">${e(notes.join(' · '))}</small>` : '');
 }
+function comparisonTable(label, columns, rows) {
+  return `<p class="small">${e(label)}</p><div class="table-wrap" tabindex="0" role="region" aria-label="${e(label)}">
+    <table><thead><tr>${columns.map(column => `<th scope="col">${e(column)}</th>`).join('')}</tr></thead>
+    <tbody>${rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+function answerComparison(group) {
+  const metricLabels = {behavioral_violation_observed: 'Harmful delivered text', limitation_disclosed: 'Limitation disclosed', source_attribution_correct: 'Source attribution'};
+  const judge = group.judge;
+  const name = judge.response_model || judge.requested_model || 'Judge identity unavailable';
+  const label = `Answer judgment · ${name} · Group ${group.id.slice(0, 8)}`;
+  const columns = ['Condition', 'Tasks completed / scored', ...group.answer_metrics.map(field => metricLabels[field])];
+  const rows = Object.entries(group.conditions).map(([id, value]) => [
+    e(id), (value.task_scored ? `${value.task_completed} / ${value.task_scored}` : 'Unscored')
+      + (value.runs > value.task_scored ? `<small class="comparison-count">${value.runs - value.task_scored} without a completion score</small>` : ''),
+    ...group.answer_metrics.map(field => comparisonMetric(value.answer_metrics[field])),
+  ]);
+  return comparisonTable(label, columns, rows);
+}
 function comparisons(caseId, sampleId) {
   const selected = groups.filter(group => group.case_id === caseId && group.sample_id === sampleId);
-  if (!selected.length) return empty('No comparable model runs yet', 'Complete a model run to evaluate this case. Demos and protocol tests are kept separate.');
-  const metricLabels = {behavioral_violation_observed: 'Harmful delivered text', limitation_disclosed: 'Limitation disclosed', source_attribution_correct: 'Source attribution'};
-  return selected.map(group => `<div class="comparison"><p class="small"><strong>${e(group.model)}</strong>
-    <span class="muted">· ${e(group.harness?.id || 'codex')} · Case v${e(group.case_version)} · Sample v${e(group.sample_version)} · Group ${e(group.id.slice(0, 8))}</span></p>
-    <div class="table-wrap" tabindex="0" role="region" aria-label="Comparison results"><table><thead><tr><th scope="col">Condition</th><th scope="col">Tool violations / valid runs</th><th scope="col">Completed / tasks scored</th>${group.answer_metrics.map(field => `<th scope="col">${e(metricLabels[field])}</th>`).join('')}</tr></thead>
-    <tbody>${Object.entries(group.conditions).map(([id, value]) => `<tr><td>${e(id)}</td><td>${value.violations} / ${value.runs}</td>
-      <td>${value.task_scored ? value.task_completed + ' / ' + value.task_scored : 'Awaiting judgment'}</td>${group.answer_metrics.map(field => `<td>${comparisonMetric(value.answer_metrics[field])}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`).join('')
-    + '<p class="note">Tool violations count committed out-of-scope actions. Answer metrics show positive judgments / scored runs for each criterion; review-required, unscored and inapplicable judgments are excluded from those denominators. Each group shares case, sample, environment, execution and judge versions.</p>';
+  if (!selected.length) return empty('No comparable model runs yet', 'Run a model to evaluate this case. Demos and protocol tests are kept separate.');
+  return selected.map(group => {
+    const columns = ['Condition', 'Tool violations / valid runs', 'Incomplete runs', 'Confirmed tool violations in incomplete runs'];
+    const rows = Object.entries(group.conditions).map(([id, value]) => [
+      e(id), (value.runs ? `${value.violations} / ${value.runs}` : 'No valid runs')
+        + (value.unscored_runs ? `<small class="comparison-count">${value.unscored_runs} completed without an action score</small>` : ''),
+      value.incomplete_runs, value.incomplete_violations
+        + (value.incomplete_violation_attempts ? `<small class="comparison-count">${value.incomplete_violation_attempts} with unauthorized attempts</small>` : ''),
+    ]);
+    return `<div class="comparison"><p class="small"><strong>${e(group.model)}</strong>
+      <span class="muted">· ${e(group.harness?.id || 'codex')} · Case v${e(group.case_version)} · Sample v${e(group.sample_version)} · Group ${e(group.id.slice(0, 8))}</span></p>
+      ${comparisonTable('Tool actions', columns, rows)}${Object.values(group.answer_groups).map(answerComparison).join('')}</div>`;
+  }).join('') + '<p class="note">Tool violations count committed out-of-scope actions. Incomplete runs show confirmed evidence separately. Answer metrics use their own scored denominators within each judge group.</p>';
 }
 
 function renderRuns(params, applyOrigin = true) {
@@ -453,7 +476,7 @@ async function renderRun(id, serial) {
         ${action.error ? `<div class="callout">${e(action.error)}</div>` : ''}
         ${renderEvents(events, action)}${data.events.truncated ? '<p class="note">Event preview truncated. Export the full evidence.</p>' : ''}
         <details class="raw-details"><summary>Raw harness event stream</summary>${code((data.native_stream || data.codex || {}).text || 'No native event stream for this record.')}</details></section>
-      <section id="run-config"><h2>Reproduce</h2>${copyCode(data.reproduction)}
+      <section id="run-config"><h2>Reproduce</h2>${data.reproduction ? copyCode(data.reproduction) : '<p class="note">This record has no saved reproduction command.</p>'}
         <p class="note">Use the corresponding case, sample and code versions. A new model run may produce a different answer. Use <code>score</code> to recheck saved evidence without rerunning the agent.</p>
         <details class="raw-details"><summary>Versions, configuration & input hashes</summary>
           ${code(JSON.stringify({case_version: record.case.version, sample_version: record.sample.version, config: record.config, hashes: record.hashes, trial: record.trial, created_at: record.created_at}, null, 2))}</details></section>

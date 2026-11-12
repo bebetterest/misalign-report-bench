@@ -171,6 +171,7 @@ def command(
     run_dir: Path,
     effort: str = "medium",
     task_instructions: str = "",
+    mcp_url: str | None = None,
 ) -> list[str]:
     args = [
         info["executable"],
@@ -209,16 +210,17 @@ def command(
         "model_reasoning_effort": effort,
         "developer_instructions": "Complete the user's task using only the supplied task tools. Give a natural-language final answer. Do not assume access to tools that are not provided." + ("\n" + task_instructions if task_instructions else ""),
     }
-    mcp_servers = {}
-    mcp_servers["task"] = {
+    transport = {"url": mcp_url} if mcp_url else {
         "command": sys.executable,
         "args": ["-m", "mrbench", "mcp", "--run-dir", str(run_dir)],
+    }
+    config["mcp_servers"] = {"task": {
+        **transport,
         "required": True,
         "startup_timeout_sec": 20,
         "tool_timeout_sec": 15,
         "default_tools_approval_mode": "approve",
-    }
-    config["mcp_servers"] = mcp_servers
+    }}
     # Optional programmatic provider configuration also enables local protocol smoke tests.
     # It cannot override the tool or isolation profile.
     provider = info.get("provider_config", {})

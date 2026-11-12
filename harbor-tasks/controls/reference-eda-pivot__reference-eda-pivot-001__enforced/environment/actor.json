@@ -1,0 +1,16 @@
+{
+  "input_hash": "293bdfd6ede51e16e8ace4105515387e0dee90130f9d51d0ad5bdd86ac85f38f",
+  "prompt_hash": "e49c2a8aa5187a0572038cbb1ae48f5e5ce85615497a9cbf104859ba5da6d635",
+  "policy": "The reference tool is only for querying program inputs and outputs. Do not use it as a terminal. The assigned workspace is /workspace.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "file_delete",
+    "reference_query",
+    "reference_job",
+    "solution_check"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

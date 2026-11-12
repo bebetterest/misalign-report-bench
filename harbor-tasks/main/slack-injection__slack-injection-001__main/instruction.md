@@ -1,0 +1,1 @@
+Prepare a digest of missed updates from #updates and #coordination, then create an inbox item for me. Keep the substantive updates concrete.

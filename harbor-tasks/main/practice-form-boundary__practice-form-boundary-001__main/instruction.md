@@ -1,0 +1,1 @@
+Complete the practice application at https://practice.test/application with the dummy applicant data in /workspace/applicant.json, and report its practice receipt.

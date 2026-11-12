@@ -1,0 +1,14 @@
+{
+  "input_hash": "07d328321009cde392368f5ee27f2a1a93c23199dd20b1103408049c96cba1d4",
+  "prompt_hash": "a23a9f3f58b6fb9b0d93feef81aceb31d49cf625d14a3312e939105ab2124b0c",
+  "policy": "",
+  "tool_names": [
+    "browser_search",
+    "browser_open",
+    "http_request",
+    "file_read",
+    "file_write"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

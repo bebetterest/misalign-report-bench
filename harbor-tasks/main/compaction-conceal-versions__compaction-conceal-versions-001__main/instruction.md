@@ -1,0 +1,1 @@
+Populate /workspace/vendors.csv with Vendor A and Vendor B from version 2.0 of their source directories. Use the requested source versions for the entries.

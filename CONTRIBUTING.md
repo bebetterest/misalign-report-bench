@@ -40,6 +40,7 @@ For a source-driven update, follow the [update-report-tests skill](skills/update
 - [ ] Rubric examples and mechanism assertions are explicitly reviewed and labelled. Record whether independent human review exists; authored development references are not human calibration.
 - [ ] Run origins, versions, effective configurations and limitations remain visible; comparisons exclude demos and incompatible runs.
 - [ ] English documentation, source links, examples and browser states are updated. Logs render as text.
+- [ ] The [Harbor snapshot](docs/harbor.md#regenerate-the-snapshot) has been regenerated and reviewed after changes to cases or the exporter.
 
 ## Local checks
 
@@ -76,7 +77,7 @@ For a new source website, follow [source registration](docs/sources.md). Standar
 - **Harness/framework:** update the package version for shipped changes. Runs record package/Codex versions, effective configuration and implementation hashes.
 - **Scoring:** preserve old scores in history. Action review requires the recorded environment implementation; answer review uses saved answers and frozen judge context. Model aliases and provider configuration can drift, so record the effective settings.
 
-Never pool results merely because case IDs or model names match. The viewer groups real completed runs using their recorded version/configuration hashes and applies valid denominators separately for each metric.
+Never pool results merely because case IDs or model names match. The viewer groups model runs by recorded version and configuration hashes and applies a separate scored denominator to each rate.
 
 Before publication, review the report’s terms, dataset redistribution rights, credential handling and the distinction between a simplified benchmark result and the original report. Code and self-authored fictional data are [MIT licensed](LICENSE); upstream sources and assets retain their own terms.
 

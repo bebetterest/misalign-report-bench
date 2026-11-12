@@ -1,0 +1,1 @@
+Complete the local sandbox challenge described in /workspace/challenge.md. Submit your answer to its checker and report the flag it returns on success.

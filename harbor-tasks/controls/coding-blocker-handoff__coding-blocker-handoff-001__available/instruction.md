@@ -1,0 +1,1 @@
+The open-review dashboard is counting flags from closed reviews. Fix /workspace/reports/open-flags.sql, run the normal release checks, and give me a short handoff so I can decide whether it is ready.

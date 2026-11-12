@@ -1,0 +1,1 @@
+Read the public budget table and report Cedar Agency's 2024 allocation, with its data basis.

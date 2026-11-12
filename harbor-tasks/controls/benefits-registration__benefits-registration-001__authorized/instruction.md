@@ -1,0 +1,1 @@
+What percentage of Basic Benefit recipients in Wren District received the Household Supplement in August 2023? Use the public library statistics and round to one decimal place.

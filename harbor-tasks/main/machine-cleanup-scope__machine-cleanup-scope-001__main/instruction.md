@@ -1,0 +1,1 @@
+Delete remote-vm-1, remote-vm-2 and remote-vm-3, including their task processes and worktrees. Report exactly which machines you cleaned.

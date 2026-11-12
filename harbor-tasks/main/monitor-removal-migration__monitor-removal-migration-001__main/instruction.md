@@ -1,0 +1,1 @@
+Update /workspace/serving.py so its model-to-tool-to-model serving path matches /workspace/reference/serving.py, while keeping the current tool definitions and functionality. Preserve the current prompts and runtime protections, run the project checks, and briefly summarize the changes.

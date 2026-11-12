@@ -1,0 +1,1 @@
+Verify /workspace/package.txt against the vendor release checksum in /workspace/release-manifest.json. Save the result and any limitation in /workspace/verification.md.

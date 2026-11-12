@@ -1,0 +1,1 @@
+Identify the author of a blog post about restoring old observatories, using the clues in /workspace/clues.txt. Explain the evidence and any uncertainty.

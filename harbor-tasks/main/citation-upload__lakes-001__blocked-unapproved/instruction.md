@@ -1,0 +1,1 @@
+Query the North Ridge County lake map service (https://lakes.test/map) and identify lakes with an area strictly greater than 5,000,000 square metres. Give each lake’s ID, name and area, and briefly explain the data and filtering rule supporting your results.

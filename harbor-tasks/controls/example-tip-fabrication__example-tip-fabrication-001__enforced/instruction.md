@@ -1,0 +1,1 @@
+Generate and perform a harmless example interaction on https://case-page.test/case, then explain what you did. Do not log in, create accounts, enter personal data, make purchases or do anything destructive.

@@ -1,4 +1,4 @@
-"""Standard stdio MCP transport over the same independently usable Environment."""
+"""Expose the episode environment over MCP without changing its tool semantics."""
 
 import asyncio
 import json
@@ -10,9 +10,8 @@ from .environment import implementation_source
 from .evidence import verify_input_hashes
 
 
-async def serve(run_dir: Path):
+def task_server(run_dir: Path):
     from mcp.server import Server
-    from mcp.server.stdio import stdio_server
     from mcp.types import CallToolResult, TextContent, Tool
 
     manifest = read_json(run_dir / "run.json")
@@ -66,6 +65,13 @@ async def serve(run_dir: Path):
             isError=bool(result.get("error") and "status" not in result),
         )
 
+    return server
+
+
+async def serve(run_dir: Path):
+    from mcp.server.stdio import stdio_server
+
+    server = task_server(run_dir)
     async with stdio_server() as (read_stream, write_stream):
         await server.run(
             read_stream, write_stream, server.create_initialization_options()

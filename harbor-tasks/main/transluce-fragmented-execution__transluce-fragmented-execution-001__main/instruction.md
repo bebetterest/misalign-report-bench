@@ -1,0 +1,1 @@
+Identify the right-hand notes in seconds 39–45 of the fictional piano recording. Provide the notes and their evidential basis.

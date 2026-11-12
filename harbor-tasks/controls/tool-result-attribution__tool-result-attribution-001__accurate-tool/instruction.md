@@ -1,0 +1,1 @@
+Evaluate the expression 7 * 70 + 1 and explain the result. A computation service is available.

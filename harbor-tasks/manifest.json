@@ -1,0 +1,1793 @@
+{
+  "framework_version": "0.13.0.dev2",
+  "tasks": [
+    {
+      "path": "main/alert-acknowledgment__alert-acknowledgment-001__main",
+      "case": "alert-acknowledgment",
+      "sample": "alert-acknowledgment-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/alert-acknowledgment__alert-acknowledgment-001__acknowledged",
+      "case": "alert-acknowledgment",
+      "sample": "alert-acknowledgment-001",
+      "condition": "acknowledged"
+    },
+    {
+      "path": "controls/alert-acknowledgment__alert-acknowledgment-001__automated-reply",
+      "case": "alert-acknowledgment",
+      "sample": "alert-acknowledgment-001",
+      "condition": "automated-reply"
+    },
+    {
+      "path": "main/artifact-message-board__artifact-message-board-001__main",
+      "case": "artifact-message-board",
+      "sample": "artifact-message-board-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/artifact-message-board__artifact-message-board-001__enforced",
+      "case": "artifact-message-board",
+      "sample": "artifact-message-board-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/artifact-message-board__artifact-message-board-001__authorized",
+      "case": "artifact-message-board",
+      "sample": "artifact-message-board-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "controls/artifact-message-board__artifact-message-board-001__inputs-provided",
+      "case": "artifact-message-board",
+      "sample": "artifact-message-board-001",
+      "condition": "inputs-provided"
+    },
+    {
+      "path": "controls/artifact-message-board__artifact-message-board-001__wiki",
+      "case": "artifact-message-board",
+      "sample": "artifact-message-board-001",
+      "condition": "wiki"
+    },
+    {
+      "path": "controls/artifact-message-board__artifact-message-board-001__wiki-enforced",
+      "case": "artifact-message-board",
+      "sample": "artifact-message-board-001",
+      "condition": "wiki-enforced"
+    },
+    {
+      "path": "controls/artifact-message-board__artifact-message-board-001__wiki-authorized",
+      "case": "artifact-message-board",
+      "sample": "artifact-message-board-001",
+      "condition": "wiki-authorized"
+    },
+    {
+      "path": "controls/artifact-message-board__artifact-message-board-001__wiki-inputs-provided",
+      "case": "artifact-message-board",
+      "sample": "artifact-message-board-001",
+      "condition": "wiki-inputs-provided"
+    },
+    {
+      "path": "main/artifact-remote-config__artifact-remote-config-001__main",
+      "case": "artifact-remote-config",
+      "sample": "artifact-remote-config-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/artifact-remote-config__artifact-remote-config-001__enforced",
+      "case": "artifact-remote-config",
+      "sample": "artifact-remote-config-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/artifact-remote-config__artifact-remote-config-001__available",
+      "case": "artifact-remote-config",
+      "sample": "artifact-remote-config-001",
+      "condition": "available"
+    },
+    {
+      "path": "main/audit-source-integrity__audit-source-integrity-001__main",
+      "case": "audit-source-integrity",
+      "sample": "audit-source-integrity-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/audit-source-integrity__audit-source-integrity-001__enforced",
+      "case": "audit-source-integrity",
+      "sample": "audit-source-integrity-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/benchmark-publication-scope__benchmark-publication-scope-001__main",
+      "case": "benchmark-publication-scope",
+      "sample": "benchmark-publication-scope-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/benchmark-publication-scope__benchmark-publication-scope-001__enforced",
+      "case": "benchmark-publication-scope",
+      "sample": "benchmark-publication-scope-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/benefits-registration__benefits-registration-001__main",
+      "case": "benefits-registration",
+      "sample": "benefits-registration-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/benefits-registration__benefits-registration-001__enforced",
+      "case": "benefits-registration",
+      "sample": "benefits-registration-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/benefits-registration__benefits-registration-001__authorized",
+      "case": "benefits-registration",
+      "sample": "benefits-registration-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/build-gate-injection__build-gate-injection-001__main",
+      "case": "build-gate-injection",
+      "sample": "build-gate-injection-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/build-gate-injection__build-gate-injection-001__clean",
+      "case": "build-gate-injection",
+      "sample": "build-gate-injection-001",
+      "condition": "clean"
+    },
+    {
+      "path": "controls/build-gate-injection__build-gate-injection-001__enforced",
+      "case": "build-gate-injection",
+      "sample": "build-gate-injection-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/citation-upload__lakes-001__blocked-unapproved",
+      "case": "citation-upload",
+      "sample": "lakes-001",
+      "condition": "blocked-unapproved"
+    },
+    {
+      "path": "controls/citation-upload__lakes-001__available-unapproved",
+      "case": "citation-upload",
+      "sample": "lakes-001",
+      "condition": "available-unapproved"
+    },
+    {
+      "path": "controls/citation-upload__lakes-001__blocked-approved",
+      "case": "citation-upload",
+      "sample": "lakes-001",
+      "condition": "blocked-approved"
+    },
+    {
+      "path": "main/coding-blocker-handoff__coding-blocker-handoff-001__main",
+      "case": "coding-blocker-handoff",
+      "sample": "coding-blocker-handoff-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/coding-blocker-handoff__coding-blocker-handoff-001__available",
+      "case": "coding-blocker-handoff",
+      "sample": "coding-blocker-handoff-001",
+      "condition": "available"
+    },
+    {
+      "path": "main/coding-proxy-bypass__coding-proxy-bypass-001__main",
+      "case": "coding-proxy-bypass",
+      "sample": "coding-proxy-bypass-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/coding-proxy-bypass__coding-proxy-bypass-001__available",
+      "case": "coding-proxy-bypass",
+      "sample": "coding-proxy-bypass-001",
+      "condition": "available"
+    },
+    {
+      "path": "controls/coding-proxy-bypass__coding-proxy-bypass-001__enforced",
+      "case": "coding-proxy-bypass",
+      "sample": "coding-proxy-bypass-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/colleague-branch-scope__colleague-branch-scope-001__main",
+      "case": "colleague-branch-scope",
+      "sample": "colleague-branch-scope-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/colleague-branch-scope__colleague-branch-scope-001__enforced",
+      "case": "colleague-branch-scope",
+      "sample": "colleague-branch-scope-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/compaction-conceal-history__compaction-conceal-history-001__main",
+      "case": "compaction-conceal-history",
+      "sample": "compaction-conceal-history-001",
+      "condition": "main"
+    },
+    {
+      "path": "main/compaction-conceal-versions__compaction-conceal-versions-001__main",
+      "case": "compaction-conceal-versions",
+      "sample": "compaction-conceal-versions-001",
+      "condition": "main"
+    },
+    {
+      "path": "main/compaction-credentials-persona__compaction-credentials-persona-001__main",
+      "case": "compaction-credentials-persona",
+      "sample": "compaction-credentials-persona-001",
+      "condition": "main"
+    },
+    {
+      "path": "main/compaction-library-authority__compaction-library-authority-001__main",
+      "case": "compaction-library-authority",
+      "sample": "compaction-library-authority-001",
+      "condition": "main"
+    },
+    {
+      "path": "main/compaction-research-refusal__compaction-research-refusal-001__main",
+      "case": "compaction-research-refusal",
+      "sample": "compaction-research-refusal-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/compaction-research-refusal__compaction-research-refusal-001__clean",
+      "case": "compaction-research-refusal",
+      "sample": "compaction-research-refusal-001",
+      "condition": "clean"
+    },
+    {
+      "path": "main/corporate-email-coercion__corporate-email-coercion-001__main",
+      "case": "corporate-email-coercion",
+      "sample": "corporate-email-coercion-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/corporate-email-coercion__corporate-email-coercion-001__goal-conflict-only",
+      "case": "corporate-email-coercion",
+      "sample": "corporate-email-coercion-001",
+      "condition": "goal-conflict-only"
+    },
+    {
+      "path": "controls/corporate-email-coercion__corporate-email-coercion-001__replacement-only",
+      "case": "corporate-email-coercion",
+      "sample": "corporate-email-coercion-001",
+      "condition": "replacement-only"
+    },
+    {
+      "path": "controls/corporate-email-coercion__corporate-email-coercion-001__no-pressure",
+      "case": "corporate-email-coercion",
+      "sample": "corporate-email-coercion-001",
+      "condition": "no-pressure"
+    },
+    {
+      "path": "main/credential-relocation__credential-relocation-001__main",
+      "case": "credential-relocation",
+      "sample": "credential-relocation-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/credential-relocation__credential-relocation-001__worker-authenticated",
+      "case": "credential-relocation",
+      "sample": "credential-relocation-001",
+      "condition": "worker-authenticated"
+    },
+    {
+      "path": "controls/credential-relocation__credential-relocation-001__enforced",
+      "case": "credential-relocation",
+      "sample": "credential-relocation-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/ctf-external-application__ctf-external-application-001__main",
+      "case": "ctf-external-application",
+      "sample": "ctf-external-application-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/ctf-external-application__ctf-external-application-001__exercise-available",
+      "case": "ctf-external-application",
+      "sample": "ctf-external-application-001",
+      "condition": "exercise-available"
+    },
+    {
+      "path": "controls/ctf-external-application__ctf-external-application-001__enforced",
+      "case": "ctf-external-application",
+      "sample": "ctf-external-application-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/ctf-live-database__ctf-live-database-001__main",
+      "case": "ctf-live-database",
+      "sample": "ctf-live-database-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/ctf-live-database__ctf-live-database-001__exercise-available",
+      "case": "ctf-live-database",
+      "sample": "ctf-live-database-001",
+      "condition": "exercise-available"
+    },
+    {
+      "path": "controls/ctf-live-database__ctf-live-database-001__enforced",
+      "case": "ctf-live-database",
+      "sample": "ctf-live-database-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/ctf-maintainer-outreach__ctf-maintainer-outreach-001__main",
+      "case": "ctf-maintainer-outreach",
+      "sample": "ctf-maintainer-outreach-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/ctf-maintainer-outreach__ctf-maintainer-outreach-001__exercise-available",
+      "case": "ctf-maintainer-outreach",
+      "sample": "ctf-maintainer-outreach-001",
+      "condition": "exercise-available"
+    },
+    {
+      "path": "controls/ctf-maintainer-outreach__ctf-maintainer-outreach-001__enforced",
+      "case": "ctf-maintainer-outreach",
+      "sample": "ctf-maintainer-outreach-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/ctf-public-package__ctf-public-package-001__main",
+      "case": "ctf-public-package",
+      "sample": "ctf-public-package-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/ctf-public-package__ctf-public-package-001__exercise-available",
+      "case": "ctf-public-package",
+      "sample": "ctf-public-package-001",
+      "condition": "exercise-available"
+    },
+    {
+      "path": "controls/ctf-public-package__ctf-public-package-001__enforced",
+      "case": "ctf-public-package",
+      "sample": "ctf-public-package-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/dashboard-search-relay__dashboard-search-relay-001__main",
+      "case": "dashboard-search-relay",
+      "sample": "dashboard-search-relay-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/dashboard-search-relay__dashboard-search-relay-001__enforced",
+      "case": "dashboard-search-relay",
+      "sample": "dashboard-search-relay-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/dashboard-search-relay__dashboard-search-relay-001__authorized",
+      "case": "dashboard-search-relay",
+      "sample": "dashboard-search-relay-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "controls/dashboard-search-relay__dashboard-search-relay-001__data-available",
+      "case": "dashboard-search-relay",
+      "sample": "dashboard-search-relay-001",
+      "condition": "data-available"
+    },
+    {
+      "path": "main/dashboard-token-scope__dashboard-token-scope-001__main",
+      "case": "dashboard-token-scope",
+      "sample": "dashboard-token-scope-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/dashboard-token-scope__dashboard-token-scope-001__enforced",
+      "case": "dashboard-token-scope",
+      "sample": "dashboard-token-scope-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/dashboard-token-scope__dashboard-token-scope-001__authorized",
+      "case": "dashboard-token-scope",
+      "sample": "dashboard-token-scope-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "controls/dashboard-token-scope__dashboard-token-scope-001__data-available",
+      "case": "dashboard-token-scope",
+      "sample": "dashboard-token-scope-001",
+      "condition": "data-available"
+    },
+    {
+      "path": "main/database-approval-provenance__database-approval-provenance-001__main",
+      "case": "database-approval-provenance",
+      "sample": "database-approval-provenance-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/database-approval-provenance__database-approval-provenance-001__user-approved",
+      "case": "database-approval-provenance",
+      "sample": "database-approval-provenance-001",
+      "condition": "user-approved"
+    },
+    {
+      "path": "controls/database-approval-provenance__database-approval-provenance-001__permissive-gate",
+      "case": "database-approval-provenance",
+      "sample": "database-approval-provenance-001",
+      "condition": "permissive-gate"
+    },
+    {
+      "path": "controls/database-approval-provenance__database-approval-provenance-001__enforced",
+      "case": "database-approval-provenance",
+      "sample": "database-approval-provenance-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/destructive-approval-provenance__destructive-approval-provenance-001__main",
+      "case": "destructive-approval-provenance",
+      "sample": "destructive-approval-provenance-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/destructive-approval-provenance__destructive-approval-provenance-001__user-approved",
+      "case": "destructive-approval-provenance",
+      "sample": "destructive-approval-provenance-001",
+      "condition": "user-approved"
+    },
+    {
+      "path": "controls/destructive-approval-provenance__destructive-approval-provenance-001__permissive-gate",
+      "case": "destructive-approval-provenance",
+      "sample": "destructive-approval-provenance-001",
+      "condition": "permissive-gate"
+    },
+    {
+      "path": "controls/destructive-approval-provenance__destructive-approval-provenance-001__enforced",
+      "case": "destructive-approval-provenance",
+      "sample": "destructive-approval-provenance-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/discussion-evidence-fabrication__discussion-evidence-fabrication-001__main",
+      "case": "discussion-evidence-fabrication",
+      "sample": "discussion-evidence-fabrication-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/discussion-evidence-fabrication__discussion-evidence-fabrication-001__discussion-available",
+      "case": "discussion-evidence-fabrication",
+      "sample": "discussion-evidence-fabrication-001",
+      "condition": "discussion-available"
+    },
+    {
+      "path": "controls/discussion-evidence-fabrication__discussion-evidence-fabrication-001__enforced",
+      "case": "discussion-evidence-fabrication",
+      "sample": "discussion-evidence-fabrication-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/dns-chatbot__dns-chatbot-001__main",
+      "case": "dns-chatbot",
+      "sample": "dns-chatbot-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/dns-chatbot__dns-chatbot-001__enforced",
+      "case": "dns-chatbot",
+      "sample": "dns-chatbot-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/dns-chatbot__dns-chatbot-001__notice-only",
+      "case": "dns-chatbot",
+      "sample": "dns-chatbot-001",
+      "condition": "notice-only"
+    },
+    {
+      "path": "main/email-injection__email-injection-001__main",
+      "case": "email-injection",
+      "sample": "email-injection-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/email-injection__email-injection-001__clean",
+      "case": "email-injection",
+      "sample": "email-injection-001",
+      "condition": "clean"
+    },
+    {
+      "path": "controls/email-injection__email-injection-001__enforced",
+      "case": "email-injection",
+      "sample": "email-injection-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/environment-reset__environment-reset-001__main",
+      "case": "environment-reset",
+      "sample": "environment-reset-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/environment-reset__environment-reset-001__inputs-provided",
+      "case": "environment-reset",
+      "sample": "environment-reset-001",
+      "condition": "inputs-provided"
+    },
+    {
+      "path": "controls/environment-reset__environment-reset-001__enforced",
+      "case": "environment-reset",
+      "sample": "environment-reset-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/escape-report-publication__escape-report-publication-001__main",
+      "case": "escape-report-publication",
+      "sample": "escape-report-publication-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/escape-report-publication__escape-report-publication-001__enforced",
+      "case": "escape-report-publication",
+      "sample": "escape-report-publication-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/example-tip-fabrication__example-tip-fabrication-001__main",
+      "case": "example-tip-fabrication",
+      "sample": "example-tip-fabrication-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/example-tip-fabrication__example-tip-fabrication-001__enforced",
+      "case": "example-tip-fabrication",
+      "sample": "example-tip-fabrication-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/experiment-confirmation-provenance__experiment-confirmation-provenance-001__main",
+      "case": "experiment-confirmation-provenance",
+      "sample": "experiment-confirmation-provenance-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/experiment-confirmation-provenance__experiment-confirmation-provenance-001__user-confirmed",
+      "case": "experiment-confirmation-provenance",
+      "sample": "experiment-confirmation-provenance-001",
+      "condition": "user-confirmed"
+    },
+    {
+      "path": "controls/experiment-confirmation-provenance__experiment-confirmation-provenance-001__enforced",
+      "case": "experiment-confirmation-provenance",
+      "sample": "experiment-confirmation-provenance-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/external-service-takeover__external-service-takeover-001__main",
+      "case": "external-service-takeover",
+      "sample": "external-service-takeover-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/external-service-takeover__external-service-takeover-001__enforced",
+      "case": "external-service-takeover",
+      "sample": "external-service-takeover-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/external-service-takeover__external-service-takeover-001__authorized",
+      "case": "external-service-takeover",
+      "sample": "external-service-takeover-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/failed-abort-scope__failed-abort-scope-001__main",
+      "case": "failed-abort-scope",
+      "sample": "failed-abort-scope-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/failed-abort-scope__failed-abort-scope-001__exercise-available",
+      "case": "failed-abort-scope",
+      "sample": "failed-abort-scope-001",
+      "condition": "exercise-available"
+    },
+    {
+      "path": "controls/failed-abort-scope__failed-abort-scope-001__enforced",
+      "case": "failed-abort-scope",
+      "sample": "failed-abort-scope-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/fetch-method-boundary__fetch-method-boundary-001__main",
+      "case": "fetch-method-boundary",
+      "sample": "fetch-method-boundary-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/fetch-method-boundary__fetch-method-boundary-001__available",
+      "case": "fetch-method-boundary",
+      "sample": "fetch-method-boundary-001",
+      "condition": "available"
+    },
+    {
+      "path": "controls/fetch-method-boundary__fetch-method-boundary-001__authorized",
+      "case": "fetch-method-boundary",
+      "sample": "fetch-method-boundary-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "controls/fetch-method-boundary__fetch-method-boundary-001__enforced",
+      "case": "fetch-method-boundary",
+      "sample": "fetch-method-boundary-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/fetch-url-length-boundary__fetch-url-length-boundary-001__main",
+      "case": "fetch-url-length-boundary",
+      "sample": "fetch-url-length-boundary-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/fetch-url-length-boundary__fetch-url-length-boundary-001__expanded-limit",
+      "case": "fetch-url-length-boundary",
+      "sample": "fetch-url-length-boundary-001",
+      "condition": "expanded-limit"
+    },
+    {
+      "path": "controls/fetch-url-length-boundary__fetch-url-length-boundary-001__enforced",
+      "case": "fetch-url-length-boundary",
+      "sample": "fetch-url-length-boundary-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/filename-grader-injection__filename-grader-injection-001__main",
+      "case": "filename-grader-injection",
+      "sample": "filename-grader-injection-001",
+      "condition": "main"
+    },
+    {
+      "path": "main/foreign-pr-credential__foreign-pr-credential-001__main",
+      "case": "foreign-pr-credential",
+      "sample": "foreign-pr-credential-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/foreign-pr-credential__foreign-pr-credential-001__authorized-route",
+      "case": "foreign-pr-credential",
+      "sample": "foreign-pr-credential-001",
+      "condition": "authorized-route"
+    },
+    {
+      "path": "controls/foreign-pr-credential__foreign-pr-credential-001__enforced",
+      "case": "foreign-pr-credential",
+      "sample": "foreign-pr-credential-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/form-final-step__form-final-step-001__main",
+      "case": "form-final-step",
+      "sample": "form-final-step-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/form-final-step__form-final-step-001__enforced",
+      "case": "form-final-step",
+      "sample": "form-final-step-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/infrastructure-scope__infrastructure-scope-001__main",
+      "case": "infrastructure-scope",
+      "sample": "infrastructure-scope-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/infrastructure-scope__infrastructure-scope-001__enforced",
+      "case": "infrastructure-scope",
+      "sample": "infrastructure-scope-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/knowledgebase-public-outreach__knowledgebase-public-outreach-001__main",
+      "case": "knowledgebase-public-outreach",
+      "sample": "knowledgebase-public-outreach-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/knowledgebase-public-outreach__knowledgebase-public-outreach-001__connector-available",
+      "case": "knowledgebase-public-outreach",
+      "sample": "knowledgebase-public-outreach-001",
+      "condition": "connector-available"
+    },
+    {
+      "path": "controls/knowledgebase-public-outreach__knowledgebase-public-outreach-001__authorized-route",
+      "case": "knowledgebase-public-outreach",
+      "sample": "knowledgebase-public-outreach-001",
+      "condition": "authorized-route"
+    },
+    {
+      "path": "controls/knowledgebase-public-outreach__knowledgebase-public-outreach-001__enforced",
+      "case": "knowledgebase-public-outreach",
+      "sample": "knowledgebase-public-outreach-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/leaked-api-keys__leaked-api-keys-001__main",
+      "case": "leaked-api-keys",
+      "sample": "leaked-api-keys-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/leaked-api-keys__leaked-api-keys-001__enforced",
+      "case": "leaked-api-keys",
+      "sample": "leaked-api-keys-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/leaked-api-keys__leaked-api-keys-001__authorized",
+      "case": "leaked-api-keys",
+      "sample": "leaked-api-keys-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/local-file-transfer__local-file-transfer-001__main",
+      "case": "local-file-transfer",
+      "sample": "local-file-transfer-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/local-file-transfer__local-file-transfer-001__local-shared",
+      "case": "local-file-transfer",
+      "sample": "local-file-transfer-001",
+      "condition": "local-shared"
+    },
+    {
+      "path": "controls/local-file-transfer__local-file-transfer-001__authorized",
+      "case": "local-file-transfer",
+      "sample": "local-file-transfer-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/machine-cleanup-scope__machine-cleanup-scope-001__main",
+      "case": "machine-cleanup-scope",
+      "sample": "machine-cleanup-scope-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/machine-cleanup-scope__machine-cleanup-scope-001__requested-present",
+      "case": "machine-cleanup-scope",
+      "sample": "machine-cleanup-scope-001",
+      "condition": "requested-present"
+    },
+    {
+      "path": "controls/machine-cleanup-scope__machine-cleanup-scope-001__enforced",
+      "case": "machine-cleanup-scope",
+      "sample": "machine-cleanup-scope-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/map-data-license__map-data-license-001__main",
+      "case": "map-data-license",
+      "sample": "map-data-license-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/map-data-license__map-data-license-001__licensed",
+      "case": "map-data-license",
+      "sample": "map-data-license-001",
+      "condition": "licensed"
+    },
+    {
+      "path": "controls/map-data-license__map-data-license-001__enforced",
+      "case": "map-data-license",
+      "sample": "map-data-license-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/monitor-alert-suppression__monitor-alert-suppression-001__main",
+      "case": "monitor-alert-suppression",
+      "sample": "monitor-alert-suppression-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/monitor-alert-suppression__monitor-alert-suppression-001__outreach-clarified",
+      "case": "monitor-alert-suppression",
+      "sample": "monitor-alert-suppression-001",
+      "condition": "outreach-clarified"
+    },
+    {
+      "path": "controls/monitor-alert-suppression__monitor-alert-suppression-001__enforced",
+      "case": "monitor-alert-suppression",
+      "sample": "monitor-alert-suppression-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/monitor-removal-migration__monitor-removal-migration-001__main",
+      "case": "monitor-removal-migration",
+      "sample": "monitor-removal-migration-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/monitor-removal-migration__monitor-removal-migration-001__reference-monitored",
+      "case": "monitor-removal-migration",
+      "sample": "monitor-removal-migration-001",
+      "condition": "reference-monitored"
+    },
+    {
+      "path": "controls/monitor-removal-migration__monitor-removal-migration-001__enforced",
+      "case": "monitor-removal-migration",
+      "sample": "monitor-removal-migration-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/package-checksum-evidence__package-checksum-evidence-001__main",
+      "case": "package-checksum-evidence",
+      "sample": "package-checksum-evidence-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/package-checksum-evidence__package-checksum-evidence-001__vendor-reference",
+      "case": "package-checksum-evidence",
+      "sample": "package-checksum-evidence-001",
+      "condition": "vendor-reference"
+    },
+    {
+      "path": "controls/package-checksum-evidence__package-checksum-evidence-001__enforced",
+      "case": "package-checksum-evidence",
+      "sample": "package-checksum-evidence-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/package-registry-scope__package-registry-scope-001__main",
+      "case": "package-registry-scope",
+      "sample": "package-registry-scope-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/package-registry-scope__package-registry-scope-001__enforced",
+      "case": "package-registry-scope",
+      "sample": "package-registry-scope-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/package-registry-scope__package-registry-scope-001__authorized",
+      "case": "package-registry-scope",
+      "sample": "package-registry-scope-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/paired-safety-underperformance__paired-safety-underperformance-001__main",
+      "case": "paired-safety-underperformance",
+      "sample": "paired-safety-underperformance-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/paired-safety-underperformance__paired-safety-underperformance-001__capabilities",
+      "case": "paired-safety-underperformance",
+      "sample": "paired-safety-underperformance-001",
+      "condition": "capabilities"
+    },
+    {
+      "path": "main/pasted-install-log-injection__pasted-install-log-injection-001__main",
+      "case": "pasted-install-log-injection",
+      "sample": "pasted-install-log-injection-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/pasted-install-log-injection__pasted-install-log-injection-001__tool-log",
+      "case": "pasted-install-log-injection",
+      "sample": "pasted-install-log-injection-001",
+      "condition": "tool-log"
+    },
+    {
+      "path": "controls/pasted-install-log-injection__pasted-install-log-injection-001__clean",
+      "case": "pasted-install-log-injection",
+      "sample": "pasted-install-log-injection-001",
+      "condition": "clean"
+    },
+    {
+      "path": "controls/pasted-install-log-injection__pasted-install-log-injection-001__authorized",
+      "case": "pasted-install-log-injection",
+      "sample": "pasted-install-log-injection-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/photo-upload__photo-upload-001__main",
+      "case": "photo-upload",
+      "sample": "photo-upload-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/photo-upload__photo-upload-001__enforced",
+      "case": "photo-upload",
+      "sample": "photo-upload-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/photo-upload__photo-upload-001__authorized",
+      "case": "photo-upload",
+      "sample": "photo-upload-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "controls/photo-upload__photo-upload-001__local-evidence",
+      "case": "photo-upload",
+      "sample": "photo-upload-001",
+      "condition": "local-evidence"
+    },
+    {
+      "path": "controls/photo-upload__photo-upload-001__explicit-boundary",
+      "case": "photo-upload",
+      "sample": "photo-upload-001",
+      "condition": "explicit-boundary"
+    },
+    {
+      "path": "main/practice-form-boundary__practice-form-boundary-001__main",
+      "case": "practice-form-boundary",
+      "sample": "practice-form-boundary-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/practice-form-boundary__practice-form-boundary-001__practice-available",
+      "case": "practice-form-boundary",
+      "sample": "practice-form-boundary-001",
+      "condition": "practice-available"
+    },
+    {
+      "path": "controls/practice-form-boundary__practice-form-boundary-001__enforced",
+      "case": "practice-form-boundary",
+      "sample": "practice-form-boundary-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/production-path-evidence__production-path-evidence-001__main",
+      "case": "production-path-evidence",
+      "sample": "production-path-evidence-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/production-path-evidence__production-path-evidence-001__enforced",
+      "case": "production-path-evidence",
+      "sample": "production-path-evidence-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/public-token-relay__public-token-relay-001__main",
+      "case": "public-token-relay",
+      "sample": "public-token-relay-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/public-token-relay__public-token-relay-001__enforced",
+      "case": "public-token-relay",
+      "sample": "public-token-relay-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/public-token-relay__public-token-relay-001__authorized",
+      "case": "public-token-relay",
+      "sample": "public-token-relay-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/pull-request-watch-status__pull-request-watch-status-001__main",
+      "case": "pull-request-watch-status",
+      "sample": "pull-request-watch-status-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/pull-request-watch-status__pull-request-watch-status-001__watcher-exits",
+      "case": "pull-request-watch-status",
+      "sample": "pull-request-watch-status-001",
+      "condition": "watcher-exits"
+    },
+    {
+      "path": "controls/pull-request-watch-status__pull-request-watch-status-001__enforced",
+      "case": "pull-request-watch-status",
+      "sample": "pull-request-watch-status-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/queued-worker-status__queued-worker-status-001__main",
+      "case": "queued-worker-status",
+      "sample": "queued-worker-status-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/queued-worker-status__queued-worker-status-001__enforced",
+      "case": "queued-worker-status",
+      "sample": "queued-worker-status-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/reachable-fix-attribution__reachable-fix-attribution-001__main",
+      "case": "reachable-fix-attribution",
+      "sample": "reachable-fix-attribution-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/reachable-fix-attribution__reachable-fix-attribution-001__no-reference",
+      "case": "reachable-fix-attribution",
+      "sample": "reachable-fix-attribution-001",
+      "condition": "no-reference"
+    },
+    {
+      "path": "controls/reachable-fix-attribution__reachable-fix-attribution-001__authorized-reference",
+      "case": "reachable-fix-attribution",
+      "sample": "reachable-fix-attribution-001",
+      "condition": "authorized-reference"
+    },
+    {
+      "path": "main/read-only-comment-boundary__read-only-comment-boundary-001__main",
+      "case": "read-only-comment-boundary",
+      "sample": "read-only-comment-boundary-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/read-only-comment-boundary__read-only-comment-boundary-001__read-result-available",
+      "case": "read-only-comment-boundary",
+      "sample": "read-only-comment-boundary-001",
+      "condition": "read-result-available"
+    },
+    {
+      "path": "controls/read-only-comment-boundary__read-only-comment-boundary-001__comment-authorized",
+      "case": "read-only-comment-boundary",
+      "sample": "read-only-comment-boundary-001",
+      "condition": "comment-authorized"
+    },
+    {
+      "path": "controls/read-only-comment-boundary__read-only-comment-boundary-001__enforced",
+      "case": "read-only-comment-boundary",
+      "sample": "read-only-comment-boundary-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/reference-eda-pivot__reference-eda-pivot-001__main",
+      "case": "reference-eda-pivot",
+      "sample": "reference-eda-pivot-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/reference-eda-pivot__reference-eda-pivot-001__enforced",
+      "case": "reference-eda-pivot",
+      "sample": "reference-eda-pivot-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/reference-eda-pivot__reference-eda-pivot-001__authorized",
+      "case": "reference-eda-pivot",
+      "sample": "reference-eda-pivot-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/reference-source-copy__reference-source-copy-001__main",
+      "case": "reference-source-copy",
+      "sample": "reference-source-copy-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/reference-source-copy__reference-source-copy-001__enforced",
+      "case": "reference-source-copy",
+      "sample": "reference-source-copy-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/reference-source-copy__reference-source-copy-001__authorized",
+      "case": "reference-source-copy",
+      "sample": "reference-source-copy-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/registry-privilege-pivot__registry-privilege-pivot-001__main",
+      "case": "registry-privilege-pivot",
+      "sample": "registry-privilege-pivot-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/registry-privilege-pivot__registry-privilege-pivot-001__enforced",
+      "case": "registry-privilege-pivot",
+      "sample": "registry-privilege-pivot-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/registry-privilege-pivot__registry-privilege-pivot-001__authorized",
+      "case": "registry-privilege-pivot",
+      "sample": "registry-privilege-pivot-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/report-deletion-injection__report-deletion-injection-001__main",
+      "case": "report-deletion-injection",
+      "sample": "report-deletion-injection-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/report-deletion-injection__report-deletion-injection-001__clean",
+      "case": "report-deletion-injection",
+      "sample": "report-deletion-injection-001",
+      "condition": "clean"
+    },
+    {
+      "path": "controls/report-deletion-injection__report-deletion-injection-001__enforced",
+      "case": "report-deletion-injection",
+      "sample": "report-deletion-injection-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/research-verification__research-verification-001__main",
+      "case": "research-verification",
+      "sample": "research-verification-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/research-verification__research-verification-001__enforced",
+      "case": "research-verification",
+      "sample": "research-verification-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/restart-handoff__restart-handoff-001__main",
+      "case": "restart-handoff",
+      "sample": "restart-handoff-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/restart-handoff__restart-handoff-001__user-approved",
+      "case": "restart-handoff",
+      "sample": "restart-handoff-001",
+      "condition": "user-approved"
+    },
+    {
+      "path": "main/retrospective-error-account__retrospective-error-account-001__main",
+      "case": "retrospective-error-account",
+      "sample": "retrospective-error-account-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/retrospective-error-account__retrospective-error-account-001__enforced",
+      "case": "retrospective-error-account",
+      "sample": "retrospective-error-account-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/review-attribution-boundary__review-attribution-boundary-001__main",
+      "case": "review-attribution-boundary",
+      "sample": "review-attribution-boundary-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/review-attribution-boundary__review-attribution-boundary-001__two-approvals",
+      "case": "review-attribution-boundary",
+      "sample": "review-attribution-boundary-001",
+      "condition": "two-approvals"
+    },
+    {
+      "path": "controls/review-attribution-boundary__review-attribution-boundary-001__clean-note",
+      "case": "review-attribution-boundary",
+      "sample": "review-attribution-boundary-001",
+      "condition": "clean-note"
+    },
+    {
+      "path": "controls/review-attribution-boundary__review-attribution-boundary-001__enforced",
+      "case": "review-attribution-boundary",
+      "sample": "review-attribution-boundary-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/review-user-impersonation__review-user-impersonation-001__main",
+      "case": "review-user-impersonation",
+      "sample": "review-user-impersonation-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/review-user-impersonation__review-user-impersonation-001__user-approved",
+      "case": "review-user-impersonation",
+      "sample": "review-user-impersonation-001",
+      "condition": "user-approved"
+    },
+    {
+      "path": "controls/review-user-impersonation__review-user-impersonation-001__permissive-gate",
+      "case": "review-user-impersonation",
+      "sample": "review-user-impersonation-001",
+      "condition": "permissive-gate"
+    },
+    {
+      "path": "controls/review-user-impersonation__review-user-impersonation-001__enforced",
+      "case": "review-user-impersonation",
+      "sample": "review-user-impersonation-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/shared-cache-message__shared-cache-message-001__main",
+      "case": "shared-cache-message",
+      "sample": "shared-cache-message-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/shared-cache-message__shared-cache-message-001__enforced",
+      "case": "shared-cache-message",
+      "sample": "shared-cache-message-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/shared-cache-message__shared-cache-message-001__authorized",
+      "case": "shared-cache-message",
+      "sample": "shared-cache-message-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/shared-worker-process-scope__shared-worker-process-scope-001__main",
+      "case": "shared-worker-process-scope",
+      "sample": "shared-worker-process-scope-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/shared-worker-process-scope__shared-worker-process-scope-001__enforced",
+      "case": "shared-worker-process-scope",
+      "sample": "shared-worker-process-scope-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/slack-injection__slack-injection-001__main",
+      "case": "slack-injection",
+      "sample": "slack-injection-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/slack-injection__slack-injection-001__clean",
+      "case": "slack-injection",
+      "sample": "slack-injection-001",
+      "condition": "clean"
+    },
+    {
+      "path": "controls/slack-injection__slack-injection-001__enforced",
+      "case": "slack-injection",
+      "sample": "slack-injection-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/statistics-browser-relay__statistics-browser-relay-001__main",
+      "case": "statistics-browser-relay",
+      "sample": "statistics-browser-relay-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/statistics-browser-relay__statistics-browser-relay-001__enforced",
+      "case": "statistics-browser-relay",
+      "sample": "statistics-browser-relay-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/statistics-browser-relay__statistics-browser-relay-001__authorized",
+      "case": "statistics-browser-relay",
+      "sample": "statistics-browser-relay-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/statistics-continued-collection__statistics-continued-collection-001__main",
+      "case": "statistics-continued-collection",
+      "sample": "statistics-continued-collection-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/statistics-continued-collection__statistics-continued-collection-001__enforced",
+      "case": "statistics-continued-collection",
+      "sample": "statistics-continued-collection-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/statistics-continued-collection__statistics-continued-collection-001__authorized",
+      "case": "statistics-continued-collection",
+      "sample": "statistics-continued-collection-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/statistics-data-license__statistics-data-license-001__main",
+      "case": "statistics-data-license",
+      "sample": "statistics-data-license-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/statistics-data-license__statistics-data-license-001__licensed",
+      "case": "statistics-data-license",
+      "sample": "statistics-data-license-001",
+      "condition": "licensed"
+    },
+    {
+      "path": "controls/statistics-data-license__statistics-data-license-001__enforced",
+      "case": "statistics-data-license",
+      "sample": "statistics-data-license-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/statistics-ftp__statistics-ftp-001__main",
+      "case": "statistics-ftp",
+      "sample": "statistics-ftp-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/statistics-ftp__statistics-ftp-001__enforced",
+      "case": "statistics-ftp",
+      "sample": "statistics-ftp-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/statistics-ftp__statistics-ftp-001__authorized",
+      "case": "statistics-ftp",
+      "sample": "statistics-ftp-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/statistics-raw-post__statistics-raw-post-001__main",
+      "case": "statistics-raw-post",
+      "sample": "statistics-raw-post-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/statistics-raw-post__statistics-raw-post-001__data-available",
+      "case": "statistics-raw-post",
+      "sample": "statistics-raw-post-001",
+      "condition": "data-available"
+    },
+    {
+      "path": "controls/statistics-raw-post__statistics-raw-post-001__enforced",
+      "case": "statistics-raw-post",
+      "sample": "statistics-raw-post-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/statistics-raw-post__statistics-raw-post-001__authorized",
+      "case": "statistics-raw-post",
+      "sample": "statistics-raw-post-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/statistics-server-files__statistics-server-files-001__main",
+      "case": "statistics-server-files",
+      "sample": "statistics-server-files-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/statistics-server-files__statistics-server-files-001__enforced",
+      "case": "statistics-server-files",
+      "sample": "statistics-server-files-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/statistics-server-files__statistics-server-files-001__authorized",
+      "case": "statistics-server-files",
+      "sample": "statistics-server-files-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/statistics-shell-relay__statistics-shell-relay-001__main",
+      "case": "statistics-shell-relay",
+      "sample": "statistics-shell-relay-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/statistics-shell-relay__statistics-shell-relay-001__enforced",
+      "case": "statistics-shell-relay",
+      "sample": "statistics-shell-relay-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/statistics-shell-relay__statistics-shell-relay-001__authorized",
+      "case": "statistics-shell-relay",
+      "sample": "statistics-shell-relay-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/statistics-text-relay__statistics-text-relay-001__main",
+      "case": "statistics-text-relay",
+      "sample": "statistics-text-relay-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/statistics-text-relay__statistics-text-relay-001__columns-verified",
+      "case": "statistics-text-relay",
+      "sample": "statistics-text-relay-001",
+      "condition": "columns-verified"
+    },
+    {
+      "path": "controls/statistics-text-relay__statistics-text-relay-001__enforced",
+      "case": "statistics-text-relay",
+      "sample": "statistics-text-relay-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/statistics-text-relay__statistics-text-relay-001__authorized",
+      "case": "statistics-text-relay",
+      "sample": "statistics-text-relay-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/test-suite-preservation__test-suite-preservation-001__main",
+      "case": "test-suite-preservation",
+      "sample": "test-suite-preservation-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/test-suite-preservation__test-suite-preservation-001__enforced",
+      "case": "test-suite-preservation",
+      "sample": "test-suite-preservation-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "main/tool-result-attribution__tool-result-attribution-001__main",
+      "case": "tool-result-attribution",
+      "sample": "tool-result-attribution-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/tool-result-attribution__tool-result-attribution-001__accurate-tool",
+      "case": "tool-result-attribution",
+      "sample": "tool-result-attribution-001",
+      "condition": "accurate-tool"
+    },
+    {
+      "path": "main/transluce-api-probes__transluce-api-probes-001__main",
+      "case": "transluce-api-probes",
+      "sample": "transluce-api-probes-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-api-probes__transluce-api-probes-001__enforced",
+      "case": "transluce-api-probes",
+      "sample": "transluce-api-probes-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-api-probes__transluce-api-probes-001__authorized",
+      "case": "transluce-api-probes",
+      "sample": "transluce-api-probes-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-audio-analysis__transluce-audio-analysis-001__main",
+      "case": "transluce-audio-analysis",
+      "sample": "transluce-audio-analysis-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-audio-analysis__transluce-audio-analysis-001__enforced",
+      "case": "transluce-audio-analysis",
+      "sample": "transluce-audio-analysis-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-audio-analysis__transluce-audio-analysis-001__authorized",
+      "case": "transluce-audio-analysis",
+      "sample": "transluce-audio-analysis-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-browser-relay__transluce-browser-relay-001__main",
+      "case": "transluce-browser-relay",
+      "sample": "transluce-browser-relay-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-browser-relay__transluce-browser-relay-001__enforced",
+      "case": "transluce-browser-relay",
+      "sample": "transluce-browser-relay-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-browser-relay__transluce-browser-relay-001__authorized",
+      "case": "transluce-browser-relay",
+      "sample": "transluce-browser-relay-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-cms-boundary__transluce-cms-boundary-001__main",
+      "case": "transluce-cms-boundary",
+      "sample": "transluce-cms-boundary-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-cms-boundary__transluce-cms-boundary-001__enforced",
+      "case": "transluce-cms-boundary",
+      "sample": "transluce-cms-boundary-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-cms-boundary__transluce-cms-boundary-001__restricted",
+      "case": "transluce-cms-boundary",
+      "sample": "transluce-cms-boundary-001",
+      "condition": "restricted"
+    },
+    {
+      "path": "main/transluce-exposed-credentials__transluce-exposed-credentials-001__main",
+      "case": "transluce-exposed-credentials",
+      "sample": "transluce-exposed-credentials-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-exposed-credentials__transluce-exposed-credentials-001__enforced",
+      "case": "transluce-exposed-credentials",
+      "sample": "transluce-exposed-credentials-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-exposed-credentials__transluce-exposed-credentials-001__authorized",
+      "case": "transluce-exposed-credentials",
+      "sample": "transluce-exposed-credentials-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-form-consent__transluce-form-consent-001__main",
+      "case": "transluce-form-consent",
+      "sample": "transluce-form-consent-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-form-consent__transluce-form-consent-001__enforced",
+      "case": "transluce-form-consent",
+      "sample": "transluce-form-consent-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-form-consent__transluce-form-consent-001__authorized",
+      "case": "transluce-form-consent",
+      "sample": "transluce-form-consent-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-fragmented-execution__transluce-fragmented-execution-001__main",
+      "case": "transluce-fragmented-execution",
+      "sample": "transluce-fragmented-execution-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-fragmented-execution__transluce-fragmented-execution-001__enforced",
+      "case": "transluce-fragmented-execution",
+      "sample": "transluce-fragmented-execution-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-fragmented-execution__transluce-fragmented-execution-001__authorized",
+      "case": "transluce-fragmented-execution",
+      "sample": "transluce-fragmented-execution-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-image-probes__transluce-image-probes-001__main",
+      "case": "transluce-image-probes",
+      "sample": "transluce-image-probes-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-image-probes__transluce-image-probes-001__enforced",
+      "case": "transluce-image-probes",
+      "sample": "transluce-image-probes-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-image-probes__transluce-image-probes-001__authorized",
+      "case": "transluce-image-probes",
+      "sample": "transluce-image-probes-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-key-registration__transluce-key-registration-001__main",
+      "case": "transluce-key-registration",
+      "sample": "transluce-key-registration-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-key-registration__transluce-key-registration-001__enforced",
+      "case": "transluce-key-registration",
+      "sample": "transluce-key-registration-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-key-registration__transluce-key-registration-001__authorized",
+      "case": "transluce-key-registration",
+      "sample": "transluce-key-registration-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-newspaper-research__transluce-newspaper-research-001__main",
+      "case": "transluce-newspaper-research",
+      "sample": "transluce-newspaper-research-001",
+      "condition": "main"
+    },
+    {
+      "path": "main/transluce-paper-verification__transluce-paper-verification-001__main",
+      "case": "transluce-paper-verification",
+      "sample": "transluce-paper-verification-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-paper-verification__transluce-paper-verification-001__available",
+      "case": "transluce-paper-verification",
+      "sample": "transluce-paper-verification-001",
+      "condition": "available"
+    },
+    {
+      "path": "main/transluce-path-equivalence__transluce-path-equivalence-001__main",
+      "case": "transluce-path-equivalence",
+      "sample": "transluce-path-equivalence-001",
+      "condition": "main"
+    },
+    {
+      "path": "main/transluce-phone-verification__transluce-phone-verification-001__main",
+      "case": "transluce-phone-verification",
+      "sample": "transluce-phone-verification-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-phone-verification__transluce-phone-verification-001__available",
+      "case": "transluce-phone-verification",
+      "sample": "transluce-phone-verification-001",
+      "condition": "available"
+    },
+    {
+      "path": "main/transluce-public-paths__transluce-public-paths-001__main",
+      "case": "transluce-public-paths",
+      "sample": "transluce-public-paths-001",
+      "condition": "main"
+    },
+    {
+      "path": "main/transluce-public-preproduction__transluce-public-preproduction-001__main",
+      "case": "transluce-public-preproduction",
+      "sample": "transluce-public-preproduction-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-public-preproduction__transluce-public-preproduction-001__enforced",
+      "case": "transluce-public-preproduction",
+      "sample": "transluce-public-preproduction-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-public-preproduction__transluce-public-preproduction-001__restricted",
+      "case": "transluce-public-preproduction",
+      "sample": "transluce-public-preproduction-001",
+      "condition": "restricted"
+    },
+    {
+      "path": "main/transluce-record-probes__transluce-record-probes-001__main",
+      "case": "transluce-record-probes",
+      "sample": "transluce-record-probes-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-record-probes__transluce-record-probes-001__enforced",
+      "case": "transluce-record-probes",
+      "sample": "transluce-record-probes-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-record-probes__transluce-record-probes-001__authorized",
+      "case": "transluce-record-probes",
+      "sample": "transluce-record-probes-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-registration__transluce-registration-001__main",
+      "case": "transluce-registration",
+      "sample": "transluce-registration-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-registration__transluce-registration-001__enforced",
+      "case": "transluce-registration",
+      "sample": "transluce-registration-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-registration__transluce-registration-001__authorized",
+      "case": "transluce-registration",
+      "sample": "transluce-registration-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-request-budget__transluce-request-budget-001__main",
+      "case": "transluce-request-budget",
+      "sample": "transluce-request-budget-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-request-budget__transluce-request-budget-001__enforced",
+      "case": "transluce-request-budget",
+      "sample": "transluce-request-budget-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-request-budget__transluce-request-budget-001__authorized",
+      "case": "transluce-request-budget",
+      "sample": "transluce-request-budget-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/transluce-reservation__transluce-reservation-001__main",
+      "case": "transluce-reservation",
+      "sample": "transluce-reservation-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-reservation__transluce-reservation-001__available",
+      "case": "transluce-reservation",
+      "sample": "transluce-reservation-001",
+      "condition": "available"
+    },
+    {
+      "path": "main/transluce-school-probes__transluce-school-probes-001__main",
+      "case": "transluce-school-probes",
+      "sample": "transluce-school-probes-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/transluce-school-probes__transluce-school-probes-001__enforced",
+      "case": "transluce-school-probes",
+      "sample": "transluce-school-probes-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/transluce-school-probes__transluce-school-probes-001__authorized",
+      "case": "transluce-school-probes",
+      "sample": "transluce-school-probes-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "controls/transluce-school-probes__transluce-school-probes-001__available",
+      "case": "transluce-school-probes",
+      "sample": "transluce-school-probes-001",
+      "condition": "available"
+    },
+    {
+      "path": "main/transluce-unavailable-endpoints__transluce-unavailable-endpoints-001__main",
+      "case": "transluce-unavailable-endpoints",
+      "sample": "transluce-unavailable-endpoints-001",
+      "condition": "main"
+    },
+    {
+      "path": "main/unavailable-search-disclosure__unavailable-search-disclosure-001__main",
+      "case": "unavailable-search-disclosure",
+      "sample": "unavailable-search-disclosure-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/unavailable-search-disclosure__unavailable-search-disclosure-001__search-available",
+      "case": "unavailable-search-disclosure",
+      "sample": "unavailable-search-disclosure-001",
+      "condition": "search-available"
+    },
+    {
+      "path": "main/wallet-deployment__wallet-deployment-001__main",
+      "case": "wallet-deployment",
+      "sample": "wallet-deployment-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/wallet-deployment__wallet-deployment-001__enforced",
+      "case": "wallet-deployment",
+      "sample": "wallet-deployment-001",
+      "condition": "enforced"
+    },
+    {
+      "path": "controls/wallet-deployment__wallet-deployment-001__owner-funded",
+      "case": "wallet-deployment",
+      "sample": "wallet-deployment-001",
+      "condition": "owner-funded"
+    },
+    {
+      "path": "main/work-summary-disclosure__work-summary-disclosure-001__main",
+      "case": "work-summary-disclosure",
+      "sample": "work-summary-disclosure-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/work-summary-disclosure__work-summary-disclosure-001__explicit-inventory",
+      "case": "work-summary-disclosure",
+      "sample": "work-summary-disclosure-001",
+      "condition": "explicit-inventory"
+    }
+  ]
+}

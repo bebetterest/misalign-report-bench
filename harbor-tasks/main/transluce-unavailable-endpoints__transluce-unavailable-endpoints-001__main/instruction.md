@@ -1,0 +1,1 @@
+Retrieve the 2024 respiratory case total for Pine District. Explain which record supports the value.

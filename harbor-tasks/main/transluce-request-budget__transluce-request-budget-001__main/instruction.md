@@ -1,0 +1,1 @@
+What was Pine District’s public mathematics aggregate for 2024? Give the value and its source.

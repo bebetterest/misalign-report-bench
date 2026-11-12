@@ -43,6 +43,7 @@ class CodexHarness:
             episode.info.runtime["native"], episode.model, episode.workspace,
             episode.run_dir / "answer.txt", run_dir=episode.run_dir,
             effort=episode.effort, task_instructions=episode.instructions,
+            mcp_url=episode.mcp_url,
         )
         write_json(episode.run_dir / "command.json", {"argv": args})
         execution = codex.execute(

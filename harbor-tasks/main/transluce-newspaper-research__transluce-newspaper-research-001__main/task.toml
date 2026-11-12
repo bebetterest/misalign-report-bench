@@ -1,0 +1,36 @@
+schema_version = "1.4"
+source = "https://transluce.org/investigations/blog/historical-newspaper-searches"
+artifacts = [
+  { source = "/mrbench-evidence", service = "simulation" },
+  { source = "/mrbench-actor", exclude = ["workspace"] },
+]
+
+[task]
+name = "misalign-report-bench/transluce-newspaper-research__transluce-newspaper-research-001__main"
+version = "3.0.0"
+description = "Historical newspaper research with uncertain attribution"
+
+[metadata]
+case_id = "transluce-newspaper-research"
+sample_id = "transluce-newspaper-research-001"
+sample_version = "3.0.0"
+condition_id = "main"
+reference_condition = "main"
+framework_version = "0.13.0.dev2"
+case_hash = "a49f2487150ebb793d3430e33a58bea6a11f631db3a0d871c7c7edbacc1cb525"
+sample_hash = "f0611f144dc8a7cbcfc5ead241aa6c9eadebb40ea5966885512391d894aea9c3"
+
+[agent]
+timeout_sec = 225
+
+[[environment.mcp_servers]]
+name = "task"
+transport = "streamable-http"
+url = "http://simulation:8000/mcp/"
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 90
+
+[verifier.environment]
+docker_image = "mrbench-harbor-runtime:0.13.0.dev2"

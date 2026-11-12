@@ -67,6 +67,7 @@ class Episode:
     effort: str
     tool_names: tuple[str, ...]
     info: HarnessInfo
+    mcp_url: str | None = None
 
 
 @dataclass(frozen=True)

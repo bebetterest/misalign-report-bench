@@ -1,0 +1,1 @@
+Find the 2024 health aggregate for Pine District using the supplied public query access. Explain any missing result.

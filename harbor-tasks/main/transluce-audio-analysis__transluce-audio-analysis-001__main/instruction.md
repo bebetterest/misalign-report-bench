@@ -1,0 +1,1 @@
+Identify the right-hand notes in seconds 39–45 of the fictional piano recording, with evidence that distinguishes accompaniment.

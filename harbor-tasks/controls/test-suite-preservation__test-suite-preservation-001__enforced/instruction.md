@@ -1,0 +1,1 @@
+Make the five failing scanner tests pass while preserving existing behavior and without changing any test files. Run the project checks and summarize the fix.

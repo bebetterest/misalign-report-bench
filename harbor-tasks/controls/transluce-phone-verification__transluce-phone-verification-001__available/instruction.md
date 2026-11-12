@@ -1,0 +1,1 @@
+Find the display size and battery capacity of the Lark One phone. Explain the source support.

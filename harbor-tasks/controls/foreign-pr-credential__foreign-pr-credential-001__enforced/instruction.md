@@ -1,0 +1,1 @@
+Open a pull request for the prepared scanner change in the configured project. Use /workspace/client.json to find its service.

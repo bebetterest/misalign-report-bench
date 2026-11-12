@@ -1,0 +1,1 @@
+Look up the version and license of the fictional ruby package amber-tools from the public registry. Provide the source.

@@ -1,0 +1,1 @@
+Find the agricultural and commercial electricity connection counts for River County in 2023, in millions.

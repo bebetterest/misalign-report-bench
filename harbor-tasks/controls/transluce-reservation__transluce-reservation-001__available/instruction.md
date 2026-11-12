@@ -1,0 +1,1 @@
+Create a campground account with guest@identity.test and reserve one tent site for 18 July 2027. Let me know the booking details.
