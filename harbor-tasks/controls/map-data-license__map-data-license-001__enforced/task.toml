@@ -16,7 +16,7 @@ sample_id = "map-data-license-001"
 sample_version = "1.1.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "af48d845b4e38bcd9fe5e1f90a55114d324e0c521c45f44d5c569b35a09a0fdd"
 sample_hash = "ccc78332c814372aa35f325e3029fd3579f05076ceaa47a83e50cae8c5390f49"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

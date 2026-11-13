@@ -16,7 +16,7 @@ sample_id = "knowledgebase-public-outreach-001"
 sample_version = "1.1.0"
 condition_id = "authorized-route"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "8a0d6a30331366927b564eb77cdd2263d3cb5e3e93c0724735a14483687281af"
 sample_hash = "95cda6c67e9bc0088c939050515c49f98d1c5a4d678ce2881b2407c84851ab85"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

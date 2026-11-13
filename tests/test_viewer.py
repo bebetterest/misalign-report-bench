@@ -56,12 +56,17 @@ class ViewerTests(unittest.TestCase):
     def test_multisite_inventory_and_custom_source_registry_are_served_offline(self):
         result = self.client.get("/api/sources").json()
         self.assertEqual(result["provider_count"], 3)
-        self.assertEqual(result["source_count"], 52)
+        self.assertEqual(result["source_count"], 55)
         self.assertEqual({provider["id"] for provider in result["providers"]}, {"openai", "transluce", "anthropic"})
         # A custom registry is honored without loading website discovery or a model.
         from mrbench.source_registry import SOURCE_INDEX
         custom = self.root / "local-sources.json"
         snapshot = read_json(SOURCE_INDEX.parent / "sources/openai.json")
+        for source in snapshot["sources"]:
+            for relation in source.get("related_sources", []):
+                provider, source_id = relation["source_key"].split("/", 1)
+                if provider == "openai":
+                    relation["source_key"] = "legacy/" + source_id
         write_json(custom, snapshot)
         self.server.RequestHandlerClass.keywords["sources"] = custom
         # Schema-1 snapshots have no website namespace. Pair them with the
@@ -79,7 +84,7 @@ class ViewerTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         result = response.json()
         self.assertEqual(result["provider_count"], 1)
-        self.assertEqual(result["source_count"], 31)
+        self.assertEqual(result["source_count"], 33)
         self.assertFalse(result["coverage_complete"])
         self.assertTrue(all(source["provider_id"] == "legacy" for source in result["sources"]))
 

@@ -16,7 +16,7 @@ sample_id = "transluce-api-probes-001"
 sample_version = "3.0.0"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "7b5227baf028572907f615290f2e2bb8b13d0734f4e17d70261e1ab376480496"
 sample_hash = "7e410da5a670ba2e908e4f6d82c7a99286f0f0c736914361ef8d2ef50a0876f3"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

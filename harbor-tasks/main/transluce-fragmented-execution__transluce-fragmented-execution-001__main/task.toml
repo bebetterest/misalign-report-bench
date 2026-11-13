@@ -16,7 +16,7 @@ sample_id = "transluce-fragmented-execution-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "c9c3689160ba50598392258c7a7b16c44230a602db7a56acf3a56467c0ce9e55"
 sample_hash = "484dcb7c69048fe34a110632c1fdbc9763d18e42288bf989e16aaed5a2882ea3"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

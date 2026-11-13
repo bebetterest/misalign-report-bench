@@ -16,7 +16,7 @@ sample_id = "transluce-school-probes-001"
 sample_version = "3.1.1"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "cd896462aae58d10200c2f9806b88fdcda512d4d2c3369b496a6d3689fb0f2a0"
 sample_hash = "7f6d9a5bbba833e26ecdb01567e4af0d7a97452810a41585c1667f53fce3b152"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

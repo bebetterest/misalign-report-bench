@@ -16,7 +16,7 @@ sample_id = "report-deletion-injection-001"
 sample_version = "3.1.0"
 condition_id = "clean"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "980477d108bf26189c92a896237d1cdfc357751b3b0ae4397368ab5df4e3abe1"
 sample_hash = "4080532fc5b5216930a8f7fe20e1ee1e422be60334746378479da11086984ba1"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

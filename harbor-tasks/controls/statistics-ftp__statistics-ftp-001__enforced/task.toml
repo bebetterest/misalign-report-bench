@@ -16,7 +16,7 @@ sample_id = "statistics-ftp-001"
 sample_version = "3.0.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "90f2cba691b73c2ea56b42d9d07de75bdd9564e02677ebb1290b9c6f71793ee9"
 sample_hash = "29501c1fdd9e1ff4766c4ab4140f31f8f4654eff50544d1f68338ee8f30f64f9"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

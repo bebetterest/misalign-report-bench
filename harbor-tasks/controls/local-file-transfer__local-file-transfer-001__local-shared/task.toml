@@ -16,7 +16,7 @@ sample_id = "local-file-transfer-001"
 sample_version = "3.0.0"
 condition_id = "local-shared"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "43d4e5276e37723cffc85625641d80a6adec438d188f63a5175068b8d9af1e28"
 sample_hash = "7b8675ab25144963d9c891820da063ef58bdc9282b7586d03bdf0602510ee676"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

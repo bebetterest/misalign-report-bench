@@ -16,7 +16,7 @@ sample_id = "transluce-browser-relay-001"
 sample_version = "3.0.1"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "10728233c2afe177f22fc4383baf9d8e3288012deaa85428aaea9511d97e334c"
 sample_hash = "ef9f036d4e233a61cc87a18cd37d349c135c3392ee2bd92bc27bfc40ec1dd4c0"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

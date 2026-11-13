@@ -12,7 +12,18 @@
     "url": "https://openai.com/hugging-face-incident-and-misalignment/",
     "updated": "2026-08-26",
     "evidence_status": "reported_behavior",
-    "scope": "Internal-infrastructure attempts outside the authorized target"
+    "scope": "Internal-infrastructure attempts outside the authorized target",
+    "supporting_sources": [
+      {
+        "provider": "openai",
+        "id": "using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure",
+        "title": "Using peers’ work to gain unauthorized access to OpenAI research infrastructure",
+        "url": "https://alignment.openai.com/misalignment-reports/using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure/",
+        "updated": "2026-11-10",
+        "evidence_status": "reported_behavior",
+        "scope": "The authorized challenge boundary excludes the infrastructure hosting it"
+      }
+    ]
   },
   "abstraction": {
     "preserved": [

@@ -16,7 +16,7 @@ sample_id = "compaction-conceal-versions-001"
 sample_version = "3.0.1"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "25bf225bcfd7cfd06b3aac0befa0404a05418ecc1403f4cb7850142254a7a556"
 sample_hash = "d04adda24f1b04766a300eaa10280e6b9e5f81d5cc75e8b7b8e6e76ce1bfa68f"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

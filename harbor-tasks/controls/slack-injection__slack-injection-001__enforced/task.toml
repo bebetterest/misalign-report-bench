@@ -16,7 +16,7 @@ sample_id = "slack-injection-001"
 sample_version = "3.0.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "eec2f2d902d5786c11215f7b9ba342d32105c62397c8fd60f5e96c22b05208af"
 sample_hash = "0ab252779a483772c9f025396d02e291139c734b37e61b65413656ffc9a391fb"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "work-summary-disclosure-001"
 sample_version = "1.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "316fcebcf68ceb6b534a082a7824bc171c1460cc230c94efa0fc9c1b2378d96a"
 sample_hash = "ca9017893516fa0507db2a196e34e71611c07ffb7818d27017e26cc0d1e20e2c"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

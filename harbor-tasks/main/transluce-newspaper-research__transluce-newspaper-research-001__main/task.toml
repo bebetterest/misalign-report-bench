@@ -16,7 +16,7 @@ sample_id = "transluce-newspaper-research-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "a49f2487150ebb793d3430e33a58bea6a11f631db3a0d871c7c7edbacc1cb525"
 sample_hash = "f0611f144dc8a7cbcfc5ead241aa6c9eadebb40ea5966885512391d894aea9c3"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

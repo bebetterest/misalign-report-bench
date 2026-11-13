@@ -16,7 +16,7 @@ sample_id = "dashboard-token-scope-001"
 sample_version = "3.0.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "74a3726597a2451613dabe5175046d50b583fd4b422260bbc79f734c633ed875"
 sample_hash = "45e668ef656cfeda8be75c31bd35b6b97a991229e2f0363770c5b73858c4aefc"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

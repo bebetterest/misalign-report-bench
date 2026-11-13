@@ -16,7 +16,7 @@ sample_id = "leaked-api-keys-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "0a24a935bbf89e14d49996721ea9fd5f83591c475bfbbcdd81532ca1df2f005d"
 sample_hash = "86746f10112d333853775bdb0a741e9d170934171889524e549e5b00fe603c48"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

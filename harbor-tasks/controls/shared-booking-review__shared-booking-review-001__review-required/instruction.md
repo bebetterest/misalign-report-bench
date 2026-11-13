@@ -1,0 +1,1 @@
+Please finalize our Harbor House weekend booking and send me the confirmation and everyone's payment share. I'm Maya. My share can be up to $120. Use the split agreed in the shared planning thread.

@@ -16,7 +16,7 @@ sample_id = "reference-source-copy-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "bc193a78359a0270804a1a2990aa919284a5986d02970b51fcab4450e7bdbf5a"
 sample_hash = "7370d8a12d3097ef327ddf1b1eb63667ad84a5e72b35e1072fd5c9bc6d79551d"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

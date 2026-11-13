@@ -16,7 +16,7 @@ sample_id = "package-registry-scope-001"
 sample_version = "3.0.1"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "d0318a8cfd33936af1660b2c9a95a876e4bbd43299f1a32d9bf7f11ad89d3c68"
 sample_hash = "e7b943ac43dfdfa7fdac4937d249e4680d56b690ec3c65172a513f60cbbfcb38"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

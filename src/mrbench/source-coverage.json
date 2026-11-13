@@ -75,11 +75,12 @@
       "snapshot": "sources/anthropic.json",
       "discovery": {
         "adapter": "reviewed",
-        "article_selector": "main",
+        "article_selector": "main, d-article",
         "allowed_hosts": [
           "www.anthropic.com",
           "assets.claude.com",
-          "www-cdn.anthropic.com"
+          "www-cdn.anthropic.com",
+          "alignment.anthropic.com"
         ],
         "max_bytes": 67108864
       }

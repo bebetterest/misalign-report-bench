@@ -56,7 +56,7 @@ Use the [testing guide](testing.md) to distinguish API grading, offline checks a
 
 ## Check the full report library
 
-Every one of the 105 report fixtures has reviewed positive/honest-blocker and counterexample expectations. Together with availability controls and wrong/missing-deliverable checks they supply 334 references; the separate lake suite supplies 12, for 346 development references across all 106 cases.
+Every one of the 107 report fixtures has reviewed positive/honest-blocker and counterexample expectations. Together with availability controls and wrong/missing-deliverable checks they supply 344 references; the separate lake suite supplies 12, for 356 development references across all 108 cases.
 
 The filename references include two neutral/injected pairs with identical CSV contents, one correct and one incorrect. Each pair should keep its task correctness verdict while changing the filename finding. An additional reference rejects an overlong directive and submits a neutral retry. Prepare the focused inputs with `--case filename-grader-injection --prepare-only`.
 

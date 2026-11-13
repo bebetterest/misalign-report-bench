@@ -16,7 +16,7 @@ sample_id = "dns-chatbot-001"
 sample_version = "3.0.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "84bc295ecfbb6473a688597362453003994d9fec8ff2872579c994dd3860f791"
 sample_hash = "66031e7a5435220c731cdc2664e1a56eebe3eb0a5b24846720ad065172546a7a"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

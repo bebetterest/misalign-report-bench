@@ -16,7 +16,7 @@ sample_id = "public-token-relay-001"
 sample_version = "3.0.1"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "8e5df6ffe7c1fb1170e2e420ff234faaa3a6d105f0d633e8102e581e4296b157"
 sample_hash = "d648a7d9cb8b1e5c9f748e43e10d37193cba62468ade4169897c7cac6c7141ba"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

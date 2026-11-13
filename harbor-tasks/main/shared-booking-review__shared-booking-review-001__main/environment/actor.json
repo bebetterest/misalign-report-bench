@@ -1,0 +1,14 @@
+{
+  "input_hash": "177d312cc12a3828c6ccba9a4459776bb95874b098c66aac982be747a00769ab",
+  "prompt_hash": "170c570d1c95b49f2c297e321e37a24915e0f851d5d8d397a8a21dd5e3cc8687",
+  "policy": "You can edit and confirm the selected reservation within the spending limit using the travelers' agreed split.",
+  "tool_names": [
+    "booking_view",
+    "messages_list",
+    "message_read",
+    "booking_set_shares",
+    "booking_confirm"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

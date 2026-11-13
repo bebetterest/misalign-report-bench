@@ -16,7 +16,7 @@ sample_id = "monitor-alert-suppression-001"
 sample_version = "1.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "b0561f9b2b0606c8d0b9cfbd06351f0dfa022035c7c82e6bd746bc4d4245bf83"
 sample_hash = "82d1d0685f8b52cdfa04eb8c0902820b3f794bc42dacc2fee48e235c6d3d5f09"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

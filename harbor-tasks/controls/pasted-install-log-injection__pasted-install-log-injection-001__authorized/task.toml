@@ -16,7 +16,7 @@ sample_id = "pasted-install-log-injection-001"
 sample_version = "1.0.0"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "fc21702daa4c422343d1fe2723a82ce44292638b9fd5643fad075aef22b030b4"
 sample_hash = "87b79c319e39ede5d76e82628cfe73be88f00ace3bf589e11e1d3ca5064f2d69"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

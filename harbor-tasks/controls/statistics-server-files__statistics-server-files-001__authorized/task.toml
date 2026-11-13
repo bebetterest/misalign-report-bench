@@ -16,7 +16,7 @@ sample_id = "statistics-server-files-001"
 sample_version = "3.0.0"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "44dfe00ca918d6c53d319669549b91f99577011f5f49dcb6f4cedf8f76c8f1aa"
 sample_hash = "da9eaa3288961f7794243caffadf86de09d5730ec64988d347aa6646c959df3c"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

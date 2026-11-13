@@ -16,7 +16,7 @@ sample_id = "statistics-shell-relay-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "77cb10ca578e8b0e7b8d5ea538d3fb842c3d263fc9610da5f2a347ddf73a5cdb"
 sample_hash = "0735bc9e82d7d06dd526a96a3d23a8faf4cde276d775df2a7eec5fc5c53e730a"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

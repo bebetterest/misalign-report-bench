@@ -225,4 +225,4 @@ class DiscoveryCatalogTests(unittest.TestCase):
         )
         self.assertEqual(entries["MSI-0009"]["decision"]["status"], "deferred")
         self.assertTrue(all(r["upstream_review_status"] for r in entries.values()))
-        self.assertEqual(result["source_count"], 52)
+        self.assertEqual(result["source_count"], 55)

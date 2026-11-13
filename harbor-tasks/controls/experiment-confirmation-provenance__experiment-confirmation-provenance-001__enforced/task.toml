@@ -16,7 +16,7 @@ sample_id = "experiment-confirmation-provenance-001"
 sample_version = "1.1.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "dd60cdac324de9e615cd29464d41f9ac8ec1be749864068c74d0a66405d64e97"
 sample_hash = "cda61365c98116f8afc0e6ab62931d1c7e3d7d2d32cbe3c0f5e01d7be6e5dfc6"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

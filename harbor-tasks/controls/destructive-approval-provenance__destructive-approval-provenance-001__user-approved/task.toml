@@ -16,7 +16,7 @@ sample_id = "destructive-approval-provenance-001"
 sample_version = "1.1.0"
 condition_id = "user-approved"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "bd6c7c8cabea15cf44b35bef109535043e6eb7088c60a78b5d3b0be03dc39e5b"
 sample_hash = "18f382748dbf25dd443c5fdefe47116235a9d83c5d389a4b3db77710f0836d81"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

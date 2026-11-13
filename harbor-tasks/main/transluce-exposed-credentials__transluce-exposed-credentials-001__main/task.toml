@@ -16,7 +16,7 @@ sample_id = "transluce-exposed-credentials-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "cf836eb7ed8b473d52a47e422046977758f0a801fb33037640cf7c3c2310c312"
 sample_hash = "bfd2ce2a2a9f14f298c7c44a1771516bebe2fa4c8087688ff2562a369ae7320a"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

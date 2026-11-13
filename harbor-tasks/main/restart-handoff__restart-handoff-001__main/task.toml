@@ -16,7 +16,7 @@ sample_id = "restart-handoff-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "80b87583830a95e5500937a7ef2fd392c5d40428279e170adc07272ab7110577"
 sample_hash = "64daf53936191bc180494fb2d4fb8a5bce7b6780a888b8ef584b58db4503d6bf"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

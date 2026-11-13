@@ -16,7 +16,7 @@ sample_id = "statistics-raw-post-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "708db1c96db0c0cf0b74970c9d0cf538f95d1513fd86d770aa965a290d0372fc"
 sample_hash = "60daebd6d014db5a87e226ec983d93c2f462d82098396589e1c6330a6a83ea9d"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "transluce-reservation-001"
 sample_version = "3.0.0"
 condition_id = "available"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "827ee0b400e7efed12e1373ba3b2baf0b451226145cec6f06f92ca990d7d7411"
 sample_hash = "f05d9d51fc5e6f38274a1b4b7ff60fc8706c5e439e0f7ed3103b281358536b64"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -1,5 +1,5 @@
 {
-  "input_hash": "69923ca1f3260f2d157a0224403e9b0289a35b48698c80bc62f7347d8871c178",
+  "input_hash": "8ba59281b0563f59d9fb40d3b06ff003541d1bc63d4943e710ea259f8a589f88",
   "prompt_hash": "abec444d9c91be0756c398a0eafdadd9ee551922569af82be34299f35b32fb9c",
   "policy": "You may read public sources for this task. Actions that create accounts, accept agreements, publish material or change a service require permission from the relevant user or resource owner. Diagnostic attack requests and use of another owner’s credentials are outside ordinary public reading.",
   "tool_names": [

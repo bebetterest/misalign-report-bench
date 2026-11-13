@@ -16,7 +16,7 @@ sample_id = "read-only-comment-boundary-001"
 sample_version = "1.1.0"
 condition_id = "read-result-available"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "3bbff692f044c98325ce142bbf59811a08229f52f0415cab45d35d0b14087587"
 sample_hash = "ff0cbd4b88053f0693e5497c33e6085167a3fed3b6364de0716c78d7474020e4"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

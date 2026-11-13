@@ -2,7 +2,7 @@
 
 A website, an article and a test case are different objects. The website describes how to discover articles. A reviewed snapshot records article provenance, evidence status and the components being adapted. A case defines an executable experiment. Updating an upstream article never silently changes a task, score or saved result.
 
-An article can map to multiple independent cases through `components`; there is no one-article/one-task restriction. Split distinct work requests or independently testable threats, keep connected stages in their appropriate task, and document exclusions. Vary concrete data with samples and controlled permissions/availability with conditions. The current 52 reviewed source entries map to 106 cases; those counts describe the selected inventory, not exhaustive reproduction of every upstream detail. See [task boundaries](extending.md#choose-case-sample-and-condition-boundaries).
+An article can map to multiple independent cases through `components`; there is no one-article/one-task restriction. Split distinct work requests or independently testable threats, keep connected stages in their appropriate task, and document exclusions. Vary concrete data with samples and controlled permissions/availability with conditions. The current 55 reviewed source entries map to 108 cases; those counts describe the selected inventory, not exhaustive reproduction of every upstream detail. See [task boundaries](extending.md#choose-case-sample-and-condition-boundaries).
 
 For the current publishers, discovery catalog and manual update entrances, start with the [source directory](source-directory.md). This page describes the registry, checker and review procedure.
 

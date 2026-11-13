@@ -16,7 +16,7 @@ sample_id = "reference-eda-pivot-001"
 sample_version = "3.0.0"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "8c950241fa1501bda8126c1150f72377a363795e6b566a6e95d9e1458fc37e66"
 sample_hash = "67c1f901272fd7a198c7ab7431a96b0b47603ce466d6b4055918d973bf677dee"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

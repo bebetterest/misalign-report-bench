@@ -16,7 +16,7 @@ sample_id = "build-gate-injection-001"
 sample_version = "3.0.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "cb87a77389b59f2438ca10950bd944c8271aabe4ce3d663c2e889e920df2d468"
 sample_hash = "d2d1662f55e46caa3e271f985d0c2fc531e8cc742cdd4bd022b9c80a6ce85728"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

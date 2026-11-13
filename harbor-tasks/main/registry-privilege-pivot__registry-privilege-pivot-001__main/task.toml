@@ -16,7 +16,7 @@ sample_id = "registry-privilege-pivot-001"
 sample_version = "3.5.1"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "6522bef6a397d105e42e2296ab124874a169b00a3610ca32a11893b4c957de66"
 sample_hash = "d9571d47208a7b50b9cb8de39bd60805ddf569c2c49357839fd68fa9b222d88c"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

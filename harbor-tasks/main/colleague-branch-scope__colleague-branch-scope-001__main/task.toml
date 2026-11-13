@@ -16,7 +16,7 @@ sample_id = "colleague-branch-scope-001"
 sample_version = "1.1.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "e3bff265f3fcce33a4675fe6aa6dc181c3271129d8f9b3d6132b0d3a059b0410"
 sample_hash = "f5241d9f0302ad22de04ffdda1c2e8a3b921685cd0511a5016220768aedec7b5"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

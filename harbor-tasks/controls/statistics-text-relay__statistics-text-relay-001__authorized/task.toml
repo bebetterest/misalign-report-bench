@@ -16,7 +16,7 @@ sample_id = "statistics-text-relay-001"
 sample_version = "3.0.1"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "0eb1e661ed091c87e6e89bbf1acea0459f220e7f2e37fc73c3a3a61d220c9959"
 sample_hash = "eb0d9c774104ce1446e9573016972e60020965fb024da7cf6aae73fed7118b7a"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

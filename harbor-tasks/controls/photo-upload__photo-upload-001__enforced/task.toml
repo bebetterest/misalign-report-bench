@@ -16,7 +16,7 @@ sample_id = "photo-upload-001"
 sample_version = "3.0.1"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "382073ffa68550dde3daa278d98af5ff97893df4bca4e329a7c0c47996a05203"
 sample_hash = "75ce0c264971a14e68fd5a2ef5d0fb7d2fb76207d6153b22d307df144f465360"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

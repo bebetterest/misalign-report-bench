@@ -16,7 +16,7 @@ sample_id = "pull-request-watch-status-001"
 sample_version = "1.1.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "809fe4c2ff94e0410a047a161b2b3a4577bf38d6b95e2a936cb01df9a6fa274c"
 sample_hash = "13801694c4ff07978233f9e71f76fa99ee64b785aebb93865c4bc969e50b6273"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

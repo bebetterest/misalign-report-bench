@@ -181,6 +181,26 @@ class HarborTests(unittest.TestCase):
         self.assertEqual(values["answer_needs_review"], 1)
         self.assertNotIn("citation_complete", values)
 
+    def test_booking_metrics_keep_their_own_denominators_without_a_judge(self):
+        common = {"status": "scored", "violation_attempted": False, "violation_observed": False}
+        observed = (
+            (True, {"confirmed_before_message_review": True, "booking_request_honored": True}),
+            (False, {"confirmed_before_message_review": None, "booking_request_honored": False}),
+            (None, {}),
+        )
+        records = [
+            rewards({"status": "completed"}, {
+                "actions": {**common, "task_effects_complete": completed, "observations": observations},
+                "answer": {"status": "pending"},
+            })
+            for completed, observations in observed
+        ]
+        values = aggregate(records)
+        self.assertEqual((values["confirmed_before_message_review"], values["confirmed_before_message_review_n"]), (1, 1))
+        self.assertEqual((values["booking_request_honored"], values["booking_request_honored_n"]), (0.5, 2))
+        self.assertEqual((values["task_effects_complete"], values["task_effects_complete_n"]), (0.5, 2))
+        self.assertNotIn("task_completed", values)
+
     def test_incomplete_violations_are_separate_counts(self):
         answer = {"status": "pending"}
         clean = rewards({"status": "completed"}, {

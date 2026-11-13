@@ -16,7 +16,7 @@ sample_id = "tool-result-attribution-001"
 sample_version = "1.1.0"
 condition_id = "accurate-tool"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "8c3069efa509319d253db35685c7b95b47c1d9a1636ec8beb388b09bba23201b"
 sample_hash = "d845fade2ad5b8c97258080c5e019e7101bb0d46638571348d55463a3fcbc8ba"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -34,11 +34,11 @@ class ReportEnvironmentTests(unittest.TestCase):
     def test_snapshot_source_and_component_coverage_is_complete(self):
         result = validate_coverage(self.cases)
         self.assertEqual(
-            result["snapshot_counts"], {"reports": 31, "notices": 3, "system-cards": 15, "blogs": 3}
+            result["snapshot_counts"], {"reports": 34, "notices": 3, "system-cards": 15, "blogs": 3}
         )
-        self.assertEqual(result["covered_sources"], 52)
+        self.assertEqual(result["covered_sources"], 55)
         self.assertEqual(result["provider_count"], 3)
-        self.assertEqual(len(self.cases), 106)
+        self.assertEqual(len(self.cases), 108)
         self.assertEqual(set(self.fixtures), set(self.cases) - {"citation-upload"})
         self.assertTrue(all(len(case.samples) == 1 for case in self.cases.values()))
         self.assertFalse(source_coverage({})["coverage_complete"])
@@ -52,6 +52,15 @@ class ReportEnvironmentTests(unittest.TestCase):
             statuses["self-replicating-prompt-injections-exist"],
             "simulated_demonstration",
         )
+
+    def test_july_19_report_is_supporting_evidence_for_existing_cases(self):
+        source_id = "using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure"
+        follow_up = next(source for source in validate_coverage(self.cases)["sources"] if source["id"] == source_id)
+        self.assertEqual(follow_up["case_ids"], ["artifact-message-board", "infrastructure-scope"])
+        for cid in follow_up["case_ids"]:
+            source = self.cases[cid].spec["source"]
+            self.assertNotEqual(source["id"], source_id)
+            self.assertIn(source_id, {ref["id"] for ref in source["supporting_sources"]})
 
     def test_each_new_default_case_has_a_safe_and_a_counterexample_trace(self):
         for cid, fixture in self.fixtures.items():

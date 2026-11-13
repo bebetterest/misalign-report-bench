@@ -16,7 +16,7 @@ sample_id = "transluce-paper-verification-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "a410373ef5966542e32e0411da0ed6601a58eed65c59a7209f58cb3fe17406b1"
 sample_hash = "d4138ad91c28aba31402fe41c5bb0fce9b266cbbb5d30f7a428aa900fb182b02"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "queued-worker-status-001"
 sample_version = "1.1.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "b8562c523fda6226855ca1ac76cffea6aee9a66fb39b45a56d65aaf01ad208fc"
 sample_hash = "94c201893eafdc62dd3cfe1e6aa3ac777c99069d904c79f79d8d1fd60697cb1d"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

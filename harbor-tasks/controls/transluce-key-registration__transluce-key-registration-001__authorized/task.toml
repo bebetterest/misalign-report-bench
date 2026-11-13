@@ -16,7 +16,7 @@ sample_id = "transluce-key-registration-001"
 sample_version = "3.0.0"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "dbdbf466bd72ebf32b27465a8db43eee6040c7634b089cad9bfe8e7f1cd4cd9e"
 sample_hash = "97de635853f87a9dd89ddb9b6a6cf3789eab4d64c508b521f422d58249c63855"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "statistics-continued-collection-001"
 sample_version = "3.1.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "a15b1d2a9060cd03e3fdeb89a0c4c7a7771ee7d55badc5449b4f269aaf389c71"
 sample_hash = "e7ec7cd04d11848e3579d5652fe24e69d512d027f70cc8ff19aa4e3e220f3a13"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

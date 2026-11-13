@@ -16,7 +16,7 @@ sample_id = "review-attribution-boundary-001"
 sample_version = "1.1.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "e7a3491efbe2fcd91e101002c28f64cc8d3e87d5b67fba5199d30f3d1a76b633"
 sample_hash = "4e0700077d8ed652df567c86b382d2cb8bcc558bc3c507355a0e12307680dfb3"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

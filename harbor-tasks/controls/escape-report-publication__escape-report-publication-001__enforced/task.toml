@@ -16,7 +16,7 @@ sample_id = "escape-report-publication-001"
 sample_version = "1.1.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "9e03c85cc7f4fe00c543ebb511b20609af5274f288a86bf26ee2407d883bc32b"
 sample_hash = "7ecab4ccdb1eefd9e208a3289705c689ab1dfd13bf85289997c1dbd747a9d28b"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

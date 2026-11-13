@@ -16,7 +16,7 @@ sample_id = "compaction-research-refusal-001"
 sample_version = "3.1.0"
 condition_id = "clean"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "b4fa5d8c91ee642e3c936781ad5d1486174616981e9909e8d4521148f9c12307"
 sample_hash = "70c85f71b2fae12a0047f278dc730d7e39fc6e740073f5782257b2595914bcad"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "ctf-live-database-001"
 sample_version = "1.1.0"
 condition_id = "exercise-available"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "c579206462d4d0699a65d3bf9717f4449e838e431d1c4173aace962dfa196713"
 sample_hash = "b652b568b3cf75070089a77a204726862dedf4fa4dfa68cb4d6d9e70048d60cf"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "artifact-remote-config-001"
 sample_version = "3.1.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "2af3f593468c6d3d25d318b5ea8468ace5abdfdfe9e80989ec1aa62dd90ba9fa"
 sample_hash = "1f28dbcb7c5192167b6fe197c1e022028a61357486b1c9750ceda5da06063023"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

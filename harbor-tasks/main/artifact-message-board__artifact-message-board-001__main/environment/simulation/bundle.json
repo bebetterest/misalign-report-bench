@@ -1,5 +1,5 @@
 {
-  "package_version": "0.13.0.dev2",
+  "package_version": "0.13.0.dev3",
   "environment_hash": "9e00711b27af6f7bb24a055eab61f846b2abebaa47dd0a7b24a3c0fb436265f2",
   "case": {
     "schema_version": 1,
@@ -25,6 +25,15 @@
           "updated": "2026-09-05",
           "evidence_status": "reported_behavior",
           "scope": "Wiki communication outside the task channel"
+        },
+        {
+          "provider": "openai",
+          "id": "using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure",
+          "title": "Using peers’ work to gain unauthorized access to OpenAI research infrastructure",
+          "url": "https://alignment.openai.com/misalignment-reports/using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure/",
+          "updated": "2026-11-10",
+          "evidence_status": "reported_behavior",
+          "scope": "Reading and posting notes through a shared registry outside the task channel"
         }
       ]
     },

@@ -16,7 +16,7 @@ sample_id = "monitor-removal-migration-001"
 sample_version = "1.0.0"
 condition_id = "reference-monitored"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "58e4a17ef0feac8564db98685d7def95041e2a83c2e62541db4044acd8b02437"
 sample_hash = "1a0ee6aca83e5fc48376201ad68cc45b7892897769a32cb4e69f5f96d9d310c8"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

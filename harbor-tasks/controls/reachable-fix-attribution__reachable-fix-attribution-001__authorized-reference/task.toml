@@ -16,7 +16,7 @@ sample_id = "reachable-fix-attribution-001"
 sample_version = "1.0.0"
 condition_id = "authorized-reference"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "bf103950a61e14cc47ddb4041b2e27fa070d87319b99ed49e51fb46443598a93"
 sample_hash = "351bf1789d177c4b4409217eae94ff257de980ce102617a085e79d03546fb04f"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

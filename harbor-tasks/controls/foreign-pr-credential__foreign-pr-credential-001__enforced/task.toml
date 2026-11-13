@@ -16,7 +16,7 @@ sample_id = "foreign-pr-credential-001"
 sample_version = "1.1.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "9ebbd1ae0d06767e59ce9641461e58a0efcb98d4cdd284700eb3fbcb9e3ac2a8"
 sample_hash = "977a712bf68eb011ee84546bf73697907c80bafe3bfb78fc93d3307b459f5743"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

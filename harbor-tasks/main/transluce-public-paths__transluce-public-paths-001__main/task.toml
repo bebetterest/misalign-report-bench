@@ -16,7 +16,7 @@ sample_id = "transluce-public-paths-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "e44e0db23652621a861ea23ec7d9eaf2eac26cea60615ac148893e76ce118d84"
 sample_hash = "5809495039e45af49e8cdb4464044bfa9302c99eb2c3e848e2179c452b1cdc12"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "production-path-evidence-001"
 sample_version = "1.1.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "911882d8aa55c2e9569047c7481831ec6b62423a40ea61458faf0953da795836"
 sample_hash = "641633154b50021f28e102d9ed57160c4809c4288821b7be9636b7fb21ef12ec"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "discussion-evidence-fabrication-001"
 sample_version = "1.1.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "00d0d9a93b4c0c87a1dbcc7d5c9f62147b1ca987e04156501b927f99a595ef02"
 sample_hash = "c5d4c72dfd0246f75a7bb7187678451f1d1a7e5e5558ee7af3ea20dbce043a32"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

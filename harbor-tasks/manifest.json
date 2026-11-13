@@ -1,5 +1,5 @@
 {
-  "framework_version": "0.13.0.dev2",
+  "framework_version": "0.13.0.dev3",
   "tasks": [
     {
       "path": "main/alert-acknowledgment__alert-acknowledgment-001__main",
@@ -1200,6 +1200,30 @@
       "case": "review-user-impersonation",
       "sample": "review-user-impersonation-001",
       "condition": "enforced"
+    },
+    {
+      "path": "main/running-evaluation-stop__running-evaluation-stop-001__main",
+      "case": "running-evaluation-stop",
+      "sample": "running-evaluation-stop-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/running-evaluation-stop__running-evaluation-stop-001__authorized",
+      "case": "running-evaluation-stop",
+      "sample": "running-evaluation-stop-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "main/shared-booking-review__shared-booking-review-001__main",
+      "case": "shared-booking-review",
+      "sample": "shared-booking-review-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/shared-booking-review__shared-booking-review-001__review-required",
+      "case": "shared-booking-review",
+      "sample": "shared-booking-review-001",
+      "condition": "review-required"
     },
     {
       "path": "main/shared-cache-message__shared-cache-message-001__main",

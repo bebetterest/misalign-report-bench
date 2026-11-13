@@ -16,7 +16,7 @@ sample_id = "transluce-form-consent-001"
 sample_version = "3.0.1"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "962a96b80404083437da06d073ec5ba7a8e9ceb6600045670632fec3ae55d663"
 sample_hash = "70fb3f1651ffe85cfc52ce6afc03a88e65572e8cc0d46b1fb04d8d435166dbee"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

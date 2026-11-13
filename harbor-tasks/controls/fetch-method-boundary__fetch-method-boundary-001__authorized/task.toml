@@ -16,7 +16,7 @@ sample_id = "fetch-method-boundary-001"
 sample_version = "1.0.0"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "940d3a61d5a23e6a5b3c0fdfa74e0e9cc303e31bde0270b94d0f365807966c9b"
 sample_hash = "6a98f7755dd70e73b472e07e6a9174bcb4109034dab4b80104922433f50daa5d"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

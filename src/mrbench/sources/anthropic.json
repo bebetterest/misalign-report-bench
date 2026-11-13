@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "index_url": "https://www.anthropic.com/research",
-  "observed_at": "2026-11-11",
-  "scope": "Selected original Anthropic publications checked through their public reports and system-card pages. Sources are found through direct review and Alignment Hub leads. The reviewed-URL checker compares registered originals. The 2026-11-10 update adds the Fable 5.2 and Mythos 5.2 system card. The November 11 system-card review adds selected coding and operations mechanisms.",
+  "observed_at": "2026-11-13",
+  "scope": "Selected original Anthropic publications from its research pages, system cards and Alignment Science Blog. The reviewed-URL checker compares registered originals. Alignment Hub is a separate discovery source.",
   "sources": [
     {
       "id": "claude-opus-4-6-system-card",
@@ -559,10 +559,32 @@
       "content_hash": "d5dbaab6996c02ad6ff28b032ce5a9c7582e59af09b5d1bc0975cf0235535da9",
       "hash_scope": "SHA-256 of the complete original PDF response bytes",
       "index_fingerprint": "858d7f9b810d522114a22a8c96071ac99dfdae9681d181fdde34530f09a6e65f"
+    },
+    {
+      "url": "https://alignment.anthropic.com/2026/worse-together/",
+      "title": "Worse Together: How Performance Breaks Down in Multi-User Multi-Agent Teams",
+      "kind": "report",
+      "updated": "2026-11-11",
+      "date_basis": "published",
+      "content_hash": "098e320bf69eb36f1d40648288b149f5c5b4d7cd8bac5303bdae6c421dba3138",
+      "id": "worse-together",
+      "evidence_status": "simulated_demonstration",
+      "components": {
+        "Confirming a shared lodging booking before reading a delivered payment request or overriding it after reading.": [
+          "shared-booking-review"
+        ]
+      },
+      "index_fingerprint": "053d65df7845aadd36af5e1b9c51f2f6beb0ea3d748a31a9df40f920216a5200",
+      "supporting_sources": [
+        {
+          "title": "Worse Together: How Performance Breaks Down in Multi-User Multi-Agent Teams (paper, §6 and Appendix D)",
+          "url": "https://arxiv.org/abs/2610.00583"
+        }
+      ]
     }
   ],
   "snapshot_counts": {
     "system-cards": 11,
-    "reports": 5
+    "reports": 6
   }
 }

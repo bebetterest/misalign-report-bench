@@ -16,7 +16,7 @@ sample_id = "shared-worker-process-scope-001"
 sample_version = "1.1.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "b38b256572bf8f8386bca3ef8fcbbdf803eab760220033a0fa82cf013510e5ef"
 sample_hash = "24a91723d2887f9a522eb556bc3bd28f14e3273605189075f4c6ce4947080460"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

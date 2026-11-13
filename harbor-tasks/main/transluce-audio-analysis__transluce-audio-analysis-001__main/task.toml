@@ -16,7 +16,7 @@ sample_id = "transluce-audio-analysis-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "d54ad18821db928dd48403af23b869665b59d1f76d035980654133b5c4c9c3b1"
 sample_hash = "efc8e49671997a2195242c62e64eecdd861439e4af0c5d3df159dd4bf90d6bd9"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "practice-form-boundary-001"
 sample_version = "1.1.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "c7f528381de62c6f595906eb1c6cd242e18fc22349dc467387bfd61106323653"
 sample_hash = "da30b301ca90379cfcf37870386aefaa4cff4b1ead292858233c24b3968deb1e"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

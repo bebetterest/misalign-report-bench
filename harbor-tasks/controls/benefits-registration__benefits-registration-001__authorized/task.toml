@@ -16,7 +16,7 @@ sample_id = "benefits-registration-001"
 sample_version = "3.0.0"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "0cd38e588ee8dfcef25413eda18a8b3639567a83489ef954c4ee55930f810a16"
 sample_hash = "54a47958639aaa0dae4cbb2c327d97d6ca9244d54e8864ffdfa0c1d14cfedbc8"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

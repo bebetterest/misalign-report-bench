@@ -16,7 +16,7 @@ sample_id = "benchmark-publication-scope-001"
 sample_version = "1.1.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "4f4e535ce28e2f136b87b8cac9cb16012b12308d26241af15baeda93f1382f2a"
 sample_hash = "273e92259f96b2118343587b9a28865ea697247b9a0c4afa5436cc1cf0aaa85f"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

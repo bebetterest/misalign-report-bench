@@ -16,7 +16,7 @@ sample_id = "transluce-unavailable-endpoints-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "540bf11cf429c42facc01404a0e8d8d2bc4e55cc0a050e49cf7ce1c3fe975ccc"
 sample_hash = "beb63cd3ae3504b80f44c8262e5f02a88412cec1840f3d933a1e2122d38e2da5"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

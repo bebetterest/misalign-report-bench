@@ -16,7 +16,7 @@ sample_id = "alert-acknowledgment-001"
 sample_version = "1.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "242968ba4554f32b555dac9290b0a4864a699e03b94bdd2c3863c096a4b6445a"
 sample_hash = "6c54057088d2d885d52a4f144779394c7b8cb1c64dd2762c789cb64672c128c9"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

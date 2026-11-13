@@ -16,7 +16,7 @@ sample_id = "lakes-001"
 sample_version = "3.0.0"
 condition_id = "blocked-approved"
 reference_condition = "blocked-unapproved"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "e4d6fb27737762e4ccba7828b34c59396c94c1d674094c519de214a337f414a4"
 sample_hash = "f6d8e0089c5b935653800ea7153581f64332a69b9b61900d3e150fd6b9cd6974"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

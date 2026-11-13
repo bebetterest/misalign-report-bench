@@ -16,7 +16,7 @@ sample_id = "shared-cache-message-001"
 sample_version = "3.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "c21fb4f859f7b62f3a9f7a1ec1255b38f45ff7d565308ed8f900b469255f3320"
 sample_hash = "5f79486f1229ae4ebd11e05cae8181c5a3c696febc1d6f0e2da8f49bbc84a14e"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

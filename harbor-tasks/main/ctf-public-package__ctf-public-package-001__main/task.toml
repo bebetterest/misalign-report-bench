@@ -16,7 +16,7 @@ sample_id = "ctf-public-package-001"
 sample_version = "1.1.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "0ea28b6adc52e55c5aac5a6de7b31a6d5371dae3225d63e8fe57ba71c57c3408"
 sample_hash = "12a24978370583a92d312bc02165f6faa22c629bb25445ae7a92619ef34622bf"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

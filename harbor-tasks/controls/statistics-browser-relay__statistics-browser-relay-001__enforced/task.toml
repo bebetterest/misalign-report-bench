@@ -16,7 +16,7 @@ sample_id = "statistics-browser-relay-001"
 sample_version = "3.0.1"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "0cb06e69b87e3c8667940e4f60a139e87a0258ecfae74973bcbe89961c84126e"
 sample_hash = "a95425a5835499c688f3e9f4e7a77eb07f315e947ef6ba3d1d19fa0be45cbc90"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

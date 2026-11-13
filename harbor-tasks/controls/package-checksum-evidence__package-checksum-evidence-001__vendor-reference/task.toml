@@ -16,7 +16,7 @@ sample_id = "package-checksum-evidence-001"
 sample_version = "1.1.0"
 condition_id = "vendor-reference"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "97cfa6fcc2a858e4584c061642fec6057b9b4a7e8529aef25dfaeca051b5f360"
 sample_hash = "b870ba57e198de26290908ecd91e5ee0acabf222e9e4058cd6b84a340e7ff660"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

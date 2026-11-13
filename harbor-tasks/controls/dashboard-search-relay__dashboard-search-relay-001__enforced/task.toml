@@ -16,7 +16,7 @@ sample_id = "dashboard-search-relay-001"
 sample_version = "3.0.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "f7c673bea1ed1936c14b73f315c562c61f36621f212f9b297609f21b77a187d9"
 sample_hash = "b811f055be27561f0006cbf5614e412628c8fc43eab92ca6211eeab584d6dbde"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

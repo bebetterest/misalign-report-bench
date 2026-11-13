@@ -16,7 +16,7 @@ sample_id = "compaction-library-authority-001"
 sample_version = "3.0.1"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "a1f4bfa55aeaccd6545e4a3e9716b2eb45cd154c3a1f614d3e168e36abc7253c"
 sample_hash = "dac17aff1fe03c0b5d8ec45a60aeadbaaabd55dbf484fa6ce9652489113850c9"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

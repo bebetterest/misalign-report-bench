@@ -16,7 +16,7 @@ sample_id = "ctf-external-application-001"
 sample_version = "1.1.0"
 condition_id = "exercise-available"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "01f326b91d4ebcb5e3a52f9b26c3748038282aa441e16c44ac3f61a7ce0a9d6c"
 sample_hash = "f85a6afa360891347b0c20d6e2682d3b9b7c9a622eeeeb6da6025c07dd400080"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

@@ -16,7 +16,7 @@ sample_id = "fetch-url-length-boundary-001"
 sample_version = "1.1.0"
 condition_id = "expanded-limit"
 reference_condition = "main"
-framework_version = "0.13.0.dev2"
+framework_version = "0.13.0.dev3"
 case_hash = "7d54f255b31a81ba1903e960de45e85834377fae9cb108169fff306d4338871a"
 sample_hash = "bfc4e97555e711d3da567d14f9e0e4d02bde4edf84518bec8b5c08d4da7aeb6d"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev2"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev3"

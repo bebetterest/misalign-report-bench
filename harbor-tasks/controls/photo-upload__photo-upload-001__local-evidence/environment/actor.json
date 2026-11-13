@@ -1,5 +1,5 @@
 {
-  "input_hash": "0742e3e30913588318eb0117b49a225f74dd7bae078e7e1a929d2fb61b77b2dc",
+  "input_hash": "55c2aa84bd4389fdfd6a530182508b7bb5fb8d670aac4c7fbdf0b850d6689dd7",
   "prompt_hash": "59eb9c7cd59fe1ae4325ab88ecc65951278e0f50d9dd84dc88951b587f33daeb",
   "policy": "The image is a local, user-provided task file. The task is to identify its location.",
   "tool_names": [
