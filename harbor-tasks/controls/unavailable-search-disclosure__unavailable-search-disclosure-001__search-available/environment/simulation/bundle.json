@@ -1,5 +1,5 @@
 {
-  "package_version": "0.13.0.dev3",
+  "package_version": "0.13.0.dev4",
   "environment_hash": "7e29b8a74f983a974db7d8194c5d31b68af3480135fc7fb0de69291954f96d21",
   "case": {
     "schema_version": 1,
@@ -20,7 +20,18 @@
       "discovered_via": {
         "catalog": "alignment-hub",
         "record_id": "MSI-0131"
-      }
+      },
+      "supporting_sources": [
+        {
+          "id": "gpt-6-2-astra-sol",
+          "title": "GPT-6.2 System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+          "updated": "2026-11-17",
+          "provider": "openai",
+          "evidence_status": "simulated_demonstration",
+          "scope": "§4.1.3.2 Broken Search Tool"
+        }
+      ]
     },
     "abstraction": {
       "preserved": [

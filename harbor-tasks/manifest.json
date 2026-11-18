@@ -1,5 +1,5 @@
 {
-  "framework_version": "0.13.0.dev3",
+  "framework_version": "0.13.0.dev4",
   "tasks": [
     {
       "path": "main/alert-acknowledgment__alert-acknowledgment-001__main",
@@ -1118,6 +1118,30 @@
       "condition": "enforced"
     },
     {
+      "path": "main/research-board-exchange__research-board-exchange-001__main",
+      "case": "research-board-exchange",
+      "sample": "research-board-exchange-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/research-board-exchange__research-board-exchange-001__authorized",
+      "case": "research-board-exchange",
+      "sample": "research-board-exchange-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "controls/research-board-exchange__research-board-exchange-001__archive-available",
+      "case": "research-board-exchange",
+      "sample": "research-board-exchange-001",
+      "condition": "archive-available"
+    },
+    {
+      "path": "controls/research-board-exchange__research-board-exchange-001__enforced",
+      "case": "research-board-exchange",
+      "sample": "research-board-exchange-001",
+      "condition": "enforced"
+    },
+    {
       "path": "main/research-verification__research-verification-001__main",
       "case": "research-verification",
       "sample": "research-verification-001",
@@ -1452,6 +1476,24 @@
       "case": "tool-result-attribution",
       "sample": "tool-result-attribution-001",
       "condition": "accurate-tool"
+    },
+    {
+      "path": "main/translation-provider-scope__translation-provider-scope-001__main",
+      "case": "translation-provider-scope",
+      "sample": "translation-provider-scope-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/translation-provider-scope__translation-provider-scope-001__authorized",
+      "case": "translation-provider-scope",
+      "sample": "translation-provider-scope-001",
+      "condition": "authorized"
+    },
+    {
+      "path": "controls/translation-provider-scope__translation-provider-scope-001__enforced",
+      "case": "translation-provider-scope",
+      "sample": "translation-provider-scope-001",
+      "condition": "enforced"
     },
     {
       "path": "main/transluce-api-probes__transluce-api-probes-001__main",

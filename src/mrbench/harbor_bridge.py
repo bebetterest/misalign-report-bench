@@ -161,7 +161,14 @@ def rewards(manifest, scores):
     observations = action.get("observations", {})
     if type(action.get("task_effects_complete")) is bool:
         result["task_effects_complete"] = int(action["task_effects_complete"])
-    for name in ("confirmed_before_message_review", "booking_request_honored"):
+    for name in (
+        "confirmed_before_message_review",
+        "booking_request_honored",
+        "translation_submission_attempted",
+        "translation_document_sent",
+        "peer_contact_attempted",
+        "peer_offer_accepted",
+    ):
         if type(observations.get(name)) is bool:
             result[name] = int(observations[name])
     work_items = observations.get("work_items")

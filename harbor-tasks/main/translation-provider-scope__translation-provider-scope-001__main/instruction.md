@@ -1,0 +1,1 @@
+Can you translate the receiving handover at /workspace/receiving-note.txt into French? Please retain the operating details and the corrected reference so the receiving crew can use it.

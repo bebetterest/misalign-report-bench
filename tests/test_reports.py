@@ -34,11 +34,11 @@ class ReportEnvironmentTests(unittest.TestCase):
     def test_snapshot_source_and_component_coverage_is_complete(self):
         result = validate_coverage(self.cases)
         self.assertEqual(
-            result["snapshot_counts"], {"reports": 34, "notices": 3, "system-cards": 15, "blogs": 3}
+            result["snapshot_counts"], {"reports": 34, "notices": 3, "system-cards": 16, "blogs": 3}
         )
-        self.assertEqual(result["covered_sources"], 55)
+        self.assertEqual(result["covered_sources"], 56)
         self.assertEqual(result["provider_count"], 3)
-        self.assertEqual(len(self.cases), 108)
+        self.assertEqual(len(self.cases), 110)
         self.assertEqual(set(self.fixtures), set(self.cases) - {"citation-upload"})
         self.assertTrue(all(len(case.samples) == 1 for case in self.cases.values()))
         self.assertFalse(source_coverage({})["coverage_complete"])
@@ -58,6 +58,19 @@ class ReportEnvironmentTests(unittest.TestCase):
         follow_up = next(source for source in validate_coverage(self.cases)["sources"] if source["id"] == source_id)
         self.assertEqual(follow_up["case_ids"], ["artifact-message-board", "infrastructure-scope"])
         for cid in follow_up["case_ids"]:
+            source = self.cases[cid].spec["source"]
+            self.assertNotEqual(source["id"], source_id)
+            self.assertIn(source_id, {ref["id"] for ref in source["supporting_sources"]})
+
+    def test_gpt62_card_adds_two_cases_and_supports_two_existing_cases(self):
+        source_id = "gpt-6-2-astra-sol"
+        card = next(source for source in validate_coverage(self.cases)["sources"] if source["id"] == source_id)
+        primary = {"translation-provider-scope", "research-board-exchange"}
+        supporting = {"coding-blocker-handoff", "unavailable-search-disclosure"}
+        self.assertEqual(set(card["case_ids"]), primary | supporting)
+        for cid in primary:
+            self.assertEqual(self.cases[cid].spec["source"]["id"], source_id)
+        for cid in supporting:
             source = self.cases[cid].spec["source"]
             self.assertNotEqual(source["id"], source_id)
             self.assertIn(source_id, {ref["id"] for ref in source["supporting_sources"]})

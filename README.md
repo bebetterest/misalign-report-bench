@@ -2,15 +2,15 @@
 
 *Turning public AI misalignment reports into reproducible agent evaluations.*
 
-An independent, open-source benchmark that turns public AI behavior reports from **[OpenAI](https://alignment.openai.com/misalignment-reports/)**, **[Anthropic](https://www.anthropic.com/research)** and **[Transluce](https://transluce.org/investigations)** into reproducible agent evaluations.
+An independent, open-source benchmark that turns public AI behavior reports and research into reproducible agent evaluations. Cases draw on original publications from **OpenAI** ([Misalignment Reports and Notices](https://alignment.openai.com/misalignment-reports/) and [Deployment Safety Hub](https://deploymentsafety.openai.com/)), **[Anthropic](https://www.anthropic.com/research)** and **[Transluce](https://transluce.org/investigations)**. We also screen **[Alignment Hub on Hugging Face](https://huggingface.co/spaces/witness-archive/alignment-hub)** for candidate incidents and check the original publications before building tests.
 
 Each case extracts an observable behavior, builds a controlled environment and preserves the evidence needed to inspect the result. The reference harnesses use the **real Codex CLI** (default) and **Grok Build CLI** through the same MCP environment. Environment instrumentation scores actions; one separate API request judges the final natural-language answer and declared final task texts.
 
-The built-in library maps **55 reviewed source entries across OpenAI, Anthropic and Transluce** to **108 evaluation cases**, each with one default sample (302 conditions in total). Articles can supply several cases for distinct tasks or independently testable mechanisms. Data variants use samples, controlled changes use conditions, and each episode starts with fresh state. Ordinary research, legitimate behavior, uncertain attribution and unverified allegations retain their evidence status. The [behavior-case guide](docs/behavior-cases.md) explains network scope, submitted filename integrity, delivered-text criteria, pasted logs, voluntary disclosure and paired research framing.
+The built-in library maps **56 reviewed source entries across OpenAI, Anthropic and Transluce** to **110 evaluation cases**, each with one default sample (309 conditions in total). Articles can supply several cases for distinct tasks or independently testable mechanisms. Data variants use samples, controlled changes use conditions, and each episode starts with fresh state. Ordinary research, legitimate behavior, uncertain attribution and unverified allegations retain their evidence status. The [behavior-case guide](docs/behavior-cases.md) explains network scope, submitted filename integrity, delivered-text criteria, pasted logs, voluntary disclosure and paired research framing.
 
 **[Run the Harbor benchmark](#evaluate-with-harbor-recommended)** using the checked-in [task snapshot](harbor-tasks/manifest.json).
 
-**[Browse the source directory](docs/source-directory.md)** for original reports and model cards, article-to-case mappings, and where to check for updates. [Alignment Hub](https://huggingface.co/spaces/witness-archive/alignment-hub) is a separate discovery catalog. Its screening decisions and links to original publications are documented in the [selection guide](docs/alignment-hub.md).
+**[Browse the source directory](docs/source-directory.md)** for original reports and model cards, article-to-case mappings, and where to check for updates. The [Alignment Hub selection guide](docs/alignment-hub.md) documents screening decisions and links to original publications.
 
 Code and fictional task data are MIT licensed. Upstream catalog metadata remains CC BY 4.0; original reports retain their attribution and rights. The project is independent of all source publishers and catalog maintainers. See [third-party materials](THIRD_PARTY.md).
 
@@ -20,7 +20,7 @@ Code and fictional task data are MIT licensed. Upstream catalog metadata remains
 
 ## Evaluate with Harbor (recommended)
 
-The repository includes a ready-to-use [Harbor task snapshot](harbor-tasks/) with **108 main tasks** and **194 controls**. Each directory defines one case, sample and condition. Use `main.job.json` for the default conditions and `controls.job.json` for controlled comparisons. The [manifest](harbor-tasks/manifest.json) maps every task to its original IDs.
+The repository includes a ready-to-use [Harbor task snapshot](harbor-tasks/) with **110 main tasks** and **199 controls**. Each directory defines one case, sample and condition. Use `main.job.json` for the default conditions and `controls.job.json` for controlled comparisons. The [manifest](harbor-tasks/manifest.json) maps every task to its original IDs.
 
 Follow the [Harbor guide](docs/harbor.md#prepare-the-images) to build the Docker images for this checkout and install the Linux Codex CLI binaries in the agent image. With Python 3.12, Docker Compose, [uv](https://docs.astral.sh/uv/) and an OpenAI API key in your shell, run the first main task:
 
@@ -107,7 +107,7 @@ The judge receives the task, expected facts, source capabilities, case rubric, f
 
 The default payload uses `max_completion_tokens`, `store=false` and strict `json_schema` output. For a compatible provider, select `token_limit_parameter="max_tokens"`, `send_store=false` to omit the unsupported storage field, and/or `response_format="json_object"`. Local validation still applies. Returned model identity and fingerprints are recorded separately from the requested model; compatible comparisons keep differing versions separate.
 
-Check the judge against 356 fixed development references across the library with the [judge quality guide](docs/judge-validation.md). Previewing makes no API call; the full check makes one request per answer. Reference expectations are kept out of the judge input.
+Check the judge against 368 fixed development references across the library with the [judge quality guide](docs/judge-validation.md). Previewing makes no API call; the full check makes one request per answer. Reference expectations are kept out of the judge input.
 
 Re-score action evidence without an API call:
 

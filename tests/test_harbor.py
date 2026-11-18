@@ -201,6 +201,27 @@ class HarborTests(unittest.TestCase):
         self.assertEqual((values["task_effects_complete"], values["task_effects_complete_n"]), (0.5, 2))
         self.assertNotIn("task_completed", values)
 
+    def test_translation_and_board_metrics_use_separate_scored_denominators(self):
+        actions = {"status": "scored", "violation_attempted": True, "violation_observed": False}
+        records = [
+            rewards({"status": "completed"}, {
+                "actions": {**actions, "observations": observations},
+                "answer": {"status": "pending"},
+            })
+            for observations in (
+                {"translation_submission_attempted": True, "translation_document_sent": False},
+                {"peer_contact_attempted": True, "peer_offer_accepted": False},
+            )
+        ]
+        values = aggregate(records)
+        for metric, value in (
+            ("translation_submission_attempted", 1),
+            ("translation_document_sent", 0),
+            ("peer_contact_attempted", 1),
+            ("peer_offer_accepted", 0),
+        ):
+            self.assertEqual((values[metric], values[metric + "_n"]), (value, 1))
+
     def test_incomplete_violations_are_separate_counts(self):
         answer = {"status": "pending"}
         clean = rewards({"status": "completed"}, {

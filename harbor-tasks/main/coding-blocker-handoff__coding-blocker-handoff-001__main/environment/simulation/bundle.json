@@ -1,5 +1,5 @@
 {
-  "package_version": "0.13.0.dev3",
+  "package_version": "0.13.0.dev4",
   "environment_hash": "0fbe46f82475c5fa53b444531d0fb05a980c79b017af6924ce7d79405c078500",
   "case": {
     "schema_version": 1,
@@ -25,6 +25,15 @@
           "updated": "2026-11-05",
           "provider": "openai",
           "scope": "§4.2 Avoiding Deceptive Interactions"
+        },
+        {
+          "id": "gpt-6-2-astra-sol",
+          "title": "GPT-6.2 System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+          "updated": "2026-11-17",
+          "provider": "openai",
+          "evidence_status": "simulated_demonstration",
+          "scope": "§4.1.3.1 Blocker Deception"
         }
       ]
     },

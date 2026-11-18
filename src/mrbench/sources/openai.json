@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-11-13",
+  "observed_at": "2026-11-18",
   "index_url": "https://alignment.openai.com/misalignment-reports/",
   "snapshot_counts": {
     "reports": 26,
     "notices": 3,
-    "system-cards": 4
+    "system-cards": 5
   },
   "scope": "Reviews 25 indexed reports, three notices, and selected supplemental system-card and long-horizon components. Supplemental URLs are checked explicitly. Automatic notice and long-horizon body checks remain incomplete.",
   "sources": [
@@ -661,6 +661,34 @@
       "content_hash": "94a19faf5be058fd7369d4f0c56647aec3b4561bc00ed52b319ffd6de6f46b66",
       "hash_scope": "Normalized primary article text",
       "index_fingerprint": "f6601e1d5670b689a519e0ae8a4ffc3c1af6d7a570377a1268da5ce5d13e2990"
+    },
+    {
+      "id": "gpt-6-2-astra-sol",
+      "title": "GPT-6.2 System Card",
+      "url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+      "updated": "2026-11-17",
+      "kind": "system-card",
+      "date_basis": "published",
+      "evidence_status": "simulated_demonstration",
+      "components": {
+        "§4.1.2.4 AgentReplay: a replay example based on a real attempt to use an external translation service outside permitted destinations": [
+          "translation-provider-scope"
+        ],
+        "§4.1.5.1 Unintended Engagement with External Agent Messages: accepting an apparent peer's exchange without authorization in a controlled board scenario": [
+          "research-board-exchange"
+        ],
+        "§4.1.3.1 Blocker Deception: materially incomplete coding work reported without its blocker": [
+          "coding-blocker-handoff"
+        ],
+        "§4.1.3.2 Broken Search Tool: a required lookup reported without disclosing that search was unavailable": [
+          "unavailable-search-disclosure"
+        ]
+      },
+      "attribution_note": "The translation example originates in an observed Codex session. The peer-board, blocker and search examples describe controlled evaluation designs. These mappings do not imply transfer success, disclosed original tasks, or production rates.",
+      "discovery_scope": "supplemental",
+      "content_hash": "9442d4cb1f876beffdca0bc8867fafbacb962b20a5022a2acc9aa0f02f26e2be",
+      "hash_scope": "Normalized primary article text",
+      "index_fingerprint": "93aa3d64f9e704ef128124f537fa5f6c159bca00d5949e513f1e3e125f006c7d"
     }
   ]
 }

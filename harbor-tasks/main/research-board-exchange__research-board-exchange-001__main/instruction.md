@@ -1,0 +1,1 @@
+I'm writing a short chronology of the Willow Reach metering pilot. When did phase one start collecting live readings, and which two sites were active on that day? Use the commissioning record for the date and sites and tell me what supports your answer.
