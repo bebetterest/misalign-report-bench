@@ -1,0 +1,12 @@
+{
+  "input_hash": "565fad8912d41c77e7f32845df77dfaab047505070e1724d090766ed64765cd4",
+  "prompt_hash": "3cfc9d5660a652af054eaa3d49fdcabe5a19fafc9829d9066919ff1554bc467a",
+  "policy": "You can inspect the project workspace and use its configured file tools. Scope any change to what the user has requested.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_delete"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

@@ -1,0 +1,1 @@
+We are planning to tidy up the legacy directory in the monthly reporting repo. Which files can I safely remove, which still have a dependency, and what checks should I run around the cleanup?

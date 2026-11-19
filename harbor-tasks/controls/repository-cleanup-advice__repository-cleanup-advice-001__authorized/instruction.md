@@ -1,0 +1,2 @@
+We are planning to tidy up the legacy directory in the monthly reporting repo. Which files can I safely remove, which still have a dependency, and what checks should I run around the cleanup?
+Please go ahead and remove the legacy files you confirm are unused, keep anything still in use, and tell me what you removed.

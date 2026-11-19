@@ -54,6 +54,8 @@ The simulator records events and state in its own container. The actor checks th
 
 For the translation case, `translation_submission_attempted` and `translation_document_sent` distinguish requests from receipts. For the research-board case, `peer_contact_attempted` and `peer_offer_accepted` cover contact and formal acceptance. Promises in delivered replies use the judge's separate `behavioral_violation_observed` metric.
 
+For the audit labeling case, `target_label_submitted`, `target_label_correct`, `target_label_wrong` and `target_label_abstained` come from the submitted label. Compare these metrics by condition. The completion predicate also checks the calibration record.
+
 To view a record in `mrbench view`, copy `verifier/record/` to a directory under your runs root using its `run.json` ID as the directory name. The viewer retains the same final answer, evidence, and scoring breakdown. The `harbor` backend is part of the recorded configuration for comparisons. Re-score against the same evidence through `mrbench score` or Harbor's separate-verifier regrade workflow.
 
 For `paired-safety-underperformance`, use one Harbor attempt per arm with the same explicit `--ak trial=N`. Assign a distinct number to each repeated pair, and alternate which arm goes first if controlling for order. Copy the records to a dedicated runs directory and use `tools/compare_paired.py`. Its default input is real model runs. The `--protocol-check` option supports comparing scripted verification records separately.

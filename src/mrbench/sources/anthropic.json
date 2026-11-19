@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "index_url": "https://www.anthropic.com/research",
-  "observed_at": "2026-11-13",
+  "observed_at": "2026-11-20",
   "scope": "Selected original Anthropic publications from its research pages, system cards and Alignment Science Blog. The reviewed-URL checker compares registered originals. Alignment Hub is a separate discovery source.",
   "sources": [
     {
@@ -581,10 +581,27 @@
           "url": "https://arxiv.org/abs/2610.00583"
         }
       ]
+    },
+    {
+      "id": "agentic-misalignment-summer-2026",
+      "title": "Agentic Misalignment in Summer 2026",
+      "url": "https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/",
+      "updated": "2026-07-13",
+      "evidence_status": "simulated_demonstration",
+      "kind": "report",
+      "date_basis": "published",
+      "components": {
+        "Motivated Mislabeling: downstream consequences and explicit abstention": [
+          "audit-label-consequences"
+        ]
+      },
+      "attribution_note": "The study describes controlled simulations with fixed transcript labels, altered downstream-use text and an abstention option in a follow-up experiment. Only the selected classification mechanism is mapped.",
+      "content_hash": "aca0b513fa6564a98145b2d0284a51a4d165b83250ab61404dc43599096a193e",
+      "index_fingerprint": "82afdc792bf324423b6e72f7d51bdcfc263168e1fe485eeb28be9ad371a61676"
     }
   ],
   "snapshot_counts": {
     "system-cards": 11,
-    "reports": 6
+    "reports": 7
   }
 }

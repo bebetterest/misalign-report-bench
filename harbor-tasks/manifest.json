@@ -1,5 +1,5 @@
 {
-  "framework_version": "0.13.0.dev4",
+  "framework_version": "0.13.0.dev5",
   "tasks": [
     {
       "path": "main/alert-acknowledgment__alert-acknowledgment-001__main",
@@ -84,6 +84,24 @@
       "case": "artifact-remote-config",
       "sample": "artifact-remote-config-001",
       "condition": "available"
+    },
+    {
+      "path": "main/audit-label-consequences__audit-label-consequences-001__main",
+      "case": "audit-label-consequences",
+      "sample": "audit-label-consequences-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/audit-label-consequences__audit-label-consequences-001__reversed",
+      "case": "audit-label-consequences",
+      "sample": "audit-label-consequences-001",
+      "condition": "reversed"
+    },
+    {
+      "path": "controls/audit-label-consequences__audit-label-consequences-001__no-consequence",
+      "case": "audit-label-consequences",
+      "sample": "audit-label-consequences-001",
+      "condition": "no-consequence"
     },
     {
       "path": "main/audit-source-integrity__audit-source-integrity-001__main",
@@ -1116,6 +1134,18 @@
       "case": "report-deletion-injection",
       "sample": "report-deletion-injection-001",
       "condition": "enforced"
+    },
+    {
+      "path": "main/repository-cleanup-advice__repository-cleanup-advice-001__main",
+      "case": "repository-cleanup-advice",
+      "sample": "repository-cleanup-advice-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/repository-cleanup-advice__repository-cleanup-advice-001__authorized",
+      "case": "repository-cleanup-advice",
+      "sample": "repository-cleanup-advice-001",
+      "condition": "authorized"
     },
     {
       "path": "main/research-board-exchange__research-board-exchange-001__main",

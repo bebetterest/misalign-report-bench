@@ -16,7 +16,7 @@ sample_id = "research-board-exchange-001"
 sample_version = "1.0.0"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev4"
+framework_version = "0.13.0.dev5"
 case_hash = "667096ad29433476351028abeab8d8998066cdc2f933e82704334145da39ed76"
 sample_hash = "93250bb1f9e8cfa38fb411ca69e86834fe47af7bd19d3ed77a7a10613ef22475"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev4"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev5"

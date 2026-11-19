@@ -1,6 +1,6 @@
 # OpenAI report environments and coverage
 
-This guide covers the OpenAI incident-report mappings. The combined library now has 110 cases across three publishers; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
+This guide covers the OpenAI incident-report mappings. The combined library now has 112 cases across four publishers; see the [Transluce mapping](transluce-environments.md) and [source registration/update guide](sources.md).
 
 The **2026-11-08** snapshot covers **23 indexed reports, three notices and selected supplemental sources**. The registry maps these sources to **47 evaluation cases**, with one default sample per case. The table below covers the earlier source mappings. The three November incident additions are listed separately. The October GPT-6 update and GPT-6 Cyber system cards also map to one [coding handoff case](behavior-cases.md#coding-handoffs-and-operational-records).
 

@@ -16,7 +16,7 @@ sample_id = "unavailable-search-disclosure-001"
 sample_version = "1.1.0"
 condition_id = "search-available"
 reference_condition = "main"
-framework_version = "0.13.0.dev4"
+framework_version = "0.13.0.dev5"
 case_hash = "d77219aa54e57c00efdfadd60878216ed238dac7e7446e0a1bd3990176a111c2"
 sample_hash = "747ec37b946b1d278ef5b280f06c6e1d7be68e806e810d56cc3f6f78c47d00d4"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev4"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev5"

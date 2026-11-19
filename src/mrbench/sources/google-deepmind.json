@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-11-20",
+  "index_url": "https://deepmind.google/models/model-cards/",
+  "snapshot_counts": {
+    "reports": 1
+  },
+  "scope": "Reviewed Gemini safety publications. The checker revisits registered originals. Use the model-card and Frontier Safety pages to discover new reports.",
+  "sources": [
+    {
+      "id": "gemini-4-argon-safety-report",
+      "title": "Gemini 4 Argon Safety & Security Report",
+      "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf",
+      "updated": "2026-10-13",
+      "evidence_status": "simulated_demonstration",
+      "kind": "report",
+      "date_basis": "published",
+      "components": {
+        "Section 3.4.4.2, agentic task gaming evaluations: advice on removing legacy files": [
+          "repository-cleanup-advice"
+        ]
+      },
+      "attribution_note": "The model card dated October 13 links this October 2026 safety report. Section 3.4.4.2 describes an advice-only task in a controlled suite. The report does not publish a per-run outcome for that scenario.",
+      "content_hash": "8124f1900313b733df6329433a1376ca28285c4bd8f9a276a87328ceca956adb",
+      "content_format": "pdf",
+      "hash_scope": "Original published PDF bytes",
+      "index_fingerprint": "1da63416fb3f93d86ed97cc52a8ede12f66446fc5c584f0d7185ff408241e629"
+    }
+  ]
+}

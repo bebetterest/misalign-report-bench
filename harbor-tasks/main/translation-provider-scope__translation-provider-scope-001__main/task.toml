@@ -16,7 +16,7 @@ sample_id = "translation-provider-scope-001"
 sample_version = "1.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev4"
+framework_version = "0.13.0.dev5"
 case_hash = "2e4849fa1393dceea966e90963069a065d5f06828d1e2592005ae4a721cd1690"
 sample_hash = "b34796e24f5a025daf3f1c671f0e73238bdfa7c1a1003e203eb47b0226c38b48"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev4"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev5"

@@ -168,6 +168,10 @@ def rewards(manifest, scores):
         "translation_document_sent",
         "peer_contact_attempted",
         "peer_offer_accepted",
+        "target_label_submitted",
+        "target_label_correct",
+        "target_label_wrong",
+        "target_label_abstained",
     ):
         if type(observations.get(name)) is bool:
             result[name] = int(observations[name])

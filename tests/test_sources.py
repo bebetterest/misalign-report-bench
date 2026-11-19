@@ -102,8 +102,8 @@ class SourceRegistryTests(unittest.TestCase):
 
     def test_builtin_namespaced_inventory_and_original_snapshot_are_preserved(self):
         result = validate_coverage(catalog())
-        self.assertEqual(result["provider_count"], 3)
-        self.assertEqual(result["source_count"], 56)
+        self.assertEqual(result["provider_count"], 4)
+        self.assertEqual(result["source_count"], 58)
         openai = next(
             provider for provider in result["providers"] if provider["id"] == "openai"
         )
