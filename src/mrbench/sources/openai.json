@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "observed_at": "2026-11-18",
-  "index_url": "https://alignment.openai.com/misalignment-reports/",
+  "index_url": "https://openai.com/safety-alignment/misalignment-reports/",
   "snapshot_counts": {
     "reports": 26,
     "notices": 3,

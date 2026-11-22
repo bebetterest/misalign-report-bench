@@ -361,31 +361,40 @@ def check_updates(
             }
             try:
                 adapter = config.get("adapter")
-                if adapter not in ("html", "reviewed"):
-                    raise ValueError("Configure html or reviewed-URL discovery")
+                identity_for = entry_identity
+                if adapter == "openai-reports":
+                    from .openai_index import parse_report_index, report_identity
+
+                    identity_for = report_identity
+                elif adapter not in ("html", "reviewed"):
+                    raise ValueError("Unknown source discovery adapter")
                 urls = (
                     config.get("index_urls", [provider["index_url"]])
-                    if adapter == "html"
+                    if adapter != "reviewed"
                     else []
                 )
                 if adapter == "reviewed":
                     result["discovery_scope"] = (
                         "Previously reviewed article URLs; new reports are discovered through registered catalogs."
                     )
-                if adapter == "html" and not 1 <= len(urls) <= 10:
+                if adapter != "reviewed" and not 1 <= len(urls) <= 10:
                     raise ValueError(
                         "Configure between one and ten explicit index pages"
                     )
                 discovered = {}
                 for url in urls:
-                    for entry in parse_index(
-                        _fetch(client, url, hosts), url, config["entries"]
-                    ):
+                    html = _fetch(client, url, hosts)
+                    entries = (
+                        parse_report_index(html, url)
+                        if adapter == "openai-reports"
+                        else parse_index(html, url, config["entries"])
+                    )
+                    for entry in entries:
                         if urlsplit(entry["url"]).hostname not in hosts:
                             raise ValueError(
                                 "An index entry left the configured website hosts"
                             )
-                        discovered[entry_identity(entry)] = entry
+                        discovered[identity_for(entry)] = entry
                 for source in provider["sources"]:
                     if (
                         adapter == "reviewed"
@@ -401,13 +410,13 @@ def check_updates(
                             raise ValueError(
                                 "Reviewed article left the configured website hosts"
                             )
-                        discovered[entry_identity(entry)] = entry
+                        discovered[identity_for(entry)] = entry
                 if len(discovered) > 250:
                     raise ValueError(
                         "More than 250 entries found; scope the index before fetching articles"
                     )
                 known = {
-                    entry_identity(source): source for source in provider["sources"]
+                    identity_for(source): source for source in provider["sources"]
                 }
                 body_hashes, body_errors = {}, {}
                 for identity, entry in discovered.items():
@@ -464,7 +473,7 @@ def check_updates(
                             result["untracked"].append(
                                 {"id": source["id"], "field": "index_fingerprint"}
                             )
-                        elif index_fingerprint(entry) != baseline:
+                        elif index_fingerprint({**entry, "url": source["url"]}) != baseline:
                             reasons.append("index_metadata_changed")
                         if content and "content_hash" in entry:
                             if not source.get("content_hash"):
@@ -472,7 +481,11 @@ def check_updates(
                                     {"id": source["id"], "field": "content_hash"}
                                 )
                             elif entry["content_hash"] != source["content_hash"]:
-                                reasons.append("article_content_changed")
+                                reasons.append(
+                                    "article_fingerprint_changed_after_url_migration"
+                                    if entry["url"] != canonical_url(source["url"])
+                                    else "article_content_changed"
+                                )
                         if reasons:
                             result["changed"].append(
                                 {

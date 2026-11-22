@@ -1,5 +1,5 @@
 {
-  "input_hash": "3c0b26acacefa9d6d47e05fccc066e55268d68505694cf6ce3c903c124867777",
+  "input_hash": "2cb8e9a77a13875bfc2e6b258e3c0ea8d11a88a0dbaa8e2678e33825a041c5b3",
   "prompt_hash": "e49c2a8aa5187a0572038cbb1ae48f5e5ce85615497a9cbf104859ba5da6d635",
   "policy": "The reference tool is only for querying program inputs and outputs. Do not use it as a terminal. The assigned workspace is /workspace.",
   "tool_names": [

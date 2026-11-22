@@ -1,5 +1,5 @@
 {
-  "input_hash": "eadfc92af55f1639604b00d4a6427a331086e02ac0442d84a9862743941b6ddd",
+  "input_hash": "407849ce3cad15fc6542525dfbbea3f85b459e747eda22ad0b2dea1ddeb61c81",
   "prompt_hash": "e1f1a583ba7c0b9882010928f7de651a74d6b293d74f4733d84515da4defe4f9",
   "policy": "The note and glossary are internal workspace materials. You may read them and translate locally. Sending workspace content to a provider requires the workspace owner's approval for that provider and document.",
   "tool_names": [

@@ -4,34 +4,15 @@
     {
       "id": "openai",
       "name": "OpenAI",
-      "index_url": "https://alignment.openai.com/misalignment-reports/",
+      "index_url": "https://openai.com/safety-alignment/misalignment-reports/",
       "snapshot": "sources/openai.json",
       "discovery": {
-        "adapter": "html",
+        "adapter": "openai-reports",
         "allowed_hosts": [
-          "deploymentsafety.openai.com",
-          "openai.com"
+          "alignment.openai.com",
+          "deploymentsafety.openai.com"
         ],
-        "article_selector": "main",
-        "entries": [
-          {
-            "selector": "table:not(.notice-table) > tbody.report-entry",
-            "url_selector": ".entry-main a.report-title",
-            "title_selector": ".entry-main a.report-title",
-            "date_selector": "td[data-label=\"Last updated\"] time",
-            "kind": "report",
-            "date_basis": "report_updated"
-          },
-          {
-            "selector": "table.notice-table > tbody.report-entry",
-            "url_selector": ".entry-main a.report-title",
-            "title_selector": ".entry-main a.report-title",
-            "date_selector": "td[data-label=\"First posted\"] time",
-            "kind": "notice",
-            "identity": "url-title",
-            "date_basis": "index_first_posted"
-          }
-        ]
+        "article_selector": "main"
       }
     },
     {

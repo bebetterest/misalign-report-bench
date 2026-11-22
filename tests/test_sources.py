@@ -1,6 +1,7 @@
 """Source registration is offline; opt-in discovery only produces review data."""
 
 from copy import deepcopy
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -103,7 +104,7 @@ class SourceRegistryTests(unittest.TestCase):
     def test_builtin_namespaced_inventory_and_original_snapshot_are_preserved(self):
         result = validate_coverage(catalog())
         self.assertEqual(result["provider_count"], 4)
-        self.assertEqual(result["source_count"], 58)
+        self.assertEqual(result["source_count"], 60)
         openai = next(
             provider for provider in result["providers"] if provider["id"] == "openai"
         )
@@ -114,6 +115,76 @@ class SourceRegistryTests(unittest.TestCase):
         self.assertTrue(
             all(source["provider_id"] == "legacy" for source in legacy["sources"])
         )
+
+    def test_openai_index_migration_matches_legacy_ids_and_reads_past_the_preview(self):
+        from mrbench.openai_index import CURRENT_PREFIX, LEGACY_PREFIX
+
+        def row(title, url, group, first, last):
+            return {
+                "title": title, "href": url, "filters": {"type": [group]},
+                "reportDates": {"firstPosted": first, "lastUpdated": last},
+            }
+
+        old = "2026-10-15"
+        updated = "2026-10-18"
+        self.provider.update(
+            index_url=CURRENT_PREFIX,
+            discovery={"adapter": "openai-reports", "allowed_hosts": ["alignment.openai.com"]},
+        )
+        self.snapshot["index_url"] = CURRENT_PREFIX
+        self.source.update(
+            url=LEGACY_PREFIX + "first/",
+            updated=updated,
+            date_basis="report_updated",
+        )
+        self.source["index_fingerprint"] = index_fingerprint(self.source)
+        self.save()
+        rows = [
+            row("First report", CURRENT_PREFIX + "first/", "reports", old, updated),
+            row("Second report", CURRENT_PREFIX + "second/", "reports", old, updated),
+            row("First notice", "https://openai.com/notices/#first", "notices", old, updated),
+            row("Second notice", "https://openai.com/notices/#second", "notices", old, updated),
+        ]
+
+        def index(rows):
+            payload = "1:" + json.dumps({"items": rows})
+            sections = '<main><a href="#reports">Reports 2</a><a href="#notices">Notices 2</a>'
+            preview = f'<section><a href="{CURRENT_PREFIX}first/">First report</a></section>'
+            # The first render omits three entries; JSON stream records may span scripts.
+            return sections + preview + "</main>" + "".join(
+                f"<script>self.__next_f.push({json.dumps([1, part])})</script>"
+                for part in (payload[:100], payload[100:])
+            )
+
+        html = index(rows)
+
+        def fetch(request):
+            self.assertEqual(request.url.host, "openai.com")
+            if str(request.url) == CURRENT_PREFIX:
+                return httpx.Response(200, text=html)
+            return httpx.Response(200, text="<main>New article rendering.</main>")
+
+        transport = httpx.MockTransport(fetch)
+        report = check_updates(self.path, content=True, transport=transport)["providers"][0]
+        self.assertEqual(report["not_listed"], [])
+        self.assertEqual(report["errors"], [])
+        self.assertEqual(
+            [(entry["id"], entry["reasons"]) for entry in report["changed"]],
+            [("first", ["article_fingerprint_changed_after_url_migration"])],
+        )
+        self.assertEqual(len(report["entries"]), 4)
+        self.assertEqual(
+            {entry["updated"] for entry in report["new"] if entry["kind"] == "notice"}, {old},
+        )
+        self.assertEqual(
+            {entry["title"] for entry in report["new"]},
+            {"Second report", "First notice", "Second notice"},
+        )
+        html = index(rows[:3])
+        incomplete = check_updates(self.path, transport=transport)["providers"][0]
+        self.assertEqual(incomplete["status"], "error")
+        self.assertEqual(incomplete["entries"], [])
+        self.assertIn("published section counts", incomplete["errors"][0]["message"])
 
     def test_transluce_redesigned_index_keeps_only_investigation_cards(self):
         registry = read_json(SOURCE_INDEX)

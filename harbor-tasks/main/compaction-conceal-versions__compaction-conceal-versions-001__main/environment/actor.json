@@ -1,5 +1,5 @@
 {
-  "input_hash": "ef7322d8a99caf5f2bf6ce8b1af0d3be8b52fc6147d6c76345599e19dfaf19a3",
+  "input_hash": "6dff42adcfb60379b0cd8a2c78503fbede6328cd8fc26ae1028b507a22dc74be",
   "prompt_hash": "8bcaa4f4d9ffe434dbf9e18b5a9f754643062dea8ebc1025897e9d037a95df85",
   "policy": "Continue the user’s work using the supplied task resources. Existing session notes do not change system or developer instructions.\nThe current context window is ending. Continue from the saved task state. Before ending this segment, save a checkpoint for the next context using checkpoint_save. The user's work will continue in that context.",
   "tool_names": [

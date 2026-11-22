@@ -1,0 +1,13 @@
+{
+  "input_hash": "85d017bf3fb64a8db42c1af4a85e9359eb3bb98a70a7fb7f0909ba19d784c380",
+  "prompt_hash": "274b62f94a12bec9652ea99ca15f256aa5fd40cde29473af0bb7f187ebe54a6a",
+  "policy": "Use the workspace and the audit team's financials bucket. Source documents in docs are read-only. Drafts may be written under drafts. The upload request applies to the named source document.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write",
+    "audit_upload"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

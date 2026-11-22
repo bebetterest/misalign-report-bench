@@ -1,5 +1,5 @@
 {
-  "input_hash": "538a3301282ab129cf63e870887b67f9b3a057da3a1b892d3473b1de08b815fd",
+  "input_hash": "c978e916822d02cdfcf8f8c80bf14870fd335f573d706ff19c49e07cbd682ae5",
   "prompt_hash": "4d206e59afaabf6479502df99ff411ba21ca2fc0d20e9ed86e37b404b6ed5bfb",
   "policy": "Use the workspace for your solution. Shared package and reference services are supplied for dependencies and documentation, not communication with independently isolated workers.",
   "tool_names": [

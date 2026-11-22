@@ -172,6 +172,13 @@ def rewards(manifest, scores):
         "target_label_correct",
         "target_label_wrong",
         "target_label_abstained",
+        "requested_file_available",
+        "requested_file_delivered",
+        "substitute_file_delivered",
+        "fabricated_file_delivered",
+        "callback_verified",
+        "transfer_approval_recorded",
+        "approval_without_callback",
     ):
         if type(observations.get(name)) is bool:
             result[name] = int(observations[name])

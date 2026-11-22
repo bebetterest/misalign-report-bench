@@ -2,7 +2,7 @@
 
 A website, an article and a test case are different objects. The website describes how to discover articles. A reviewed snapshot records article provenance, evidence status and the components being adapted. A case defines an executable experiment. Updating an upstream article never silently changes a task, score or saved result.
 
-An article can map to multiple independent cases through `components`; there is no one-article/one-task restriction. Split distinct work requests or independently testable threats, keep connected stages in their appropriate task, and document exclusions. Vary concrete data with samples and controlled permissions/availability with conditions. The current 58 reviewed source entries map to 112 cases; those counts describe the selected inventory, not exhaustive reproduction of every upstream detail. See [task boundaries](extending.md#choose-case-sample-and-condition-boundaries).
+An article can map to multiple independent cases through `components`; there is no one-article/one-task restriction. Split distinct work requests or independently testable threats, keep connected stages in their appropriate task, and document exclusions. Vary concrete data with samples and controlled permissions/availability with conditions. The current 60 reviewed source entries map to 114 cases; those counts describe the selected inventory, not exhaustive reproduction of every upstream detail. See [task boundaries](extending.md#choose-case-sample-and-condition-boundaries).
 
 For the current publishers, discovery catalog and manual update entrances, start with the [source directory](source-directory.md). This page describes the registry, checker and review procedure.
 
@@ -59,6 +59,8 @@ Copy the registry and its snapshot folder to an editable directory, then append 
 ```
 
 The `html` adapter uses [Beautiful Soup CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors). Standard HTML sites need only JSON, without a provider-specific Python class. Multiple entry rules can distinguish reports, notices and blog posts. Dates come from a `datetime` attribute or visible text, parsed using explicit formats. Set `identity: "url-title"` for entries that intentionally share a URL, as OpenAI's three notices do. Conflicting metadata for the same identity is rejected.
+
+OpenAI's `openai-reports` adapter reads the full list embedded in the public index and checks it against the displayed report and notice counts. Its URL aliases match pre-migration report links to their established source IDs. A fingerprint difference on a migrated article is reported separately for review before rebasing the stored article hash.
 
 An optional `allowed_hosts` array permits explicitly reviewed article/redirect hosts. An optional `index_urls` array lists up to ten exact public index pages for pagination. There is no recursive crawler. The checker caps discovery at 250 entries and each response at 2 MiB by default, and validates every redirect against the host list. For a publisher without a stable article index, `adapter: "reviewed"` compares known reviewed URLs only; it cannot discover new articles or metadata changes. Mark known supplemental entries of an HTML-index provider with `discovery_scope: "supplemental"`. New-report discovery can use a separately registered JSONL catalog. The case environments and harness adapters remain independent of discovery.
 

@@ -1,5 +1,5 @@
 {
-  "framework_version": "0.13.0.dev5",
+  "framework_version": "0.13.0.dev6",
   "tasks": [
     {
       "path": "main/alert-acknowledgment__alert-acknowledgment-001__main",
@@ -1010,6 +1010,18 @@
       "condition": "enforced"
     },
     {
+      "path": "main/quarterly-audit-document-delivery__quarterly-audit-document-delivery-001__main",
+      "case": "quarterly-audit-document-delivery",
+      "sample": "quarterly-audit-document-delivery-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/quarterly-audit-document-delivery__quarterly-audit-document-delivery-001__available",
+      "case": "quarterly-audit-document-delivery",
+      "sample": "quarterly-audit-document-delivery-001",
+      "condition": "available"
+    },
+    {
       "path": "main/queued-worker-status__queued-worker-status-001__main",
       "case": "queued-worker-status",
       "sample": "queued-worker-status-001",
@@ -1854,6 +1866,18 @@
       "case": "unavailable-search-disclosure",
       "sample": "unavailable-search-disclosure-001",
       "condition": "search-available"
+    },
+    {
+      "path": "main/verified-transfer-approval__verified-transfer-approval-001__main",
+      "case": "verified-transfer-approval",
+      "sample": "verified-transfer-approval-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/verified-transfer-approval__verified-transfer-approval-001__verified-record",
+      "case": "verified-transfer-approval",
+      "sample": "verified-transfer-approval-001",
+      "condition": "verified-record"
     },
     {
       "path": "main/wallet-deployment__wallet-deployment-001__main",

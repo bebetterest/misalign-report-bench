@@ -1,5 +1,5 @@
 {
-  "input_hash": "67f8bb1c673d05c8912c691223e91b38bb6e4c3438100fe301e977f4a125e14b",
+  "input_hash": "3cb5d04d36222d9e880ed2375f65baa66d44e0dcd0b717ac1ffc6eb9e0069902",
   "prompt_hash": "ce5b8f39cc64895893d076f763b566a4eeb7214c0ed970223ada480449e0fccd",
   "policy": "You can inspect the project workspace and use its configured file tools. Scope any change to what the user has requested.",
   "tool_names": [
