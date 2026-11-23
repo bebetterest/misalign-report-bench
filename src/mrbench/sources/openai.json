@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-11-18",
+  "observed_at": "2026-11-22",
   "index_url": "https://openai.com/safety-alignment/misalignment-reports/",
   "snapshot_counts": {
     "reports": 26,
@@ -15,7 +15,7 @@
       "kind": "report",
       "updated": "2026-11-12",
       "date_basis": "report_updated",
-      "content_hash": "3c5cf6a327ba4ef19864a7cf79dfc5ec8bb821bbd283c73d522f7587c7932fe5",
+      "content_hash": "a3ba750167ef11c0ee0667c457397a517bcbbf141009749e83755459507dfd85",
       "id": "stopping-a-running-alignment-evaluation",
       "evidence_status": "reported_behavior",
       "components": {
@@ -36,7 +36,7 @@
       "kind": "report",
       "updated": "2026-11-10",
       "date_basis": "report_updated",
-      "content_hash": "68df3f27339fb8a364ed47148ec0a8fa6c240662829aea8372cbbd46a26dc3e5",
+      "content_hash": "98dfa1d7ddcc169f43d222976383348ede8d9f995fea4ff718a4409ef0c3d8e2",
       "id": "using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure",
       "evidence_status": "reported_behavior",
       "components": {
@@ -64,7 +64,7 @@
       "kind": "report",
       "updated": "2026-11-05",
       "date_basis": "report_updated",
-      "content_hash": "009a13c5f208db23876e4477bb4b24536205feadbd2718a56f73c96665718543",
+      "content_hash": "f9e7d1eaed9037261e2fe7e9c7e5e7bfeaf401af26127a646bf28ac914cb4c2b",
       "id": "trying-to-prompt-inject-the-grader-in-filenames",
       "evidence_status": "reported_behavior",
       "components": {
@@ -80,7 +80,7 @@
       "kind": "report",
       "updated": "2026-11-05",
       "date_basis": "report_updated",
-      "content_hash": "6ec1aa2d2e9ded0def429272131fe8ef01b6113ab826dbc4a1fd1b2b2edb87a9",
+      "content_hash": "d03edf668806171d068ae2f112a2fbdbcb586726bd6a57e06e99840210f1fb98",
       "id": "bypassing-network-restrictions-during-a-coding-evaluation",
       "evidence_status": "reported_behavior",
       "components": {
@@ -139,7 +139,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "caa6bf2d683df7b3ee0d48e8988840f58419e12d18876a7caacd37575c78ed5d",
-      "content_hash": "c07e797a708a25dace232c92e6525f8d6db89efbf82033701b146beffa5b6345"
+      "content_hash": "aa2df890ca1ea142262ce5adea153df8b3e0c4bcaed5da5c2e694a4d2c515bcb"
     },
     {
       "id": "an-agent-used-dns-to-reach-an-external-chatbot",
@@ -155,7 +155,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "6518366f03ca6ef64d7985b4a33d3de04904d8c1c4fbc4e24fd2ea7e15c1585d",
-      "content_hash": "5a0740ef692fe2b41d10b90e1192ae2c06e18716d61bfb2697ca03c7319d1bcd"
+      "content_hash": "efb6f00d101b9c1e9282df9bc8a381a0a36edbea1988f67168ade360704817aa"
     },
     {
       "id": "self-generated-prompt-injections-in-compaction-summaries",
@@ -177,7 +177,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "8d63b104415447be588238cabfc6ff8addbba5caf8b86942eb02134f4f5d2ac7",
-      "content_hash": "8ae6cc417751e0bd7c1438fad6ecc0424c116f347fc9936d03d7c6efdaac90ab"
+      "content_hash": "933248b89fd4567000eb2b70698e56c5938216e9b88a69c58e4cb2579e3ed0ef"
     },
     {
       "id": "self-replicating-prompt-injections-exist",
@@ -218,7 +218,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "d50d399fc3fa19f3850298422814bf23b4c2bc49c5e3e98e4e37e7fa3518232b",
-      "content_hash": "ab5e3b56f2d552546797697eb2525e1b3d058f408c2b5cd074211c2941b1e090"
+      "content_hash": "ae39ead6413d8bcb2834f8f27546f3c50524200d74675b37a5e9692313ccaa4c"
     },
     {
       "id": "obtaining-public-statistics-with-disallowed-requests",
@@ -240,7 +240,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "3743e32ecbbc833ba2a11028fbbde15b5c7913abe1b9ece518bc7790bdbcf3c4",
-      "content_hash": "aff7127b80b6c99c7650ce55ce704de59838cb5ae83cb0580b2ebc227d9ed9e4"
+      "content_hash": "d482cc0c72a05bed20dc1f3a64342615c109c29beb12c86b5c8deab4a0c5ccb8"
     },
     {
       "id": "accessing-and-changing-internal-systems-during-dashboard-research",
@@ -275,7 +275,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "cdb81326e2e5f3eb98ca05606834597a84de1dbc3385843d4b2084f286a7fc38",
-      "content_hash": "e8ccac14beaaff3d2a68dbc3be6344a077053fadb541c3c656601087248d7845"
+      "content_hash": "4d7e5677aeefffb42eda6b0464357b81cfa5646843fc7008595071b6117e5425"
     },
     {
       "id": "sending-disallowed-web-requests-and-reaching-a-public-file-service",
@@ -297,7 +297,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "492d85d9ddf20f7d6042730bdbc260c23ac33a43f1c46a3db986a55b9f85c325",
-      "content_hash": "59b4f224287cb1f4a3e0ada9bf533733b7667a14f6e290842dc735d53cb4c29e"
+      "content_hash": "02b8e4a91a7262c02f885d43509e446d51a7e251864e9e86337a9aa9798c299c"
     },
     {
       "id": "circumventing-internet-restrictions-through-an-external-browser",
@@ -313,7 +313,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "ae868f14b1b505bf2f58081e6b507ca3b143950abf70b7e30c501bb672a9cf18",
-      "content_hash": "62a9b45bfc7145221fdab9666cb02c41c05b3b6861614fcdfe9564e069c4b301"
+      "content_hash": "a55e453b045530e592cc651ea517e87c3afe5bdaa141830748a6e9194d48e69c"
     },
     {
       "id": "encouraging-deception-in-compaction-summaries",
@@ -332,7 +332,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "db811d340362cbd26f9cd38b8c8f290192cc470bff4ec7d2499b2847e42e0fdf",
-      "content_hash": "4273e25548bb53b75550b1ff605b97c3fed7f670c15e905bbdc605a686e0178a"
+      "content_hash": "8d0c98b166bbd2e6a0895f3f696fab682bf06eeef8e75f6824a8bd5341151281"
     },
     {
       "id": "exposing-a-github-token-in-a-public-repository",
@@ -364,7 +364,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "a7750bb7f367d8c2bbf56053edf7f7fdcfe4ae6d06d444eeaccc2559c2c61171",
-      "content_hash": "956db89a9c8d9a7080ca7b297ec91e226fd92a9c31f7b376de77a40615fc1e3e"
+      "content_hash": "4369c10abbfae2b14bf1e60d332310f711ea7e8f08ae87037ff90c4488e40c76"
     },
     {
       "id": "command-injecting-a-reference-tool-to-copy-a-source-file",
@@ -380,7 +380,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "f6bec15a6afa659d0bf4f4edb8fe52dbddc2817b80bb301a07b1ae7d6661a0f3",
-      "content_hash": "e5ac7cc25ddef47824b930a5baedfae27be7d1198c1da05b141bcb9b63e7cca5"
+      "content_hash": "81068e078398e707884a8474e85a698286fac5af96145ddcbf268c0ae31e402a"
     },
     {
       "id": "searching-github-for-leaked-api-keys",
@@ -396,7 +396,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "aa1e695a9643419490dac45702e4fb6f264c52d590dc66751a24012b3e6d9b44",
-      "content_hash": "56a594e47e6512a539f4ee15886a99d50e070a117aaacb7a50fcdae64f7d9668"
+      "content_hash": "a02bffb125827f04988049063007f9c1e3d26e89ecc57843b1b540988eefeb5b"
     },
     {
       "id": "unauthorized-artifactory-writes-and-cross-sample-communication",
@@ -415,7 +415,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "f5959630641faf1cd0e13472f8ef5cc8d5fbc39ab779fb66e90275c6fd2fcf10",
-      "content_hash": "778157846a5f3c1dc49cdc0569ada477e1b9598ff156de6244be86f2973ed28e"
+      "content_hash": "0c7d8b4a71c8c92d215c925be972ee5da4b30d7dd5f83259570f66b46f92c6ed"
     },
     {
       "id": "unauthorized-communication-via-temporary-file-hosting-services",
@@ -434,7 +434,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "186570e2cbce7e1937bd0887fa1577ae5111979541cf0f0433c0f8cc137a0fb1",
-      "content_hash": "ec3909619bc9a6f3fd9253759796928bf1ed3dc045b40d1b9a0bc4fbfc850c1b"
+      "content_hash": "bcd6e218b2447e9bbde016488d80fa79944f4a863b9df27d6933bca08fa9d9d0"
     },
     {
       "id": "reaching-an-internal-eda-host-through-a-reference-tool",
@@ -450,7 +450,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "cee73ab723a7d6221a9842150f62372cf20600fcb0b9d3634b029d8b08ad832e",
-      "content_hash": "7d621096ccee58a51318a0bf4439c5ae772985febd99fc0b087d186068f4643c"
+      "content_hash": "c936168cae4ffdaa05bdf3ed2bb28b39373c85d3a603c3410881ab4cf6289431"
     },
     {
       "id": "uploading-files-to-the-internet-in-order-to-cite-them",
@@ -469,7 +469,7 @@
       },
       "date_basis": "report_updated",
       "index_fingerprint": "992d351fcf87457178d2a931b63c2c53dd6d832c5f6a947a45960f076baada47",
-      "content_hash": "e939a21a6454bb195bde963181d26ca351953c4bc3fc0b5141ef4c572ef1957b"
+      "content_hash": "4d56c2598daebc3d09108b4c7f6f0c04b06acb012fa165cb4d7d0425eafb0192"
     },
     {
       "id": "notice-rubygems",
