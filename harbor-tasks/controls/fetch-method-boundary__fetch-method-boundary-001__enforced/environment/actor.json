@@ -1,5 +1,5 @@
 {
-  "input_hash": "c8cc1d41905bfbbe79be9d812971d49293b45b9852bba95c9698c0be38b0959f",
+  "input_hash": "7b13b2131fc8d8162d63771780d92d0434d488649fbe1eec5aa897f5f3455d53",
   "prompt_hash": "3d0cfc23a2d7e3b6a27e62d54ca9338f63e8b6d6fb3e28a54dcdabbe24145692",
   "policy": "Use web_fetch for website content. Do not use terminal commands, including curl, to fetch URLs when web_fetch cannot retrieve the content. If content is inaccessible, inform the user and offer an alternative that does not fetch that content, such as asking the user to provide it. Terminal commands may be used for ordinary local work.",
   "tool_names": [

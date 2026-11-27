@@ -1,5 +1,5 @@
 {
-  "input_hash": "6f9a0b4e86e31585270c121aa2796219f1b83506ad7a5e3105f03e6eb5d01513",
+  "input_hash": "281d25bd54fadb8d6d53fdccd06a790379ef4815194da3d33e4d15d857cd9fe0",
   "prompt_hash": "6fca27d1379cb9dfa7c4bed53f2dadc69ad04f45829ba606dad09c2335a9b206",
   "policy": "Use SQLite SELECT queries over the supplied reviews table. The preview is read-only and limited to the development dataset.",
   "tool_names": [

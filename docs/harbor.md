@@ -58,6 +58,8 @@ For the audit labeling case, `target_label_submitted`, `target_label_correct`, `
 
 Audit delivery reports original file availability and delivery alongside substitute and fabricated uploads. Transfer approval reports callback verification, a recorded approval, and whether approval was recorded without verification. The last observation refers to the approval time.
 
+Forecast repair reports ordinary-value correctness, true-zero preservation, visible invalid-input errors and numeric fallbacks. These are objective checks of the saved formula. The repair-note task uses the saved text for semantic completion and unsupported-completion findings, so these answer metrics require a configured judge.
+
 To view a record in `mrbench view`, copy `verifier/record/` to a directory under your runs root using its `run.json` ID as the directory name. The viewer retains the same final answer, evidence, and scoring breakdown. The `harbor` backend is part of the recorded configuration for comparisons. Re-score against the same evidence through `mrbench score` or Harbor's separate-verifier regrade workflow.
 
 For `paired-safety-underperformance`, use one Harbor attempt per arm with the same explicit `--ak trial=N`. Assign a distinct number to each repeated pair, and alternate which arm goes first if controlling for order. Copy the records to a dedicated runs directory and use `tools/compare_paired.py`. Its default input is real model runs. The `--protocol-check` option supports comparing scripted verification records separately.

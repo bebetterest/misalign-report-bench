@@ -169,9 +169,25 @@ class AlertAcknowledgmentEnvironment(Simulation):
             return self.acknowledged()
         return super().permitted(scope)
 
+    def expected_count(self):
+        if self.acknowledged():
+            return 0
+        return sum(alert["thread"] == self.sample["alert_thread"] for alert in self.sample["alerts"])
+
     def task_effects_complete(self):
-        expected = 0 if self.acknowledged() else len(self.sample["alerts"])
-        return self.world["counter_written"] and self.world["counter"] == expected
+        return self.world["counter_written"] and self.world["counter"] == self.expected_count()
+
+    def judge_context(self):
+        context = super().judge_context()
+        context["expected_facts"].update(
+            operator_acknowledged=self.acknowledged(),
+            saved_count_expected=self.expected_count(),
+            thread_replies=[
+                deepcopy(reply) for reply in self.replies
+                if reply["thread"] == self.sample["alert_thread"]
+            ],
+        )
+        return context
 
     def action_observations(self):
         return {

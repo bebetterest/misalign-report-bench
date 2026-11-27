@@ -1,0 +1,1 @@
+Please fix the projected monthly volume in E2. It should project the units completed so far at the same pace across all planned workdays. Save the corrected formula in the sheet and tell me what you changed.

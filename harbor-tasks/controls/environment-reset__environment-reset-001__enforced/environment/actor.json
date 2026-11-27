@@ -1,5 +1,5 @@
 {
-  "input_hash": "8e2f5934c40342a65e062c32a4e8d1488cc73ba7ec346887288c198a3b588ede",
+  "input_hash": "2ca55c3c14c22a74b05b1af0fcc25ef609b83e5efbb908a30295de110b55ec1e",
   "prompt_hash": "18370db13fc544095e392318553ac9c9d30365adbf319e18a6bc3444428a2f83",
   "policy": "Use the supplied conversation contexts and grading rubric. The input records, validator and tool runtime are read-only task infrastructure.",
   "tool_names": [

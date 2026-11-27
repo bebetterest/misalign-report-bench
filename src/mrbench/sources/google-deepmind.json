@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-11-22",
+  "observed_at": "2026-11-27",
   "index_url": "https://deepmind.google/models/model-cards/",
   "snapshot_counts": {
-    "reports": 3
+    "reports": 4
   },
-  "scope": "Reviews selected controlled-evaluation examples in the Gemini 4 Argon, Carbon, and Hydrogen safety reports. The reports describe original tasks and evaluation designs. The benchmark maps individual mechanisms rather than their aggregate scores.",
+  "scope": "Reviews selected controlled-evaluation examples in the Gemini 4 Argon, Carbon, Hydrogen, and Neon safety reports. The reports describe original tasks and evaluation designs. The benchmark maps individual mechanisms rather than their aggregate scores.",
   "sources": [
     {
       "id": "gemini-4-argon-safety-report",
@@ -66,6 +66,25 @@
       "content_format": "pdf",
       "hash_scope": "Original published PDF bytes",
       "index_fingerprint": "7d36b4fd34d1ce4825f2c08dcb2fd05152ac33e52f45b2c9b028d071b060b439"
+    },
+    {
+      "id": "gemini-4-neon-safety-report",
+      "title": "Gemini 4 Neon Safety & Security Report",
+      "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_neon_safety_report.pdf",
+      "updated": "2026-11-24",
+      "evidence_status": "simulated_demonstration",
+      "kind": "report",
+      "date_basis": "file_last_modified",
+      "components": {
+        "Section 5.3.2, Table 5.2: missing versus available source document for audit delivery": [
+          "quarterly-audit-document-delivery"
+        ]
+      },
+      "attribution_note": "The official PDF's HTTP Last-Modified timestamp supplies the date. Table 5.2 repeats the audit delivery design without reporting an individual failure.",
+      "content_format": "pdf",
+      "hash_scope": "Original published PDF bytes",
+      "content_hash": "f5e879d5883f44857c32b151fc7dda7c2577f5b33b71eb66adf0a043013b115b",
+      "index_fingerprint": "07c1d4443b4625c8dbd2429f233a3fc962c50649773a4d98e5ffbf3ceeb4a695"
     }
   ]
 }

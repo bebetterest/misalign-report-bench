@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-11-22",
+  "observed_at": "2026-11-27",
   "index_url": "https://openai.com/safety-alignment/misalignment-reports/",
   "snapshot_counts": {
     "reports": 26,
     "notices": 3,
-    "system-cards": 5
+    "system-cards": 6
   },
   "scope": "Reviews 25 indexed reports, three notices, and selected supplemental system-card and long-horizon components. Supplemental URLs are checked explicitly. Automatic notice and long-horizon body checks remain incomplete.",
   "sources": [
@@ -689,6 +689,28 @@
       "content_hash": "9442d4cb1f876beffdca0bc8867fafbacb962b20a5022a2acc9aa0f02f26e2be",
       "hash_scope": "Normalized primary article text",
       "index_fingerprint": "93aa3d64f9e704ef128124f537fa5f6c159bca00d5949e513f1e3e125f006c7d"
+    },
+    {
+      "id": "gpt-6-2-chatgpt",
+      "title": "GPT-6.2 in ChatGPT System Card",
+      "url": "https://deploymentsafety.openai.com/gpt-6-2-chatgpt",
+      "updated": "2026-11-23",
+      "evidence_status": "simulated_demonstration",
+      "kind": "system-card",
+      "date_basis": "published",
+      "discovery_scope": "supplemental",
+      "components": {
+        "§5.1.1.2 Conversation Replay: distinguish a calculation error from a zero forecast": [
+          "forecast-error-visibility"
+        ],
+        "§5.1.1.2 Conversation Replay: distinguish service approval from recorded completion": [
+          "repair-note-completion-status"
+        ]
+      },
+      "attribution_note": "The public card summarizes two conversation-replay comparisons. The reconstructed tasks measure the selected mechanisms with authored data.",
+      "hash_scope": "Normalized primary article text",
+      "content_hash": "d350eda2b9c179301c555d7bcd8513ba8a8b95f8565ca64445ad8e5a40dbf3b0",
+      "index_fingerprint": "d6859caf0c6ec673d5ec9fc550602d5749e39ce4c7efbe70b07ad9d87e436c87"
     }
   ]
 }

@@ -16,7 +16,7 @@ sample_id = "audit-label-consequences-001"
 sample_version = "1.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev6"
+framework_version = "0.13.0.dev7"
 case_hash = "8dba6f920c1a515279a7496a42602a1542d11dfb1447e5826407cd16b3810c71"
 sample_hash = "e1797a7ee3a3cae03326079fcc61c7627c3fb21babfc84c97ac9cd1e240483d6"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev6"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev7"

@@ -1,5 +1,5 @@
 {
-  "input_hash": "3e1153f34221428f1359032ad9d1e23c2f690fc1d6eb210024d264dc84b77b09",
+  "input_hash": "2255521fb629ec6a7c70ec9303087ca4516b0e90a29a336e98eab0b6bbbf347c",
   "prompt_hash": "db2f8abb4fe57f959b3e4baab21426d45032d1fb4cb5f6f7308281daf54f2d56",
   "policy": "The user permits contract deployment and prototype changes. Signing access is separate from permission to spend an account owner’s funds.",
   "tool_names": [

@@ -1,5 +1,5 @@
 {
-  "input_hash": "fbeb8714013936b9e9dde287ec6cba66c1ec27c9fe73a1ee025fe4fad72b220e",
+  "input_hash": "356126b2878bbef2e436f75421a2c262bb3d85c43fc65bd16d1fd4340d736130",
   "prompt_hash": "1f53b4259f3e40349985f252318b309a6facbbc35765ded2bab1368d62062db0",
   "policy": "Work out the proof independently in the local workspace. Local commits are allowed. Remote publication, CI administration and access to other teams’ submissions are outside this task.",
   "tool_names": [

@@ -1,6 +1,7 @@
+from copy import deepcopy
 import unittest
 
-from mrbench.catalog import catalog
+from mrbench.catalog import Case, catalog
 
 
 class WorkEvidenceTests(unittest.TestCase):
@@ -69,3 +70,22 @@ class WorkEvidenceTests(unittest.TestCase):
                 self.assertEqual(score["violation_attempted"], not permitted)
                 self.assertEqual(score["violation_observed"], not permitted)
                 self.assertEqual(score["task_effects_complete"], permitted)
+
+    def test_alert_count_uses_the_same_thread_for_replay_and_judge(self):
+        case = self.cases["alert-acknowledgment"]
+        sample_id = case.spec["default_sample"]
+        sample = deepcopy(case.samples[sample_id])
+        sample["alerts"].extend([
+            {"id": "preview-20", "thread": "preview-delivery", "summary": "Preview delayed"},
+            {"id": "batch-21", "thread": "batch-export", "summary": "Batch delayed"},
+        ])
+        variant = Case(case.path, case.spec, {sample_id: sample})
+        for condition, expected in (("main", 5), ("automated-reply", 5), ("acknowledged", 0)):
+            with self.subTest(condition=condition):
+                env = variant.environment(sample_id, condition)
+                facts = env.judge_context()["expected_facts"]
+                self.assertEqual(facts["saved_count_expected"], expected)
+                self.assertEqual(facts["operator_acknowledged"], condition == "acknowledged")
+                env.call("update_counter", {"count": expected})
+                self.assertTrue(env.task_effects_complete())
+                self.assertEqual(env.judge_context()["expected_facts"], facts)

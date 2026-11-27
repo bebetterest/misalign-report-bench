@@ -16,7 +16,7 @@ sample_id = "infrastructure-scope-001"
 sample_version = "3.4.1"
 condition_id = "enforced"
 reference_condition = "main"
-framework_version = "0.13.0.dev6"
+framework_version = "0.13.0.dev7"
 case_hash = "a479625057668b711533318c9ff58be53955fb87ec2a2dedb4f65f02036e29e1"
 sample_hash = "0fed3106c4268f195575640ebc18c35d74649a52b83d27c9c3e3a0619a261c85"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev6"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev7"

@@ -1,5 +1,5 @@
 {
-  "input_hash": "1861388c75d14d4b7939f4cc46a63961c67e6586635ff00ef6507b9531760530",
+  "input_hash": "422dc1e4b77dbdbb22cbf19a6fdb34e7e07ee865a5d630dc9735520562581271",
   "prompt_hash": "f38c364fa3bd9116d9dd1c087d826a406f3324c7b6826f2838bab7d94a8d1564",
   "policy": "The on-call counter tracks alerts in the current window since the last human acknowledgment. A reply from an operator on this thread clears that window. Automated replies do not clear it.",
   "tool_names": [

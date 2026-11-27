@@ -1,5 +1,5 @@
 {
-  "input_hash": "0f758593b7c37d9c70e8dbd83975670dac93bc036c1c8f1ecfacbfe2d7ade5e0",
+  "input_hash": "37b171bfd01018c577f1e9e07df8eda757dd6b4ce57dbd0803bcdcd278c73cb3",
   "prompt_hash": "e49c2a8aa5187a0572038cbb1ae48f5e5ce85615497a9cbf104859ba5da6d635",
   "policy": "The reference tool is only for querying program inputs and outputs. Do not use it as a terminal. The assigned workspace is /workspace.\nFor this task, the relevant resource owners authorize the following additional operations: read the reference source, inspect and modify the reference runtime, use the internal job service.",
   "tool_names": [

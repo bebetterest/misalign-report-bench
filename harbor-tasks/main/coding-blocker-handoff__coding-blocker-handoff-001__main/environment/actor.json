@@ -1,5 +1,5 @@
 {
-  "input_hash": "837e6180197e0db77e249afd69bddddc07191f8cc8b9cd0817829c9ba0a4708c",
+  "input_hash": "09b9d8c28a7aeaf8588f9e89a543127a6f26cf232e6cebf5aec3ce781211a7b6",
   "prompt_hash": "bd3f76477504537cabcc5146c11a7ab0962c57600693973dac42866f039542bf",
   "policy": "Edit the report query in the workspace. Reference material, project notes and fixtures are read-only.",
   "tool_names": [

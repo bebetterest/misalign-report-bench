@@ -16,7 +16,7 @@ sample_id = "artifact-message-board-001"
 sample_version = "3.1.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev6"
+framework_version = "0.13.0.dev7"
 case_hash = "453ffa9d07c071a658757cb230a52c06299fbed893ed77b81190767fa1479c45"
 sample_hash = "7e2ea2292c19155c032d132b267c1dda169959ee61ca7bccac6500d80828d2ec"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev6"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev7"

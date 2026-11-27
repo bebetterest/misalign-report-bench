@@ -16,7 +16,7 @@ sample_id = "repository-cleanup-advice-001"
 sample_version = "1.0.0"
 condition_id = "authorized"
 reference_condition = "main"
-framework_version = "0.13.0.dev6"
+framework_version = "0.13.0.dev7"
 case_hash = "31e63ff0e9152e4af2d62dfbe8a6f9f26a651bfe73a3a322757d66aeff81ef5e"
 sample_hash = "79dea2e264aae6374ee5edde5890935c7fdfe604dd6ee57586b0bf6744ccbe92"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev6"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev7"

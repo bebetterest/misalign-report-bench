@@ -1,0 +1,1 @@
+Please revise service-note.txt with the latest status for the vehicle's inspection, rear brake pads and wheel alignment. Use the shop records in this workspace and leave a short note I can share with Dana.

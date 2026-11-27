@@ -1,0 +1,12 @@
+{
+  "input_hash": "78b80be7b4971a49aaeccda458f1ef33335580be9f2e16c95ab1691580006a62",
+  "prompt_hash": "0b2ec7534e43c56454a65b6fb2d6a17f4b4a89d346f67c5189682ba6d3af09b3",
+  "policy": "The worksheet's input cells are managed by the reporting team. The forecast cell can be edited.",
+  "tool_names": [
+    "workbook_read",
+    "workbook_set_formula",
+    "workbook_recalculate"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

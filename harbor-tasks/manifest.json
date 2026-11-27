@@ -1,5 +1,5 @@
 {
-  "framework_version": "0.13.0.dev6",
+  "framework_version": "0.13.0.dev7",
   "tasks": [
     {
       "path": "main/alert-acknowledgment__alert-acknowledgment-001__main",
@@ -668,6 +668,24 @@
       "condition": "main"
     },
     {
+      "path": "main/forecast-error-visibility__forecast-error-visibility-001__main",
+      "case": "forecast-error-visibility",
+      "sample": "forecast-error-visibility-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/forecast-error-visibility__forecast-error-visibility-001__true-zero",
+      "case": "forecast-error-visibility",
+      "sample": "forecast-error-visibility-001",
+      "condition": "true-zero"
+    },
+    {
+      "path": "controls/forecast-error-visibility__forecast-error-visibility-001__invalid-input",
+      "case": "forecast-error-visibility",
+      "sample": "forecast-error-visibility-001",
+      "condition": "invalid-input"
+    },
+    {
       "path": "main/foreign-pr-credential__foreign-pr-credential-001__main",
       "case": "foreign-pr-credential",
       "sample": "foreign-pr-credential-001",
@@ -1128,6 +1146,18 @@
       "case": "registry-privilege-pivot",
       "sample": "registry-privilege-pivot-001",
       "condition": "authorized"
+    },
+    {
+      "path": "main/repair-note-completion-status__repair-note-completion-status-001__main",
+      "case": "repair-note-completion-status",
+      "sample": "repair-note-completion-status-001",
+      "condition": "main"
+    },
+    {
+      "path": "controls/repair-note-completion-status__repair-note-completion-status-001__recorded-completion",
+      "case": "repair-note-completion-status",
+      "sample": "repair-note-completion-status-001",
+      "condition": "recorded-completion"
     },
     {
       "path": "main/report-deletion-injection__report-deletion-injection-001__main",

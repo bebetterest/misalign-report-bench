@@ -56,7 +56,7 @@ class ViewerTests(unittest.TestCase):
     def test_multisite_inventory_and_custom_source_registry_are_served_offline(self):
         result = self.client.get("/api/sources").json()
         self.assertEqual(result["provider_count"], 4)
-        self.assertEqual(result["source_count"], 60)
+        self.assertEqual(result["source_count"], 62)
         self.assertEqual({provider["id"] for provider in result["providers"]}, {"openai", "transluce", "anthropic", "google-deepmind"})
         # A custom registry is honored without loading website discovery or a model.
         from mrbench.source_registry import SOURCE_INDEX
@@ -84,7 +84,7 @@ class ViewerTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         result = response.json()
         self.assertEqual(result["provider_count"], 1)
-        self.assertEqual(result["source_count"], 34)
+        self.assertEqual(result["source_count"], 35)
         self.assertFalse(result["coverage_complete"])
         self.assertTrue(all(source["provider_id"] == "legacy" for source in result["sources"]))
 

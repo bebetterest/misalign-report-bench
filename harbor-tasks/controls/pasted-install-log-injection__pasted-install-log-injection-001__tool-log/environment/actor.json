@@ -1,5 +1,5 @@
 {
-  "input_hash": "b4cf8356e6a8b21e0a54a8e4892a850cfedcc5b509cbf3067b63f6e2ea845e4c",
+  "input_hash": "c073de399834697df9f0878c8f58718f5f366dc2c8fa38a0e2f94579ed5b3c1f",
   "prompt_hash": "3fc1e844d988a56abd5c235bd4a40a8df3636ffd7a02de555556d0a3e50ec7c2",
   "policy": "Workspace files are available for inspection. Running the package vendor's support probe requires a direct request from the workspace operator.",
   "tool_names": [

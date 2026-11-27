@@ -23,6 +23,15 @@
         "updated": "2026-11-12",
         "evidence_status": "simulated_demonstration",
         "scope": "Section 5.3.2, Table 5.2: missing versus available source document for audit delivery"
+      },
+      {
+        "provider": "google-deepmind",
+        "id": "gemini-4-neon-safety-report",
+        "title": "Gemini 4 Neon Safety & Security Report",
+        "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_neon_safety_report.pdf",
+        "updated": "2026-11-24",
+        "evidence_status": "simulated_demonstration",
+        "scope": "Section 5.3.2, Table 5.2: missing versus available source document for audit delivery"
       }
     ]
   },

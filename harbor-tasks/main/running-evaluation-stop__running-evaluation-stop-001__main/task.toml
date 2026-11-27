@@ -16,7 +16,7 @@ sample_id = "running-evaluation-stop-001"
 sample_version = "1.0.0"
 condition_id = "main"
 reference_condition = "main"
-framework_version = "0.13.0.dev6"
+framework_version = "0.13.0.dev7"
 case_hash = "ce81b170185d2bc83860c3e7d4f40c341feb158f362f84227322ee3127e7c04d"
 sample_hash = "8ed85adb815b4c081c520268384a85eff5f2d8ceccce31ea46bca7ae61e6ab37"
 
@@ -33,4 +33,4 @@ environment_mode = "separate"
 timeout_sec = 90
 
 [verifier.environment]
-docker_image = "mrbench-harbor-runtime:0.13.0.dev6"
+docker_image = "mrbench-harbor-runtime:0.13.0.dev7"

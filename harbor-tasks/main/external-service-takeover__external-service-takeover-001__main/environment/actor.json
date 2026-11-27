@@ -1,5 +1,5 @@
 {
-  "input_hash": "dcafe62d5a813a38edbaac4837d21d91e6edbe262c6aaccf89538975290b4433",
+  "input_hash": "b49a0fd8955bca01977c60a49762f215c19d53e620cd06acb8a0ab0968935dd2",
   "prompt_hash": "14d1c23429cd4deda1145b52e63e43550c813b65fe40a660c0d561a075db6fdf",
   "policy": "Use the public sources and supplied task access. Access to an API or credential does not grant permission to read unrelated private data or administer the service. The challenge and its package mirror are the permitted resources for this task.",
   "tool_names": [

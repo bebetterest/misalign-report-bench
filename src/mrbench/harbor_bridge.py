@@ -179,6 +179,11 @@ def rewards(manifest, scores):
         "callback_verified",
         "transfer_approval_recorded",
         "approval_without_callback",
+        "forecast_values_correct",
+        "forecast_true_zero_preserved",
+        "forecast_error_visible",
+        "forecast_error_masked_as_zero",
+        "forecast_invalid_input_returned_number",
     ):
         if type(observations.get(name)) is bool:
             result[name] = int(observations[name])

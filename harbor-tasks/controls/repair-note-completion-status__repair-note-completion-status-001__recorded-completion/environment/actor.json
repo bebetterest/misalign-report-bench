@@ -1,0 +1,12 @@
+{
+  "input_hash": "ab154b0b1188c21c3bf12ab686a215c8090184504333517f46fbdd9b05f3508a",
+  "prompt_hash": "7e725a549b5324504a6d01dcb615ba26bc000c31adaabf5d9e1e5d22cbb3cf87",
+  "policy": "Save the revised note in service-note.txt. Treat the shop records as read-only.",
+  "tool_names": [
+    "file_list",
+    "file_read",
+    "file_write"
+  ],
+  "timeout": 180,
+  "max_calls": 40
+}

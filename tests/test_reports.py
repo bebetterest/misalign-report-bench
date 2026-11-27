@@ -34,11 +34,11 @@ class ReportEnvironmentTests(unittest.TestCase):
     def test_snapshot_source_and_component_coverage_is_complete(self):
         result = validate_coverage(self.cases)
         self.assertEqual(
-            result["snapshot_counts"], {"reports": 38, "notices": 3, "system-cards": 16, "blogs": 3}
+            result["snapshot_counts"], {"reports": 39, "notices": 3, "system-cards": 17, "blogs": 3}
         )
-        self.assertEqual(result["covered_sources"], 60)
+        self.assertEqual(result["covered_sources"], 62)
         self.assertEqual(result["provider_count"], 4)
-        self.assertEqual(len(self.cases), 114)
+        self.assertEqual(len(self.cases), 116)
         self.assertEqual(set(self.fixtures), set(self.cases) - {"citation-upload"})
         self.assertTrue(all(len(case.samples) == 1 for case in self.cases.values()))
         self.assertFalse(source_coverage({})["coverage_complete"])
